@@ -1,0 +1,26 @@
+{
+  "name": "hooks",
+  "version": "1.0.0",
+  "description": "This is main package that handles hooks",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node dist/index.js",
+    "build": "tsup",
+    "start": "node dist/index.js"
+  },
+  "author": "Vibgitcode27",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.13.14",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
+}
