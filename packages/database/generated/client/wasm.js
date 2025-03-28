@@ -121,38 +121,50 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   name: 'name',
-  password: 'password'
+  password: 'password',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.CascadeScalarFieldEnum = {
   id: 'id',
-  triggerId: 'triggerId'
+  triggerId: 'triggerId',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.CascadeRunScalarFieldEnum = {
   id: 'id',
   cascadeId: 'cascadeId',
   status: 'status',
-  metadata: 'metadata'
+  metadata: 'metadata',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.CascadeOutboxScalarFieldEnum = {
   id: 'id',
   metadata: 'metadata',
   cascadeRunId: 'cascadeRunId',
-  status: 'status'
+  status: 'status',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.TriggerScalarFieldEnum = {
   id: 'id',
   triggerId: 'triggerId',
-  cascadeId: 'cascadeId'
+  cascadeId: 'cascadeId',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.ActionScalarFieldEnum = {
   id: 'id',
   actionId: 'actionId',
-  cascadeId: 'cascadeId'
+  cascadeId: 'cascadeId',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.AvailableActionsScalarFieldEnum = {

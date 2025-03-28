@@ -1663,6 +1663,8 @@ export namespace Prisma {
     email: string | null
     name: string | null
     password: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1670,6 +1672,8 @@ export namespace Prisma {
     email: string | null
     name: string | null
     password: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1677,6 +1681,8 @@ export namespace Prisma {
     email: number
     name: number
     password: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
@@ -1694,6 +1700,8 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1701,6 +1709,8 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1708,6 +1718,8 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -1802,6 +1814,8 @@ export namespace Prisma {
     email: string
     name: string | null
     password: string
+    updatedAt: Date
+    createdAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1828,6 +1842,8 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1835,6 +1851,8 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1842,6 +1860,8 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1849,9 +1869,11 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "password", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "password" | "updatedAt" | "createdAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1861,6 +1883,8 @@ export namespace Prisma {
       email: string
       name: string | null
       password: string
+      updatedAt: Date
+      createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2288,6 +2312,8 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -2667,16 +2693,22 @@ export namespace Prisma {
   export type CascadeMinAggregateOutputType = {
     id: string | null
     triggerId: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type CascadeMaxAggregateOutputType = {
     id: string | null
     triggerId: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type CascadeCountAggregateOutputType = {
     id: number
     triggerId: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
@@ -2684,16 +2716,22 @@ export namespace Prisma {
   export type CascadeMinAggregateInputType = {
     id?: true
     triggerId?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type CascadeMaxAggregateInputType = {
     id?: true
     triggerId?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type CascadeCountAggregateInputType = {
     id?: true
     triggerId?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -2772,6 +2810,8 @@ export namespace Prisma {
   export type CascadeGroupByOutputType = {
     id: string
     triggerId: string
+    updatedAt: Date
+    createdAt: Date
     _count: CascadeCountAggregateOutputType | null
     _min: CascadeMinAggregateOutputType | null
     _max: CascadeMaxAggregateOutputType | null
@@ -2794,6 +2834,8 @@ export namespace Prisma {
   export type CascadeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     trigger?: boolean | Cascade$triggerArgs<ExtArgs>
     action?: boolean | Cascade$actionArgs<ExtArgs>
     CascadeRuns?: boolean | Cascade$CascadeRunsArgs<ExtArgs>
@@ -2803,19 +2845,25 @@ export namespace Prisma {
   export type CascadeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["cascade"]>
 
   export type CascadeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["cascade"]>
 
   export type CascadeSelectScalar = {
     id?: boolean
     triggerId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type CascadeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId", ExtArgs["result"]["cascade"]>
+  export type CascadeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["cascade"]>
   export type CascadeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     trigger?: boolean | Cascade$triggerArgs<ExtArgs>
     action?: boolean | Cascade$actionArgs<ExtArgs>
@@ -2835,6 +2883,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       triggerId: string
+      updatedAt: Date
+      createdAt: Date
     }, ExtArgs["result"]["cascade"]>
     composites: {}
   }
@@ -3263,6 +3313,8 @@ export namespace Prisma {
   interface CascadeFieldRefs {
     readonly id: FieldRef<"Cascade", 'String'>
     readonly triggerId: FieldRef<"Cascade", 'String'>
+    readonly updatedAt: FieldRef<"Cascade", 'DateTime'>
+    readonly createdAt: FieldRef<"Cascade", 'DateTime'>
   }
     
 
@@ -3750,12 +3802,14 @@ export namespace Prisma {
     id: string | null
     cascadeId: string | null
     status: string | null
+    createdAt: Date | null
   }
 
   export type CascadeRunMaxAggregateOutputType = {
     id: string | null
     cascadeId: string | null
     status: string | null
+    createdAt: Date | null
   }
 
   export type CascadeRunCountAggregateOutputType = {
@@ -3763,6 +3817,8 @@ export namespace Prisma {
     cascadeId: number
     status: number
     metadata: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
@@ -3771,12 +3827,14 @@ export namespace Prisma {
     id?: true
     cascadeId?: true
     status?: true
+    createdAt?: true
   }
 
   export type CascadeRunMaxAggregateInputType = {
     id?: true
     cascadeId?: true
     status?: true
+    createdAt?: true
   }
 
   export type CascadeRunCountAggregateInputType = {
@@ -3784,6 +3842,8 @@ export namespace Prisma {
     cascadeId?: true
     status?: true
     metadata?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -3864,6 +3924,8 @@ export namespace Prisma {
     cascadeId: string
     status: string
     metadata: JsonValue
+    updatedAt: Date[]
+    createdAt: Date
     _count: CascadeRunCountAggregateOutputType | null
     _min: CascadeRunMinAggregateOutputType | null
     _max: CascadeRunMaxAggregateOutputType | null
@@ -3888,6 +3950,8 @@ export namespace Prisma {
     cascadeId?: boolean
     status?: boolean
     metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
     cascadeOutbox?: boolean | CascadeRun$cascadeOutboxArgs<ExtArgs>
     _count?: boolean | CascadeRunCountOutputTypeDefaultArgs<ExtArgs>
@@ -3898,6 +3962,8 @@ export namespace Prisma {
     cascadeId?: boolean
     status?: boolean
     metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
   }, ExtArgs["result"]["cascadeRun"]>
 
@@ -3906,6 +3972,8 @@ export namespace Prisma {
     cascadeId?: boolean
     status?: boolean
     metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
   }, ExtArgs["result"]["cascadeRun"]>
 
@@ -3914,9 +3982,11 @@ export namespace Prisma {
     cascadeId?: boolean
     status?: boolean
     metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type CascadeRunOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cascadeId" | "status" | "metadata", ExtArgs["result"]["cascadeRun"]>
+  export type CascadeRunOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cascadeId" | "status" | "metadata" | "updatedAt" | "createdAt", ExtArgs["result"]["cascadeRun"]>
   export type CascadeRunInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
     cascadeOutbox?: boolean | CascadeRun$cascadeOutboxArgs<ExtArgs>
@@ -3940,6 +4010,8 @@ export namespace Prisma {
       cascadeId: string
       status: string
       metadata: Prisma.JsonValue
+      updatedAt: Date[]
+      createdAt: Date
     }, ExtArgs["result"]["cascadeRun"]>
     composites: {}
   }
@@ -4369,6 +4441,8 @@ export namespace Prisma {
     readonly cascadeId: FieldRef<"CascadeRun", 'String'>
     readonly status: FieldRef<"CascadeRun", 'String'>
     readonly metadata: FieldRef<"CascadeRun", 'Json'>
+    readonly updatedAt: FieldRef<"CascadeRun", 'DateTime[]'>
+    readonly createdAt: FieldRef<"CascadeRun", 'DateTime'>
   }
     
 
@@ -4840,12 +4914,16 @@ export namespace Prisma {
     id: string | null
     cascadeRunId: string | null
     status: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type CascadeOutboxMaxAggregateOutputType = {
     id: string | null
     cascadeRunId: string | null
     status: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type CascadeOutboxCountAggregateOutputType = {
@@ -4853,6 +4931,8 @@ export namespace Prisma {
     metadata: number
     cascadeRunId: number
     status: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
@@ -4861,12 +4941,16 @@ export namespace Prisma {
     id?: true
     cascadeRunId?: true
     status?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type CascadeOutboxMaxAggregateInputType = {
     id?: true
     cascadeRunId?: true
     status?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type CascadeOutboxCountAggregateInputType = {
@@ -4874,6 +4958,8 @@ export namespace Prisma {
     metadata?: true
     cascadeRunId?: true
     status?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -4954,6 +5040,8 @@ export namespace Prisma {
     metadata: JsonValue
     cascadeRunId: string
     status: string
+    updatedAt: Date
+    createdAt: Date
     _count: CascadeOutboxCountAggregateOutputType | null
     _min: CascadeOutboxMinAggregateOutputType | null
     _max: CascadeOutboxMaxAggregateOutputType | null
@@ -4978,7 +5066,9 @@ export namespace Prisma {
     metadata?: boolean
     cascadeRunId?: boolean
     status?: boolean
-    CascadeRun?: boolean | CascadeOutbox$CascadeRunArgs<ExtArgs>
+    updatedAt?: boolean
+    createdAt?: boolean
+    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cascadeOutbox"]>
 
   export type CascadeOutboxSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4986,7 +5076,9 @@ export namespace Prisma {
     metadata?: boolean
     cascadeRunId?: boolean
     status?: boolean
-    CascadeRun?: boolean | CascadeOutbox$CascadeRunArgs<ExtArgs>
+    updatedAt?: boolean
+    createdAt?: boolean
+    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cascadeOutbox"]>
 
   export type CascadeOutboxSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4994,7 +5086,9 @@ export namespace Prisma {
     metadata?: boolean
     cascadeRunId?: boolean
     status?: boolean
-    CascadeRun?: boolean | CascadeOutbox$CascadeRunArgs<ExtArgs>
+    updatedAt?: boolean
+    createdAt?: boolean
+    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cascadeOutbox"]>
 
   export type CascadeOutboxSelectScalar = {
@@ -5002,29 +5096,33 @@ export namespace Prisma {
     metadata?: boolean
     cascadeRunId?: boolean
     status?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type CascadeOutboxOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "metadata" | "cascadeRunId" | "status", ExtArgs["result"]["cascadeOutbox"]>
+  export type CascadeOutboxOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "metadata" | "cascadeRunId" | "status" | "updatedAt" | "createdAt", ExtArgs["result"]["cascadeOutbox"]>
   export type CascadeOutboxInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    CascadeRun?: boolean | CascadeOutbox$CascadeRunArgs<ExtArgs>
+    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
   }
   export type CascadeOutboxIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    CascadeRun?: boolean | CascadeOutbox$CascadeRunArgs<ExtArgs>
+    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
   }
   export type CascadeOutboxIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    CascadeRun?: boolean | CascadeOutbox$CascadeRunArgs<ExtArgs>
+    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
   }
 
   export type $CascadeOutboxPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "CascadeOutbox"
     objects: {
-      CascadeRun: Prisma.$CascadeRunPayload<ExtArgs> | null
+      CascadeRun: Prisma.$CascadeRunPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       metadata: Prisma.JsonValue
       cascadeRunId: string
       status: string
+      updatedAt: Date
+      createdAt: Date
     }, ExtArgs["result"]["cascadeOutbox"]>
     composites: {}
   }
@@ -5419,7 +5517,7 @@ export namespace Prisma {
    */
   export interface Prisma__CascadeOutboxClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    CascadeRun<T extends CascadeOutbox$CascadeRunArgs<ExtArgs> = {}>(args?: Subset<T, CascadeOutbox$CascadeRunArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    CascadeRun<T extends CascadeRunDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CascadeRunDefaultArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5453,6 +5551,8 @@ export namespace Prisma {
     readonly metadata: FieldRef<"CascadeOutbox", 'Json'>
     readonly cascadeRunId: FieldRef<"CascadeOutbox", 'String'>
     readonly status: FieldRef<"CascadeOutbox", 'String'>
+    readonly updatedAt: FieldRef<"CascadeOutbox", 'DateTime'>
+    readonly createdAt: FieldRef<"CascadeOutbox", 'DateTime'>
   }
     
 
@@ -5849,25 +5949,6 @@ export namespace Prisma {
   }
 
   /**
-   * CascadeOutbox.CascadeRun
-   */
-  export type CascadeOutbox$CascadeRunArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CascadeRun
-     */
-    select?: CascadeRunSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CascadeRun
-     */
-    omit?: CascadeRunOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CascadeRunInclude<ExtArgs> | null
-    where?: CascadeRunWhereInput
-  }
-
-  /**
    * CascadeOutbox without action
    */
   export type CascadeOutboxDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5900,18 +5981,24 @@ export namespace Prisma {
     id: string | null
     triggerId: string | null
     cascadeId: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type TriggerMaxAggregateOutputType = {
     id: string | null
     triggerId: string | null
     cascadeId: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type TriggerCountAggregateOutputType = {
     id: number
     triggerId: number
     cascadeId: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
@@ -5920,18 +6007,24 @@ export namespace Prisma {
     id?: true
     triggerId?: true
     cascadeId?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type TriggerMaxAggregateInputType = {
     id?: true
     triggerId?: true
     cascadeId?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type TriggerCountAggregateInputType = {
     id?: true
     triggerId?: true
     cascadeId?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -6011,6 +6104,8 @@ export namespace Prisma {
     id: string
     triggerId: string
     cascadeId: string
+    updatedAt: Date
+    createdAt: Date
     _count: TriggerCountAggregateOutputType | null
     _min: TriggerMinAggregateOutputType | null
     _max: TriggerMaxAggregateOutputType | null
@@ -6034,6 +6129,8 @@ export namespace Prisma {
     id?: boolean
     triggerId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trigger"]>
@@ -6042,6 +6139,8 @@ export namespace Prisma {
     id?: boolean
     triggerId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trigger"]>
@@ -6050,6 +6149,8 @@ export namespace Prisma {
     id?: boolean
     triggerId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trigger"]>
@@ -6058,9 +6159,11 @@ export namespace Prisma {
     id?: boolean
     triggerId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type TriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "cascadeId", ExtArgs["result"]["trigger"]>
+  export type TriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "cascadeId" | "updatedAt" | "createdAt", ExtArgs["result"]["trigger"]>
   export type TriggerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
@@ -6084,6 +6187,8 @@ export namespace Prisma {
       id: string
       triggerId: string
       cascadeId: string
+      updatedAt: Date
+      createdAt: Date
     }, ExtArgs["result"]["trigger"]>
     composites: {}
   }
@@ -6512,6 +6617,8 @@ export namespace Prisma {
     readonly id: FieldRef<"Trigger", 'String'>
     readonly triggerId: FieldRef<"Trigger", 'String'>
     readonly cascadeId: FieldRef<"Trigger", 'String'>
+    readonly updatedAt: FieldRef<"Trigger", 'DateTime'>
+    readonly createdAt: FieldRef<"Trigger", 'DateTime'>
   }
     
 
@@ -6940,18 +7047,24 @@ export namespace Prisma {
     id: string | null
     actionId: string | null
     cascadeId: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type ActionMaxAggregateOutputType = {
     id: string | null
     actionId: string | null
     cascadeId: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type ActionCountAggregateOutputType = {
     id: number
     actionId: number
     cascadeId: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
@@ -6960,18 +7073,24 @@ export namespace Prisma {
     id?: true
     actionId?: true
     cascadeId?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type ActionMaxAggregateInputType = {
     id?: true
     actionId?: true
     cascadeId?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type ActionCountAggregateInputType = {
     id?: true
     actionId?: true
     cascadeId?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -7051,6 +7170,8 @@ export namespace Prisma {
     id: string
     actionId: string
     cascadeId: string
+    updatedAt: Date
+    createdAt: Date
     _count: ActionCountAggregateOutputType | null
     _min: ActionMinAggregateOutputType | null
     _max: ActionMaxAggregateOutputType | null
@@ -7074,6 +7195,8 @@ export namespace Prisma {
     id?: boolean
     actionId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
@@ -7082,6 +7205,8 @@ export namespace Prisma {
     id?: boolean
     actionId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
@@ -7090,6 +7215,8 @@ export namespace Prisma {
     id?: boolean
     actionId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
@@ -7098,9 +7225,11 @@ export namespace Prisma {
     id?: boolean
     actionId?: boolean
     cascadeId?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "actionId" | "cascadeId", ExtArgs["result"]["action"]>
+  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "actionId" | "cascadeId" | "updatedAt" | "createdAt", ExtArgs["result"]["action"]>
   export type ActionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     cascade?: boolean | CascadeDefaultArgs<ExtArgs>
@@ -7124,6 +7253,8 @@ export namespace Prisma {
       id: string
       actionId: string
       cascadeId: string
+      updatedAt: Date
+      createdAt: Date
     }, ExtArgs["result"]["action"]>
     composites: {}
   }
@@ -7552,6 +7683,8 @@ export namespace Prisma {
     readonly id: FieldRef<"Action", 'String'>
     readonly actionId: FieldRef<"Action", 'String'>
     readonly cascadeId: FieldRef<"Action", 'String'>
+    readonly updatedAt: FieldRef<"Action", 'DateTime'>
+    readonly createdAt: FieldRef<"Action", 'DateTime'>
   }
     
 
@@ -10046,7 +10179,9 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     name: 'name',
-    password: 'password'
+    password: 'password',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -10054,7 +10189,9 @@ export namespace Prisma {
 
   export const CascadeScalarFieldEnum: {
     id: 'id',
-    triggerId: 'triggerId'
+    triggerId: 'triggerId',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type CascadeScalarFieldEnum = (typeof CascadeScalarFieldEnum)[keyof typeof CascadeScalarFieldEnum]
@@ -10064,7 +10201,9 @@ export namespace Prisma {
     id: 'id',
     cascadeId: 'cascadeId',
     status: 'status',
-    metadata: 'metadata'
+    metadata: 'metadata',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type CascadeRunScalarFieldEnum = (typeof CascadeRunScalarFieldEnum)[keyof typeof CascadeRunScalarFieldEnum]
@@ -10074,7 +10213,9 @@ export namespace Prisma {
     id: 'id',
     metadata: 'metadata',
     cascadeRunId: 'cascadeRunId',
-    status: 'status'
+    status: 'status',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type CascadeOutboxScalarFieldEnum = (typeof CascadeOutboxScalarFieldEnum)[keyof typeof CascadeOutboxScalarFieldEnum]
@@ -10083,7 +10224,9 @@ export namespace Prisma {
   export const TriggerScalarFieldEnum: {
     id: 'id',
     triggerId: 'triggerId',
-    cascadeId: 'cascadeId'
+    cascadeId: 'cascadeId',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type TriggerScalarFieldEnum = (typeof TriggerScalarFieldEnum)[keyof typeof TriggerScalarFieldEnum]
@@ -10092,7 +10235,9 @@ export namespace Prisma {
   export const ActionScalarFieldEnum: {
     id: 'id',
     actionId: 'actionId',
-    cascadeId: 'cascadeId'
+    cascadeId: 'cascadeId',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type ActionScalarFieldEnum = (typeof ActionScalarFieldEnum)[keyof typeof ActionScalarFieldEnum]
@@ -10188,6 +10333,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Json'
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
@@ -10226,6 +10385,8 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
   }
 
   export type UserOrderByWithRelationInput = {
@@ -10233,6 +10394,8 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -10243,6 +10406,8 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -10250,6 +10415,8 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -10265,6 +10432,8 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringWithAggregatesFilter<"User"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type CascadeWhereInput = {
@@ -10273,6 +10442,8 @@ export namespace Prisma {
     NOT?: CascadeWhereInput | CascadeWhereInput[]
     id?: StringFilter<"Cascade"> | string
     triggerId?: StringFilter<"Cascade"> | string
+    updatedAt?: DateTimeFilter<"Cascade"> | Date | string
+    createdAt?: DateTimeFilter<"Cascade"> | Date | string
     trigger?: XOR<TriggerNullableScalarRelationFilter, TriggerWhereInput> | null
     action?: ActionListRelationFilter
     CascadeRuns?: CascadeRunListRelationFilter
@@ -10281,6 +10452,8 @@ export namespace Prisma {
   export type CascadeOrderByWithRelationInput = {
     id?: SortOrder
     triggerId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     trigger?: TriggerOrderByWithRelationInput
     action?: ActionOrderByRelationAggregateInput
     CascadeRuns?: CascadeRunOrderByRelationAggregateInput
@@ -10292,6 +10465,8 @@ export namespace Prisma {
     OR?: CascadeWhereInput[]
     NOT?: CascadeWhereInput | CascadeWhereInput[]
     triggerId?: StringFilter<"Cascade"> | string
+    updatedAt?: DateTimeFilter<"Cascade"> | Date | string
+    createdAt?: DateTimeFilter<"Cascade"> | Date | string
     trigger?: XOR<TriggerNullableScalarRelationFilter, TriggerWhereInput> | null
     action?: ActionListRelationFilter
     CascadeRuns?: CascadeRunListRelationFilter
@@ -10300,6 +10475,8 @@ export namespace Prisma {
   export type CascadeOrderByWithAggregationInput = {
     id?: SortOrder
     triggerId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: CascadeCountOrderByAggregateInput
     _max?: CascadeMaxOrderByAggregateInput
     _min?: CascadeMinOrderByAggregateInput
@@ -10311,6 +10488,8 @@ export namespace Prisma {
     NOT?: CascadeScalarWhereWithAggregatesInput | CascadeScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Cascade"> | string
     triggerId?: StringWithAggregatesFilter<"Cascade"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Cascade"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Cascade"> | Date | string
   }
 
   export type CascadeRunWhereInput = {
@@ -10321,6 +10500,8 @@ export namespace Prisma {
     cascadeId?: StringFilter<"CascadeRun"> | string
     status?: StringFilter<"CascadeRun"> | string
     metadata?: JsonFilter<"CascadeRun">
+    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
+    createdAt?: DateTimeFilter<"CascadeRun"> | Date | string
     cascade?: XOR<CascadeNullableScalarRelationFilter, CascadeWhereInput> | null
     cascadeOutbox?: CascadeOutboxListRelationFilter
   }
@@ -10330,6 +10511,8 @@ export namespace Prisma {
     cascadeId?: SortOrder
     status?: SortOrder
     metadata?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     cascade?: CascadeOrderByWithRelationInput
     cascadeOutbox?: CascadeOutboxOrderByRelationAggregateInput
   }
@@ -10342,6 +10525,8 @@ export namespace Prisma {
     cascadeId?: StringFilter<"CascadeRun"> | string
     status?: StringFilter<"CascadeRun"> | string
     metadata?: JsonFilter<"CascadeRun">
+    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
+    createdAt?: DateTimeFilter<"CascadeRun"> | Date | string
     cascade?: XOR<CascadeNullableScalarRelationFilter, CascadeWhereInput> | null
     cascadeOutbox?: CascadeOutboxListRelationFilter
   }, "id">
@@ -10351,6 +10536,8 @@ export namespace Prisma {
     cascadeId?: SortOrder
     status?: SortOrder
     metadata?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: CascadeRunCountOrderByAggregateInput
     _max?: CascadeRunMaxOrderByAggregateInput
     _min?: CascadeRunMinOrderByAggregateInput
@@ -10364,6 +10551,8 @@ export namespace Prisma {
     cascadeId?: StringWithAggregatesFilter<"CascadeRun"> | string
     status?: StringWithAggregatesFilter<"CascadeRun"> | string
     metadata?: JsonWithAggregatesFilter<"CascadeRun">
+    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
+    createdAt?: DateTimeWithAggregatesFilter<"CascadeRun"> | Date | string
   }
 
   export type CascadeOutboxWhereInput = {
@@ -10374,7 +10563,9 @@ export namespace Prisma {
     metadata?: JsonFilter<"CascadeOutbox">
     cascadeRunId?: StringFilter<"CascadeOutbox"> | string
     status?: StringFilter<"CascadeOutbox"> | string
-    CascadeRun?: XOR<CascadeRunNullableScalarRelationFilter, CascadeRunWhereInput> | null
+    updatedAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
+    CascadeRun?: XOR<CascadeRunScalarRelationFilter, CascadeRunWhereInput>
   }
 
   export type CascadeOutboxOrderByWithRelationInput = {
@@ -10382,6 +10573,8 @@ export namespace Prisma {
     metadata?: SortOrder
     cascadeRunId?: SortOrder
     status?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     CascadeRun?: CascadeRunOrderByWithRelationInput
   }
 
@@ -10393,7 +10586,9 @@ export namespace Prisma {
     metadata?: JsonFilter<"CascadeOutbox">
     cascadeRunId?: StringFilter<"CascadeOutbox"> | string
     status?: StringFilter<"CascadeOutbox"> | string
-    CascadeRun?: XOR<CascadeRunNullableScalarRelationFilter, CascadeRunWhereInput> | null
+    updatedAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
+    CascadeRun?: XOR<CascadeRunScalarRelationFilter, CascadeRunWhereInput>
   }, "id">
 
   export type CascadeOutboxOrderByWithAggregationInput = {
@@ -10401,6 +10596,8 @@ export namespace Prisma {
     metadata?: SortOrder
     cascadeRunId?: SortOrder
     status?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: CascadeOutboxCountOrderByAggregateInput
     _max?: CascadeOutboxMaxOrderByAggregateInput
     _min?: CascadeOutboxMinOrderByAggregateInput
@@ -10414,6 +10611,8 @@ export namespace Prisma {
     metadata?: JsonWithAggregatesFilter<"CascadeOutbox">
     cascadeRunId?: StringWithAggregatesFilter<"CascadeOutbox"> | string
     status?: StringWithAggregatesFilter<"CascadeOutbox"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CascadeOutbox"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"CascadeOutbox"> | Date | string
   }
 
   export type TriggerWhereInput = {
@@ -10423,6 +10622,8 @@ export namespace Prisma {
     id?: StringFilter<"Trigger"> | string
     triggerId?: StringFilter<"Trigger"> | string
     cascadeId?: StringFilter<"Trigger"> | string
+    updatedAt?: DateTimeFilter<"Trigger"> | Date | string
+    createdAt?: DateTimeFilter<"Trigger"> | Date | string
     type?: XOR<AvailableTriggerScalarRelationFilter, AvailableTriggerWhereInput>
     cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
   }
@@ -10431,6 +10632,8 @@ export namespace Prisma {
     id?: SortOrder
     triggerId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     type?: AvailableTriggerOrderByWithRelationInput
     cascade?: CascadeOrderByWithRelationInput
   }
@@ -10442,6 +10645,8 @@ export namespace Prisma {
     OR?: TriggerWhereInput[]
     NOT?: TriggerWhereInput | TriggerWhereInput[]
     triggerId?: StringFilter<"Trigger"> | string
+    updatedAt?: DateTimeFilter<"Trigger"> | Date | string
+    createdAt?: DateTimeFilter<"Trigger"> | Date | string
     type?: XOR<AvailableTriggerScalarRelationFilter, AvailableTriggerWhereInput>
     cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
   }, "id" | "cascadeId">
@@ -10450,6 +10655,8 @@ export namespace Prisma {
     id?: SortOrder
     triggerId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: TriggerCountOrderByAggregateInput
     _max?: TriggerMaxOrderByAggregateInput
     _min?: TriggerMinOrderByAggregateInput
@@ -10462,6 +10669,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Trigger"> | string
     triggerId?: StringWithAggregatesFilter<"Trigger"> | string
     cascadeId?: StringWithAggregatesFilter<"Trigger"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Trigger"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Trigger"> | Date | string
   }
 
   export type ActionWhereInput = {
@@ -10471,6 +10680,8 @@ export namespace Prisma {
     id?: StringFilter<"Action"> | string
     actionId?: StringFilter<"Action"> | string
     cascadeId?: StringFilter<"Action"> | string
+    updatedAt?: DateTimeFilter<"Action"> | Date | string
+    createdAt?: DateTimeFilter<"Action"> | Date | string
     type?: XOR<AvailableActionsScalarRelationFilter, AvailableActionsWhereInput>
     cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
   }
@@ -10479,6 +10690,8 @@ export namespace Prisma {
     id?: SortOrder
     actionId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     type?: AvailableActionsOrderByWithRelationInput
     cascade?: CascadeOrderByWithRelationInput
   }
@@ -10490,6 +10703,8 @@ export namespace Prisma {
     OR?: ActionWhereInput[]
     NOT?: ActionWhereInput | ActionWhereInput[]
     actionId?: StringFilter<"Action"> | string
+    updatedAt?: DateTimeFilter<"Action"> | Date | string
+    createdAt?: DateTimeFilter<"Action"> | Date | string
     type?: XOR<AvailableActionsScalarRelationFilter, AvailableActionsWhereInput>
     cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
   }, "id" | "cascadeId">
@@ -10498,6 +10713,8 @@ export namespace Prisma {
     id?: SortOrder
     actionId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: ActionCountOrderByAggregateInput
     _max?: ActionMaxOrderByAggregateInput
     _min?: ActionMinOrderByAggregateInput
@@ -10510,6 +10727,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Action"> | string
     actionId?: StringWithAggregatesFilter<"Action"> | string
     cascadeId?: StringWithAggregatesFilter<"Action"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
   }
 
   export type AvailableActionsWhereInput = {
@@ -10596,6 +10815,8 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type UserUncheckedCreateInput = {
@@ -10603,12 +10824,16 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type UserUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateInput = {
@@ -10616,6 +10841,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateManyInput = {
@@ -10623,12 +10850,16 @@ export namespace Prisma {
     email: string
     name?: string | null
     password: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -10636,11 +10867,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeCreateInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     trigger?: TriggerCreateNestedOneWithoutCascadeInput
     action?: ActionCreateNestedManyWithoutCascadeInput
     CascadeRuns?: CascadeRunCreateNestedManyWithoutCascadeInput
@@ -10649,6 +10884,8 @@ export namespace Prisma {
   export type CascadeUncheckedCreateInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     trigger?: TriggerUncheckedCreateNestedOneWithoutCascadeInput
     action?: ActionUncheckedCreateNestedManyWithoutCascadeInput
     CascadeRuns?: CascadeRunUncheckedCreateNestedManyWithoutCascadeInput
@@ -10657,6 +10894,8 @@ export namespace Prisma {
   export type CascadeUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUpdateOneWithoutCascadeNestedInput
     action?: ActionUpdateManyWithoutCascadeNestedInput
     CascadeRuns?: CascadeRunUpdateManyWithoutCascadeNestedInput
@@ -10665,6 +10904,8 @@ export namespace Prisma {
   export type CascadeUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUncheckedUpdateOneWithoutCascadeNestedInput
     action?: ActionUncheckedUpdateManyWithoutCascadeNestedInput
     CascadeRuns?: CascadeRunUncheckedUpdateManyWithoutCascadeNestedInput
@@ -10673,22 +10914,30 @@ export namespace Prisma {
   export type CascadeCreateManyInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type CascadeUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeRunCreateInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
     cascade?: CascadeCreateNestedOneWithoutCascadeRunsInput
     cascadeOutbox?: CascadeOutboxCreateNestedManyWithoutCascadeRunInput
   }
@@ -10698,6 +10947,8 @@ export namespace Prisma {
     cascadeId: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
     cascadeOutbox?: CascadeOutboxUncheckedCreateNestedManyWithoutCascadeRunInput
   }
 
@@ -10705,6 +10956,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cascade?: CascadeUpdateOneWithoutCascadeRunsNestedInput
     cascadeOutbox?: CascadeOutboxUpdateManyWithoutCascadeRunNestedInput
   }
@@ -10714,6 +10967,8 @@ export namespace Prisma {
     cascadeId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cascadeOutbox?: CascadeOutboxUncheckedUpdateManyWithoutCascadeRunNestedInput
   }
 
@@ -10722,12 +10977,16 @@ export namespace Prisma {
     cascadeId: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
   }
 
   export type CascadeRunUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeRunUncheckedUpdateManyInput = {
@@ -10735,13 +10994,17 @@ export namespace Prisma {
     cascadeId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeOutboxCreateInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
     status: string
-    CascadeRun?: CascadeRunCreateNestedOneWithoutCascadeOutboxInput
+    updatedAt?: Date | string
+    createdAt?: Date | string
+    CascadeRun: CascadeRunCreateNestedOneWithoutCascadeOutboxInput
   }
 
   export type CascadeOutboxUncheckedCreateInput = {
@@ -10749,13 +11012,17 @@ export namespace Prisma {
     metadata: JsonNullValueInput | InputJsonValue
     cascadeRunId: string
     status: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type CascadeOutboxUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
-    CascadeRun?: CascadeRunUpdateOneWithoutCascadeOutboxNestedInput
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CascadeRun?: CascadeRunUpdateOneRequiredWithoutCascadeOutboxNestedInput
   }
 
   export type CascadeOutboxUncheckedUpdateInput = {
@@ -10763,6 +11030,8 @@ export namespace Prisma {
     metadata?: JsonNullValueInput | InputJsonValue
     cascadeRunId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeOutboxCreateManyInput = {
@@ -10770,12 +11039,16 @@ export namespace Prisma {
     metadata: JsonNullValueInput | InputJsonValue
     cascadeRunId: string
     status: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type CascadeOutboxUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeOutboxUncheckedUpdateManyInput = {
@@ -10783,10 +11056,14 @@ export namespace Prisma {
     metadata?: JsonNullValueInput | InputJsonValue
     cascadeRunId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerCreateInput = {
     id?: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     type: AvailableTriggerCreateNestedOneWithoutTriggerInput
     cascade: CascadeCreateNestedOneWithoutTriggerInput
   }
@@ -10795,10 +11072,14 @@ export namespace Prisma {
     id?: string
     triggerId: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type TriggerUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableTriggerUpdateOneRequiredWithoutTriggerNestedInput
     cascade?: CascadeUpdateOneRequiredWithoutTriggerNestedInput
   }
@@ -10807,26 +11088,36 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerCreateManyInput = {
     id?: string
     triggerId: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type TriggerUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionCreateInput = {
     id?: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     type: AvailableActionsCreateNestedOneWithoutActionInput
     cascade: CascadeCreateNestedOneWithoutActionInput
   }
@@ -10835,10 +11126,14 @@ export namespace Prisma {
     id?: string
     actionId: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type ActionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableActionsUpdateOneRequiredWithoutActionNestedInput
     cascade?: CascadeUpdateOneRequiredWithoutActionNestedInput
   }
@@ -10847,22 +11142,30 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionCreateManyInput = {
     id?: string
     actionId: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type ActionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvailableActionsCreateInput = {
@@ -10984,6 +11287,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -10994,6 +11308,8 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -11005,6 +11321,8 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -11012,6 +11330,8 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -11070,6 +11390,20 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type TriggerNullableScalarRelationFilter = {
     is?: TriggerWhereInput | null
     isNot?: TriggerWhereInput | null
@@ -11098,16 +11432,22 @@ export namespace Prisma {
   export type CascadeCountOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type CascadeMaxOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type CascadeMinOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
   export type JsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -11133,6 +11473,14 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type DateTimeNullableListFilter<$PrismaModel = never> = {
+    equals?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    has?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    hasEvery?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    hasSome?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type CascadeNullableScalarRelationFilter = {
     is?: CascadeWhereInput | null
     isNot?: CascadeWhereInput | null
@@ -11153,18 +11501,22 @@ export namespace Prisma {
     cascadeId?: SortOrder
     status?: SortOrder
     metadata?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type CascadeRunMaxOrderByAggregateInput = {
     id?: SortOrder
     cascadeId?: SortOrder
     status?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type CascadeRunMinOrderByAggregateInput = {
     id?: SortOrder
     cascadeId?: SortOrder
     status?: SortOrder
+    createdAt?: SortOrder
   }
   export type JsonWithAggregatesFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -11193,9 +11545,9 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
-  export type CascadeRunNullableScalarRelationFilter = {
-    is?: CascadeRunWhereInput | null
-    isNot?: CascadeRunWhereInput | null
+  export type CascadeRunScalarRelationFilter = {
+    is?: CascadeRunWhereInput
+    isNot?: CascadeRunWhereInput
   }
 
   export type CascadeOutboxCountOrderByAggregateInput = {
@@ -11203,18 +11555,24 @@ export namespace Prisma {
     metadata?: SortOrder
     cascadeRunId?: SortOrder
     status?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type CascadeOutboxMaxOrderByAggregateInput = {
     id?: SortOrder
     cascadeRunId?: SortOrder
     status?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type CascadeOutboxMinOrderByAggregateInput = {
     id?: SortOrder
     cascadeRunId?: SortOrder
     status?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AvailableTriggerScalarRelationFilter = {
@@ -11231,18 +11589,24 @@ export namespace Prisma {
     id?: SortOrder
     triggerId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type TriggerMaxOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type TriggerMinOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AvailableActionsScalarRelationFilter = {
@@ -11254,18 +11618,24 @@ export namespace Prisma {
     id?: SortOrder
     actionId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type ActionMaxOrderByAggregateInput = {
     id?: SortOrder
     actionId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type ActionMinOrderByAggregateInput = {
     id?: SortOrder
     actionId?: SortOrder
     cascadeId?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AvailableActionsCountOrderByAggregateInput = {
@@ -11314,6 +11684,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -11440,6 +11814,10 @@ export namespace Prisma {
     deleteMany?: CascadeRunScalarWhereInput | CascadeRunScalarWhereInput[]
   }
 
+  export type CascadeRunCreateupdatedAtInput = {
+    set: Date[] | string[]
+  }
+
   export type CascadeCreateNestedOneWithoutCascadeRunsInput = {
     create?: XOR<CascadeCreateWithoutCascadeRunsInput, CascadeUncheckedCreateWithoutCascadeRunsInput>
     connectOrCreate?: CascadeCreateOrConnectWithoutCascadeRunsInput
@@ -11458,6 +11836,11 @@ export namespace Prisma {
     connectOrCreate?: CascadeOutboxCreateOrConnectWithoutCascadeRunInput | CascadeOutboxCreateOrConnectWithoutCascadeRunInput[]
     createMany?: CascadeOutboxCreateManyCascadeRunInputEnvelope
     connect?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
+  }
+
+  export type CascadeRunUpdateupdatedAtInput = {
+    set?: Date[] | string[]
+    push?: Date | string | Date[] | string[]
   }
 
   export type CascadeUpdateOneWithoutCascadeRunsNestedInput = {
@@ -11504,12 +11887,10 @@ export namespace Prisma {
     connect?: CascadeRunWhereUniqueInput
   }
 
-  export type CascadeRunUpdateOneWithoutCascadeOutboxNestedInput = {
+  export type CascadeRunUpdateOneRequiredWithoutCascadeOutboxNestedInput = {
     create?: XOR<CascadeRunCreateWithoutCascadeOutboxInput, CascadeRunUncheckedCreateWithoutCascadeOutboxInput>
     connectOrCreate?: CascadeRunCreateOrConnectWithoutCascadeOutboxInput
     upsert?: CascadeRunUpsertWithoutCascadeOutboxInput
-    disconnect?: CascadeRunWhereInput | boolean
-    delete?: CascadeRunWhereInput | boolean
     connect?: CascadeRunWhereUniqueInput
     update?: XOR<XOR<CascadeRunUpdateToOneWithWhereWithoutCascadeOutboxInput, CascadeRunUpdateWithoutCascadeOutboxInput>, CascadeRunUncheckedUpdateWithoutCascadeOutboxInput>
   }
@@ -11693,6 +12074,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -11764,6 +12156,20 @@ export namespace Prisma {
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
   export type NestedJsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
         Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
@@ -11790,12 +12196,16 @@ export namespace Prisma {
 
   export type TriggerCreateWithoutCascadeInput = {
     id?: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     type: AvailableTriggerCreateNestedOneWithoutTriggerInput
   }
 
   export type TriggerUncheckedCreateWithoutCascadeInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type TriggerCreateOrConnectWithoutCascadeInput = {
@@ -11805,12 +12215,16 @@ export namespace Prisma {
 
   export type ActionCreateWithoutCascadeInput = {
     id?: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     type: AvailableActionsCreateNestedOneWithoutActionInput
   }
 
   export type ActionUncheckedCreateWithoutCascadeInput = {
     id?: string
     actionId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type ActionCreateOrConnectWithoutCascadeInput = {
@@ -11827,6 +12241,8 @@ export namespace Prisma {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
     cascadeOutbox?: CascadeOutboxCreateNestedManyWithoutCascadeRunInput
   }
 
@@ -11834,6 +12250,8 @@ export namespace Prisma {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
     cascadeOutbox?: CascadeOutboxUncheckedCreateNestedManyWithoutCascadeRunInput
   }
 
@@ -11860,12 +12278,16 @@ export namespace Prisma {
 
   export type TriggerUpdateWithoutCascadeInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableTriggerUpdateOneRequiredWithoutTriggerNestedInput
   }
 
   export type TriggerUncheckedUpdateWithoutCascadeInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionUpsertWithWhereUniqueWithoutCascadeInput = {
@@ -11891,6 +12313,8 @@ export namespace Prisma {
     id?: StringFilter<"Action"> | string
     actionId?: StringFilter<"Action"> | string
     cascadeId?: StringFilter<"Action"> | string
+    updatedAt?: DateTimeFilter<"Action"> | Date | string
+    createdAt?: DateTimeFilter<"Action"> | Date | string
   }
 
   export type CascadeRunUpsertWithWhereUniqueWithoutCascadeInput = {
@@ -11917,11 +12341,15 @@ export namespace Prisma {
     cascadeId?: StringFilter<"CascadeRun"> | string
     status?: StringFilter<"CascadeRun"> | string
     metadata?: JsonFilter<"CascadeRun">
+    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
+    createdAt?: DateTimeFilter<"CascadeRun"> | Date | string
   }
 
   export type CascadeCreateWithoutCascadeRunsInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     trigger?: TriggerCreateNestedOneWithoutCascadeInput
     action?: ActionCreateNestedManyWithoutCascadeInput
   }
@@ -11929,6 +12357,8 @@ export namespace Prisma {
   export type CascadeUncheckedCreateWithoutCascadeRunsInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     trigger?: TriggerUncheckedCreateNestedOneWithoutCascadeInput
     action?: ActionUncheckedCreateNestedManyWithoutCascadeInput
   }
@@ -11942,12 +12372,16 @@ export namespace Prisma {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
     status: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type CascadeOutboxUncheckedCreateWithoutCascadeRunInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
     status: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type CascadeOutboxCreateOrConnectWithoutCascadeRunInput = {
@@ -11974,6 +12408,8 @@ export namespace Prisma {
   export type CascadeUpdateWithoutCascadeRunsInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUpdateOneWithoutCascadeNestedInput
     action?: ActionUpdateManyWithoutCascadeNestedInput
   }
@@ -11981,6 +12417,8 @@ export namespace Prisma {
   export type CascadeUncheckedUpdateWithoutCascadeRunsInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUncheckedUpdateOneWithoutCascadeNestedInput
     action?: ActionUncheckedUpdateManyWithoutCascadeNestedInput
   }
@@ -12009,12 +12447,16 @@ export namespace Prisma {
     metadata?: JsonFilter<"CascadeOutbox">
     cascadeRunId?: StringFilter<"CascadeOutbox"> | string
     status?: StringFilter<"CascadeOutbox"> | string
+    updatedAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
   }
 
   export type CascadeRunCreateWithoutCascadeOutboxInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
     cascade?: CascadeCreateNestedOneWithoutCascadeRunsInput
   }
 
@@ -12023,6 +12465,8 @@ export namespace Prisma {
     cascadeId: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
   }
 
   export type CascadeRunCreateOrConnectWithoutCascadeOutboxInput = {
@@ -12045,6 +12489,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cascade?: CascadeUpdateOneWithoutCascadeRunsNestedInput
   }
 
@@ -12053,6 +12499,8 @@ export namespace Prisma {
     cascadeId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvailableTriggerCreateWithoutTriggerInput = {
@@ -12073,6 +12521,8 @@ export namespace Prisma {
   export type CascadeCreateWithoutTriggerInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     action?: ActionCreateNestedManyWithoutCascadeInput
     CascadeRuns?: CascadeRunCreateNestedManyWithoutCascadeInput
   }
@@ -12080,6 +12530,8 @@ export namespace Prisma {
   export type CascadeUncheckedCreateWithoutTriggerInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     action?: ActionUncheckedCreateNestedManyWithoutCascadeInput
     CascadeRuns?: CascadeRunUncheckedCreateNestedManyWithoutCascadeInput
   }
@@ -12124,6 +12576,8 @@ export namespace Prisma {
   export type CascadeUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     action?: ActionUpdateManyWithoutCascadeNestedInput
     CascadeRuns?: CascadeRunUpdateManyWithoutCascadeNestedInput
   }
@@ -12131,6 +12585,8 @@ export namespace Prisma {
   export type CascadeUncheckedUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     action?: ActionUncheckedUpdateManyWithoutCascadeNestedInput
     CascadeRuns?: CascadeRunUncheckedUpdateManyWithoutCascadeNestedInput
   }
@@ -12153,6 +12609,8 @@ export namespace Prisma {
   export type CascadeCreateWithoutActionInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     trigger?: TriggerCreateNestedOneWithoutCascadeInput
     CascadeRuns?: CascadeRunCreateNestedManyWithoutCascadeInput
   }
@@ -12160,6 +12618,8 @@ export namespace Prisma {
   export type CascadeUncheckedCreateWithoutActionInput = {
     id?: string
     triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     trigger?: TriggerUncheckedCreateNestedOneWithoutCascadeInput
     CascadeRuns?: CascadeRunUncheckedCreateNestedManyWithoutCascadeInput
   }
@@ -12204,6 +12664,8 @@ export namespace Prisma {
   export type CascadeUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUpdateOneWithoutCascadeNestedInput
     CascadeRuns?: CascadeRunUpdateManyWithoutCascadeNestedInput
   }
@@ -12211,18 +12673,24 @@ export namespace Prisma {
   export type CascadeUncheckedUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUncheckedUpdateOneWithoutCascadeNestedInput
     CascadeRuns?: CascadeRunUncheckedUpdateManyWithoutCascadeNestedInput
   }
 
   export type ActionCreateWithoutTypeInput = {
     id?: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     cascade: CascadeCreateNestedOneWithoutActionInput
   }
 
   export type ActionUncheckedCreateWithoutTypeInput = {
     id?: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type ActionCreateOrConnectWithoutTypeInput = {
@@ -12253,12 +12721,16 @@ export namespace Prisma {
 
   export type TriggerCreateWithoutTypeInput = {
     id?: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
     cascade: CascadeCreateNestedOneWithoutTriggerInput
   }
 
   export type TriggerUncheckedCreateWithoutTypeInput = {
     id?: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type TriggerCreateOrConnectWithoutTypeInput = {
@@ -12294,38 +12766,52 @@ export namespace Prisma {
     id?: StringFilter<"Trigger"> | string
     triggerId?: StringFilter<"Trigger"> | string
     cascadeId?: StringFilter<"Trigger"> | string
+    updatedAt?: DateTimeFilter<"Trigger"> | Date | string
+    createdAt?: DateTimeFilter<"Trigger"> | Date | string
   }
 
   export type ActionCreateManyCascadeInput = {
     id?: string
     actionId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type CascadeRunCreateManyCascadeInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    createdAt?: Date | string
   }
 
   export type ActionUpdateWithoutCascadeInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableActionsUpdateOneRequiredWithoutActionNestedInput
   }
 
   export type ActionUncheckedUpdateWithoutCascadeInput = {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionUncheckedUpdateManyWithoutCascadeInput = {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeRunUpdateWithoutCascadeInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cascadeOutbox?: CascadeOutboxUpdateManyWithoutCascadeRunNestedInput
   }
 
@@ -12333,6 +12819,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cascadeOutbox?: CascadeOutboxUncheckedUpdateManyWithoutCascadeRunNestedInput
   }
 
@@ -12340,70 +12828,96 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
+    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeOutboxCreateManyCascadeRunInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
     status: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type CascadeOutboxUpdateWithoutCascadeRunInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeOutboxUncheckedUpdateWithoutCascadeRunInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CascadeOutboxUncheckedUpdateManyWithoutCascadeRunInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionCreateManyTypeInput = {
     id?: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type ActionUpdateWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cascade?: CascadeUpdateOneRequiredWithoutActionNestedInput
   }
 
   export type ActionUncheckedUpdateWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionUncheckedUpdateManyWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerCreateManyTypeInput = {
     id?: string
     cascadeId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type TriggerUpdateWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cascade?: CascadeUpdateOneRequiredWithoutTriggerNestedInput
   }
 
   export type TriggerUncheckedUpdateWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerUncheckedUpdateManyWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     cascadeId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

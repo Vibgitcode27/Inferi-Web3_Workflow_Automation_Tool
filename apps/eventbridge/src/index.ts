@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
-import kafka from "kafkajs";
-import { PrismaClient } from "../../packages/database/generated/client";
+import { PrismaClient } from "../../../packages/database/generated/client";
 
 const app = express();
 app.use(cors());
@@ -32,5 +31,8 @@ async function main() {
     }
   }
 }
-
 main();
+
+app.listen(8000, () => {
+  console.log("Server is running on http://localhost:8000");
+});
