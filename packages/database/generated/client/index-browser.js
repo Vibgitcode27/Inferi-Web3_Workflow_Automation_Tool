@@ -119,14 +119,59 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
-  createdAt: 'createdAt',
   email: 'email',
+  name: 'name',
+  password: 'password'
+};
+
+exports.Prisma.CascadeScalarFieldEnum = {
+  id: 'id',
+  triggerId: 'triggerId'
+};
+
+exports.Prisma.CascadeRunScalarFieldEnum = {
+  id: 'id',
+  cascadeId: 'cascadeId',
+  status: 'status',
+  metadata: 'metadata'
+};
+
+exports.Prisma.CascadeOutboxScalarFieldEnum = {
+  id: 'id',
+  metadata: 'metadata',
+  cascadeRunId: 'cascadeRunId',
+  status: 'status'
+};
+
+exports.Prisma.TriggerScalarFieldEnum = {
+  id: 'id',
+  triggerId: 'triggerId',
+  cascadeId: 'cascadeId'
+};
+
+exports.Prisma.ActionScalarFieldEnum = {
+  id: 'id',
+  actionId: 'actionId',
+  cascadeId: 'cascadeId'
+};
+
+exports.Prisma.AvailableActionsScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.AvailableTriggerScalarFieldEnum = {
+  id: 'id',
   name: 'name'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -139,9 +184,22 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Cascade: 'Cascade',
+  CascadeRun: 'CascadeRun',
+  CascadeOutbox: 'CascadeOutbox',
+  Trigger: 'Trigger',
+  Action: 'Action',
+  AvailableActions: 'AvailableActions',
+  AvailableTrigger: 'AvailableTrigger'
 };
 
 /**

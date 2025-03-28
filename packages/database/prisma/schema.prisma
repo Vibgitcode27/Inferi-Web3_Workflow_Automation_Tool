@@ -9,8 +9,61 @@ generator client {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  email     String   @unique
-  name      String?
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String
+}
+
+model Cascade {
+  id          String       @id @default(uuid())
+  triggerId   String
+  trigger     Trigger?
+  action      Action[]
+  CascadeRuns CascadeRun[]
+}
+
+model CascadeRun {
+  id            String          @id @default(uuid())
+  cascadeId     String
+  status        String
+  metadata      Json
+  cascade       Cascade?        @relation(fields: [cascadeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  cascadeOutbox CascadeOutbox[]
+}
+
+model CascadeOutbox {
+  id           String     @id @default(uuid())
+  metadata     Json
+  cascadeRunId String
+  status       String
+  CascadeRun   CascadeRun @relation(fields: [cascadeRunId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Trigger {
+  id        String           @id @default(uuid())
+  triggerId String
+  cascadeId String           @unique
+  type      AvailableTrigger @relation(fields: [triggerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  cascade   Cascade          @relation(fields: [cascadeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Action {
+  id        String           @id @default(uuid())
+  actionId  String
+  cascadeId String           @unique
+  type      AvailableActions @relation(fields: [actionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  cascade   Cascade          @relation(fields: [cascadeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model AvailableActions {
+  id     String   @id @default(uuid())
+  name   String
+  Action Action[]
+}
+
+model AvailableTrigger {
+  id      String    @id @default(uuid())
+  name    String
+  Trigger Trigger[]
 }
