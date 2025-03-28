@@ -1,0 +1,20 @@
+{
+  "name": "eventbridge",
+  "version": "1.0.0",
+  "description": "This server acts as a bridge b/w outbox and kafka",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node dist/index.js",
+    "build": "tsup",
+    "start": "node dist/index.js"
+  },
+  "author": "Vibgitcode27",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.4.0"
+  },
+  "dependencies": {
+    "@types/kafkajs": "^1.9.0",
+    "kafkajs": "^2.2.4"
+  }
+}
