@@ -1,0 +1,20 @@
+{
+  "name": "kafka",
+  "version": "1.0.0",
+  "description": "kafka acts like a pub-sub here. Get events from the outbox and send it to processors.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kafka"
+  ],
+  "author": "Vibgitcode27",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.4.0"
+  },
+  "dependencies": {
+    "kafkajs": "^2.2.4"
+  }
+}
