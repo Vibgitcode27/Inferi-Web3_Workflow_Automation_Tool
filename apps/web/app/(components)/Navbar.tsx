@@ -57,23 +57,26 @@ const Navbar = () => {
   return (
     <Header 
       style={{ 
-        background: scrolled ? 'rgba(255, 255, 255, 0.1)' : 'rgb(255, 255, 255)',
-        padding: '0 5%',
-        position: 'fixed',
-        width: '100%',
-        top: 0,
-        zIndex: 1000,
-        height: 70,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        transition: 'all 0.3s ease',
-      }}
+      background: scrolled ? 'rgba(251, 251, 251, 0.68)' : 'rgba(255, 255, 255, 0.8)',
+      padding: '2% 1% 2% 7%',
+      paddingTop: 10,
+      position: 'fixed',
+      width: '100%',
+      top: 0,
+      zIndex: 1000,
+      height: 70,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      transition: 'all 0.3s ease',
+      backdropFilter: 'blur(7px)',
+      WebkitBackdropFilter: 'blur(7px)',
+    }}
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Text 
           style={{ 
-            fontSize: 28, 
+            fontSize: 32, 
             fontWeight: 800,
             background: 'linear-gradient(90deg, #4a6bef, #8a63e8)',
             WebkitBackgroundClip: 'text',
@@ -89,9 +92,10 @@ const Navbar = () => {
           style={{ 
             border: 'none', 
             background: 'transparent',
-            fontSize: 15,
+            fontSize: 17,
             fontWeight: 500,
             display: 'flex',
+            color : "gray"
           }}
           items={menuItems}
         />

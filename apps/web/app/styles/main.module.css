@@ -1,0 +1,22 @@
+.heroText {
+    background-image: linear-gradient(to left,#b67bf9,#8a7bf9,#7b85f9,#7b7df9,#b67bf9,#b67bf9);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 80px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%;
+    animation: text-animate 15s linear infinite;
+}
+
+@keyframes text-animate {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+/* background: 'linear-gradient(90deg, #4a6bef, #8a63e8)', */

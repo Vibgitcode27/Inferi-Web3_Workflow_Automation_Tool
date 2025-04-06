@@ -7,10 +7,11 @@ import {
   Row, 
   Col, 
   Space, 
-  Divider,
-  Tag,
-  Flex
+  Flex,
+  Image,
+  Avatar
 } from 'antd';
+import backgroundImage from '../../public/download.webp';
 import {
   ApiOutlined,
   ThunderboltOutlined,
@@ -21,6 +22,10 @@ import {
 } from '@ant-design/icons';
 import { ReactFlow, Controls, Background } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import styles from "../styles/main.module.css"
+import webhookImage from '../../public/cdnlogo.com_webhook.svg';
+import blockchainImage from '../../public/blockchain.png';
+import nft from '../../public/nft.png';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -172,16 +177,16 @@ export default function HomeContent() {
       <div 
         style={{ 
           padding: '140px 5% 120px',
-          background: 'radial-gradient(circle at 10% 90%, rgba(138, 99, 232, 0.1), transparent 40%), radial-gradient(circle at 90% 10%, rgba(74, 107, 239, 0.1), transparent 40%)',
+          backgroundImage: `url(${backgroundImage.src})`,
           textAlign: 'center',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
         }}
       >
-        <Flex align='center' justify='center' gap={16} style={{ marginBottom: 60 }}>
-          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "13px"}}>Blockchain Event Triggers</Button>
-          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "13px"}}>Gas Fee Optimization</Button>
-          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "13px"}}>Real-Time NFT Minting</Button>
+        <Flex align='center' justify='center' gap={20} style={{ marginBottom: 60 }}>
+          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "15px"}}><Avatar src={webhookImage.src}/> Blockchain Event Triggers</Button>
+          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "15px"}}><Avatar size={40} src={blockchainImage.src}/> Gas Fee Optimization</Button>
+          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "15px"}}><Avatar size={55} src={nft.src} style={{ marginRight : "-10px" , marginLeft : "-ypx"}}/> Real-Time NFT Minting</Button>
         </Flex>
         <div style={fadeInStyle(0)}>
           <Title 
@@ -206,11 +211,7 @@ export default function HomeContent() {
               margin: '0 auto 34px'
             }}
           >
-            <span style={{ 
-              background: 'linear-gradient(90deg, #4a6bef, #8a63e8)', 
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}>with On-Chain Automation</span> 
+            <span className={styles.heroText}>with On-Chain Automation</span> 
           </Title>
           <Paragraph 
             style={{ 
@@ -255,48 +256,6 @@ export default function HomeContent() {
               Watch Demo
             </Button>
           </Space>
-        </div>
-        
-        <div style={{ ...fadeInStyle(0.3), marginTop: 80, maxWidth: 1000, margin: '80px auto 0' }}>
-          <Card 
-            style={{ 
-              width: '100%', 
-              borderRadius: 12,
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
-              overflow: 'hidden',
-              border: 'none'
-            }}
-          >
-            <div
-              style={{
-                height: 48,
-                background: '#151515',
-                margin: -24,
-                marginBottom: 0,
-                padding: '0 16px',
-                display: 'flex',
-                alignItems: 'center'
-              }}
-            >
-              <div style={{ display: 'flex', gap: 8 }}>
-                <div style={{ width: 12, height: 12, borderRadius: 6, background: '#ff5f57' }}></div>
-                <div style={{ width: 12, height: 12, borderRadius: 6, background: '#febc2e' }}></div>
-                <div style={{ width: 12, height: 12, borderRadius: 6, background: '#28c840' }}></div>
-              </div>
-              <div style={{ marginLeft: 16, color: 'white', fontSize: 14 }}>Building a New Feri</div>
-            </div>
-            
-            <div style={{ height: 500, marginTop: 24 }}>
-              <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                nodeTypes={nodeTypes}
-              >
-                <Controls />
-                <Background color="#f0f0f0" gap={16} />
-              </ReactFlow>
-            </div>
-          </Card>
         </div>
       </div>
       
