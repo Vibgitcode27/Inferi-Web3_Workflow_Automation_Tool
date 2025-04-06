@@ -29,6 +29,10 @@
     },
     "db:reset": {
       "cache": false
+    },
+    "kafka:init": {
+      "cache": false,
+      "persistent": false
     }
   }
 }
