@@ -186,7 +186,7 @@ export default function HomeContent() {
         <Flex align='center' justify='center' gap={20} style={{ marginBottom: 60 }}>
           <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "15px"}}><Avatar src={webhookImage.src}/> Blockchain Event Triggers</Button>
           <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "15px"}}><Avatar size={40} src={blockchainImage.src}/> Gas Fee Optimization</Button>
-          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "15px"}}><Avatar size={55} src={nft.src} style={{ marginRight : "-10px" , marginLeft : "-ypx"}}/> Real-Time NFT Minting</Button>
+          <Button style={{ height : "45px" , backgroundColor : "transparent" , borderRadius : "20px" , fontWeight : "800" , fontSize : "15px"}}><Avatar size={55} src={nft.src} style={{ marginRight : "-10px" , marginLeft : "-7px"}}/> Real-Time NFT Minting</Button>
         </Flex>
         <div style={fadeInStyle(0)}>
           <Title 

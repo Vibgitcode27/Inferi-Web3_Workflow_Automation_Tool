@@ -59,7 +59,6 @@ const Navbar = () => {
       style={{ 
       background: scrolled ? 'rgba(251, 251, 251, 0.68)' : 'rgba(255, 255, 255, 0.8)',
       padding: '2% 1% 2% 7%',
-      paddingTop: 10,
       position: 'fixed',
       width: '100%',
       top: 0,
