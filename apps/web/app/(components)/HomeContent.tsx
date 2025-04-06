@@ -26,6 +26,7 @@ import styles from "../styles/main.module.css"
 import webhookImage from '../../public/cdnlogo.com_webhook.svg';
 import blockchainImage from '../../public/blockchain.png';
 import nft from '../../public/nft.png';
+import { Features } from './Features';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -276,80 +277,7 @@ export default function HomeContent() {
             </Paragraph>
           </div>
           
-          <Row gutter={[24, 24]}>
-            {[
-              { 
-                icon: <LinkOutlined />, 
-                title: 'Web3 Native', 
-                desc: 'Built from the ground up for blockchain operations with support for multiple chains, wallets, and protocols.'
-              },
-              { 
-                icon: <ApiOutlined />, 
-                title: 'Rich Integrations', 
-                desc: 'Connect with Slack, Notion, Email, and many other popular services to build powerful workflows.'
-              },
-              { 
-                icon: <ThunderboltOutlined />, 
-                title: 'No-Code Builder', 
-                desc: 'Create complex automation feries without writing a single line of code using our visual editor.'
-              },
-              { 
-                icon: <DashboardOutlined />, 
-                title: 'Real-Time Monitoring', 
-                desc: 'Monitor your workflows with real-time analytics and notifications when things go wrong.'
-              },
-              { 
-                icon: <LockOutlined />, 
-                title: 'Secure by Design', 
-                desc: 'Enterprise-grade security for your Web3 operations with encrypted connections and key management.'
-              },
-              { 
-                icon: <RocketOutlined />, 
-                title: 'Lightning Fast', 
-                desc: 'Built on a high-performance infrastructure to handle your most demanding workflows.'
-              }
-            ].map((feature, index) => (
-              <Col xs={24} sm={12} lg={8} key={index}>
-                <div style={fadeInStyle(0.1 + index * 0.1)}>
-                  <Card
-                    hoverable
-                    style={{ 
-                      height: '100%', 
-                      borderRadius: 12,
-                      textAlign: 'left',
-                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
-                      border: 'none',
-                      overflow: 'hidden',
-                      position: 'relative'
-                    }}
-                    bodyStyle={{ padding: 28 }}
-                  >
-                    <div 
-                      style={{ 
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: 6,
-                        height: '100%',
-                        background: 'linear-gradient(180deg, #4a6bef, #8a63e8)'
-                      }}
-                    />
-                    <div
-                      style={{ 
-                        fontSize: 36, 
-                        color: '#4a6bef',
-                        marginBottom: 16
-                      }}
-                    >
-                      {feature.icon}
-                    </div>
-                    <Title level={4} style={{ marginBottom: 12 }}>{feature.title}</Title>
-                    <Paragraph style={{ color: '#666' }}>{feature.desc}</Paragraph>
-                  </Card>
-                </div>
-              </Col>
-            ))}
-          </Row>
+          <Features/>
         </div>
       </div>
       
