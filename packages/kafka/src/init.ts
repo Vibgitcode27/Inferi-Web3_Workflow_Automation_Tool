@@ -1,6 +1,6 @@
 import { admin } from "./client";
 
-const topicToCreate = "my-topic";
+const topicToCreate = "feri-events";
 
 export const initKafka = async () => {
   try {
