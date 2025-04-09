@@ -1,8 +1,9 @@
-// tailwind.config.js
-module.exports = {
-  darkMode: "class", // Automatically uses system preferences for dark mode
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  darkMode: "class",
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}", // Adjust according to your file structure
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
@@ -11,3 +12,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+export default config;
