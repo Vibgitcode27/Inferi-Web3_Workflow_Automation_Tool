@@ -261,23 +261,35 @@ export default function HomeContent() {
       </div>
       
       {/* Features Section */}
-      <div style={{ padding: '120px 5%', background: 'white' }} id="features">
-        <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
-          <div style={fadeInStyle(0)}>
-            <Title level={2} style={{ fontSize: 48, fontWeight: 800, marginBottom: 16 }}>
-              Features that <Text style={{ 
-                background: 'linear-gradient(90deg, #4a6bef, #8a63e8)', 
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}>Power</Text> Your Workflow
-            </Title>
-            
-            <Paragraph style={{ fontSize: 20, color: '#666', maxWidth: 600, margin: '0 auto 64px' }}>
-              Inferi combines powerful Web3 functionality with ease of use to automate your blockchain operations.
-            </Paragraph>
+      <div style={{ padding: '60px 5%', background: 'white' }} id="features">
+        <div
+          style={{
+            maxWidth: 1700,
+            width: 1750,
+            padding: '60px 70px',
+            textAlign: 'center',
+            background: 'linear-gradient(135deg, #f5f7ff, #e9e5ff)', // lighter version of your logo gradient
+            borderRadius: '30px',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+          }}
+        >
+          <div style={{ maxWidth: 1500, margin: '0 auto', textAlign: 'center' }}>
+            <div style={fadeInStyle(0)}>
+              <Title level={2} style={{ fontSize: 48, fontWeight: 800, marginBottom: 16 }}>
+                Features that <span style={{ 
+                  background: 'linear-gradient(90deg, #4a6bef, #8a63e8)', 
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }}>Power</span> Your Workflow
+              </Title>
+
+              <Paragraph style={{ fontSize: 20, color: '#444', maxWidth: 600, margin: '0 auto 64px' }}>
+                Inferi combines powerful Web3 functionality with ease of use to automate your blockchain operations.
+              </Paragraph>
+            </div>
+
+            <Features />
           </div>
-          
-          <Features/>
         </div>
       </div>
       
