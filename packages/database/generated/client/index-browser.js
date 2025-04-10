@@ -126,26 +126,26 @@ exports.Prisma.UserScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
-exports.Prisma.CascadeScalarFieldEnum = {
+exports.Prisma.FeriScalarFieldEnum = {
   id: 'id',
   triggerId: 'triggerId',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'
 };
 
-exports.Prisma.CascadeRunScalarFieldEnum = {
+exports.Prisma.FeriRunScalarFieldEnum = {
   id: 'id',
-  cascadeId: 'cascadeId',
+  feriId: 'feriId',
   status: 'status',
   metadata: 'metadata',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'
 };
 
-exports.Prisma.CascadeOutboxScalarFieldEnum = {
+exports.Prisma.FeriOutboxScalarFieldEnum = {
   id: 'id',
   metadata: 'metadata',
-  cascadeRunId: 'cascadeRunId',
+  feriRunId: 'feriRunId',
   status: 'status',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'
@@ -154,7 +154,7 @@ exports.Prisma.CascadeOutboxScalarFieldEnum = {
 exports.Prisma.TriggerScalarFieldEnum = {
   id: 'id',
   triggerId: 'triggerId',
-  cascadeId: 'cascadeId',
+  feriId: 'feriId',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'
 };
@@ -162,7 +162,7 @@ exports.Prisma.TriggerScalarFieldEnum = {
 exports.Prisma.ActionScalarFieldEnum = {
   id: 'id',
   actionId: 'actionId',
-  cascadeId: 'cascadeId',
+  feriId: 'feriId',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'
 };
@@ -205,9 +205,9 @@ exports.Prisma.JsonNullValueFilter = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Cascade: 'Cascade',
-  CascadeRun: 'CascadeRun',
-  CascadeOutbox: 'CascadeOutbox',
+  Feri: 'Feri',
+  FeriRun: 'FeriRun',
+  FeriOutbox: 'FeriOutbox',
   Trigger: 'Trigger',
   Action: 'Action',
   AvailableActions: 'AvailableActions',

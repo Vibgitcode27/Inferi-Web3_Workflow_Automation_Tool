@@ -19,20 +19,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Cascade
+ * Model Feri
  * 
  */
-export type Cascade = $Result.DefaultSelection<Prisma.$CascadePayload>
+export type Feri = $Result.DefaultSelection<Prisma.$FeriPayload>
 /**
- * Model CascadeRun
+ * Model FeriRun
  * 
  */
-export type CascadeRun = $Result.DefaultSelection<Prisma.$CascadeRunPayload>
+export type FeriRun = $Result.DefaultSelection<Prisma.$FeriRunPayload>
 /**
- * Model CascadeOutbox
+ * Model FeriOutbox
  * 
  */
-export type CascadeOutbox = $Result.DefaultSelection<Prisma.$CascadeOutboxPayload>
+export type FeriOutbox = $Result.DefaultSelection<Prisma.$FeriOutboxPayload>
 /**
  * Model Trigger
  * 
@@ -190,34 +190,34 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.cascade`: Exposes CRUD operations for the **Cascade** model.
+   * `prisma.feri`: Exposes CRUD operations for the **Feri** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Cascades
-    * const cascades = await prisma.cascade.findMany()
+    * // Fetch zero or more Feris
+    * const feris = await prisma.feri.findMany()
     * ```
     */
-  get cascade(): Prisma.CascadeDelegate<ExtArgs, ClientOptions>;
+  get feri(): Prisma.FeriDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.cascadeRun`: Exposes CRUD operations for the **CascadeRun** model.
+   * `prisma.feriRun`: Exposes CRUD operations for the **FeriRun** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more CascadeRuns
-    * const cascadeRuns = await prisma.cascadeRun.findMany()
+    * // Fetch zero or more FeriRuns
+    * const feriRuns = await prisma.feriRun.findMany()
     * ```
     */
-  get cascadeRun(): Prisma.CascadeRunDelegate<ExtArgs, ClientOptions>;
+  get feriRun(): Prisma.FeriRunDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.cascadeOutbox`: Exposes CRUD operations for the **CascadeOutbox** model.
+   * `prisma.feriOutbox`: Exposes CRUD operations for the **FeriOutbox** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more CascadeOutboxes
-    * const cascadeOutboxes = await prisma.cascadeOutbox.findMany()
+    * // Fetch zero or more FeriOutboxes
+    * const feriOutboxes = await prisma.feriOutbox.findMany()
     * ```
     */
-  get cascadeOutbox(): Prisma.CascadeOutboxDelegate<ExtArgs, ClientOptions>;
+  get feriOutbox(): Prisma.FeriOutboxDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.trigger`: Exposes CRUD operations for the **Trigger** model.
@@ -699,9 +699,9 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Cascade: 'Cascade',
-    CascadeRun: 'CascadeRun',
-    CascadeOutbox: 'CascadeOutbox',
+    Feri: 'Feri',
+    FeriRun: 'FeriRun',
+    FeriOutbox: 'FeriOutbox',
     Trigger: 'Trigger',
     Action: 'Action',
     AvailableActions: 'AvailableActions',
@@ -724,7 +724,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "cascade" | "cascadeRun" | "cascadeOutbox" | "trigger" | "action" | "availableActions" | "availableTrigger"
+      modelProps: "user" | "feri" | "feriRun" | "feriOutbox" | "trigger" | "action" | "availableActions" | "availableTrigger"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -802,225 +802,225 @@ export namespace Prisma {
           }
         }
       }
-      Cascade: {
-        payload: Prisma.$CascadePayload<ExtArgs>
-        fields: Prisma.CascadeFieldRefs
+      Feri: {
+        payload: Prisma.$FeriPayload<ExtArgs>
+        fields: Prisma.FeriFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CascadeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload> | null
+            args: Prisma.FeriFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CascadeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>
+            args: Prisma.FeriFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>
           }
           findFirst: {
-            args: Prisma.CascadeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload> | null
+            args: Prisma.FeriFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CascadeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>
+            args: Prisma.FeriFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>
           }
           findMany: {
-            args: Prisma.CascadeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>[]
+            args: Prisma.FeriFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>[]
           }
           create: {
-            args: Prisma.CascadeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>
+            args: Prisma.FeriCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>
           }
           createMany: {
-            args: Prisma.CascadeCreateManyArgs<ExtArgs>
+            args: Prisma.FeriCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CascadeCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>[]
+            args: Prisma.FeriCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>[]
           }
           delete: {
-            args: Prisma.CascadeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>
+            args: Prisma.FeriDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>
           }
           update: {
-            args: Prisma.CascadeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>
+            args: Prisma.FeriUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>
           }
           deleteMany: {
-            args: Prisma.CascadeDeleteManyArgs<ExtArgs>
+            args: Prisma.FeriDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CascadeUpdateManyArgs<ExtArgs>
+            args: Prisma.FeriUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CascadeUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>[]
+            args: Prisma.FeriUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>[]
           }
           upsert: {
-            args: Prisma.CascadeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadePayload>
+            args: Prisma.FeriUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriPayload>
           }
           aggregate: {
-            args: Prisma.CascadeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCascade>
+            args: Prisma.FeriAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFeri>
           }
           groupBy: {
-            args: Prisma.CascadeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CascadeGroupByOutputType>[]
+            args: Prisma.FeriGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FeriGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CascadeCountArgs<ExtArgs>
-            result: $Utils.Optional<CascadeCountAggregateOutputType> | number
+            args: Prisma.FeriCountArgs<ExtArgs>
+            result: $Utils.Optional<FeriCountAggregateOutputType> | number
           }
         }
       }
-      CascadeRun: {
-        payload: Prisma.$CascadeRunPayload<ExtArgs>
-        fields: Prisma.CascadeRunFieldRefs
+      FeriRun: {
+        payload: Prisma.$FeriRunPayload<ExtArgs>
+        fields: Prisma.FeriRunFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CascadeRunFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload> | null
+            args: Prisma.FeriRunFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CascadeRunFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>
+            args: Prisma.FeriRunFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>
           }
           findFirst: {
-            args: Prisma.CascadeRunFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload> | null
+            args: Prisma.FeriRunFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CascadeRunFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>
+            args: Prisma.FeriRunFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>
           }
           findMany: {
-            args: Prisma.CascadeRunFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>[]
+            args: Prisma.FeriRunFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>[]
           }
           create: {
-            args: Prisma.CascadeRunCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>
+            args: Prisma.FeriRunCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>
           }
           createMany: {
-            args: Prisma.CascadeRunCreateManyArgs<ExtArgs>
+            args: Prisma.FeriRunCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CascadeRunCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>[]
+            args: Prisma.FeriRunCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>[]
           }
           delete: {
-            args: Prisma.CascadeRunDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>
+            args: Prisma.FeriRunDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>
           }
           update: {
-            args: Prisma.CascadeRunUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>
+            args: Prisma.FeriRunUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>
           }
           deleteMany: {
-            args: Prisma.CascadeRunDeleteManyArgs<ExtArgs>
+            args: Prisma.FeriRunDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CascadeRunUpdateManyArgs<ExtArgs>
+            args: Prisma.FeriRunUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CascadeRunUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>[]
+            args: Prisma.FeriRunUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>[]
           }
           upsert: {
-            args: Prisma.CascadeRunUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeRunPayload>
+            args: Prisma.FeriRunUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriRunPayload>
           }
           aggregate: {
-            args: Prisma.CascadeRunAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCascadeRun>
+            args: Prisma.FeriRunAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFeriRun>
           }
           groupBy: {
-            args: Prisma.CascadeRunGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CascadeRunGroupByOutputType>[]
+            args: Prisma.FeriRunGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FeriRunGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CascadeRunCountArgs<ExtArgs>
-            result: $Utils.Optional<CascadeRunCountAggregateOutputType> | number
+            args: Prisma.FeriRunCountArgs<ExtArgs>
+            result: $Utils.Optional<FeriRunCountAggregateOutputType> | number
           }
         }
       }
-      CascadeOutbox: {
-        payload: Prisma.$CascadeOutboxPayload<ExtArgs>
-        fields: Prisma.CascadeOutboxFieldRefs
+      FeriOutbox: {
+        payload: Prisma.$FeriOutboxPayload<ExtArgs>
+        fields: Prisma.FeriOutboxFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CascadeOutboxFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload> | null
+            args: Prisma.FeriOutboxFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CascadeOutboxFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>
+            args: Prisma.FeriOutboxFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>
           }
           findFirst: {
-            args: Prisma.CascadeOutboxFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload> | null
+            args: Prisma.FeriOutboxFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CascadeOutboxFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>
+            args: Prisma.FeriOutboxFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>
           }
           findMany: {
-            args: Prisma.CascadeOutboxFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>[]
+            args: Prisma.FeriOutboxFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>[]
           }
           create: {
-            args: Prisma.CascadeOutboxCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>
+            args: Prisma.FeriOutboxCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>
           }
           createMany: {
-            args: Prisma.CascadeOutboxCreateManyArgs<ExtArgs>
+            args: Prisma.FeriOutboxCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CascadeOutboxCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>[]
+            args: Prisma.FeriOutboxCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>[]
           }
           delete: {
-            args: Prisma.CascadeOutboxDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>
+            args: Prisma.FeriOutboxDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>
           }
           update: {
-            args: Prisma.CascadeOutboxUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>
+            args: Prisma.FeriOutboxUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>
           }
           deleteMany: {
-            args: Prisma.CascadeOutboxDeleteManyArgs<ExtArgs>
+            args: Prisma.FeriOutboxDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CascadeOutboxUpdateManyArgs<ExtArgs>
+            args: Prisma.FeriOutboxUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CascadeOutboxUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>[]
+            args: Prisma.FeriOutboxUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>[]
           }
           upsert: {
-            args: Prisma.CascadeOutboxUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CascadeOutboxPayload>
+            args: Prisma.FeriOutboxUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FeriOutboxPayload>
           }
           aggregate: {
-            args: Prisma.CascadeOutboxAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCascadeOutbox>
+            args: Prisma.FeriOutboxAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFeriOutbox>
           }
           groupBy: {
-            args: Prisma.CascadeOutboxGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CascadeOutboxGroupByOutputType>[]
+            args: Prisma.FeriOutboxGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FeriOutboxGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CascadeOutboxCountArgs<ExtArgs>
-            result: $Utils.Optional<CascadeOutboxCountAggregateOutputType> | number
+            args: Prisma.FeriOutboxCountArgs<ExtArgs>
+            result: $Utils.Optional<FeriOutboxCountAggregateOutputType> | number
           }
         }
       }
@@ -1405,9 +1405,9 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
-    cascade?: CascadeOmit
-    cascadeRun?: CascadeRunOmit
-    cascadeOutbox?: CascadeOutboxOmit
+    feri?: FeriOmit
+    feriRun?: FeriRunOmit
+    feriOutbox?: FeriOutboxOmit
     trigger?: TriggerOmit
     action?: ActionOmit
     availableActions?: AvailableActionsOmit
@@ -1502,73 +1502,73 @@ export namespace Prisma {
 
 
   /**
-   * Count Type CascadeCountOutputType
+   * Count Type FeriCountOutputType
    */
 
-  export type CascadeCountOutputType = {
+  export type FeriCountOutputType = {
     action: number
-    CascadeRuns: number
+    FeriRuns: number
   }
 
-  export type CascadeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    action?: boolean | CascadeCountOutputTypeCountActionArgs
-    CascadeRuns?: boolean | CascadeCountOutputTypeCountCascadeRunsArgs
+  export type FeriCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    action?: boolean | FeriCountOutputTypeCountActionArgs
+    FeriRuns?: boolean | FeriCountOutputTypeCountFeriRunsArgs
   }
 
   // Custom InputTypes
   /**
-   * CascadeCountOutputType without action
+   * FeriCountOutputType without action
    */
-  export type CascadeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeCountOutputType
+     * Select specific fields to fetch from the FeriCountOutputType
      */
-    select?: CascadeCountOutputTypeSelect<ExtArgs> | null
+    select?: FeriCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * CascadeCountOutputType without action
+   * FeriCountOutputType without action
    */
-  export type CascadeCountOutputTypeCountActionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriCountOutputTypeCountActionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ActionWhereInput
   }
 
   /**
-   * CascadeCountOutputType without action
+   * FeriCountOutputType without action
    */
-  export type CascadeCountOutputTypeCountCascadeRunsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CascadeRunWhereInput
+  export type FeriCountOutputTypeCountFeriRunsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeriRunWhereInput
   }
 
 
   /**
-   * Count Type CascadeRunCountOutputType
+   * Count Type FeriRunCountOutputType
    */
 
-  export type CascadeRunCountOutputType = {
-    cascadeOutbox: number
+  export type FeriRunCountOutputType = {
+    feriOutbox: number
   }
 
-  export type CascadeRunCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cascadeOutbox?: boolean | CascadeRunCountOutputTypeCountCascadeOutboxArgs
+  export type FeriRunCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    feriOutbox?: boolean | FeriRunCountOutputTypeCountFeriOutboxArgs
   }
 
   // Custom InputTypes
   /**
-   * CascadeRunCountOutputType without action
+   * FeriRunCountOutputType without action
    */
-  export type CascadeRunCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRunCountOutputType
+     * Select specific fields to fetch from the FeriRunCountOutputType
      */
-    select?: CascadeRunCountOutputTypeSelect<ExtArgs> | null
+    select?: FeriRunCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * CascadeRunCountOutputType without action
+   * FeriRunCountOutputType without action
    */
-  export type CascadeRunCountOutputTypeCountCascadeOutboxArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CascadeOutboxWhereInput
+  export type FeriRunCountOutputTypeCountFeriOutboxArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeriOutboxWhereInput
   }
 
 
@@ -2681,30 +2681,30 @@ export namespace Prisma {
 
 
   /**
-   * Model Cascade
+   * Model Feri
    */
 
-  export type AggregateCascade = {
-    _count: CascadeCountAggregateOutputType | null
-    _min: CascadeMinAggregateOutputType | null
-    _max: CascadeMaxAggregateOutputType | null
+  export type AggregateFeri = {
+    _count: FeriCountAggregateOutputType | null
+    _min: FeriMinAggregateOutputType | null
+    _max: FeriMaxAggregateOutputType | null
   }
 
-  export type CascadeMinAggregateOutputType = {
+  export type FeriMinAggregateOutputType = {
     id: string | null
     triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
 
-  export type CascadeMaxAggregateOutputType = {
+  export type FeriMaxAggregateOutputType = {
     id: string | null
     triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
 
-  export type CascadeCountAggregateOutputType = {
+  export type FeriCountAggregateOutputType = {
     id: number
     triggerId: number
     updatedAt: number
@@ -2713,21 +2713,21 @@ export namespace Prisma {
   }
 
 
-  export type CascadeMinAggregateInputType = {
+  export type FeriMinAggregateInputType = {
     id?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
   }
 
-  export type CascadeMaxAggregateInputType = {
+  export type FeriMaxAggregateInputType = {
     id?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
   }
 
-  export type CascadeCountAggregateInputType = {
+  export type FeriCountAggregateInputType = {
     id?: true
     triggerId?: true
     updatedAt?: true
@@ -2735,286 +2735,286 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type CascadeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Cascade to aggregate.
+     * Filter which Feri to aggregate.
      */
-    where?: CascadeWhereInput
+    where?: FeriWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cascades to fetch.
+     * Determine the order of Feris to fetch.
      */
-    orderBy?: CascadeOrderByWithRelationInput | CascadeOrderByWithRelationInput[]
+    orderBy?: FeriOrderByWithRelationInput | FeriOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CascadeWhereUniqueInput
+    cursor?: FeriWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cascades from the position of the cursor.
+     * Take `±n` Feris from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cascades.
+     * Skip the first `n` Feris.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Cascades
+     * Count returned Feris
     **/
-    _count?: true | CascadeCountAggregateInputType
+    _count?: true | FeriCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CascadeMinAggregateInputType
+    _min?: FeriMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CascadeMaxAggregateInputType
+    _max?: FeriMaxAggregateInputType
   }
 
-  export type GetCascadeAggregateType<T extends CascadeAggregateArgs> = {
-        [P in keyof T & keyof AggregateCascade]: P extends '_count' | 'count'
+  export type GetFeriAggregateType<T extends FeriAggregateArgs> = {
+        [P in keyof T & keyof AggregateFeri]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCascade[P]>
-      : GetScalarType<T[P], AggregateCascade[P]>
+        : GetScalarType<T[P], AggregateFeri[P]>
+      : GetScalarType<T[P], AggregateFeri[P]>
   }
 
 
 
 
-  export type CascadeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CascadeWhereInput
-    orderBy?: CascadeOrderByWithAggregationInput | CascadeOrderByWithAggregationInput[]
-    by: CascadeScalarFieldEnum[] | CascadeScalarFieldEnum
-    having?: CascadeScalarWhereWithAggregatesInput
+  export type FeriGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeriWhereInput
+    orderBy?: FeriOrderByWithAggregationInput | FeriOrderByWithAggregationInput[]
+    by: FeriScalarFieldEnum[] | FeriScalarFieldEnum
+    having?: FeriScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CascadeCountAggregateInputType | true
-    _min?: CascadeMinAggregateInputType
-    _max?: CascadeMaxAggregateInputType
+    _count?: FeriCountAggregateInputType | true
+    _min?: FeriMinAggregateInputType
+    _max?: FeriMaxAggregateInputType
   }
 
-  export type CascadeGroupByOutputType = {
+  export type FeriGroupByOutputType = {
     id: string
     triggerId: string
     updatedAt: Date
     createdAt: Date
-    _count: CascadeCountAggregateOutputType | null
-    _min: CascadeMinAggregateOutputType | null
-    _max: CascadeMaxAggregateOutputType | null
+    _count: FeriCountAggregateOutputType | null
+    _min: FeriMinAggregateOutputType | null
+    _max: FeriMaxAggregateOutputType | null
   }
 
-  type GetCascadeGroupByPayload<T extends CascadeGroupByArgs> = Prisma.PrismaPromise<
+  type GetFeriGroupByPayload<T extends FeriGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CascadeGroupByOutputType, T['by']> &
+      PickEnumerable<FeriGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CascadeGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof FeriGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CascadeGroupByOutputType[P]>
-            : GetScalarType<T[P], CascadeGroupByOutputType[P]>
+              : GetScalarType<T[P], FeriGroupByOutputType[P]>
+            : GetScalarType<T[P], FeriGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CascadeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    trigger?: boolean | Cascade$triggerArgs<ExtArgs>
-    action?: boolean | Cascade$actionArgs<ExtArgs>
-    CascadeRuns?: boolean | Cascade$CascadeRunsArgs<ExtArgs>
-    _count?: boolean | CascadeCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["cascade"]>
+    trigger?: boolean | Feri$triggerArgs<ExtArgs>
+    action?: boolean | Feri$actionArgs<ExtArgs>
+    FeriRuns?: boolean | Feri$FeriRunsArgs<ExtArgs>
+    _count?: boolean | FeriCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["feri"]>
 
-  export type CascadeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["cascade"]>
+  }, ExtArgs["result"]["feri"]>
 
-  export type CascadeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["cascade"]>
+  }, ExtArgs["result"]["feri"]>
 
-  export type CascadeSelectScalar = {
+  export type FeriSelectScalar = {
     id?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type CascadeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["cascade"]>
-  export type CascadeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    trigger?: boolean | Cascade$triggerArgs<ExtArgs>
-    action?: boolean | Cascade$actionArgs<ExtArgs>
-    CascadeRuns?: boolean | Cascade$CascadeRunsArgs<ExtArgs>
-    _count?: boolean | CascadeCountOutputTypeDefaultArgs<ExtArgs>
+  export type FeriOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["feri"]>
+  export type FeriInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trigger?: boolean | Feri$triggerArgs<ExtArgs>
+    action?: boolean | Feri$actionArgs<ExtArgs>
+    FeriRuns?: boolean | Feri$FeriRunsArgs<ExtArgs>
+    _count?: boolean | FeriCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CascadeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type CascadeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FeriIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FeriIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $CascadePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Cascade"
+  export type $FeriPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Feri"
     objects: {
       trigger: Prisma.$TriggerPayload<ExtArgs> | null
       action: Prisma.$ActionPayload<ExtArgs>[]
-      CascadeRuns: Prisma.$CascadeRunPayload<ExtArgs>[]
+      FeriRuns: Prisma.$FeriRunPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       triggerId: string
       updatedAt: Date
       createdAt: Date
-    }, ExtArgs["result"]["cascade"]>
+    }, ExtArgs["result"]["feri"]>
     composites: {}
   }
 
-  type CascadeGetPayload<S extends boolean | null | undefined | CascadeDefaultArgs> = $Result.GetResult<Prisma.$CascadePayload, S>
+  type FeriGetPayload<S extends boolean | null | undefined | FeriDefaultArgs> = $Result.GetResult<Prisma.$FeriPayload, S>
 
-  type CascadeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CascadeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CascadeCountAggregateInputType | true
+  type FeriCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FeriFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FeriCountAggregateInputType | true
     }
 
-  export interface CascadeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Cascade'], meta: { name: 'Cascade' } }
+  export interface FeriDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Feri'], meta: { name: 'Feri' } }
     /**
-     * Find zero or one Cascade that matches the filter.
-     * @param {CascadeFindUniqueArgs} args - Arguments to find a Cascade
+     * Find zero or one Feri that matches the filter.
+     * @param {FeriFindUniqueArgs} args - Arguments to find a Feri
      * @example
-     * // Get one Cascade
-     * const cascade = await prisma.cascade.findUnique({
+     * // Get one Feri
+     * const feri = await prisma.feri.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CascadeFindUniqueArgs>(args: SelectSubset<T, CascadeFindUniqueArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends FeriFindUniqueArgs>(args: SelectSubset<T, FeriFindUniqueArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Cascade that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Feri that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CascadeFindUniqueOrThrowArgs} args - Arguments to find a Cascade
+     * @param {FeriFindUniqueOrThrowArgs} args - Arguments to find a Feri
      * @example
-     * // Get one Cascade
-     * const cascade = await prisma.cascade.findUniqueOrThrow({
+     * // Get one Feri
+     * const feri = await prisma.feri.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CascadeFindUniqueOrThrowArgs>(args: SelectSubset<T, CascadeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends FeriFindUniqueOrThrowArgs>(args: SelectSubset<T, FeriFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Cascade that matches the filter.
+     * Find the first Feri that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeFindFirstArgs} args - Arguments to find a Cascade
+     * @param {FeriFindFirstArgs} args - Arguments to find a Feri
      * @example
-     * // Get one Cascade
-     * const cascade = await prisma.cascade.findFirst({
+     * // Get one Feri
+     * const feri = await prisma.feri.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CascadeFindFirstArgs>(args?: SelectSubset<T, CascadeFindFirstArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends FeriFindFirstArgs>(args?: SelectSubset<T, FeriFindFirstArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Cascade that matches the filter or
+     * Find the first Feri that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeFindFirstOrThrowArgs} args - Arguments to find a Cascade
+     * @param {FeriFindFirstOrThrowArgs} args - Arguments to find a Feri
      * @example
-     * // Get one Cascade
-     * const cascade = await prisma.cascade.findFirstOrThrow({
+     * // Get one Feri
+     * const feri = await prisma.feri.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CascadeFindFirstOrThrowArgs>(args?: SelectSubset<T, CascadeFindFirstOrThrowArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends FeriFindFirstOrThrowArgs>(args?: SelectSubset<T, FeriFindFirstOrThrowArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Cascades that matches the filter.
+     * Find zero or more Feris that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {FeriFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Cascades
-     * const cascades = await prisma.cascade.findMany()
+     * // Get all Feris
+     * const feris = await prisma.feri.findMany()
      * 
-     * // Get first 10 Cascades
-     * const cascades = await prisma.cascade.findMany({ take: 10 })
+     * // Get first 10 Feris
+     * const feris = await prisma.feri.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const cascadeWithIdOnly = await prisma.cascade.findMany({ select: { id: true } })
+     * const feriWithIdOnly = await prisma.feri.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CascadeFindManyArgs>(args?: SelectSubset<T, CascadeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends FeriFindManyArgs>(args?: SelectSubset<T, FeriFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Cascade.
-     * @param {CascadeCreateArgs} args - Arguments to create a Cascade.
+     * Create a Feri.
+     * @param {FeriCreateArgs} args - Arguments to create a Feri.
      * @example
-     * // Create one Cascade
-     * const Cascade = await prisma.cascade.create({
+     * // Create one Feri
+     * const Feri = await prisma.feri.create({
      *   data: {
-     *     // ... data to create a Cascade
+     *     // ... data to create a Feri
      *   }
      * })
      * 
      */
-    create<T extends CascadeCreateArgs>(args: SelectSubset<T, CascadeCreateArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends FeriCreateArgs>(args: SelectSubset<T, FeriCreateArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Cascades.
-     * @param {CascadeCreateManyArgs} args - Arguments to create many Cascades.
+     * Create many Feris.
+     * @param {FeriCreateManyArgs} args - Arguments to create many Feris.
      * @example
-     * // Create many Cascades
-     * const cascade = await prisma.cascade.createMany({
+     * // Create many Feris
+     * const feri = await prisma.feri.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CascadeCreateManyArgs>(args?: SelectSubset<T, CascadeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends FeriCreateManyArgs>(args?: SelectSubset<T, FeriCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Cascades and returns the data saved in the database.
-     * @param {CascadeCreateManyAndReturnArgs} args - Arguments to create many Cascades.
+     * Create many Feris and returns the data saved in the database.
+     * @param {FeriCreateManyAndReturnArgs} args - Arguments to create many Feris.
      * @example
-     * // Create many Cascades
-     * const cascade = await prisma.cascade.createManyAndReturn({
+     * // Create many Feris
+     * const feri = await prisma.feri.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Cascades and only return the `id`
-     * const cascadeWithIdOnly = await prisma.cascade.createManyAndReturn({
+     * // Create many Feris and only return the `id`
+     * const feriWithIdOnly = await prisma.feri.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -3024,28 +3024,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CascadeCreateManyAndReturnArgs>(args?: SelectSubset<T, CascadeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends FeriCreateManyAndReturnArgs>(args?: SelectSubset<T, FeriCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Cascade.
-     * @param {CascadeDeleteArgs} args - Arguments to delete one Cascade.
+     * Delete a Feri.
+     * @param {FeriDeleteArgs} args - Arguments to delete one Feri.
      * @example
-     * // Delete one Cascade
-     * const Cascade = await prisma.cascade.delete({
+     * // Delete one Feri
+     * const Feri = await prisma.feri.delete({
      *   where: {
-     *     // ... filter to delete one Cascade
+     *     // ... filter to delete one Feri
      *   }
      * })
      * 
      */
-    delete<T extends CascadeDeleteArgs>(args: SelectSubset<T, CascadeDeleteArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends FeriDeleteArgs>(args: SelectSubset<T, FeriDeleteArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Cascade.
-     * @param {CascadeUpdateArgs} args - Arguments to update one Cascade.
+     * Update one Feri.
+     * @param {FeriUpdateArgs} args - Arguments to update one Feri.
      * @example
-     * // Update one Cascade
-     * const cascade = await prisma.cascade.update({
+     * // Update one Feri
+     * const feri = await prisma.feri.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3055,30 +3055,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CascadeUpdateArgs>(args: SelectSubset<T, CascadeUpdateArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends FeriUpdateArgs>(args: SelectSubset<T, FeriUpdateArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Cascades.
-     * @param {CascadeDeleteManyArgs} args - Arguments to filter Cascades to delete.
+     * Delete zero or more Feris.
+     * @param {FeriDeleteManyArgs} args - Arguments to filter Feris to delete.
      * @example
-     * // Delete a few Cascades
-     * const { count } = await prisma.cascade.deleteMany({
+     * // Delete a few Feris
+     * const { count } = await prisma.feri.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CascadeDeleteManyArgs>(args?: SelectSubset<T, CascadeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends FeriDeleteManyArgs>(args?: SelectSubset<T, FeriDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Cascades.
+     * Update zero or more Feris.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {FeriUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Cascades
-     * const cascade = await prisma.cascade.updateMany({
+     * // Update many Feris
+     * const feri = await prisma.feri.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3088,14 +3088,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CascadeUpdateManyArgs>(args: SelectSubset<T, CascadeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends FeriUpdateManyArgs>(args: SelectSubset<T, FeriUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Cascades and returns the data updated in the database.
-     * @param {CascadeUpdateManyAndReturnArgs} args - Arguments to update many Cascades.
+     * Update zero or more Feris and returns the data updated in the database.
+     * @param {FeriUpdateManyAndReturnArgs} args - Arguments to update many Feris.
      * @example
-     * // Update many Cascades
-     * const cascade = await prisma.cascade.updateManyAndReturn({
+     * // Update many Feris
+     * const feri = await prisma.feri.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3104,8 +3104,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Cascades and only return the `id`
-     * const cascadeWithIdOnly = await prisma.cascade.updateManyAndReturn({
+     * // Update zero or more Feris and only return the `id`
+     * const feriWithIdOnly = await prisma.feri.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -3118,56 +3118,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CascadeUpdateManyAndReturnArgs>(args: SelectSubset<T, CascadeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends FeriUpdateManyAndReturnArgs>(args: SelectSubset<T, FeriUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Cascade.
-     * @param {CascadeUpsertArgs} args - Arguments to update or create a Cascade.
+     * Create or update one Feri.
+     * @param {FeriUpsertArgs} args - Arguments to update or create a Feri.
      * @example
-     * // Update or create a Cascade
-     * const cascade = await prisma.cascade.upsert({
+     * // Update or create a Feri
+     * const feri = await prisma.feri.upsert({
      *   create: {
-     *     // ... data to create a Cascade
+     *     // ... data to create a Feri
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Cascade we want to update
+     *     // ... the filter for the Feri we want to update
      *   }
      * })
      */
-    upsert<T extends CascadeUpsertArgs>(args: SelectSubset<T, CascadeUpsertArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends FeriUpsertArgs>(args: SelectSubset<T, FeriUpsertArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Cascades.
+     * Count the number of Feris.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeCountArgs} args - Arguments to filter Cascades to count.
+     * @param {FeriCountArgs} args - Arguments to filter Feris to count.
      * @example
-     * // Count the number of Cascades
-     * const count = await prisma.cascade.count({
+     * // Count the number of Feris
+     * const count = await prisma.feri.count({
      *   where: {
-     *     // ... the filter for the Cascades we want to count
+     *     // ... the filter for the Feris we want to count
      *   }
      * })
     **/
-    count<T extends CascadeCountArgs>(
-      args?: Subset<T, CascadeCountArgs>,
+    count<T extends FeriCountArgs>(
+      args?: Subset<T, FeriCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CascadeCountAggregateOutputType>
+          : GetScalarType<T['select'], FeriCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Cascade.
+     * Allows you to perform aggregations operations on a Feri.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {FeriAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3187,13 +3187,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CascadeAggregateArgs>(args: Subset<T, CascadeAggregateArgs>): Prisma.PrismaPromise<GetCascadeAggregateType<T>>
+    aggregate<T extends FeriAggregateArgs>(args: Subset<T, FeriAggregateArgs>): Prisma.PrismaPromise<GetFeriAggregateType<T>>
 
     /**
-     * Group by Cascade.
+     * Group by Feri.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeGroupByArgs} args - Group by arguments.
+     * @param {FeriGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3208,14 +3208,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CascadeGroupByArgs,
+      T extends FeriGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CascadeGroupByArgs['orderBy'] }
-        : { orderBy?: CascadeGroupByArgs['orderBy'] },
+        ? { orderBy: FeriGroupByArgs['orderBy'] }
+        : { orderBy?: FeriGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3264,24 +3264,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CascadeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCascadeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, FeriGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFeriGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Cascade model
+   * Fields of the Feri model
    */
-  readonly fields: CascadeFieldRefs;
+  readonly fields: FeriFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Cascade.
+   * The delegate class that acts as a "Promise-like" for Feri.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CascadeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__FeriClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    trigger<T extends Cascade$triggerArgs<ExtArgs> = {}>(args?: Subset<T, Cascade$triggerArgs<ExtArgs>>): Prisma__TriggerClient<$Result.GetResult<Prisma.$TriggerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    action<T extends Cascade$actionArgs<ExtArgs> = {}>(args?: Subset<T, Cascade$actionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    CascadeRuns<T extends Cascade$CascadeRunsArgs<ExtArgs> = {}>(args?: Subset<T, Cascade$CascadeRunsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    trigger<T extends Feri$triggerArgs<ExtArgs> = {}>(args?: Subset<T, Feri$triggerArgs<ExtArgs>>): Prisma__TriggerClient<$Result.GetResult<Prisma.$TriggerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    action<T extends Feri$actionArgs<ExtArgs> = {}>(args?: Subset<T, Feri$actionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    FeriRuns<T extends Feri$FeriRunsArgs<ExtArgs> = {}>(args?: Subset<T, Feri$FeriRunsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3308,404 +3308,404 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Cascade model
+   * Fields of the Feri model
    */ 
-  interface CascadeFieldRefs {
-    readonly id: FieldRef<"Cascade", 'String'>
-    readonly triggerId: FieldRef<"Cascade", 'String'>
-    readonly updatedAt: FieldRef<"Cascade", 'DateTime'>
-    readonly createdAt: FieldRef<"Cascade", 'DateTime'>
+  interface FeriFieldRefs {
+    readonly id: FieldRef<"Feri", 'String'>
+    readonly triggerId: FieldRef<"Feri", 'String'>
+    readonly updatedAt: FieldRef<"Feri", 'DateTime'>
+    readonly createdAt: FieldRef<"Feri", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Cascade findUnique
+   * Feri findUnique
    */
-  export type CascadeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * Filter, which Cascade to fetch.
+     * Filter, which Feri to fetch.
      */
-    where: CascadeWhereUniqueInput
+    where: FeriWhereUniqueInput
   }
 
   /**
-   * Cascade findUniqueOrThrow
+   * Feri findUniqueOrThrow
    */
-  export type CascadeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * Filter, which Cascade to fetch.
+     * Filter, which Feri to fetch.
      */
-    where: CascadeWhereUniqueInput
+    where: FeriWhereUniqueInput
   }
 
   /**
-   * Cascade findFirst
+   * Feri findFirst
    */
-  export type CascadeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * Filter, which Cascade to fetch.
+     * Filter, which Feri to fetch.
      */
-    where?: CascadeWhereInput
+    where?: FeriWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cascades to fetch.
+     * Determine the order of Feris to fetch.
      */
-    orderBy?: CascadeOrderByWithRelationInput | CascadeOrderByWithRelationInput[]
+    orderBy?: FeriOrderByWithRelationInput | FeriOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Cascades.
+     * Sets the position for searching for Feris.
      */
-    cursor?: CascadeWhereUniqueInput
+    cursor?: FeriWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cascades from the position of the cursor.
+     * Take `±n` Feris from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cascades.
+     * Skip the first `n` Feris.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Cascades.
+     * Filter by unique combinations of Feris.
      */
-    distinct?: CascadeScalarFieldEnum | CascadeScalarFieldEnum[]
+    distinct?: FeriScalarFieldEnum | FeriScalarFieldEnum[]
   }
 
   /**
-   * Cascade findFirstOrThrow
+   * Feri findFirstOrThrow
    */
-  export type CascadeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * Filter, which Cascade to fetch.
+     * Filter, which Feri to fetch.
      */
-    where?: CascadeWhereInput
+    where?: FeriWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cascades to fetch.
+     * Determine the order of Feris to fetch.
      */
-    orderBy?: CascadeOrderByWithRelationInput | CascadeOrderByWithRelationInput[]
+    orderBy?: FeriOrderByWithRelationInput | FeriOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Cascades.
+     * Sets the position for searching for Feris.
      */
-    cursor?: CascadeWhereUniqueInput
+    cursor?: FeriWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cascades from the position of the cursor.
+     * Take `±n` Feris from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cascades.
+     * Skip the first `n` Feris.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Cascades.
+     * Filter by unique combinations of Feris.
      */
-    distinct?: CascadeScalarFieldEnum | CascadeScalarFieldEnum[]
+    distinct?: FeriScalarFieldEnum | FeriScalarFieldEnum[]
   }
 
   /**
-   * Cascade findMany
+   * Feri findMany
    */
-  export type CascadeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * Filter, which Cascades to fetch.
+     * Filter, which Feris to fetch.
      */
-    where?: CascadeWhereInput
+    where?: FeriWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cascades to fetch.
+     * Determine the order of Feris to fetch.
      */
-    orderBy?: CascadeOrderByWithRelationInput | CascadeOrderByWithRelationInput[]
+    orderBy?: FeriOrderByWithRelationInput | FeriOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Cascades.
+     * Sets the position for listing Feris.
      */
-    cursor?: CascadeWhereUniqueInput
+    cursor?: FeriWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cascades from the position of the cursor.
+     * Take `±n` Feris from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cascades.
+     * Skip the first `n` Feris.
      */
     skip?: number
-    distinct?: CascadeScalarFieldEnum | CascadeScalarFieldEnum[]
+    distinct?: FeriScalarFieldEnum | FeriScalarFieldEnum[]
   }
 
   /**
-   * Cascade create
+   * Feri create
    */
-  export type CascadeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * The data needed to create a Cascade.
+     * The data needed to create a Feri.
      */
-    data: XOR<CascadeCreateInput, CascadeUncheckedCreateInput>
+    data: XOR<FeriCreateInput, FeriUncheckedCreateInput>
   }
 
   /**
-   * Cascade createMany
+   * Feri createMany
    */
-  export type CascadeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Cascades.
+     * The data used to create many Feris.
      */
-    data: CascadeCreateManyInput | CascadeCreateManyInput[]
+    data: FeriCreateManyInput | FeriCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Cascade createManyAndReturn
+   * Feri createManyAndReturn
    */
-  export type CascadeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelectCreateManyAndReturn<ExtArgs> | null
+    select?: FeriSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
-     * The data used to create many Cascades.
+     * The data used to create many Feris.
      */
-    data: CascadeCreateManyInput | CascadeCreateManyInput[]
+    data: FeriCreateManyInput | FeriCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Cascade update
+   * Feri update
    */
-  export type CascadeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * The data needed to update a Cascade.
+     * The data needed to update a Feri.
      */
-    data: XOR<CascadeUpdateInput, CascadeUncheckedUpdateInput>
+    data: XOR<FeriUpdateInput, FeriUncheckedUpdateInput>
     /**
-     * Choose, which Cascade to update.
+     * Choose, which Feri to update.
      */
-    where: CascadeWhereUniqueInput
+    where: FeriWhereUniqueInput
   }
 
   /**
-   * Cascade updateMany
+   * Feri updateMany
    */
-  export type CascadeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Cascades.
+     * The data used to update Feris.
      */
-    data: XOR<CascadeUpdateManyMutationInput, CascadeUncheckedUpdateManyInput>
+    data: XOR<FeriUpdateManyMutationInput, FeriUncheckedUpdateManyInput>
     /**
-     * Filter which Cascades to update
+     * Filter which Feris to update
      */
-    where?: CascadeWhereInput
+    where?: FeriWhereInput
     /**
-     * Limit how many Cascades to update.
+     * Limit how many Feris to update.
      */
     limit?: number
   }
 
   /**
-   * Cascade updateManyAndReturn
+   * Feri updateManyAndReturn
    */
-  export type CascadeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: FeriSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
-     * The data used to update Cascades.
+     * The data used to update Feris.
      */
-    data: XOR<CascadeUpdateManyMutationInput, CascadeUncheckedUpdateManyInput>
+    data: XOR<FeriUpdateManyMutationInput, FeriUncheckedUpdateManyInput>
     /**
-     * Filter which Cascades to update
+     * Filter which Feris to update
      */
-    where?: CascadeWhereInput
+    where?: FeriWhereInput
     /**
-     * Limit how many Cascades to update.
+     * Limit how many Feris to update.
      */
     limit?: number
   }
 
   /**
-   * Cascade upsert
+   * Feri upsert
    */
-  export type CascadeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * The filter to search for the Cascade to update in case it exists.
+     * The filter to search for the Feri to update in case it exists.
      */
-    where: CascadeWhereUniqueInput
+    where: FeriWhereUniqueInput
     /**
-     * In case the Cascade found by the `where` argument doesn't exist, create a new Cascade with this data.
+     * In case the Feri found by the `where` argument doesn't exist, create a new Feri with this data.
      */
-    create: XOR<CascadeCreateInput, CascadeUncheckedCreateInput>
+    create: XOR<FeriCreateInput, FeriUncheckedCreateInput>
     /**
-     * In case the Cascade was found with the provided `where` argument, update it with this data.
+     * In case the Feri was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CascadeUpdateInput, CascadeUncheckedUpdateInput>
+    update: XOR<FeriUpdateInput, FeriUncheckedUpdateInput>
   }
 
   /**
-   * Cascade delete
+   * Feri delete
    */
-  export type CascadeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
     /**
-     * Filter which Cascade to delete.
+     * Filter which Feri to delete.
      */
-    where: CascadeWhereUniqueInput
+    where: FeriWhereUniqueInput
   }
 
   /**
-   * Cascade deleteMany
+   * Feri deleteMany
    */
-  export type CascadeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Cascades to delete
+     * Filter which Feris to delete
      */
-    where?: CascadeWhereInput
+    where?: FeriWhereInput
     /**
-     * Limit how many Cascades to delete.
+     * Limit how many Feris to delete.
      */
     limit?: number
   }
 
   /**
-   * Cascade.trigger
+   * Feri.trigger
    */
-  export type Cascade$triggerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Feri$triggerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Trigger
      */
@@ -3722,9 +3722,9 @@ export namespace Prisma {
   }
 
   /**
-   * Cascade.action
+   * Feri.action
    */
-  export type Cascade$actionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Feri$actionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Action
      */
@@ -3746,75 +3746,75 @@ export namespace Prisma {
   }
 
   /**
-   * Cascade.CascadeRuns
+   * Feri.FeriRuns
    */
-  export type Cascade$CascadeRunsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Feri$FeriRunsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
-    where?: CascadeRunWhereInput
-    orderBy?: CascadeRunOrderByWithRelationInput | CascadeRunOrderByWithRelationInput[]
-    cursor?: CascadeRunWhereUniqueInput
+    include?: FeriRunInclude<ExtArgs> | null
+    where?: FeriRunWhereInput
+    orderBy?: FeriRunOrderByWithRelationInput | FeriRunOrderByWithRelationInput[]
+    cursor?: FeriRunWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: CascadeRunScalarFieldEnum | CascadeRunScalarFieldEnum[]
+    distinct?: FeriRunScalarFieldEnum | FeriRunScalarFieldEnum[]
   }
 
   /**
-   * Cascade without action
+   * Feri without action
    */
-  export type CascadeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
+    include?: FeriInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model CascadeRun
+   * Model FeriRun
    */
 
-  export type AggregateCascadeRun = {
-    _count: CascadeRunCountAggregateOutputType | null
-    _min: CascadeRunMinAggregateOutputType | null
-    _max: CascadeRunMaxAggregateOutputType | null
+  export type AggregateFeriRun = {
+    _count: FeriRunCountAggregateOutputType | null
+    _min: FeriRunMinAggregateOutputType | null
+    _max: FeriRunMaxAggregateOutputType | null
   }
 
-  export type CascadeRunMinAggregateOutputType = {
+  export type FeriRunMinAggregateOutputType = {
     id: string | null
-    cascadeId: string | null
+    feriId: string | null
     status: string | null
     createdAt: Date | null
   }
 
-  export type CascadeRunMaxAggregateOutputType = {
+  export type FeriRunMaxAggregateOutputType = {
     id: string | null
-    cascadeId: string | null
+    feriId: string | null
     status: string | null
     createdAt: Date | null
   }
 
-  export type CascadeRunCountAggregateOutputType = {
+  export type FeriRunCountAggregateOutputType = {
     id: number
-    cascadeId: number
+    feriId: number
     status: number
     metadata: number
     updatedAt: number
@@ -3823,23 +3823,23 @@ export namespace Prisma {
   }
 
 
-  export type CascadeRunMinAggregateInputType = {
+  export type FeriRunMinAggregateInputType = {
     id?: true
-    cascadeId?: true
+    feriId?: true
     status?: true
     createdAt?: true
   }
 
-  export type CascadeRunMaxAggregateInputType = {
+  export type FeriRunMaxAggregateInputType = {
     id?: true
-    cascadeId?: true
+    feriId?: true
     status?: true
     createdAt?: true
   }
 
-  export type CascadeRunCountAggregateInputType = {
+  export type FeriRunCountAggregateInputType = {
     id?: true
-    cascadeId?: true
+    feriId?: true
     status?: true
     metadata?: true
     updatedAt?: true
@@ -3847,301 +3847,301 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type CascadeRunAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which CascadeRun to aggregate.
+     * Filter which FeriRun to aggregate.
      */
-    where?: CascadeRunWhereInput
+    where?: FeriRunWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeRuns to fetch.
+     * Determine the order of FeriRuns to fetch.
      */
-    orderBy?: CascadeRunOrderByWithRelationInput | CascadeRunOrderByWithRelationInput[]
+    orderBy?: FeriRunOrderByWithRelationInput | FeriRunOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CascadeRunWhereUniqueInput
+    cursor?: FeriRunWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeRuns from the position of the cursor.
+     * Take `±n` FeriRuns from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeRuns.
+     * Skip the first `n` FeriRuns.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned CascadeRuns
+     * Count returned FeriRuns
     **/
-    _count?: true | CascadeRunCountAggregateInputType
+    _count?: true | FeriRunCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CascadeRunMinAggregateInputType
+    _min?: FeriRunMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CascadeRunMaxAggregateInputType
+    _max?: FeriRunMaxAggregateInputType
   }
 
-  export type GetCascadeRunAggregateType<T extends CascadeRunAggregateArgs> = {
-        [P in keyof T & keyof AggregateCascadeRun]: P extends '_count' | 'count'
+  export type GetFeriRunAggregateType<T extends FeriRunAggregateArgs> = {
+        [P in keyof T & keyof AggregateFeriRun]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCascadeRun[P]>
-      : GetScalarType<T[P], AggregateCascadeRun[P]>
+        : GetScalarType<T[P], AggregateFeriRun[P]>
+      : GetScalarType<T[P], AggregateFeriRun[P]>
   }
 
 
 
 
-  export type CascadeRunGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CascadeRunWhereInput
-    orderBy?: CascadeRunOrderByWithAggregationInput | CascadeRunOrderByWithAggregationInput[]
-    by: CascadeRunScalarFieldEnum[] | CascadeRunScalarFieldEnum
-    having?: CascadeRunScalarWhereWithAggregatesInput
+  export type FeriRunGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeriRunWhereInput
+    orderBy?: FeriRunOrderByWithAggregationInput | FeriRunOrderByWithAggregationInput[]
+    by: FeriRunScalarFieldEnum[] | FeriRunScalarFieldEnum
+    having?: FeriRunScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CascadeRunCountAggregateInputType | true
-    _min?: CascadeRunMinAggregateInputType
-    _max?: CascadeRunMaxAggregateInputType
+    _count?: FeriRunCountAggregateInputType | true
+    _min?: FeriRunMinAggregateInputType
+    _max?: FeriRunMaxAggregateInputType
   }
 
-  export type CascadeRunGroupByOutputType = {
+  export type FeriRunGroupByOutputType = {
     id: string
-    cascadeId: string
+    feriId: string
     status: string
     metadata: JsonValue
     updatedAt: Date[]
     createdAt: Date
-    _count: CascadeRunCountAggregateOutputType | null
-    _min: CascadeRunMinAggregateOutputType | null
-    _max: CascadeRunMaxAggregateOutputType | null
+    _count: FeriRunCountAggregateOutputType | null
+    _min: FeriRunMinAggregateOutputType | null
+    _max: FeriRunMaxAggregateOutputType | null
   }
 
-  type GetCascadeRunGroupByPayload<T extends CascadeRunGroupByArgs> = Prisma.PrismaPromise<
+  type GetFeriRunGroupByPayload<T extends FeriRunGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CascadeRunGroupByOutputType, T['by']> &
+      PickEnumerable<FeriRunGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CascadeRunGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof FeriRunGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CascadeRunGroupByOutputType[P]>
-            : GetScalarType<T[P], CascadeRunGroupByOutputType[P]>
+              : GetScalarType<T[P], FeriRunGroupByOutputType[P]>
+            : GetScalarType<T[P], FeriRunGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CascadeRunSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriRunSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     status?: boolean
     metadata?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
-    cascadeOutbox?: boolean | CascadeRun$cascadeOutboxArgs<ExtArgs>
-    _count?: boolean | CascadeRunCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["cascadeRun"]>
+    feri?: boolean | FeriRun$feriArgs<ExtArgs>
+    feriOutbox?: boolean | FeriRun$feriOutboxArgs<ExtArgs>
+    _count?: boolean | FeriRunCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["feriRun"]>
 
-  export type CascadeRunSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriRunSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     status?: boolean
     metadata?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
-  }, ExtArgs["result"]["cascadeRun"]>
+    feri?: boolean | FeriRun$feriArgs<ExtArgs>
+  }, ExtArgs["result"]["feriRun"]>
 
-  export type CascadeRunSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriRunSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     status?: boolean
     metadata?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
-  }, ExtArgs["result"]["cascadeRun"]>
+    feri?: boolean | FeriRun$feriArgs<ExtArgs>
+  }, ExtArgs["result"]["feriRun"]>
 
-  export type CascadeRunSelectScalar = {
+  export type FeriRunSelectScalar = {
     id?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     status?: boolean
     metadata?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type CascadeRunOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cascadeId" | "status" | "metadata" | "updatedAt" | "createdAt", ExtArgs["result"]["cascadeRun"]>
-  export type CascadeRunInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
-    cascadeOutbox?: boolean | CascadeRun$cascadeOutboxArgs<ExtArgs>
-    _count?: boolean | CascadeRunCountOutputTypeDefaultArgs<ExtArgs>
+  export type FeriRunOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "feriId" | "status" | "metadata" | "updatedAt" | "createdAt", ExtArgs["result"]["feriRun"]>
+  export type FeriRunInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    feri?: boolean | FeriRun$feriArgs<ExtArgs>
+    feriOutbox?: boolean | FeriRun$feriOutboxArgs<ExtArgs>
+    _count?: boolean | FeriRunCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CascadeRunIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
+  export type FeriRunIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    feri?: boolean | FeriRun$feriArgs<ExtArgs>
   }
-  export type CascadeRunIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cascade?: boolean | CascadeRun$cascadeArgs<ExtArgs>
+  export type FeriRunIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    feri?: boolean | FeriRun$feriArgs<ExtArgs>
   }
 
-  export type $CascadeRunPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "CascadeRun"
+  export type $FeriRunPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FeriRun"
     objects: {
-      cascade: Prisma.$CascadePayload<ExtArgs> | null
-      cascadeOutbox: Prisma.$CascadeOutboxPayload<ExtArgs>[]
+      feri: Prisma.$FeriPayload<ExtArgs> | null
+      feriOutbox: Prisma.$FeriOutboxPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      cascadeId: string
+      feriId: string
       status: string
       metadata: Prisma.JsonValue
       updatedAt: Date[]
       createdAt: Date
-    }, ExtArgs["result"]["cascadeRun"]>
+    }, ExtArgs["result"]["feriRun"]>
     composites: {}
   }
 
-  type CascadeRunGetPayload<S extends boolean | null | undefined | CascadeRunDefaultArgs> = $Result.GetResult<Prisma.$CascadeRunPayload, S>
+  type FeriRunGetPayload<S extends boolean | null | undefined | FeriRunDefaultArgs> = $Result.GetResult<Prisma.$FeriRunPayload, S>
 
-  type CascadeRunCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CascadeRunFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CascadeRunCountAggregateInputType | true
+  type FeriRunCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FeriRunFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FeriRunCountAggregateInputType | true
     }
 
-  export interface CascadeRunDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CascadeRun'], meta: { name: 'CascadeRun' } }
+  export interface FeriRunDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FeriRun'], meta: { name: 'FeriRun' } }
     /**
-     * Find zero or one CascadeRun that matches the filter.
-     * @param {CascadeRunFindUniqueArgs} args - Arguments to find a CascadeRun
+     * Find zero or one FeriRun that matches the filter.
+     * @param {FeriRunFindUniqueArgs} args - Arguments to find a FeriRun
      * @example
-     * // Get one CascadeRun
-     * const cascadeRun = await prisma.cascadeRun.findUnique({
+     * // Get one FeriRun
+     * const feriRun = await prisma.feriRun.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CascadeRunFindUniqueArgs>(args: SelectSubset<T, CascadeRunFindUniqueArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends FeriRunFindUniqueArgs>(args: SelectSubset<T, FeriRunFindUniqueArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one CascadeRun that matches the filter or throw an error with `error.code='P2025'`
+     * Find one FeriRun that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CascadeRunFindUniqueOrThrowArgs} args - Arguments to find a CascadeRun
+     * @param {FeriRunFindUniqueOrThrowArgs} args - Arguments to find a FeriRun
      * @example
-     * // Get one CascadeRun
-     * const cascadeRun = await prisma.cascadeRun.findUniqueOrThrow({
+     * // Get one FeriRun
+     * const feriRun = await prisma.feriRun.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CascadeRunFindUniqueOrThrowArgs>(args: SelectSubset<T, CascadeRunFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends FeriRunFindUniqueOrThrowArgs>(args: SelectSubset<T, FeriRunFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first CascadeRun that matches the filter.
+     * Find the first FeriRun that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeRunFindFirstArgs} args - Arguments to find a CascadeRun
+     * @param {FeriRunFindFirstArgs} args - Arguments to find a FeriRun
      * @example
-     * // Get one CascadeRun
-     * const cascadeRun = await prisma.cascadeRun.findFirst({
+     * // Get one FeriRun
+     * const feriRun = await prisma.feriRun.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CascadeRunFindFirstArgs>(args?: SelectSubset<T, CascadeRunFindFirstArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends FeriRunFindFirstArgs>(args?: SelectSubset<T, FeriRunFindFirstArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first CascadeRun that matches the filter or
+     * Find the first FeriRun that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeRunFindFirstOrThrowArgs} args - Arguments to find a CascadeRun
+     * @param {FeriRunFindFirstOrThrowArgs} args - Arguments to find a FeriRun
      * @example
-     * // Get one CascadeRun
-     * const cascadeRun = await prisma.cascadeRun.findFirstOrThrow({
+     * // Get one FeriRun
+     * const feriRun = await prisma.feriRun.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CascadeRunFindFirstOrThrowArgs>(args?: SelectSubset<T, CascadeRunFindFirstOrThrowArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends FeriRunFindFirstOrThrowArgs>(args?: SelectSubset<T, FeriRunFindFirstOrThrowArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more CascadeRuns that matches the filter.
+     * Find zero or more FeriRuns that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeRunFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {FeriRunFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all CascadeRuns
-     * const cascadeRuns = await prisma.cascadeRun.findMany()
+     * // Get all FeriRuns
+     * const feriRuns = await prisma.feriRun.findMany()
      * 
-     * // Get first 10 CascadeRuns
-     * const cascadeRuns = await prisma.cascadeRun.findMany({ take: 10 })
+     * // Get first 10 FeriRuns
+     * const feriRuns = await prisma.feriRun.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const cascadeRunWithIdOnly = await prisma.cascadeRun.findMany({ select: { id: true } })
+     * const feriRunWithIdOnly = await prisma.feriRun.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CascadeRunFindManyArgs>(args?: SelectSubset<T, CascadeRunFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends FeriRunFindManyArgs>(args?: SelectSubset<T, FeriRunFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a CascadeRun.
-     * @param {CascadeRunCreateArgs} args - Arguments to create a CascadeRun.
+     * Create a FeriRun.
+     * @param {FeriRunCreateArgs} args - Arguments to create a FeriRun.
      * @example
-     * // Create one CascadeRun
-     * const CascadeRun = await prisma.cascadeRun.create({
+     * // Create one FeriRun
+     * const FeriRun = await prisma.feriRun.create({
      *   data: {
-     *     // ... data to create a CascadeRun
+     *     // ... data to create a FeriRun
      *   }
      * })
      * 
      */
-    create<T extends CascadeRunCreateArgs>(args: SelectSubset<T, CascadeRunCreateArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends FeriRunCreateArgs>(args: SelectSubset<T, FeriRunCreateArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many CascadeRuns.
-     * @param {CascadeRunCreateManyArgs} args - Arguments to create many CascadeRuns.
+     * Create many FeriRuns.
+     * @param {FeriRunCreateManyArgs} args - Arguments to create many FeriRuns.
      * @example
-     * // Create many CascadeRuns
-     * const cascadeRun = await prisma.cascadeRun.createMany({
+     * // Create many FeriRuns
+     * const feriRun = await prisma.feriRun.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CascadeRunCreateManyArgs>(args?: SelectSubset<T, CascadeRunCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends FeriRunCreateManyArgs>(args?: SelectSubset<T, FeriRunCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many CascadeRuns and returns the data saved in the database.
-     * @param {CascadeRunCreateManyAndReturnArgs} args - Arguments to create many CascadeRuns.
+     * Create many FeriRuns and returns the data saved in the database.
+     * @param {FeriRunCreateManyAndReturnArgs} args - Arguments to create many FeriRuns.
      * @example
-     * // Create many CascadeRuns
-     * const cascadeRun = await prisma.cascadeRun.createManyAndReturn({
+     * // Create many FeriRuns
+     * const feriRun = await prisma.feriRun.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many CascadeRuns and only return the `id`
-     * const cascadeRunWithIdOnly = await prisma.cascadeRun.createManyAndReturn({
+     * // Create many FeriRuns and only return the `id`
+     * const feriRunWithIdOnly = await prisma.feriRun.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -4151,28 +4151,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CascadeRunCreateManyAndReturnArgs>(args?: SelectSubset<T, CascadeRunCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends FeriRunCreateManyAndReturnArgs>(args?: SelectSubset<T, FeriRunCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a CascadeRun.
-     * @param {CascadeRunDeleteArgs} args - Arguments to delete one CascadeRun.
+     * Delete a FeriRun.
+     * @param {FeriRunDeleteArgs} args - Arguments to delete one FeriRun.
      * @example
-     * // Delete one CascadeRun
-     * const CascadeRun = await prisma.cascadeRun.delete({
+     * // Delete one FeriRun
+     * const FeriRun = await prisma.feriRun.delete({
      *   where: {
-     *     // ... filter to delete one CascadeRun
+     *     // ... filter to delete one FeriRun
      *   }
      * })
      * 
      */
-    delete<T extends CascadeRunDeleteArgs>(args: SelectSubset<T, CascadeRunDeleteArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends FeriRunDeleteArgs>(args: SelectSubset<T, FeriRunDeleteArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one CascadeRun.
-     * @param {CascadeRunUpdateArgs} args - Arguments to update one CascadeRun.
+     * Update one FeriRun.
+     * @param {FeriRunUpdateArgs} args - Arguments to update one FeriRun.
      * @example
-     * // Update one CascadeRun
-     * const cascadeRun = await prisma.cascadeRun.update({
+     * // Update one FeriRun
+     * const feriRun = await prisma.feriRun.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4182,30 +4182,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CascadeRunUpdateArgs>(args: SelectSubset<T, CascadeRunUpdateArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends FeriRunUpdateArgs>(args: SelectSubset<T, FeriRunUpdateArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more CascadeRuns.
-     * @param {CascadeRunDeleteManyArgs} args - Arguments to filter CascadeRuns to delete.
+     * Delete zero or more FeriRuns.
+     * @param {FeriRunDeleteManyArgs} args - Arguments to filter FeriRuns to delete.
      * @example
-     * // Delete a few CascadeRuns
-     * const { count } = await prisma.cascadeRun.deleteMany({
+     * // Delete a few FeriRuns
+     * const { count } = await prisma.feriRun.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CascadeRunDeleteManyArgs>(args?: SelectSubset<T, CascadeRunDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends FeriRunDeleteManyArgs>(args?: SelectSubset<T, FeriRunDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more CascadeRuns.
+     * Update zero or more FeriRuns.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeRunUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {FeriRunUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many CascadeRuns
-     * const cascadeRun = await prisma.cascadeRun.updateMany({
+     * // Update many FeriRuns
+     * const feriRun = await prisma.feriRun.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4215,14 +4215,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CascadeRunUpdateManyArgs>(args: SelectSubset<T, CascadeRunUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends FeriRunUpdateManyArgs>(args: SelectSubset<T, FeriRunUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more CascadeRuns and returns the data updated in the database.
-     * @param {CascadeRunUpdateManyAndReturnArgs} args - Arguments to update many CascadeRuns.
+     * Update zero or more FeriRuns and returns the data updated in the database.
+     * @param {FeriRunUpdateManyAndReturnArgs} args - Arguments to update many FeriRuns.
      * @example
-     * // Update many CascadeRuns
-     * const cascadeRun = await prisma.cascadeRun.updateManyAndReturn({
+     * // Update many FeriRuns
+     * const feriRun = await prisma.feriRun.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4231,8 +4231,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more CascadeRuns and only return the `id`
-     * const cascadeRunWithIdOnly = await prisma.cascadeRun.updateManyAndReturn({
+     * // Update zero or more FeriRuns and only return the `id`
+     * const feriRunWithIdOnly = await prisma.feriRun.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -4245,56 +4245,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CascadeRunUpdateManyAndReturnArgs>(args: SelectSubset<T, CascadeRunUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends FeriRunUpdateManyAndReturnArgs>(args: SelectSubset<T, FeriRunUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one CascadeRun.
-     * @param {CascadeRunUpsertArgs} args - Arguments to update or create a CascadeRun.
+     * Create or update one FeriRun.
+     * @param {FeriRunUpsertArgs} args - Arguments to update or create a FeriRun.
      * @example
-     * // Update or create a CascadeRun
-     * const cascadeRun = await prisma.cascadeRun.upsert({
+     * // Update or create a FeriRun
+     * const feriRun = await prisma.feriRun.upsert({
      *   create: {
-     *     // ... data to create a CascadeRun
+     *     // ... data to create a FeriRun
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the CascadeRun we want to update
+     *     // ... the filter for the FeriRun we want to update
      *   }
      * })
      */
-    upsert<T extends CascadeRunUpsertArgs>(args: SelectSubset<T, CascadeRunUpsertArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends FeriRunUpsertArgs>(args: SelectSubset<T, FeriRunUpsertArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of CascadeRuns.
+     * Count the number of FeriRuns.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeRunCountArgs} args - Arguments to filter CascadeRuns to count.
+     * @param {FeriRunCountArgs} args - Arguments to filter FeriRuns to count.
      * @example
-     * // Count the number of CascadeRuns
-     * const count = await prisma.cascadeRun.count({
+     * // Count the number of FeriRuns
+     * const count = await prisma.feriRun.count({
      *   where: {
-     *     // ... the filter for the CascadeRuns we want to count
+     *     // ... the filter for the FeriRuns we want to count
      *   }
      * })
     **/
-    count<T extends CascadeRunCountArgs>(
-      args?: Subset<T, CascadeRunCountArgs>,
+    count<T extends FeriRunCountArgs>(
+      args?: Subset<T, FeriRunCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CascadeRunCountAggregateOutputType>
+          : GetScalarType<T['select'], FeriRunCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a CascadeRun.
+     * Allows you to perform aggregations operations on a FeriRun.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeRunAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {FeriRunAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4314,13 +4314,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CascadeRunAggregateArgs>(args: Subset<T, CascadeRunAggregateArgs>): Prisma.PrismaPromise<GetCascadeRunAggregateType<T>>
+    aggregate<T extends FeriRunAggregateArgs>(args: Subset<T, FeriRunAggregateArgs>): Prisma.PrismaPromise<GetFeriRunAggregateType<T>>
 
     /**
-     * Group by CascadeRun.
+     * Group by FeriRun.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeRunGroupByArgs} args - Group by arguments.
+     * @param {FeriRunGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4335,14 +4335,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CascadeRunGroupByArgs,
+      T extends FeriRunGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CascadeRunGroupByArgs['orderBy'] }
-        : { orderBy?: CascadeRunGroupByArgs['orderBy'] },
+        ? { orderBy: FeriRunGroupByArgs['orderBy'] }
+        : { orderBy?: FeriRunGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4391,23 +4391,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CascadeRunGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCascadeRunGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, FeriRunGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFeriRunGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the CascadeRun model
+   * Fields of the FeriRun model
    */
-  readonly fields: CascadeRunFieldRefs;
+  readonly fields: FeriRunFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for CascadeRun.
+   * The delegate class that acts as a "Promise-like" for FeriRun.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CascadeRunClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__FeriRunClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    cascade<T extends CascadeRun$cascadeArgs<ExtArgs> = {}>(args?: Subset<T, CascadeRun$cascadeArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    cascadeOutbox<T extends CascadeRun$cascadeOutboxArgs<ExtArgs> = {}>(args?: Subset<T, CascadeRun$cascadeOutboxArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    feri<T extends FeriRun$feriArgs<ExtArgs> = {}>(args?: Subset<T, FeriRun$feriArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    feriOutbox<T extends FeriRun$feriOutboxArgs<ExtArgs> = {}>(args?: Subset<T, FeriRun$feriOutboxArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4434,502 +4434,502 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the CascadeRun model
+   * Fields of the FeriRun model
    */ 
-  interface CascadeRunFieldRefs {
-    readonly id: FieldRef<"CascadeRun", 'String'>
-    readonly cascadeId: FieldRef<"CascadeRun", 'String'>
-    readonly status: FieldRef<"CascadeRun", 'String'>
-    readonly metadata: FieldRef<"CascadeRun", 'Json'>
-    readonly updatedAt: FieldRef<"CascadeRun", 'DateTime[]'>
-    readonly createdAt: FieldRef<"CascadeRun", 'DateTime'>
+  interface FeriRunFieldRefs {
+    readonly id: FieldRef<"FeriRun", 'String'>
+    readonly feriId: FieldRef<"FeriRun", 'String'>
+    readonly status: FieldRef<"FeriRun", 'String'>
+    readonly metadata: FieldRef<"FeriRun", 'Json'>
+    readonly updatedAt: FieldRef<"FeriRun", 'DateTime[]'>
+    readonly createdAt: FieldRef<"FeriRun", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * CascadeRun findUnique
+   * FeriRun findUnique
    */
-  export type CascadeRunFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeRun to fetch.
+     * Filter, which FeriRun to fetch.
      */
-    where: CascadeRunWhereUniqueInput
+    where: FeriRunWhereUniqueInput
   }
 
   /**
-   * CascadeRun findUniqueOrThrow
+   * FeriRun findUniqueOrThrow
    */
-  export type CascadeRunFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeRun to fetch.
+     * Filter, which FeriRun to fetch.
      */
-    where: CascadeRunWhereUniqueInput
+    where: FeriRunWhereUniqueInput
   }
 
   /**
-   * CascadeRun findFirst
+   * FeriRun findFirst
    */
-  export type CascadeRunFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeRun to fetch.
+     * Filter, which FeriRun to fetch.
      */
-    where?: CascadeRunWhereInput
+    where?: FeriRunWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeRuns to fetch.
+     * Determine the order of FeriRuns to fetch.
      */
-    orderBy?: CascadeRunOrderByWithRelationInput | CascadeRunOrderByWithRelationInput[]
+    orderBy?: FeriRunOrderByWithRelationInput | FeriRunOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for CascadeRuns.
+     * Sets the position for searching for FeriRuns.
      */
-    cursor?: CascadeRunWhereUniqueInput
+    cursor?: FeriRunWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeRuns from the position of the cursor.
+     * Take `±n` FeriRuns from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeRuns.
+     * Skip the first `n` FeriRuns.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of CascadeRuns.
+     * Filter by unique combinations of FeriRuns.
      */
-    distinct?: CascadeRunScalarFieldEnum | CascadeRunScalarFieldEnum[]
+    distinct?: FeriRunScalarFieldEnum | FeriRunScalarFieldEnum[]
   }
 
   /**
-   * CascadeRun findFirstOrThrow
+   * FeriRun findFirstOrThrow
    */
-  export type CascadeRunFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeRun to fetch.
+     * Filter, which FeriRun to fetch.
      */
-    where?: CascadeRunWhereInput
+    where?: FeriRunWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeRuns to fetch.
+     * Determine the order of FeriRuns to fetch.
      */
-    orderBy?: CascadeRunOrderByWithRelationInput | CascadeRunOrderByWithRelationInput[]
+    orderBy?: FeriRunOrderByWithRelationInput | FeriRunOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for CascadeRuns.
+     * Sets the position for searching for FeriRuns.
      */
-    cursor?: CascadeRunWhereUniqueInput
+    cursor?: FeriRunWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeRuns from the position of the cursor.
+     * Take `±n` FeriRuns from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeRuns.
+     * Skip the first `n` FeriRuns.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of CascadeRuns.
+     * Filter by unique combinations of FeriRuns.
      */
-    distinct?: CascadeRunScalarFieldEnum | CascadeRunScalarFieldEnum[]
+    distinct?: FeriRunScalarFieldEnum | FeriRunScalarFieldEnum[]
   }
 
   /**
-   * CascadeRun findMany
+   * FeriRun findMany
    */
-  export type CascadeRunFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeRuns to fetch.
+     * Filter, which FeriRuns to fetch.
      */
-    where?: CascadeRunWhereInput
+    where?: FeriRunWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeRuns to fetch.
+     * Determine the order of FeriRuns to fetch.
      */
-    orderBy?: CascadeRunOrderByWithRelationInput | CascadeRunOrderByWithRelationInput[]
+    orderBy?: FeriRunOrderByWithRelationInput | FeriRunOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing CascadeRuns.
+     * Sets the position for listing FeriRuns.
      */
-    cursor?: CascadeRunWhereUniqueInput
+    cursor?: FeriRunWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeRuns from the position of the cursor.
+     * Take `±n` FeriRuns from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeRuns.
+     * Skip the first `n` FeriRuns.
      */
     skip?: number
-    distinct?: CascadeRunScalarFieldEnum | CascadeRunScalarFieldEnum[]
+    distinct?: FeriRunScalarFieldEnum | FeriRunScalarFieldEnum[]
   }
 
   /**
-   * CascadeRun create
+   * FeriRun create
    */
-  export type CascadeRunCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * The data needed to create a CascadeRun.
+     * The data needed to create a FeriRun.
      */
-    data: XOR<CascadeRunCreateInput, CascadeRunUncheckedCreateInput>
+    data: XOR<FeriRunCreateInput, FeriRunUncheckedCreateInput>
   }
 
   /**
-   * CascadeRun createMany
+   * FeriRun createMany
    */
-  export type CascadeRunCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many CascadeRuns.
+     * The data used to create many FeriRuns.
      */
-    data: CascadeRunCreateManyInput | CascadeRunCreateManyInput[]
+    data: FeriRunCreateManyInput | FeriRunCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * CascadeRun createManyAndReturn
+   * FeriRun createManyAndReturn
    */
-  export type CascadeRunCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelectCreateManyAndReturn<ExtArgs> | null
+    select?: FeriRunSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
-     * The data used to create many CascadeRuns.
+     * The data used to create many FeriRuns.
      */
-    data: CascadeRunCreateManyInput | CascadeRunCreateManyInput[]
+    data: FeriRunCreateManyInput | FeriRunCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: FeriRunIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * CascadeRun update
+   * FeriRun update
    */
-  export type CascadeRunUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * The data needed to update a CascadeRun.
+     * The data needed to update a FeriRun.
      */
-    data: XOR<CascadeRunUpdateInput, CascadeRunUncheckedUpdateInput>
+    data: XOR<FeriRunUpdateInput, FeriRunUncheckedUpdateInput>
     /**
-     * Choose, which CascadeRun to update.
+     * Choose, which FeriRun to update.
      */
-    where: CascadeRunWhereUniqueInput
+    where: FeriRunWhereUniqueInput
   }
 
   /**
-   * CascadeRun updateMany
+   * FeriRun updateMany
    */
-  export type CascadeRunUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update CascadeRuns.
+     * The data used to update FeriRuns.
      */
-    data: XOR<CascadeRunUpdateManyMutationInput, CascadeRunUncheckedUpdateManyInput>
+    data: XOR<FeriRunUpdateManyMutationInput, FeriRunUncheckedUpdateManyInput>
     /**
-     * Filter which CascadeRuns to update
+     * Filter which FeriRuns to update
      */
-    where?: CascadeRunWhereInput
+    where?: FeriRunWhereInput
     /**
-     * Limit how many CascadeRuns to update.
+     * Limit how many FeriRuns to update.
      */
     limit?: number
   }
 
   /**
-   * CascadeRun updateManyAndReturn
+   * FeriRun updateManyAndReturn
    */
-  export type CascadeRunUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: FeriRunSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
-     * The data used to update CascadeRuns.
+     * The data used to update FeriRuns.
      */
-    data: XOR<CascadeRunUpdateManyMutationInput, CascadeRunUncheckedUpdateManyInput>
+    data: XOR<FeriRunUpdateManyMutationInput, FeriRunUncheckedUpdateManyInput>
     /**
-     * Filter which CascadeRuns to update
+     * Filter which FeriRuns to update
      */
-    where?: CascadeRunWhereInput
+    where?: FeriRunWhereInput
     /**
-     * Limit how many CascadeRuns to update.
+     * Limit how many FeriRuns to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: FeriRunIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * CascadeRun upsert
+   * FeriRun upsert
    */
-  export type CascadeRunUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * The filter to search for the CascadeRun to update in case it exists.
+     * The filter to search for the FeriRun to update in case it exists.
      */
-    where: CascadeRunWhereUniqueInput
+    where: FeriRunWhereUniqueInput
     /**
-     * In case the CascadeRun found by the `where` argument doesn't exist, create a new CascadeRun with this data.
+     * In case the FeriRun found by the `where` argument doesn't exist, create a new FeriRun with this data.
      */
-    create: XOR<CascadeRunCreateInput, CascadeRunUncheckedCreateInput>
+    create: XOR<FeriRunCreateInput, FeriRunUncheckedCreateInput>
     /**
-     * In case the CascadeRun was found with the provided `where` argument, update it with this data.
+     * In case the FeriRun was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CascadeRunUpdateInput, CascadeRunUncheckedUpdateInput>
+    update: XOR<FeriRunUpdateInput, FeriRunUncheckedUpdateInput>
   }
 
   /**
-   * CascadeRun delete
+   * FeriRun delete
    */
-  export type CascadeRunDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
     /**
-     * Filter which CascadeRun to delete.
+     * Filter which FeriRun to delete.
      */
-    where: CascadeRunWhereUniqueInput
+    where: FeriRunWhereUniqueInput
   }
 
   /**
-   * CascadeRun deleteMany
+   * FeriRun deleteMany
    */
-  export type CascadeRunDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which CascadeRuns to delete
+     * Filter which FeriRuns to delete
      */
-    where?: CascadeRunWhereInput
+    where?: FeriRunWhereInput
     /**
-     * Limit how many CascadeRuns to delete.
+     * Limit how many FeriRuns to delete.
      */
     limit?: number
   }
 
   /**
-   * CascadeRun.cascade
+   * FeriRun.feri
    */
-  export type CascadeRun$cascadeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRun$feriArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cascade
+     * Select specific fields to fetch from the Feri
      */
-    select?: CascadeSelect<ExtArgs> | null
+    select?: FeriSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cascade
+     * Omit specific fields from the Feri
      */
-    omit?: CascadeOmit<ExtArgs> | null
+    omit?: FeriOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeInclude<ExtArgs> | null
-    where?: CascadeWhereInput
+    include?: FeriInclude<ExtArgs> | null
+    where?: FeriWhereInput
   }
 
   /**
-   * CascadeRun.cascadeOutbox
+   * FeriRun.feriOutbox
    */
-  export type CascadeRun$cascadeOutboxArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRun$feriOutboxArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
-    where?: CascadeOutboxWhereInput
-    orderBy?: CascadeOutboxOrderByWithRelationInput | CascadeOutboxOrderByWithRelationInput[]
-    cursor?: CascadeOutboxWhereUniqueInput
+    include?: FeriOutboxInclude<ExtArgs> | null
+    where?: FeriOutboxWhereInput
+    orderBy?: FeriOutboxOrderByWithRelationInput | FeriOutboxOrderByWithRelationInput[]
+    cursor?: FeriOutboxWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: CascadeOutboxScalarFieldEnum | CascadeOutboxScalarFieldEnum[]
+    distinct?: FeriOutboxScalarFieldEnum | FeriOutboxScalarFieldEnum[]
   }
 
   /**
-   * CascadeRun without action
+   * FeriRun without action
    */
-  export type CascadeRunDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriRunDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeRun
+     * Select specific fields to fetch from the FeriRun
      */
-    select?: CascadeRunSelect<ExtArgs> | null
+    select?: FeriRunSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeRun
+     * Omit specific fields from the FeriRun
      */
-    omit?: CascadeRunOmit<ExtArgs> | null
+    omit?: FeriRunOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeRunInclude<ExtArgs> | null
+    include?: FeriRunInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model CascadeOutbox
+   * Model FeriOutbox
    */
 
-  export type AggregateCascadeOutbox = {
-    _count: CascadeOutboxCountAggregateOutputType | null
-    _min: CascadeOutboxMinAggregateOutputType | null
-    _max: CascadeOutboxMaxAggregateOutputType | null
+  export type AggregateFeriOutbox = {
+    _count: FeriOutboxCountAggregateOutputType | null
+    _min: FeriOutboxMinAggregateOutputType | null
+    _max: FeriOutboxMaxAggregateOutputType | null
   }
 
-  export type CascadeOutboxMinAggregateOutputType = {
+  export type FeriOutboxMinAggregateOutputType = {
     id: string | null
-    cascadeRunId: string | null
+    feriRunId: string | null
     status: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
 
-  export type CascadeOutboxMaxAggregateOutputType = {
+  export type FeriOutboxMaxAggregateOutputType = {
     id: string | null
-    cascadeRunId: string | null
+    feriRunId: string | null
     status: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
 
-  export type CascadeOutboxCountAggregateOutputType = {
+  export type FeriOutboxCountAggregateOutputType = {
     id: number
     metadata: number
-    cascadeRunId: number
+    feriRunId: number
     status: number
     updatedAt: number
     createdAt: number
@@ -4937,322 +4937,322 @@ export namespace Prisma {
   }
 
 
-  export type CascadeOutboxMinAggregateInputType = {
+  export type FeriOutboxMinAggregateInputType = {
     id?: true
-    cascadeRunId?: true
+    feriRunId?: true
     status?: true
     updatedAt?: true
     createdAt?: true
   }
 
-  export type CascadeOutboxMaxAggregateInputType = {
+  export type FeriOutboxMaxAggregateInputType = {
     id?: true
-    cascadeRunId?: true
+    feriRunId?: true
     status?: true
     updatedAt?: true
     createdAt?: true
   }
 
-  export type CascadeOutboxCountAggregateInputType = {
+  export type FeriOutboxCountAggregateInputType = {
     id?: true
     metadata?: true
-    cascadeRunId?: true
+    feriRunId?: true
     status?: true
     updatedAt?: true
     createdAt?: true
     _all?: true
   }
 
-  export type CascadeOutboxAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which CascadeOutbox to aggregate.
+     * Filter which FeriOutbox to aggregate.
      */
-    where?: CascadeOutboxWhereInput
+    where?: FeriOutboxWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeOutboxes to fetch.
+     * Determine the order of FeriOutboxes to fetch.
      */
-    orderBy?: CascadeOutboxOrderByWithRelationInput | CascadeOutboxOrderByWithRelationInput[]
+    orderBy?: FeriOutboxOrderByWithRelationInput | FeriOutboxOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CascadeOutboxWhereUniqueInput
+    cursor?: FeriOutboxWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeOutboxes from the position of the cursor.
+     * Take `±n` FeriOutboxes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeOutboxes.
+     * Skip the first `n` FeriOutboxes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned CascadeOutboxes
+     * Count returned FeriOutboxes
     **/
-    _count?: true | CascadeOutboxCountAggregateInputType
+    _count?: true | FeriOutboxCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CascadeOutboxMinAggregateInputType
+    _min?: FeriOutboxMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CascadeOutboxMaxAggregateInputType
+    _max?: FeriOutboxMaxAggregateInputType
   }
 
-  export type GetCascadeOutboxAggregateType<T extends CascadeOutboxAggregateArgs> = {
-        [P in keyof T & keyof AggregateCascadeOutbox]: P extends '_count' | 'count'
+  export type GetFeriOutboxAggregateType<T extends FeriOutboxAggregateArgs> = {
+        [P in keyof T & keyof AggregateFeriOutbox]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCascadeOutbox[P]>
-      : GetScalarType<T[P], AggregateCascadeOutbox[P]>
+        : GetScalarType<T[P], AggregateFeriOutbox[P]>
+      : GetScalarType<T[P], AggregateFeriOutbox[P]>
   }
 
 
 
 
-  export type CascadeOutboxGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CascadeOutboxWhereInput
-    orderBy?: CascadeOutboxOrderByWithAggregationInput | CascadeOutboxOrderByWithAggregationInput[]
-    by: CascadeOutboxScalarFieldEnum[] | CascadeOutboxScalarFieldEnum
-    having?: CascadeOutboxScalarWhereWithAggregatesInput
+  export type FeriOutboxGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeriOutboxWhereInput
+    orderBy?: FeriOutboxOrderByWithAggregationInput | FeriOutboxOrderByWithAggregationInput[]
+    by: FeriOutboxScalarFieldEnum[] | FeriOutboxScalarFieldEnum
+    having?: FeriOutboxScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CascadeOutboxCountAggregateInputType | true
-    _min?: CascadeOutboxMinAggregateInputType
-    _max?: CascadeOutboxMaxAggregateInputType
+    _count?: FeriOutboxCountAggregateInputType | true
+    _min?: FeriOutboxMinAggregateInputType
+    _max?: FeriOutboxMaxAggregateInputType
   }
 
-  export type CascadeOutboxGroupByOutputType = {
+  export type FeriOutboxGroupByOutputType = {
     id: string
     metadata: JsonValue
-    cascadeRunId: string
+    feriRunId: string
     status: string
     updatedAt: Date
     createdAt: Date
-    _count: CascadeOutboxCountAggregateOutputType | null
-    _min: CascadeOutboxMinAggregateOutputType | null
-    _max: CascadeOutboxMaxAggregateOutputType | null
+    _count: FeriOutboxCountAggregateOutputType | null
+    _min: FeriOutboxMinAggregateOutputType | null
+    _max: FeriOutboxMaxAggregateOutputType | null
   }
 
-  type GetCascadeOutboxGroupByPayload<T extends CascadeOutboxGroupByArgs> = Prisma.PrismaPromise<
+  type GetFeriOutboxGroupByPayload<T extends FeriOutboxGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CascadeOutboxGroupByOutputType, T['by']> &
+      PickEnumerable<FeriOutboxGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CascadeOutboxGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof FeriOutboxGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CascadeOutboxGroupByOutputType[P]>
-            : GetScalarType<T[P], CascadeOutboxGroupByOutputType[P]>
+              : GetScalarType<T[P], FeriOutboxGroupByOutputType[P]>
+            : GetScalarType<T[P], FeriOutboxGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CascadeOutboxSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriOutboxSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     metadata?: boolean
-    cascadeRunId?: boolean
+    feriRunId?: boolean
     status?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["cascadeOutbox"]>
+    FeriRun?: boolean | FeriRunDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["feriOutbox"]>
 
-  export type CascadeOutboxSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriOutboxSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     metadata?: boolean
-    cascadeRunId?: boolean
+    feriRunId?: boolean
     status?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["cascadeOutbox"]>
+    FeriRun?: boolean | FeriRunDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["feriOutbox"]>
 
-  export type CascadeOutboxSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type FeriOutboxSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     metadata?: boolean
-    cascadeRunId?: boolean
+    feriRunId?: boolean
     status?: boolean
     updatedAt?: boolean
     createdAt?: boolean
-    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["cascadeOutbox"]>
+    FeriRun?: boolean | FeriRunDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["feriOutbox"]>
 
-  export type CascadeOutboxSelectScalar = {
+  export type FeriOutboxSelectScalar = {
     id?: boolean
     metadata?: boolean
-    cascadeRunId?: boolean
+    feriRunId?: boolean
     status?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type CascadeOutboxOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "metadata" | "cascadeRunId" | "status" | "updatedAt" | "createdAt", ExtArgs["result"]["cascadeOutbox"]>
-  export type CascadeOutboxInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
+  export type FeriOutboxOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "metadata" | "feriRunId" | "status" | "updatedAt" | "createdAt", ExtArgs["result"]["feriOutbox"]>
+  export type FeriOutboxInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    FeriRun?: boolean | FeriRunDefaultArgs<ExtArgs>
   }
-  export type CascadeOutboxIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
+  export type FeriOutboxIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    FeriRun?: boolean | FeriRunDefaultArgs<ExtArgs>
   }
-  export type CascadeOutboxIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    CascadeRun?: boolean | CascadeRunDefaultArgs<ExtArgs>
+  export type FeriOutboxIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    FeriRun?: boolean | FeriRunDefaultArgs<ExtArgs>
   }
 
-  export type $CascadeOutboxPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "CascadeOutbox"
+  export type $FeriOutboxPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FeriOutbox"
     objects: {
-      CascadeRun: Prisma.$CascadeRunPayload<ExtArgs>
+      FeriRun: Prisma.$FeriRunPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       metadata: Prisma.JsonValue
-      cascadeRunId: string
+      feriRunId: string
       status: string
       updatedAt: Date
       createdAt: Date
-    }, ExtArgs["result"]["cascadeOutbox"]>
+    }, ExtArgs["result"]["feriOutbox"]>
     composites: {}
   }
 
-  type CascadeOutboxGetPayload<S extends boolean | null | undefined | CascadeOutboxDefaultArgs> = $Result.GetResult<Prisma.$CascadeOutboxPayload, S>
+  type FeriOutboxGetPayload<S extends boolean | null | undefined | FeriOutboxDefaultArgs> = $Result.GetResult<Prisma.$FeriOutboxPayload, S>
 
-  type CascadeOutboxCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CascadeOutboxFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CascadeOutboxCountAggregateInputType | true
+  type FeriOutboxCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FeriOutboxFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FeriOutboxCountAggregateInputType | true
     }
 
-  export interface CascadeOutboxDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CascadeOutbox'], meta: { name: 'CascadeOutbox' } }
+  export interface FeriOutboxDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FeriOutbox'], meta: { name: 'FeriOutbox' } }
     /**
-     * Find zero or one CascadeOutbox that matches the filter.
-     * @param {CascadeOutboxFindUniqueArgs} args - Arguments to find a CascadeOutbox
+     * Find zero or one FeriOutbox that matches the filter.
+     * @param {FeriOutboxFindUniqueArgs} args - Arguments to find a FeriOutbox
      * @example
-     * // Get one CascadeOutbox
-     * const cascadeOutbox = await prisma.cascadeOutbox.findUnique({
+     * // Get one FeriOutbox
+     * const feriOutbox = await prisma.feriOutbox.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CascadeOutboxFindUniqueArgs>(args: SelectSubset<T, CascadeOutboxFindUniqueArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends FeriOutboxFindUniqueArgs>(args: SelectSubset<T, FeriOutboxFindUniqueArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one CascadeOutbox that matches the filter or throw an error with `error.code='P2025'`
+     * Find one FeriOutbox that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CascadeOutboxFindUniqueOrThrowArgs} args - Arguments to find a CascadeOutbox
+     * @param {FeriOutboxFindUniqueOrThrowArgs} args - Arguments to find a FeriOutbox
      * @example
-     * // Get one CascadeOutbox
-     * const cascadeOutbox = await prisma.cascadeOutbox.findUniqueOrThrow({
+     * // Get one FeriOutbox
+     * const feriOutbox = await prisma.feriOutbox.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CascadeOutboxFindUniqueOrThrowArgs>(args: SelectSubset<T, CascadeOutboxFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends FeriOutboxFindUniqueOrThrowArgs>(args: SelectSubset<T, FeriOutboxFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first CascadeOutbox that matches the filter.
+     * Find the first FeriOutbox that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeOutboxFindFirstArgs} args - Arguments to find a CascadeOutbox
+     * @param {FeriOutboxFindFirstArgs} args - Arguments to find a FeriOutbox
      * @example
-     * // Get one CascadeOutbox
-     * const cascadeOutbox = await prisma.cascadeOutbox.findFirst({
+     * // Get one FeriOutbox
+     * const feriOutbox = await prisma.feriOutbox.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CascadeOutboxFindFirstArgs>(args?: SelectSubset<T, CascadeOutboxFindFirstArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends FeriOutboxFindFirstArgs>(args?: SelectSubset<T, FeriOutboxFindFirstArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first CascadeOutbox that matches the filter or
+     * Find the first FeriOutbox that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeOutboxFindFirstOrThrowArgs} args - Arguments to find a CascadeOutbox
+     * @param {FeriOutboxFindFirstOrThrowArgs} args - Arguments to find a FeriOutbox
      * @example
-     * // Get one CascadeOutbox
-     * const cascadeOutbox = await prisma.cascadeOutbox.findFirstOrThrow({
+     * // Get one FeriOutbox
+     * const feriOutbox = await prisma.feriOutbox.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CascadeOutboxFindFirstOrThrowArgs>(args?: SelectSubset<T, CascadeOutboxFindFirstOrThrowArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends FeriOutboxFindFirstOrThrowArgs>(args?: SelectSubset<T, FeriOutboxFindFirstOrThrowArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more CascadeOutboxes that matches the filter.
+     * Find zero or more FeriOutboxes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeOutboxFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {FeriOutboxFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all CascadeOutboxes
-     * const cascadeOutboxes = await prisma.cascadeOutbox.findMany()
+     * // Get all FeriOutboxes
+     * const feriOutboxes = await prisma.feriOutbox.findMany()
      * 
-     * // Get first 10 CascadeOutboxes
-     * const cascadeOutboxes = await prisma.cascadeOutbox.findMany({ take: 10 })
+     * // Get first 10 FeriOutboxes
+     * const feriOutboxes = await prisma.feriOutbox.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const cascadeOutboxWithIdOnly = await prisma.cascadeOutbox.findMany({ select: { id: true } })
+     * const feriOutboxWithIdOnly = await prisma.feriOutbox.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CascadeOutboxFindManyArgs>(args?: SelectSubset<T, CascadeOutboxFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends FeriOutboxFindManyArgs>(args?: SelectSubset<T, FeriOutboxFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a CascadeOutbox.
-     * @param {CascadeOutboxCreateArgs} args - Arguments to create a CascadeOutbox.
+     * Create a FeriOutbox.
+     * @param {FeriOutboxCreateArgs} args - Arguments to create a FeriOutbox.
      * @example
-     * // Create one CascadeOutbox
-     * const CascadeOutbox = await prisma.cascadeOutbox.create({
+     * // Create one FeriOutbox
+     * const FeriOutbox = await prisma.feriOutbox.create({
      *   data: {
-     *     // ... data to create a CascadeOutbox
+     *     // ... data to create a FeriOutbox
      *   }
      * })
      * 
      */
-    create<T extends CascadeOutboxCreateArgs>(args: SelectSubset<T, CascadeOutboxCreateArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends FeriOutboxCreateArgs>(args: SelectSubset<T, FeriOutboxCreateArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many CascadeOutboxes.
-     * @param {CascadeOutboxCreateManyArgs} args - Arguments to create many CascadeOutboxes.
+     * Create many FeriOutboxes.
+     * @param {FeriOutboxCreateManyArgs} args - Arguments to create many FeriOutboxes.
      * @example
-     * // Create many CascadeOutboxes
-     * const cascadeOutbox = await prisma.cascadeOutbox.createMany({
+     * // Create many FeriOutboxes
+     * const feriOutbox = await prisma.feriOutbox.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CascadeOutboxCreateManyArgs>(args?: SelectSubset<T, CascadeOutboxCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends FeriOutboxCreateManyArgs>(args?: SelectSubset<T, FeriOutboxCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many CascadeOutboxes and returns the data saved in the database.
-     * @param {CascadeOutboxCreateManyAndReturnArgs} args - Arguments to create many CascadeOutboxes.
+     * Create many FeriOutboxes and returns the data saved in the database.
+     * @param {FeriOutboxCreateManyAndReturnArgs} args - Arguments to create many FeriOutboxes.
      * @example
-     * // Create many CascadeOutboxes
-     * const cascadeOutbox = await prisma.cascadeOutbox.createManyAndReturn({
+     * // Create many FeriOutboxes
+     * const feriOutbox = await prisma.feriOutbox.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many CascadeOutboxes and only return the `id`
-     * const cascadeOutboxWithIdOnly = await prisma.cascadeOutbox.createManyAndReturn({
+     * // Create many FeriOutboxes and only return the `id`
+     * const feriOutboxWithIdOnly = await prisma.feriOutbox.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -5262,28 +5262,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CascadeOutboxCreateManyAndReturnArgs>(args?: SelectSubset<T, CascadeOutboxCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends FeriOutboxCreateManyAndReturnArgs>(args?: SelectSubset<T, FeriOutboxCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a CascadeOutbox.
-     * @param {CascadeOutboxDeleteArgs} args - Arguments to delete one CascadeOutbox.
+     * Delete a FeriOutbox.
+     * @param {FeriOutboxDeleteArgs} args - Arguments to delete one FeriOutbox.
      * @example
-     * // Delete one CascadeOutbox
-     * const CascadeOutbox = await prisma.cascadeOutbox.delete({
+     * // Delete one FeriOutbox
+     * const FeriOutbox = await prisma.feriOutbox.delete({
      *   where: {
-     *     // ... filter to delete one CascadeOutbox
+     *     // ... filter to delete one FeriOutbox
      *   }
      * })
      * 
      */
-    delete<T extends CascadeOutboxDeleteArgs>(args: SelectSubset<T, CascadeOutboxDeleteArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends FeriOutboxDeleteArgs>(args: SelectSubset<T, FeriOutboxDeleteArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one CascadeOutbox.
-     * @param {CascadeOutboxUpdateArgs} args - Arguments to update one CascadeOutbox.
+     * Update one FeriOutbox.
+     * @param {FeriOutboxUpdateArgs} args - Arguments to update one FeriOutbox.
      * @example
-     * // Update one CascadeOutbox
-     * const cascadeOutbox = await prisma.cascadeOutbox.update({
+     * // Update one FeriOutbox
+     * const feriOutbox = await prisma.feriOutbox.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5293,30 +5293,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CascadeOutboxUpdateArgs>(args: SelectSubset<T, CascadeOutboxUpdateArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends FeriOutboxUpdateArgs>(args: SelectSubset<T, FeriOutboxUpdateArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more CascadeOutboxes.
-     * @param {CascadeOutboxDeleteManyArgs} args - Arguments to filter CascadeOutboxes to delete.
+     * Delete zero or more FeriOutboxes.
+     * @param {FeriOutboxDeleteManyArgs} args - Arguments to filter FeriOutboxes to delete.
      * @example
-     * // Delete a few CascadeOutboxes
-     * const { count } = await prisma.cascadeOutbox.deleteMany({
+     * // Delete a few FeriOutboxes
+     * const { count } = await prisma.feriOutbox.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CascadeOutboxDeleteManyArgs>(args?: SelectSubset<T, CascadeOutboxDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends FeriOutboxDeleteManyArgs>(args?: SelectSubset<T, FeriOutboxDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more CascadeOutboxes.
+     * Update zero or more FeriOutboxes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeOutboxUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {FeriOutboxUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many CascadeOutboxes
-     * const cascadeOutbox = await prisma.cascadeOutbox.updateMany({
+     * // Update many FeriOutboxes
+     * const feriOutbox = await prisma.feriOutbox.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5326,14 +5326,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CascadeOutboxUpdateManyArgs>(args: SelectSubset<T, CascadeOutboxUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends FeriOutboxUpdateManyArgs>(args: SelectSubset<T, FeriOutboxUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more CascadeOutboxes and returns the data updated in the database.
-     * @param {CascadeOutboxUpdateManyAndReturnArgs} args - Arguments to update many CascadeOutboxes.
+     * Update zero or more FeriOutboxes and returns the data updated in the database.
+     * @param {FeriOutboxUpdateManyAndReturnArgs} args - Arguments to update many FeriOutboxes.
      * @example
-     * // Update many CascadeOutboxes
-     * const cascadeOutbox = await prisma.cascadeOutbox.updateManyAndReturn({
+     * // Update many FeriOutboxes
+     * const feriOutbox = await prisma.feriOutbox.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5342,8 +5342,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more CascadeOutboxes and only return the `id`
-     * const cascadeOutboxWithIdOnly = await prisma.cascadeOutbox.updateManyAndReturn({
+     * // Update zero or more FeriOutboxes and only return the `id`
+     * const feriOutboxWithIdOnly = await prisma.feriOutbox.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -5356,56 +5356,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CascadeOutboxUpdateManyAndReturnArgs>(args: SelectSubset<T, CascadeOutboxUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends FeriOutboxUpdateManyAndReturnArgs>(args: SelectSubset<T, FeriOutboxUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one CascadeOutbox.
-     * @param {CascadeOutboxUpsertArgs} args - Arguments to update or create a CascadeOutbox.
+     * Create or update one FeriOutbox.
+     * @param {FeriOutboxUpsertArgs} args - Arguments to update or create a FeriOutbox.
      * @example
-     * // Update or create a CascadeOutbox
-     * const cascadeOutbox = await prisma.cascadeOutbox.upsert({
+     * // Update or create a FeriOutbox
+     * const feriOutbox = await prisma.feriOutbox.upsert({
      *   create: {
-     *     // ... data to create a CascadeOutbox
+     *     // ... data to create a FeriOutbox
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the CascadeOutbox we want to update
+     *     // ... the filter for the FeriOutbox we want to update
      *   }
      * })
      */
-    upsert<T extends CascadeOutboxUpsertArgs>(args: SelectSubset<T, CascadeOutboxUpsertArgs<ExtArgs>>): Prisma__CascadeOutboxClient<$Result.GetResult<Prisma.$CascadeOutboxPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends FeriOutboxUpsertArgs>(args: SelectSubset<T, FeriOutboxUpsertArgs<ExtArgs>>): Prisma__FeriOutboxClient<$Result.GetResult<Prisma.$FeriOutboxPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of CascadeOutboxes.
+     * Count the number of FeriOutboxes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeOutboxCountArgs} args - Arguments to filter CascadeOutboxes to count.
+     * @param {FeriOutboxCountArgs} args - Arguments to filter FeriOutboxes to count.
      * @example
-     * // Count the number of CascadeOutboxes
-     * const count = await prisma.cascadeOutbox.count({
+     * // Count the number of FeriOutboxes
+     * const count = await prisma.feriOutbox.count({
      *   where: {
-     *     // ... the filter for the CascadeOutboxes we want to count
+     *     // ... the filter for the FeriOutboxes we want to count
      *   }
      * })
     **/
-    count<T extends CascadeOutboxCountArgs>(
-      args?: Subset<T, CascadeOutboxCountArgs>,
+    count<T extends FeriOutboxCountArgs>(
+      args?: Subset<T, FeriOutboxCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CascadeOutboxCountAggregateOutputType>
+          : GetScalarType<T['select'], FeriOutboxCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a CascadeOutbox.
+     * Allows you to perform aggregations operations on a FeriOutbox.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeOutboxAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {FeriOutboxAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -5425,13 +5425,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CascadeOutboxAggregateArgs>(args: Subset<T, CascadeOutboxAggregateArgs>): Prisma.PrismaPromise<GetCascadeOutboxAggregateType<T>>
+    aggregate<T extends FeriOutboxAggregateArgs>(args: Subset<T, FeriOutboxAggregateArgs>): Prisma.PrismaPromise<GetFeriOutboxAggregateType<T>>
 
     /**
-     * Group by CascadeOutbox.
+     * Group by FeriOutbox.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CascadeOutboxGroupByArgs} args - Group by arguments.
+     * @param {FeriOutboxGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -5446,14 +5446,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CascadeOutboxGroupByArgs,
+      T extends FeriOutboxGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CascadeOutboxGroupByArgs['orderBy'] }
-        : { orderBy?: CascadeOutboxGroupByArgs['orderBy'] },
+        ? { orderBy: FeriOutboxGroupByArgs['orderBy'] }
+        : { orderBy?: FeriOutboxGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -5502,22 +5502,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CascadeOutboxGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCascadeOutboxGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, FeriOutboxGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFeriOutboxGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the CascadeOutbox model
+   * Fields of the FeriOutbox model
    */
-  readonly fields: CascadeOutboxFieldRefs;
+  readonly fields: FeriOutboxFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for CascadeOutbox.
+   * The delegate class that acts as a "Promise-like" for FeriOutbox.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CascadeOutboxClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__FeriOutboxClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    CascadeRun<T extends CascadeRunDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CascadeRunDefaultArgs<ExtArgs>>): Prisma__CascadeRunClient<$Result.GetResult<Prisma.$CascadeRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    FeriRun<T extends FeriRunDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FeriRunDefaultArgs<ExtArgs>>): Prisma__FeriRunClient<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5544,426 +5544,426 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the CascadeOutbox model
+   * Fields of the FeriOutbox model
    */ 
-  interface CascadeOutboxFieldRefs {
-    readonly id: FieldRef<"CascadeOutbox", 'String'>
-    readonly metadata: FieldRef<"CascadeOutbox", 'Json'>
-    readonly cascadeRunId: FieldRef<"CascadeOutbox", 'String'>
-    readonly status: FieldRef<"CascadeOutbox", 'String'>
-    readonly updatedAt: FieldRef<"CascadeOutbox", 'DateTime'>
-    readonly createdAt: FieldRef<"CascadeOutbox", 'DateTime'>
+  interface FeriOutboxFieldRefs {
+    readonly id: FieldRef<"FeriOutbox", 'String'>
+    readonly metadata: FieldRef<"FeriOutbox", 'Json'>
+    readonly feriRunId: FieldRef<"FeriOutbox", 'String'>
+    readonly status: FieldRef<"FeriOutbox", 'String'>
+    readonly updatedAt: FieldRef<"FeriOutbox", 'DateTime'>
+    readonly createdAt: FieldRef<"FeriOutbox", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * CascadeOutbox findUnique
+   * FeriOutbox findUnique
    */
-  export type CascadeOutboxFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeOutbox to fetch.
+     * Filter, which FeriOutbox to fetch.
      */
-    where: CascadeOutboxWhereUniqueInput
+    where: FeriOutboxWhereUniqueInput
   }
 
   /**
-   * CascadeOutbox findUniqueOrThrow
+   * FeriOutbox findUniqueOrThrow
    */
-  export type CascadeOutboxFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeOutbox to fetch.
+     * Filter, which FeriOutbox to fetch.
      */
-    where: CascadeOutboxWhereUniqueInput
+    where: FeriOutboxWhereUniqueInput
   }
 
   /**
-   * CascadeOutbox findFirst
+   * FeriOutbox findFirst
    */
-  export type CascadeOutboxFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeOutbox to fetch.
+     * Filter, which FeriOutbox to fetch.
      */
-    where?: CascadeOutboxWhereInput
+    where?: FeriOutboxWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeOutboxes to fetch.
+     * Determine the order of FeriOutboxes to fetch.
      */
-    orderBy?: CascadeOutboxOrderByWithRelationInput | CascadeOutboxOrderByWithRelationInput[]
+    orderBy?: FeriOutboxOrderByWithRelationInput | FeriOutboxOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for CascadeOutboxes.
+     * Sets the position for searching for FeriOutboxes.
      */
-    cursor?: CascadeOutboxWhereUniqueInput
+    cursor?: FeriOutboxWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeOutboxes from the position of the cursor.
+     * Take `±n` FeriOutboxes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeOutboxes.
+     * Skip the first `n` FeriOutboxes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of CascadeOutboxes.
+     * Filter by unique combinations of FeriOutboxes.
      */
-    distinct?: CascadeOutboxScalarFieldEnum | CascadeOutboxScalarFieldEnum[]
+    distinct?: FeriOutboxScalarFieldEnum | FeriOutboxScalarFieldEnum[]
   }
 
   /**
-   * CascadeOutbox findFirstOrThrow
+   * FeriOutbox findFirstOrThrow
    */
-  export type CascadeOutboxFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeOutbox to fetch.
+     * Filter, which FeriOutbox to fetch.
      */
-    where?: CascadeOutboxWhereInput
+    where?: FeriOutboxWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeOutboxes to fetch.
+     * Determine the order of FeriOutboxes to fetch.
      */
-    orderBy?: CascadeOutboxOrderByWithRelationInput | CascadeOutboxOrderByWithRelationInput[]
+    orderBy?: FeriOutboxOrderByWithRelationInput | FeriOutboxOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for CascadeOutboxes.
+     * Sets the position for searching for FeriOutboxes.
      */
-    cursor?: CascadeOutboxWhereUniqueInput
+    cursor?: FeriOutboxWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeOutboxes from the position of the cursor.
+     * Take `±n` FeriOutboxes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeOutboxes.
+     * Skip the first `n` FeriOutboxes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of CascadeOutboxes.
+     * Filter by unique combinations of FeriOutboxes.
      */
-    distinct?: CascadeOutboxScalarFieldEnum | CascadeOutboxScalarFieldEnum[]
+    distinct?: FeriOutboxScalarFieldEnum | FeriOutboxScalarFieldEnum[]
   }
 
   /**
-   * CascadeOutbox findMany
+   * FeriOutbox findMany
    */
-  export type CascadeOutboxFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * Filter, which CascadeOutboxes to fetch.
+     * Filter, which FeriOutboxes to fetch.
      */
-    where?: CascadeOutboxWhereInput
+    where?: FeriOutboxWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CascadeOutboxes to fetch.
+     * Determine the order of FeriOutboxes to fetch.
      */
-    orderBy?: CascadeOutboxOrderByWithRelationInput | CascadeOutboxOrderByWithRelationInput[]
+    orderBy?: FeriOutboxOrderByWithRelationInput | FeriOutboxOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing CascadeOutboxes.
+     * Sets the position for listing FeriOutboxes.
      */
-    cursor?: CascadeOutboxWhereUniqueInput
+    cursor?: FeriOutboxWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` CascadeOutboxes from the position of the cursor.
+     * Take `±n` FeriOutboxes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` CascadeOutboxes.
+     * Skip the first `n` FeriOutboxes.
      */
     skip?: number
-    distinct?: CascadeOutboxScalarFieldEnum | CascadeOutboxScalarFieldEnum[]
+    distinct?: FeriOutboxScalarFieldEnum | FeriOutboxScalarFieldEnum[]
   }
 
   /**
-   * CascadeOutbox create
+   * FeriOutbox create
    */
-  export type CascadeOutboxCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * The data needed to create a CascadeOutbox.
+     * The data needed to create a FeriOutbox.
      */
-    data: XOR<CascadeOutboxCreateInput, CascadeOutboxUncheckedCreateInput>
+    data: XOR<FeriOutboxCreateInput, FeriOutboxUncheckedCreateInput>
   }
 
   /**
-   * CascadeOutbox createMany
+   * FeriOutbox createMany
    */
-  export type CascadeOutboxCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many CascadeOutboxes.
+     * The data used to create many FeriOutboxes.
      */
-    data: CascadeOutboxCreateManyInput | CascadeOutboxCreateManyInput[]
+    data: FeriOutboxCreateManyInput | FeriOutboxCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * CascadeOutbox createManyAndReturn
+   * FeriOutbox createManyAndReturn
    */
-  export type CascadeOutboxCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelectCreateManyAndReturn<ExtArgs> | null
+    select?: FeriOutboxSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
-     * The data used to create many CascadeOutboxes.
+     * The data used to create many FeriOutboxes.
      */
-    data: CascadeOutboxCreateManyInput | CascadeOutboxCreateManyInput[]
+    data: FeriOutboxCreateManyInput | FeriOutboxCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: FeriOutboxIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * CascadeOutbox update
+   * FeriOutbox update
    */
-  export type CascadeOutboxUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * The data needed to update a CascadeOutbox.
+     * The data needed to update a FeriOutbox.
      */
-    data: XOR<CascadeOutboxUpdateInput, CascadeOutboxUncheckedUpdateInput>
+    data: XOR<FeriOutboxUpdateInput, FeriOutboxUncheckedUpdateInput>
     /**
-     * Choose, which CascadeOutbox to update.
+     * Choose, which FeriOutbox to update.
      */
-    where: CascadeOutboxWhereUniqueInput
+    where: FeriOutboxWhereUniqueInput
   }
 
   /**
-   * CascadeOutbox updateMany
+   * FeriOutbox updateMany
    */
-  export type CascadeOutboxUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update CascadeOutboxes.
+     * The data used to update FeriOutboxes.
      */
-    data: XOR<CascadeOutboxUpdateManyMutationInput, CascadeOutboxUncheckedUpdateManyInput>
+    data: XOR<FeriOutboxUpdateManyMutationInput, FeriOutboxUncheckedUpdateManyInput>
     /**
-     * Filter which CascadeOutboxes to update
+     * Filter which FeriOutboxes to update
      */
-    where?: CascadeOutboxWhereInput
+    where?: FeriOutboxWhereInput
     /**
-     * Limit how many CascadeOutboxes to update.
+     * Limit how many FeriOutboxes to update.
      */
     limit?: number
   }
 
   /**
-   * CascadeOutbox updateManyAndReturn
+   * FeriOutbox updateManyAndReturn
    */
-  export type CascadeOutboxUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: FeriOutboxSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
-     * The data used to update CascadeOutboxes.
+     * The data used to update FeriOutboxes.
      */
-    data: XOR<CascadeOutboxUpdateManyMutationInput, CascadeOutboxUncheckedUpdateManyInput>
+    data: XOR<FeriOutboxUpdateManyMutationInput, FeriOutboxUncheckedUpdateManyInput>
     /**
-     * Filter which CascadeOutboxes to update
+     * Filter which FeriOutboxes to update
      */
-    where?: CascadeOutboxWhereInput
+    where?: FeriOutboxWhereInput
     /**
-     * Limit how many CascadeOutboxes to update.
+     * Limit how many FeriOutboxes to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: FeriOutboxIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * CascadeOutbox upsert
+   * FeriOutbox upsert
    */
-  export type CascadeOutboxUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * The filter to search for the CascadeOutbox to update in case it exists.
+     * The filter to search for the FeriOutbox to update in case it exists.
      */
-    where: CascadeOutboxWhereUniqueInput
+    where: FeriOutboxWhereUniqueInput
     /**
-     * In case the CascadeOutbox found by the `where` argument doesn't exist, create a new CascadeOutbox with this data.
+     * In case the FeriOutbox found by the `where` argument doesn't exist, create a new FeriOutbox with this data.
      */
-    create: XOR<CascadeOutboxCreateInput, CascadeOutboxUncheckedCreateInput>
+    create: XOR<FeriOutboxCreateInput, FeriOutboxUncheckedCreateInput>
     /**
-     * In case the CascadeOutbox was found with the provided `where` argument, update it with this data.
+     * In case the FeriOutbox was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CascadeOutboxUpdateInput, CascadeOutboxUncheckedUpdateInput>
+    update: XOR<FeriOutboxUpdateInput, FeriOutboxUncheckedUpdateInput>
   }
 
   /**
-   * CascadeOutbox delete
+   * FeriOutbox delete
    */
-  export type CascadeOutboxDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
     /**
-     * Filter which CascadeOutbox to delete.
+     * Filter which FeriOutbox to delete.
      */
-    where: CascadeOutboxWhereUniqueInput
+    where: FeriOutboxWhereUniqueInput
   }
 
   /**
-   * CascadeOutbox deleteMany
+   * FeriOutbox deleteMany
    */
-  export type CascadeOutboxDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which CascadeOutboxes to delete
+     * Filter which FeriOutboxes to delete
      */
-    where?: CascadeOutboxWhereInput
+    where?: FeriOutboxWhereInput
     /**
-     * Limit how many CascadeOutboxes to delete.
+     * Limit how many FeriOutboxes to delete.
      */
     limit?: number
   }
 
   /**
-   * CascadeOutbox without action
+   * FeriOutbox without action
    */
-  export type CascadeOutboxDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type FeriOutboxDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CascadeOutbox
+     * Select specific fields to fetch from the FeriOutbox
      */
-    select?: CascadeOutboxSelect<ExtArgs> | null
+    select?: FeriOutboxSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the CascadeOutbox
+     * Omit specific fields from the FeriOutbox
      */
-    omit?: CascadeOutboxOmit<ExtArgs> | null
+    omit?: FeriOutboxOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CascadeOutboxInclude<ExtArgs> | null
+    include?: FeriOutboxInclude<ExtArgs> | null
   }
 
 
@@ -5980,7 +5980,7 @@ export namespace Prisma {
   export type TriggerMinAggregateOutputType = {
     id: string | null
     triggerId: string | null
-    cascadeId: string | null
+    feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
@@ -5988,7 +5988,7 @@ export namespace Prisma {
   export type TriggerMaxAggregateOutputType = {
     id: string | null
     triggerId: string | null
-    cascadeId: string | null
+    feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
@@ -5996,7 +5996,7 @@ export namespace Prisma {
   export type TriggerCountAggregateOutputType = {
     id: number
     triggerId: number
-    cascadeId: number
+    feriId: number
     updatedAt: number
     createdAt: number
     _all: number
@@ -6006,7 +6006,7 @@ export namespace Prisma {
   export type TriggerMinAggregateInputType = {
     id?: true
     triggerId?: true
-    cascadeId?: true
+    feriId?: true
     updatedAt?: true
     createdAt?: true
   }
@@ -6014,7 +6014,7 @@ export namespace Prisma {
   export type TriggerMaxAggregateInputType = {
     id?: true
     triggerId?: true
-    cascadeId?: true
+    feriId?: true
     updatedAt?: true
     createdAt?: true
   }
@@ -6022,7 +6022,7 @@ export namespace Prisma {
   export type TriggerCountAggregateInputType = {
     id?: true
     triggerId?: true
-    cascadeId?: true
+    feriId?: true
     updatedAt?: true
     createdAt?: true
     _all?: true
@@ -6103,7 +6103,7 @@ export namespace Prisma {
   export type TriggerGroupByOutputType = {
     id: string
     triggerId: string
-    cascadeId: string
+    feriId: string
     updatedAt: Date
     createdAt: Date
     _count: TriggerCountAggregateOutputType | null
@@ -6128,65 +6128,65 @@ export namespace Prisma {
   export type TriggerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trigger"]>
 
   export type TriggerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trigger"]>
 
   export type TriggerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     triggerId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trigger"]>
 
   export type TriggerSelectScalar = {
     id?: boolean
     triggerId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type TriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "cascadeId" | "updatedAt" | "createdAt", ExtArgs["result"]["trigger"]>
+  export type TriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "feriId" | "updatedAt" | "createdAt", ExtArgs["result"]["trigger"]>
   export type TriggerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }
   export type TriggerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }
   export type TriggerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }
 
   export type $TriggerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Trigger"
     objects: {
       type: Prisma.$AvailableTriggerPayload<ExtArgs>
-      cascade: Prisma.$CascadePayload<ExtArgs>
+      feri: Prisma.$FeriPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       triggerId: string
-      cascadeId: string
+      feriId: string
       updatedAt: Date
       createdAt: Date
     }, ExtArgs["result"]["trigger"]>
@@ -6584,7 +6584,7 @@ export namespace Prisma {
   export interface Prisma__TriggerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     type<T extends AvailableTriggerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AvailableTriggerDefaultArgs<ExtArgs>>): Prisma__AvailableTriggerClient<$Result.GetResult<Prisma.$AvailableTriggerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    cascade<T extends CascadeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CascadeDefaultArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    feri<T extends FeriDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FeriDefaultArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6616,7 +6616,7 @@ export namespace Prisma {
   interface TriggerFieldRefs {
     readonly id: FieldRef<"Trigger", 'String'>
     readonly triggerId: FieldRef<"Trigger", 'String'>
-    readonly cascadeId: FieldRef<"Trigger", 'String'>
+    readonly feriId: FieldRef<"Trigger", 'String'>
     readonly updatedAt: FieldRef<"Trigger", 'DateTime'>
     readonly createdAt: FieldRef<"Trigger", 'DateTime'>
   }
@@ -7046,7 +7046,7 @@ export namespace Prisma {
   export type ActionMinAggregateOutputType = {
     id: string | null
     actionId: string | null
-    cascadeId: string | null
+    feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
@@ -7054,7 +7054,7 @@ export namespace Prisma {
   export type ActionMaxAggregateOutputType = {
     id: string | null
     actionId: string | null
-    cascadeId: string | null
+    feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
@@ -7062,7 +7062,7 @@ export namespace Prisma {
   export type ActionCountAggregateOutputType = {
     id: number
     actionId: number
-    cascadeId: number
+    feriId: number
     updatedAt: number
     createdAt: number
     _all: number
@@ -7072,7 +7072,7 @@ export namespace Prisma {
   export type ActionMinAggregateInputType = {
     id?: true
     actionId?: true
-    cascadeId?: true
+    feriId?: true
     updatedAt?: true
     createdAt?: true
   }
@@ -7080,7 +7080,7 @@ export namespace Prisma {
   export type ActionMaxAggregateInputType = {
     id?: true
     actionId?: true
-    cascadeId?: true
+    feriId?: true
     updatedAt?: true
     createdAt?: true
   }
@@ -7088,7 +7088,7 @@ export namespace Prisma {
   export type ActionCountAggregateInputType = {
     id?: true
     actionId?: true
-    cascadeId?: true
+    feriId?: true
     updatedAt?: true
     createdAt?: true
     _all?: true
@@ -7169,7 +7169,7 @@ export namespace Prisma {
   export type ActionGroupByOutputType = {
     id: string
     actionId: string
-    cascadeId: string
+    feriId: string
     updatedAt: Date
     createdAt: Date
     _count: ActionCountAggregateOutputType | null
@@ -7194,65 +7194,65 @@ export namespace Prisma {
   export type ActionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     actionId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
 
   export type ActionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     actionId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
 
   export type ActionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     actionId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
 
   export type ActionSelectScalar = {
     id?: boolean
     actionId?: boolean
-    cascadeId?: boolean
+    feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "actionId" | "cascadeId" | "updatedAt" | "createdAt", ExtArgs["result"]["action"]>
+  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "actionId" | "feriId" | "updatedAt" | "createdAt", ExtArgs["result"]["action"]>
   export type ActionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }
   export type ActionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }
   export type ActionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
-    cascade?: boolean | CascadeDefaultArgs<ExtArgs>
+    feri?: boolean | FeriDefaultArgs<ExtArgs>
   }
 
   export type $ActionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Action"
     objects: {
       type: Prisma.$AvailableActionsPayload<ExtArgs>
-      cascade: Prisma.$CascadePayload<ExtArgs>
+      feri: Prisma.$FeriPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       actionId: string
-      cascadeId: string
+      feriId: string
       updatedAt: Date
       createdAt: Date
     }, ExtArgs["result"]["action"]>
@@ -7650,7 +7650,7 @@ export namespace Prisma {
   export interface Prisma__ActionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     type<T extends AvailableActionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AvailableActionsDefaultArgs<ExtArgs>>): Prisma__AvailableActionsClient<$Result.GetResult<Prisma.$AvailableActionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    cascade<T extends CascadeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CascadeDefaultArgs<ExtArgs>>): Prisma__CascadeClient<$Result.GetResult<Prisma.$CascadePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    feri<T extends FeriDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FeriDefaultArgs<ExtArgs>>): Prisma__FeriClient<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7682,7 +7682,7 @@ export namespace Prisma {
   interface ActionFieldRefs {
     readonly id: FieldRef<"Action", 'String'>
     readonly actionId: FieldRef<"Action", 'String'>
-    readonly cascadeId: FieldRef<"Action", 'String'>
+    readonly feriId: FieldRef<"Action", 'String'>
     readonly updatedAt: FieldRef<"Action", 'DateTime'>
     readonly createdAt: FieldRef<"Action", 'DateTime'>
   }
@@ -10187,44 +10187,44 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const CascadeScalarFieldEnum: {
+  export const FeriScalarFieldEnum: {
     id: 'id',
     triggerId: 'triggerId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
   };
 
-  export type CascadeScalarFieldEnum = (typeof CascadeScalarFieldEnum)[keyof typeof CascadeScalarFieldEnum]
+  export type FeriScalarFieldEnum = (typeof FeriScalarFieldEnum)[keyof typeof FeriScalarFieldEnum]
 
 
-  export const CascadeRunScalarFieldEnum: {
+  export const FeriRunScalarFieldEnum: {
     id: 'id',
-    cascadeId: 'cascadeId',
+    feriId: 'feriId',
     status: 'status',
     metadata: 'metadata',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
   };
 
-  export type CascadeRunScalarFieldEnum = (typeof CascadeRunScalarFieldEnum)[keyof typeof CascadeRunScalarFieldEnum]
+  export type FeriRunScalarFieldEnum = (typeof FeriRunScalarFieldEnum)[keyof typeof FeriRunScalarFieldEnum]
 
 
-  export const CascadeOutboxScalarFieldEnum: {
+  export const FeriOutboxScalarFieldEnum: {
     id: 'id',
     metadata: 'metadata',
-    cascadeRunId: 'cascadeRunId',
+    feriRunId: 'feriRunId',
     status: 'status',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
   };
 
-  export type CascadeOutboxScalarFieldEnum = (typeof CascadeOutboxScalarFieldEnum)[keyof typeof CascadeOutboxScalarFieldEnum]
+  export type FeriOutboxScalarFieldEnum = (typeof FeriOutboxScalarFieldEnum)[keyof typeof FeriOutboxScalarFieldEnum]
 
 
   export const TriggerScalarFieldEnum: {
     id: 'id',
     triggerId: 'triggerId',
-    cascadeId: 'cascadeId',
+    feriId: 'feriId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
   };
@@ -10235,7 +10235,7 @@ export namespace Prisma {
   export const ActionScalarFieldEnum: {
     id: 'id',
     actionId: 'actionId',
-    cascadeId: 'cascadeId',
+    feriId: 'feriId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
   };
@@ -10436,183 +10436,183 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
-  export type CascadeWhereInput = {
-    AND?: CascadeWhereInput | CascadeWhereInput[]
-    OR?: CascadeWhereInput[]
-    NOT?: CascadeWhereInput | CascadeWhereInput[]
-    id?: StringFilter<"Cascade"> | string
-    triggerId?: StringFilter<"Cascade"> | string
-    updatedAt?: DateTimeFilter<"Cascade"> | Date | string
-    createdAt?: DateTimeFilter<"Cascade"> | Date | string
+  export type FeriWhereInput = {
+    AND?: FeriWhereInput | FeriWhereInput[]
+    OR?: FeriWhereInput[]
+    NOT?: FeriWhereInput | FeriWhereInput[]
+    id?: StringFilter<"Feri"> | string
+    triggerId?: StringFilter<"Feri"> | string
+    updatedAt?: DateTimeFilter<"Feri"> | Date | string
+    createdAt?: DateTimeFilter<"Feri"> | Date | string
     trigger?: XOR<TriggerNullableScalarRelationFilter, TriggerWhereInput> | null
     action?: ActionListRelationFilter
-    CascadeRuns?: CascadeRunListRelationFilter
+    FeriRuns?: FeriRunListRelationFilter
   }
 
-  export type CascadeOrderByWithRelationInput = {
+  export type FeriOrderByWithRelationInput = {
     id?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     trigger?: TriggerOrderByWithRelationInput
     action?: ActionOrderByRelationAggregateInput
-    CascadeRuns?: CascadeRunOrderByRelationAggregateInput
+    FeriRuns?: FeriRunOrderByRelationAggregateInput
   }
 
-  export type CascadeWhereUniqueInput = Prisma.AtLeast<{
+  export type FeriWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: CascadeWhereInput | CascadeWhereInput[]
-    OR?: CascadeWhereInput[]
-    NOT?: CascadeWhereInput | CascadeWhereInput[]
-    triggerId?: StringFilter<"Cascade"> | string
-    updatedAt?: DateTimeFilter<"Cascade"> | Date | string
-    createdAt?: DateTimeFilter<"Cascade"> | Date | string
+    AND?: FeriWhereInput | FeriWhereInput[]
+    OR?: FeriWhereInput[]
+    NOT?: FeriWhereInput | FeriWhereInput[]
+    triggerId?: StringFilter<"Feri"> | string
+    updatedAt?: DateTimeFilter<"Feri"> | Date | string
+    createdAt?: DateTimeFilter<"Feri"> | Date | string
     trigger?: XOR<TriggerNullableScalarRelationFilter, TriggerWhereInput> | null
     action?: ActionListRelationFilter
-    CascadeRuns?: CascadeRunListRelationFilter
+    FeriRuns?: FeriRunListRelationFilter
   }, "id">
 
-  export type CascadeOrderByWithAggregationInput = {
+  export type FeriOrderByWithAggregationInput = {
     id?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    _count?: CascadeCountOrderByAggregateInput
-    _max?: CascadeMaxOrderByAggregateInput
-    _min?: CascadeMinOrderByAggregateInput
+    _count?: FeriCountOrderByAggregateInput
+    _max?: FeriMaxOrderByAggregateInput
+    _min?: FeriMinOrderByAggregateInput
   }
 
-  export type CascadeScalarWhereWithAggregatesInput = {
-    AND?: CascadeScalarWhereWithAggregatesInput | CascadeScalarWhereWithAggregatesInput[]
-    OR?: CascadeScalarWhereWithAggregatesInput[]
-    NOT?: CascadeScalarWhereWithAggregatesInput | CascadeScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Cascade"> | string
-    triggerId?: StringWithAggregatesFilter<"Cascade"> | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Cascade"> | Date | string
-    createdAt?: DateTimeWithAggregatesFilter<"Cascade"> | Date | string
+  export type FeriScalarWhereWithAggregatesInput = {
+    AND?: FeriScalarWhereWithAggregatesInput | FeriScalarWhereWithAggregatesInput[]
+    OR?: FeriScalarWhereWithAggregatesInput[]
+    NOT?: FeriScalarWhereWithAggregatesInput | FeriScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Feri"> | string
+    triggerId?: StringWithAggregatesFilter<"Feri"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
   }
 
-  export type CascadeRunWhereInput = {
-    AND?: CascadeRunWhereInput | CascadeRunWhereInput[]
-    OR?: CascadeRunWhereInput[]
-    NOT?: CascadeRunWhereInput | CascadeRunWhereInput[]
-    id?: StringFilter<"CascadeRun"> | string
-    cascadeId?: StringFilter<"CascadeRun"> | string
-    status?: StringFilter<"CascadeRun"> | string
-    metadata?: JsonFilter<"CascadeRun">
-    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
-    createdAt?: DateTimeFilter<"CascadeRun"> | Date | string
-    cascade?: XOR<CascadeNullableScalarRelationFilter, CascadeWhereInput> | null
-    cascadeOutbox?: CascadeOutboxListRelationFilter
+  export type FeriRunWhereInput = {
+    AND?: FeriRunWhereInput | FeriRunWhereInput[]
+    OR?: FeriRunWhereInput[]
+    NOT?: FeriRunWhereInput | FeriRunWhereInput[]
+    id?: StringFilter<"FeriRun"> | string
+    feriId?: StringFilter<"FeriRun"> | string
+    status?: StringFilter<"FeriRun"> | string
+    metadata?: JsonFilter<"FeriRun">
+    updatedAt?: DateTimeNullableListFilter<"FeriRun">
+    createdAt?: DateTimeFilter<"FeriRun"> | Date | string
+    feri?: XOR<FeriNullableScalarRelationFilter, FeriWhereInput> | null
+    feriOutbox?: FeriOutboxListRelationFilter
   }
 
-  export type CascadeRunOrderByWithRelationInput = {
+  export type FeriRunOrderByWithRelationInput = {
     id?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     status?: SortOrder
     metadata?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    cascade?: CascadeOrderByWithRelationInput
-    cascadeOutbox?: CascadeOutboxOrderByRelationAggregateInput
+    feri?: FeriOrderByWithRelationInput
+    feriOutbox?: FeriOutboxOrderByRelationAggregateInput
   }
 
-  export type CascadeRunWhereUniqueInput = Prisma.AtLeast<{
+  export type FeriRunWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: CascadeRunWhereInput | CascadeRunWhereInput[]
-    OR?: CascadeRunWhereInput[]
-    NOT?: CascadeRunWhereInput | CascadeRunWhereInput[]
-    cascadeId?: StringFilter<"CascadeRun"> | string
-    status?: StringFilter<"CascadeRun"> | string
-    metadata?: JsonFilter<"CascadeRun">
-    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
-    createdAt?: DateTimeFilter<"CascadeRun"> | Date | string
-    cascade?: XOR<CascadeNullableScalarRelationFilter, CascadeWhereInput> | null
-    cascadeOutbox?: CascadeOutboxListRelationFilter
+    AND?: FeriRunWhereInput | FeriRunWhereInput[]
+    OR?: FeriRunWhereInput[]
+    NOT?: FeriRunWhereInput | FeriRunWhereInput[]
+    feriId?: StringFilter<"FeriRun"> | string
+    status?: StringFilter<"FeriRun"> | string
+    metadata?: JsonFilter<"FeriRun">
+    updatedAt?: DateTimeNullableListFilter<"FeriRun">
+    createdAt?: DateTimeFilter<"FeriRun"> | Date | string
+    feri?: XOR<FeriNullableScalarRelationFilter, FeriWhereInput> | null
+    feriOutbox?: FeriOutboxListRelationFilter
   }, "id">
 
-  export type CascadeRunOrderByWithAggregationInput = {
+  export type FeriRunOrderByWithAggregationInput = {
     id?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     status?: SortOrder
     metadata?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    _count?: CascadeRunCountOrderByAggregateInput
-    _max?: CascadeRunMaxOrderByAggregateInput
-    _min?: CascadeRunMinOrderByAggregateInput
+    _count?: FeriRunCountOrderByAggregateInput
+    _max?: FeriRunMaxOrderByAggregateInput
+    _min?: FeriRunMinOrderByAggregateInput
   }
 
-  export type CascadeRunScalarWhereWithAggregatesInput = {
-    AND?: CascadeRunScalarWhereWithAggregatesInput | CascadeRunScalarWhereWithAggregatesInput[]
-    OR?: CascadeRunScalarWhereWithAggregatesInput[]
-    NOT?: CascadeRunScalarWhereWithAggregatesInput | CascadeRunScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"CascadeRun"> | string
-    cascadeId?: StringWithAggregatesFilter<"CascadeRun"> | string
-    status?: StringWithAggregatesFilter<"CascadeRun"> | string
-    metadata?: JsonWithAggregatesFilter<"CascadeRun">
-    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
-    createdAt?: DateTimeWithAggregatesFilter<"CascadeRun"> | Date | string
+  export type FeriRunScalarWhereWithAggregatesInput = {
+    AND?: FeriRunScalarWhereWithAggregatesInput | FeriRunScalarWhereWithAggregatesInput[]
+    OR?: FeriRunScalarWhereWithAggregatesInput[]
+    NOT?: FeriRunScalarWhereWithAggregatesInput | FeriRunScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FeriRun"> | string
+    feriId?: StringWithAggregatesFilter<"FeriRun"> | string
+    status?: StringWithAggregatesFilter<"FeriRun"> | string
+    metadata?: JsonWithAggregatesFilter<"FeriRun">
+    updatedAt?: DateTimeNullableListFilter<"FeriRun">
+    createdAt?: DateTimeWithAggregatesFilter<"FeriRun"> | Date | string
   }
 
-  export type CascadeOutboxWhereInput = {
-    AND?: CascadeOutboxWhereInput | CascadeOutboxWhereInput[]
-    OR?: CascadeOutboxWhereInput[]
-    NOT?: CascadeOutboxWhereInput | CascadeOutboxWhereInput[]
-    id?: StringFilter<"CascadeOutbox"> | string
-    metadata?: JsonFilter<"CascadeOutbox">
-    cascadeRunId?: StringFilter<"CascadeOutbox"> | string
-    status?: StringFilter<"CascadeOutbox"> | string
-    updatedAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
-    createdAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
-    CascadeRun?: XOR<CascadeRunScalarRelationFilter, CascadeRunWhereInput>
+  export type FeriOutboxWhereInput = {
+    AND?: FeriOutboxWhereInput | FeriOutboxWhereInput[]
+    OR?: FeriOutboxWhereInput[]
+    NOT?: FeriOutboxWhereInput | FeriOutboxWhereInput[]
+    id?: StringFilter<"FeriOutbox"> | string
+    metadata?: JsonFilter<"FeriOutbox">
+    feriRunId?: StringFilter<"FeriOutbox"> | string
+    status?: StringFilter<"FeriOutbox"> | string
+    updatedAt?: DateTimeFilter<"FeriOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"FeriOutbox"> | Date | string
+    FeriRun?: XOR<FeriRunScalarRelationFilter, FeriRunWhereInput>
   }
 
-  export type CascadeOutboxOrderByWithRelationInput = {
+  export type FeriOutboxOrderByWithRelationInput = {
     id?: SortOrder
     metadata?: SortOrder
-    cascadeRunId?: SortOrder
+    feriRunId?: SortOrder
     status?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    CascadeRun?: CascadeRunOrderByWithRelationInput
+    FeriRun?: FeriRunOrderByWithRelationInput
   }
 
-  export type CascadeOutboxWhereUniqueInput = Prisma.AtLeast<{
+  export type FeriOutboxWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: CascadeOutboxWhereInput | CascadeOutboxWhereInput[]
-    OR?: CascadeOutboxWhereInput[]
-    NOT?: CascadeOutboxWhereInput | CascadeOutboxWhereInput[]
-    metadata?: JsonFilter<"CascadeOutbox">
-    cascadeRunId?: StringFilter<"CascadeOutbox"> | string
-    status?: StringFilter<"CascadeOutbox"> | string
-    updatedAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
-    createdAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
-    CascadeRun?: XOR<CascadeRunScalarRelationFilter, CascadeRunWhereInput>
+    AND?: FeriOutboxWhereInput | FeriOutboxWhereInput[]
+    OR?: FeriOutboxWhereInput[]
+    NOT?: FeriOutboxWhereInput | FeriOutboxWhereInput[]
+    metadata?: JsonFilter<"FeriOutbox">
+    feriRunId?: StringFilter<"FeriOutbox"> | string
+    status?: StringFilter<"FeriOutbox"> | string
+    updatedAt?: DateTimeFilter<"FeriOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"FeriOutbox"> | Date | string
+    FeriRun?: XOR<FeriRunScalarRelationFilter, FeriRunWhereInput>
   }, "id">
 
-  export type CascadeOutboxOrderByWithAggregationInput = {
+  export type FeriOutboxOrderByWithAggregationInput = {
     id?: SortOrder
     metadata?: SortOrder
-    cascadeRunId?: SortOrder
+    feriRunId?: SortOrder
     status?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
-    _count?: CascadeOutboxCountOrderByAggregateInput
-    _max?: CascadeOutboxMaxOrderByAggregateInput
-    _min?: CascadeOutboxMinOrderByAggregateInput
+    _count?: FeriOutboxCountOrderByAggregateInput
+    _max?: FeriOutboxMaxOrderByAggregateInput
+    _min?: FeriOutboxMinOrderByAggregateInput
   }
 
-  export type CascadeOutboxScalarWhereWithAggregatesInput = {
-    AND?: CascadeOutboxScalarWhereWithAggregatesInput | CascadeOutboxScalarWhereWithAggregatesInput[]
-    OR?: CascadeOutboxScalarWhereWithAggregatesInput[]
-    NOT?: CascadeOutboxScalarWhereWithAggregatesInput | CascadeOutboxScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"CascadeOutbox"> | string
-    metadata?: JsonWithAggregatesFilter<"CascadeOutbox">
-    cascadeRunId?: StringWithAggregatesFilter<"CascadeOutbox"> | string
-    status?: StringWithAggregatesFilter<"CascadeOutbox"> | string
-    updatedAt?: DateTimeWithAggregatesFilter<"CascadeOutbox"> | Date | string
-    createdAt?: DateTimeWithAggregatesFilter<"CascadeOutbox"> | Date | string
+  export type FeriOutboxScalarWhereWithAggregatesInput = {
+    AND?: FeriOutboxScalarWhereWithAggregatesInput | FeriOutboxScalarWhereWithAggregatesInput[]
+    OR?: FeriOutboxScalarWhereWithAggregatesInput[]
+    NOT?: FeriOutboxScalarWhereWithAggregatesInput | FeriOutboxScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FeriOutbox"> | string
+    metadata?: JsonWithAggregatesFilter<"FeriOutbox">
+    feriRunId?: StringWithAggregatesFilter<"FeriOutbox"> | string
+    status?: StringWithAggregatesFilter<"FeriOutbox"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FeriOutbox"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"FeriOutbox"> | Date | string
   }
 
   export type TriggerWhereInput = {
@@ -10621,26 +10621,26 @@ export namespace Prisma {
     NOT?: TriggerWhereInput | TriggerWhereInput[]
     id?: StringFilter<"Trigger"> | string
     triggerId?: StringFilter<"Trigger"> | string
-    cascadeId?: StringFilter<"Trigger"> | string
+    feriId?: StringFilter<"Trigger"> | string
     updatedAt?: DateTimeFilter<"Trigger"> | Date | string
     createdAt?: DateTimeFilter<"Trigger"> | Date | string
     type?: XOR<AvailableTriggerScalarRelationFilter, AvailableTriggerWhereInput>
-    cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
+    feri?: XOR<FeriScalarRelationFilter, FeriWhereInput>
   }
 
   export type TriggerOrderByWithRelationInput = {
     id?: SortOrder
     triggerId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     type?: AvailableTriggerOrderByWithRelationInput
-    cascade?: CascadeOrderByWithRelationInput
+    feri?: FeriOrderByWithRelationInput
   }
 
   export type TriggerWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    cascadeId?: string
+    feriId?: string
     AND?: TriggerWhereInput | TriggerWhereInput[]
     OR?: TriggerWhereInput[]
     NOT?: TriggerWhereInput | TriggerWhereInput[]
@@ -10648,13 +10648,13 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Trigger"> | Date | string
     createdAt?: DateTimeFilter<"Trigger"> | Date | string
     type?: XOR<AvailableTriggerScalarRelationFilter, AvailableTriggerWhereInput>
-    cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
-  }, "id" | "cascadeId">
+    feri?: XOR<FeriScalarRelationFilter, FeriWhereInput>
+  }, "id" | "feriId">
 
   export type TriggerOrderByWithAggregationInput = {
     id?: SortOrder
     triggerId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     _count?: TriggerCountOrderByAggregateInput
@@ -10668,7 +10668,7 @@ export namespace Prisma {
     NOT?: TriggerScalarWhereWithAggregatesInput | TriggerScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Trigger"> | string
     triggerId?: StringWithAggregatesFilter<"Trigger"> | string
-    cascadeId?: StringWithAggregatesFilter<"Trigger"> | string
+    feriId?: StringWithAggregatesFilter<"Trigger"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Trigger"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Trigger"> | Date | string
   }
@@ -10679,26 +10679,26 @@ export namespace Prisma {
     NOT?: ActionWhereInput | ActionWhereInput[]
     id?: StringFilter<"Action"> | string
     actionId?: StringFilter<"Action"> | string
-    cascadeId?: StringFilter<"Action"> | string
+    feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
     type?: XOR<AvailableActionsScalarRelationFilter, AvailableActionsWhereInput>
-    cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
+    feri?: XOR<FeriScalarRelationFilter, FeriWhereInput>
   }
 
   export type ActionOrderByWithRelationInput = {
     id?: SortOrder
     actionId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     type?: AvailableActionsOrderByWithRelationInput
-    cascade?: CascadeOrderByWithRelationInput
+    feri?: FeriOrderByWithRelationInput
   }
 
   export type ActionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    cascadeId?: string
+    feriId?: string
     AND?: ActionWhereInput | ActionWhereInput[]
     OR?: ActionWhereInput[]
     NOT?: ActionWhereInput | ActionWhereInput[]
@@ -10706,13 +10706,13 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
     type?: XOR<AvailableActionsScalarRelationFilter, AvailableActionsWhereInput>
-    cascade?: XOR<CascadeScalarRelationFilter, CascadeWhereInput>
-  }, "id" | "cascadeId">
+    feri?: XOR<FeriScalarRelationFilter, FeriWhereInput>
+  }, "id" | "feriId">
 
   export type ActionOrderByWithAggregationInput = {
     id?: SortOrder
     actionId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     _count?: ActionCountOrderByAggregateInput
@@ -10726,7 +10726,7 @@ export namespace Prisma {
     NOT?: ActionScalarWhereWithAggregatesInput | ActionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Action"> | string
     actionId?: StringWithAggregatesFilter<"Action"> | string
-    cascadeId?: StringWithAggregatesFilter<"Action"> | string
+    feriId?: StringWithAggregatesFilter<"Action"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
   }
@@ -10871,179 +10871,179 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeCreateInput = {
+  export type FeriCreateInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    trigger?: TriggerCreateNestedOneWithoutCascadeInput
-    action?: ActionCreateNestedManyWithoutCascadeInput
-    CascadeRuns?: CascadeRunCreateNestedManyWithoutCascadeInput
+    trigger?: TriggerCreateNestedOneWithoutFeriInput
+    action?: ActionCreateNestedManyWithoutFeriInput
+    FeriRuns?: FeriRunCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeUncheckedCreateInput = {
+  export type FeriUncheckedCreateInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    trigger?: TriggerUncheckedCreateNestedOneWithoutCascadeInput
-    action?: ActionUncheckedCreateNestedManyWithoutCascadeInput
-    CascadeRuns?: CascadeRunUncheckedCreateNestedManyWithoutCascadeInput
+    trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
+    action?: ActionUncheckedCreateNestedManyWithoutFeriInput
+    FeriRuns?: FeriRunUncheckedCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeUpdateInput = {
+  export type FeriUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    trigger?: TriggerUpdateOneWithoutCascadeNestedInput
-    action?: ActionUpdateManyWithoutCascadeNestedInput
-    CascadeRuns?: CascadeRunUpdateManyWithoutCascadeNestedInput
+    trigger?: TriggerUpdateOneWithoutFeriNestedInput
+    action?: ActionUpdateManyWithoutFeriNestedInput
+    FeriRuns?: FeriRunUpdateManyWithoutFeriNestedInput
   }
 
-  export type CascadeUncheckedUpdateInput = {
+  export type FeriUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    trigger?: TriggerUncheckedUpdateOneWithoutCascadeNestedInput
-    action?: ActionUncheckedUpdateManyWithoutCascadeNestedInput
-    CascadeRuns?: CascadeRunUncheckedUpdateManyWithoutCascadeNestedInput
+    trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
+    action?: ActionUncheckedUpdateManyWithoutFeriNestedInput
+    FeriRuns?: FeriRunUncheckedUpdateManyWithoutFeriNestedInput
   }
 
-  export type CascadeCreateManyInput = {
+  export type FeriCreateManyInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
 
-  export type CascadeUpdateManyMutationInput = {
+  export type FeriUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeUncheckedUpdateManyInput = {
+  export type FeriUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeRunCreateInput = {
+  export type FeriRunCreateInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
-    cascade?: CascadeCreateNestedOneWithoutCascadeRunsInput
-    cascadeOutbox?: CascadeOutboxCreateNestedManyWithoutCascadeRunInput
+    feri?: FeriCreateNestedOneWithoutFeriRunsInput
+    feriOutbox?: FeriOutboxCreateNestedManyWithoutFeriRunInput
   }
 
-  export type CascadeRunUncheckedCreateInput = {
+  export type FeriRunUncheckedCreateInput = {
     id?: string
-    cascadeId: string
+    feriId: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
-    cascadeOutbox?: CascadeOutboxUncheckedCreateNestedManyWithoutCascadeRunInput
+    feriOutbox?: FeriOutboxUncheckedCreateNestedManyWithoutFeriRunInput
   }
 
-  export type CascadeRunUpdateInput = {
+  export type FeriRunUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cascade?: CascadeUpdateOneWithoutCascadeRunsNestedInput
-    cascadeOutbox?: CascadeOutboxUpdateManyWithoutCascadeRunNestedInput
+    feri?: FeriUpdateOneWithoutFeriRunsNestedInput
+    feriOutbox?: FeriOutboxUpdateManyWithoutFeriRunNestedInput
   }
 
-  export type CascadeRunUncheckedUpdateInput = {
+  export type FeriRunUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cascadeOutbox?: CascadeOutboxUncheckedUpdateManyWithoutCascadeRunNestedInput
+    feriOutbox?: FeriOutboxUncheckedUpdateManyWithoutFeriRunNestedInput
   }
 
-  export type CascadeRunCreateManyInput = {
+  export type FeriRunCreateManyInput = {
     id?: string
-    cascadeId: string
+    feriId: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
   }
 
-  export type CascadeRunUpdateManyMutationInput = {
+  export type FeriRunUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeRunUncheckedUpdateManyInput = {
+  export type FeriRunUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeOutboxCreateInput = {
+  export type FeriOutboxCreateInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
-    status: string
-    updatedAt?: Date | string
-    createdAt?: Date | string
-    CascadeRun: CascadeRunCreateNestedOneWithoutCascadeOutboxInput
-  }
-
-  export type CascadeOutboxUncheckedCreateInput = {
-    id?: string
-    metadata: JsonNullValueInput | InputJsonValue
-    cascadeRunId: string
     status: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    FeriRun: FeriRunCreateNestedOneWithoutFeriOutboxInput
   }
 
-  export type CascadeOutboxUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    metadata?: JsonNullValueInput | InputJsonValue
-    status?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    CascadeRun?: CascadeRunUpdateOneRequiredWithoutCascadeOutboxNestedInput
-  }
-
-  export type CascadeOutboxUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    metadata?: JsonNullValueInput | InputJsonValue
-    cascadeRunId?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CascadeOutboxCreateManyInput = {
+  export type FeriOutboxUncheckedCreateInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
-    cascadeRunId: string
+    feriRunId: string
     status: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
 
-  export type CascadeOutboxUpdateManyMutationInput = {
+  export type FeriOutboxUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    FeriRun?: FeriRunUpdateOneRequiredWithoutFeriOutboxNestedInput
+  }
+
+  export type FeriOutboxUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    metadata?: JsonNullValueInput | InputJsonValue
+    feriRunId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FeriOutboxCreateManyInput = {
+    id?: string
+    metadata: JsonNullValueInput | InputJsonValue
+    feriRunId: string
+    status: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
+  }
+
+  export type FeriOutboxUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
@@ -11051,10 +11051,10 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeOutboxUncheckedUpdateManyInput = {
+  export type FeriOutboxUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    cascadeRunId?: StringFieldUpdateOperationsInput | string
+    feriRunId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11065,13 +11065,13 @@ export namespace Prisma {
     updatedAt?: Date | string
     createdAt?: Date | string
     type: AvailableTriggerCreateNestedOneWithoutTriggerInput
-    cascade: CascadeCreateNestedOneWithoutTriggerInput
+    feri: FeriCreateNestedOneWithoutTriggerInput
   }
 
   export type TriggerUncheckedCreateInput = {
     id?: string
     triggerId: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -11081,13 +11081,13 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableTriggerUpdateOneRequiredWithoutTriggerNestedInput
-    cascade?: CascadeUpdateOneRequiredWithoutTriggerNestedInput
+    feri?: FeriUpdateOneRequiredWithoutTriggerNestedInput
   }
 
   export type TriggerUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11095,7 +11095,7 @@ export namespace Prisma {
   export type TriggerCreateManyInput = {
     id?: string
     triggerId: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -11109,7 +11109,7 @@ export namespace Prisma {
   export type TriggerUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11119,13 +11119,13 @@ export namespace Prisma {
     updatedAt?: Date | string
     createdAt?: Date | string
     type: AvailableActionsCreateNestedOneWithoutActionInput
-    cascade: CascadeCreateNestedOneWithoutActionInput
+    feri: FeriCreateNestedOneWithoutActionInput
   }
 
   export type ActionUncheckedCreateInput = {
     id?: string
     actionId: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -11135,13 +11135,13 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableActionsUpdateOneRequiredWithoutActionNestedInput
-    cascade?: CascadeUpdateOneRequiredWithoutActionNestedInput
+    feri?: FeriUpdateOneRequiredWithoutActionNestedInput
   }
 
   export type ActionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11149,7 +11149,7 @@ export namespace Prisma {
   export type ActionCreateManyInput = {
     id?: string
     actionId: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -11163,7 +11163,7 @@ export namespace Prisma {
   export type ActionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11415,35 +11415,35 @@ export namespace Prisma {
     none?: ActionWhereInput
   }
 
-  export type CascadeRunListRelationFilter = {
-    every?: CascadeRunWhereInput
-    some?: CascadeRunWhereInput
-    none?: CascadeRunWhereInput
+  export type FeriRunListRelationFilter = {
+    every?: FeriRunWhereInput
+    some?: FeriRunWhereInput
+    none?: FeriRunWhereInput
   }
 
   export type ActionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type CascadeRunOrderByRelationAggregateInput = {
+  export type FeriRunOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type CascadeCountOrderByAggregateInput = {
+  export type FeriCountOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type CascadeMaxOrderByAggregateInput = {
+  export type FeriMaxOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type CascadeMinOrderByAggregateInput = {
+  export type FeriMinOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
@@ -11481,40 +11481,40 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
-  export type CascadeNullableScalarRelationFilter = {
-    is?: CascadeWhereInput | null
-    isNot?: CascadeWhereInput | null
+  export type FeriNullableScalarRelationFilter = {
+    is?: FeriWhereInput | null
+    isNot?: FeriWhereInput | null
   }
 
-  export type CascadeOutboxListRelationFilter = {
-    every?: CascadeOutboxWhereInput
-    some?: CascadeOutboxWhereInput
-    none?: CascadeOutboxWhereInput
+  export type FeriOutboxListRelationFilter = {
+    every?: FeriOutboxWhereInput
+    some?: FeriOutboxWhereInput
+    none?: FeriOutboxWhereInput
   }
 
-  export type CascadeOutboxOrderByRelationAggregateInput = {
+  export type FeriOutboxOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type CascadeRunCountOrderByAggregateInput = {
+  export type FeriRunCountOrderByAggregateInput = {
     id?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     status?: SortOrder
     metadata?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type CascadeRunMaxOrderByAggregateInput = {
+  export type FeriRunMaxOrderByAggregateInput = {
     id?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type CascadeRunMinOrderByAggregateInput = {
+  export type FeriRunMinOrderByAggregateInput = {
     id?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
   }
@@ -11545,31 +11545,31 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
-  export type CascadeRunScalarRelationFilter = {
-    is?: CascadeRunWhereInput
-    isNot?: CascadeRunWhereInput
+  export type FeriRunScalarRelationFilter = {
+    is?: FeriRunWhereInput
+    isNot?: FeriRunWhereInput
   }
 
-  export type CascadeOutboxCountOrderByAggregateInput = {
+  export type FeriOutboxCountOrderByAggregateInput = {
     id?: SortOrder
     metadata?: SortOrder
-    cascadeRunId?: SortOrder
+    feriRunId?: SortOrder
     status?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type CascadeOutboxMaxOrderByAggregateInput = {
+  export type FeriOutboxMaxOrderByAggregateInput = {
     id?: SortOrder
-    cascadeRunId?: SortOrder
+    feriRunId?: SortOrder
     status?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type CascadeOutboxMinOrderByAggregateInput = {
+  export type FeriOutboxMinOrderByAggregateInput = {
     id?: SortOrder
-    cascadeRunId?: SortOrder
+    feriRunId?: SortOrder
     status?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11580,15 +11580,15 @@ export namespace Prisma {
     isNot?: AvailableTriggerWhereInput
   }
 
-  export type CascadeScalarRelationFilter = {
-    is?: CascadeWhereInput
-    isNot?: CascadeWhereInput
+  export type FeriScalarRelationFilter = {
+    is?: FeriWhereInput
+    isNot?: FeriWhereInput
   }
 
   export type TriggerCountOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11596,7 +11596,7 @@ export namespace Prisma {
   export type TriggerMaxOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11604,7 +11604,7 @@ export namespace Prisma {
   export type TriggerMinOrderByAggregateInput = {
     id?: SortOrder
     triggerId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11617,7 +11617,7 @@ export namespace Prisma {
   export type ActionCountOrderByAggregateInput = {
     id?: SortOrder
     actionId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11625,7 +11625,7 @@ export namespace Prisma {
   export type ActionMaxOrderByAggregateInput = {
     id?: SortOrder
     actionId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11633,7 +11633,7 @@ export namespace Prisma {
   export type ActionMinOrderByAggregateInput = {
     id?: SortOrder
     actionId?: SortOrder
-    cascadeId?: SortOrder
+    feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11698,201 +11698,201 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type TriggerCreateNestedOneWithoutCascadeInput = {
-    create?: XOR<TriggerCreateWithoutCascadeInput, TriggerUncheckedCreateWithoutCascadeInput>
-    connectOrCreate?: TriggerCreateOrConnectWithoutCascadeInput
+  export type TriggerCreateNestedOneWithoutFeriInput = {
+    create?: XOR<TriggerCreateWithoutFeriInput, TriggerUncheckedCreateWithoutFeriInput>
+    connectOrCreate?: TriggerCreateOrConnectWithoutFeriInput
     connect?: TriggerWhereUniqueInput
   }
 
-  export type ActionCreateNestedManyWithoutCascadeInput = {
-    create?: XOR<ActionCreateWithoutCascadeInput, ActionUncheckedCreateWithoutCascadeInput> | ActionCreateWithoutCascadeInput[] | ActionUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: ActionCreateOrConnectWithoutCascadeInput | ActionCreateOrConnectWithoutCascadeInput[]
-    createMany?: ActionCreateManyCascadeInputEnvelope
+  export type ActionCreateNestedManyWithoutFeriInput = {
+    create?: XOR<ActionCreateWithoutFeriInput, ActionUncheckedCreateWithoutFeriInput> | ActionCreateWithoutFeriInput[] | ActionUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: ActionCreateOrConnectWithoutFeriInput | ActionCreateOrConnectWithoutFeriInput[]
+    createMany?: ActionCreateManyFeriInputEnvelope
     connect?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
   }
 
-  export type CascadeRunCreateNestedManyWithoutCascadeInput = {
-    create?: XOR<CascadeRunCreateWithoutCascadeInput, CascadeRunUncheckedCreateWithoutCascadeInput> | CascadeRunCreateWithoutCascadeInput[] | CascadeRunUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: CascadeRunCreateOrConnectWithoutCascadeInput | CascadeRunCreateOrConnectWithoutCascadeInput[]
-    createMany?: CascadeRunCreateManyCascadeInputEnvelope
-    connect?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
+  export type FeriRunCreateNestedManyWithoutFeriInput = {
+    create?: XOR<FeriRunCreateWithoutFeriInput, FeriRunUncheckedCreateWithoutFeriInput> | FeriRunCreateWithoutFeriInput[] | FeriRunUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: FeriRunCreateOrConnectWithoutFeriInput | FeriRunCreateOrConnectWithoutFeriInput[]
+    createMany?: FeriRunCreateManyFeriInputEnvelope
+    connect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
   }
 
-  export type TriggerUncheckedCreateNestedOneWithoutCascadeInput = {
-    create?: XOR<TriggerCreateWithoutCascadeInput, TriggerUncheckedCreateWithoutCascadeInput>
-    connectOrCreate?: TriggerCreateOrConnectWithoutCascadeInput
+  export type TriggerUncheckedCreateNestedOneWithoutFeriInput = {
+    create?: XOR<TriggerCreateWithoutFeriInput, TriggerUncheckedCreateWithoutFeriInput>
+    connectOrCreate?: TriggerCreateOrConnectWithoutFeriInput
     connect?: TriggerWhereUniqueInput
   }
 
-  export type ActionUncheckedCreateNestedManyWithoutCascadeInput = {
-    create?: XOR<ActionCreateWithoutCascadeInput, ActionUncheckedCreateWithoutCascadeInput> | ActionCreateWithoutCascadeInput[] | ActionUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: ActionCreateOrConnectWithoutCascadeInput | ActionCreateOrConnectWithoutCascadeInput[]
-    createMany?: ActionCreateManyCascadeInputEnvelope
+  export type ActionUncheckedCreateNestedManyWithoutFeriInput = {
+    create?: XOR<ActionCreateWithoutFeriInput, ActionUncheckedCreateWithoutFeriInput> | ActionCreateWithoutFeriInput[] | ActionUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: ActionCreateOrConnectWithoutFeriInput | ActionCreateOrConnectWithoutFeriInput[]
+    createMany?: ActionCreateManyFeriInputEnvelope
     connect?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
   }
 
-  export type CascadeRunUncheckedCreateNestedManyWithoutCascadeInput = {
-    create?: XOR<CascadeRunCreateWithoutCascadeInput, CascadeRunUncheckedCreateWithoutCascadeInput> | CascadeRunCreateWithoutCascadeInput[] | CascadeRunUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: CascadeRunCreateOrConnectWithoutCascadeInput | CascadeRunCreateOrConnectWithoutCascadeInput[]
-    createMany?: CascadeRunCreateManyCascadeInputEnvelope
-    connect?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
+  export type FeriRunUncheckedCreateNestedManyWithoutFeriInput = {
+    create?: XOR<FeriRunCreateWithoutFeriInput, FeriRunUncheckedCreateWithoutFeriInput> | FeriRunCreateWithoutFeriInput[] | FeriRunUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: FeriRunCreateOrConnectWithoutFeriInput | FeriRunCreateOrConnectWithoutFeriInput[]
+    createMany?: FeriRunCreateManyFeriInputEnvelope
+    connect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
   }
 
-  export type TriggerUpdateOneWithoutCascadeNestedInput = {
-    create?: XOR<TriggerCreateWithoutCascadeInput, TriggerUncheckedCreateWithoutCascadeInput>
-    connectOrCreate?: TriggerCreateOrConnectWithoutCascadeInput
-    upsert?: TriggerUpsertWithoutCascadeInput
+  export type TriggerUpdateOneWithoutFeriNestedInput = {
+    create?: XOR<TriggerCreateWithoutFeriInput, TriggerUncheckedCreateWithoutFeriInput>
+    connectOrCreate?: TriggerCreateOrConnectWithoutFeriInput
+    upsert?: TriggerUpsertWithoutFeriInput
     disconnect?: TriggerWhereInput | boolean
     delete?: TriggerWhereInput | boolean
     connect?: TriggerWhereUniqueInput
-    update?: XOR<XOR<TriggerUpdateToOneWithWhereWithoutCascadeInput, TriggerUpdateWithoutCascadeInput>, TriggerUncheckedUpdateWithoutCascadeInput>
+    update?: XOR<XOR<TriggerUpdateToOneWithWhereWithoutFeriInput, TriggerUpdateWithoutFeriInput>, TriggerUncheckedUpdateWithoutFeriInput>
   }
 
-  export type ActionUpdateManyWithoutCascadeNestedInput = {
-    create?: XOR<ActionCreateWithoutCascadeInput, ActionUncheckedCreateWithoutCascadeInput> | ActionCreateWithoutCascadeInput[] | ActionUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: ActionCreateOrConnectWithoutCascadeInput | ActionCreateOrConnectWithoutCascadeInput[]
-    upsert?: ActionUpsertWithWhereUniqueWithoutCascadeInput | ActionUpsertWithWhereUniqueWithoutCascadeInput[]
-    createMany?: ActionCreateManyCascadeInputEnvelope
+  export type ActionUpdateManyWithoutFeriNestedInput = {
+    create?: XOR<ActionCreateWithoutFeriInput, ActionUncheckedCreateWithoutFeriInput> | ActionCreateWithoutFeriInput[] | ActionUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: ActionCreateOrConnectWithoutFeriInput | ActionCreateOrConnectWithoutFeriInput[]
+    upsert?: ActionUpsertWithWhereUniqueWithoutFeriInput | ActionUpsertWithWhereUniqueWithoutFeriInput[]
+    createMany?: ActionCreateManyFeriInputEnvelope
     set?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
     disconnect?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
     delete?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
     connect?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
-    update?: ActionUpdateWithWhereUniqueWithoutCascadeInput | ActionUpdateWithWhereUniqueWithoutCascadeInput[]
-    updateMany?: ActionUpdateManyWithWhereWithoutCascadeInput | ActionUpdateManyWithWhereWithoutCascadeInput[]
+    update?: ActionUpdateWithWhereUniqueWithoutFeriInput | ActionUpdateWithWhereUniqueWithoutFeriInput[]
+    updateMany?: ActionUpdateManyWithWhereWithoutFeriInput | ActionUpdateManyWithWhereWithoutFeriInput[]
     deleteMany?: ActionScalarWhereInput | ActionScalarWhereInput[]
   }
 
-  export type CascadeRunUpdateManyWithoutCascadeNestedInput = {
-    create?: XOR<CascadeRunCreateWithoutCascadeInput, CascadeRunUncheckedCreateWithoutCascadeInput> | CascadeRunCreateWithoutCascadeInput[] | CascadeRunUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: CascadeRunCreateOrConnectWithoutCascadeInput | CascadeRunCreateOrConnectWithoutCascadeInput[]
-    upsert?: CascadeRunUpsertWithWhereUniqueWithoutCascadeInput | CascadeRunUpsertWithWhereUniqueWithoutCascadeInput[]
-    createMany?: CascadeRunCreateManyCascadeInputEnvelope
-    set?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    disconnect?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    delete?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    connect?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    update?: CascadeRunUpdateWithWhereUniqueWithoutCascadeInput | CascadeRunUpdateWithWhereUniqueWithoutCascadeInput[]
-    updateMany?: CascadeRunUpdateManyWithWhereWithoutCascadeInput | CascadeRunUpdateManyWithWhereWithoutCascadeInput[]
-    deleteMany?: CascadeRunScalarWhereInput | CascadeRunScalarWhereInput[]
+  export type FeriRunUpdateManyWithoutFeriNestedInput = {
+    create?: XOR<FeriRunCreateWithoutFeriInput, FeriRunUncheckedCreateWithoutFeriInput> | FeriRunCreateWithoutFeriInput[] | FeriRunUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: FeriRunCreateOrConnectWithoutFeriInput | FeriRunCreateOrConnectWithoutFeriInput[]
+    upsert?: FeriRunUpsertWithWhereUniqueWithoutFeriInput | FeriRunUpsertWithWhereUniqueWithoutFeriInput[]
+    createMany?: FeriRunCreateManyFeriInputEnvelope
+    set?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    disconnect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    delete?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    connect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    update?: FeriRunUpdateWithWhereUniqueWithoutFeriInput | FeriRunUpdateWithWhereUniqueWithoutFeriInput[]
+    updateMany?: FeriRunUpdateManyWithWhereWithoutFeriInput | FeriRunUpdateManyWithWhereWithoutFeriInput[]
+    deleteMany?: FeriRunScalarWhereInput | FeriRunScalarWhereInput[]
   }
 
-  export type TriggerUncheckedUpdateOneWithoutCascadeNestedInput = {
-    create?: XOR<TriggerCreateWithoutCascadeInput, TriggerUncheckedCreateWithoutCascadeInput>
-    connectOrCreate?: TriggerCreateOrConnectWithoutCascadeInput
-    upsert?: TriggerUpsertWithoutCascadeInput
+  export type TriggerUncheckedUpdateOneWithoutFeriNestedInput = {
+    create?: XOR<TriggerCreateWithoutFeriInput, TriggerUncheckedCreateWithoutFeriInput>
+    connectOrCreate?: TriggerCreateOrConnectWithoutFeriInput
+    upsert?: TriggerUpsertWithoutFeriInput
     disconnect?: TriggerWhereInput | boolean
     delete?: TriggerWhereInput | boolean
     connect?: TriggerWhereUniqueInput
-    update?: XOR<XOR<TriggerUpdateToOneWithWhereWithoutCascadeInput, TriggerUpdateWithoutCascadeInput>, TriggerUncheckedUpdateWithoutCascadeInput>
+    update?: XOR<XOR<TriggerUpdateToOneWithWhereWithoutFeriInput, TriggerUpdateWithoutFeriInput>, TriggerUncheckedUpdateWithoutFeriInput>
   }
 
-  export type ActionUncheckedUpdateManyWithoutCascadeNestedInput = {
-    create?: XOR<ActionCreateWithoutCascadeInput, ActionUncheckedCreateWithoutCascadeInput> | ActionCreateWithoutCascadeInput[] | ActionUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: ActionCreateOrConnectWithoutCascadeInput | ActionCreateOrConnectWithoutCascadeInput[]
-    upsert?: ActionUpsertWithWhereUniqueWithoutCascadeInput | ActionUpsertWithWhereUniqueWithoutCascadeInput[]
-    createMany?: ActionCreateManyCascadeInputEnvelope
+  export type ActionUncheckedUpdateManyWithoutFeriNestedInput = {
+    create?: XOR<ActionCreateWithoutFeriInput, ActionUncheckedCreateWithoutFeriInput> | ActionCreateWithoutFeriInput[] | ActionUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: ActionCreateOrConnectWithoutFeriInput | ActionCreateOrConnectWithoutFeriInput[]
+    upsert?: ActionUpsertWithWhereUniqueWithoutFeriInput | ActionUpsertWithWhereUniqueWithoutFeriInput[]
+    createMany?: ActionCreateManyFeriInputEnvelope
     set?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
     disconnect?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
     delete?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
     connect?: ActionWhereUniqueInput | ActionWhereUniqueInput[]
-    update?: ActionUpdateWithWhereUniqueWithoutCascadeInput | ActionUpdateWithWhereUniqueWithoutCascadeInput[]
-    updateMany?: ActionUpdateManyWithWhereWithoutCascadeInput | ActionUpdateManyWithWhereWithoutCascadeInput[]
+    update?: ActionUpdateWithWhereUniqueWithoutFeriInput | ActionUpdateWithWhereUniqueWithoutFeriInput[]
+    updateMany?: ActionUpdateManyWithWhereWithoutFeriInput | ActionUpdateManyWithWhereWithoutFeriInput[]
     deleteMany?: ActionScalarWhereInput | ActionScalarWhereInput[]
   }
 
-  export type CascadeRunUncheckedUpdateManyWithoutCascadeNestedInput = {
-    create?: XOR<CascadeRunCreateWithoutCascadeInput, CascadeRunUncheckedCreateWithoutCascadeInput> | CascadeRunCreateWithoutCascadeInput[] | CascadeRunUncheckedCreateWithoutCascadeInput[]
-    connectOrCreate?: CascadeRunCreateOrConnectWithoutCascadeInput | CascadeRunCreateOrConnectWithoutCascadeInput[]
-    upsert?: CascadeRunUpsertWithWhereUniqueWithoutCascadeInput | CascadeRunUpsertWithWhereUniqueWithoutCascadeInput[]
-    createMany?: CascadeRunCreateManyCascadeInputEnvelope
-    set?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    disconnect?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    delete?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    connect?: CascadeRunWhereUniqueInput | CascadeRunWhereUniqueInput[]
-    update?: CascadeRunUpdateWithWhereUniqueWithoutCascadeInput | CascadeRunUpdateWithWhereUniqueWithoutCascadeInput[]
-    updateMany?: CascadeRunUpdateManyWithWhereWithoutCascadeInput | CascadeRunUpdateManyWithWhereWithoutCascadeInput[]
-    deleteMany?: CascadeRunScalarWhereInput | CascadeRunScalarWhereInput[]
+  export type FeriRunUncheckedUpdateManyWithoutFeriNestedInput = {
+    create?: XOR<FeriRunCreateWithoutFeriInput, FeriRunUncheckedCreateWithoutFeriInput> | FeriRunCreateWithoutFeriInput[] | FeriRunUncheckedCreateWithoutFeriInput[]
+    connectOrCreate?: FeriRunCreateOrConnectWithoutFeriInput | FeriRunCreateOrConnectWithoutFeriInput[]
+    upsert?: FeriRunUpsertWithWhereUniqueWithoutFeriInput | FeriRunUpsertWithWhereUniqueWithoutFeriInput[]
+    createMany?: FeriRunCreateManyFeriInputEnvelope
+    set?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    disconnect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    delete?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    connect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+    update?: FeriRunUpdateWithWhereUniqueWithoutFeriInput | FeriRunUpdateWithWhereUniqueWithoutFeriInput[]
+    updateMany?: FeriRunUpdateManyWithWhereWithoutFeriInput | FeriRunUpdateManyWithWhereWithoutFeriInput[]
+    deleteMany?: FeriRunScalarWhereInput | FeriRunScalarWhereInput[]
   }
 
-  export type CascadeRunCreateupdatedAtInput = {
+  export type FeriRunCreateupdatedAtInput = {
     set: Date[] | string[]
   }
 
-  export type CascadeCreateNestedOneWithoutCascadeRunsInput = {
-    create?: XOR<CascadeCreateWithoutCascadeRunsInput, CascadeUncheckedCreateWithoutCascadeRunsInput>
-    connectOrCreate?: CascadeCreateOrConnectWithoutCascadeRunsInput
-    connect?: CascadeWhereUniqueInput
+  export type FeriCreateNestedOneWithoutFeriRunsInput = {
+    create?: XOR<FeriCreateWithoutFeriRunsInput, FeriUncheckedCreateWithoutFeriRunsInput>
+    connectOrCreate?: FeriCreateOrConnectWithoutFeriRunsInput
+    connect?: FeriWhereUniqueInput
   }
 
-  export type CascadeOutboxCreateNestedManyWithoutCascadeRunInput = {
-    create?: XOR<CascadeOutboxCreateWithoutCascadeRunInput, CascadeOutboxUncheckedCreateWithoutCascadeRunInput> | CascadeOutboxCreateWithoutCascadeRunInput[] | CascadeOutboxUncheckedCreateWithoutCascadeRunInput[]
-    connectOrCreate?: CascadeOutboxCreateOrConnectWithoutCascadeRunInput | CascadeOutboxCreateOrConnectWithoutCascadeRunInput[]
-    createMany?: CascadeOutboxCreateManyCascadeRunInputEnvelope
-    connect?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
+  export type FeriOutboxCreateNestedManyWithoutFeriRunInput = {
+    create?: XOR<FeriOutboxCreateWithoutFeriRunInput, FeriOutboxUncheckedCreateWithoutFeriRunInput> | FeriOutboxCreateWithoutFeriRunInput[] | FeriOutboxUncheckedCreateWithoutFeriRunInput[]
+    connectOrCreate?: FeriOutboxCreateOrConnectWithoutFeriRunInput | FeriOutboxCreateOrConnectWithoutFeriRunInput[]
+    createMany?: FeriOutboxCreateManyFeriRunInputEnvelope
+    connect?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
   }
 
-  export type CascadeOutboxUncheckedCreateNestedManyWithoutCascadeRunInput = {
-    create?: XOR<CascadeOutboxCreateWithoutCascadeRunInput, CascadeOutboxUncheckedCreateWithoutCascadeRunInput> | CascadeOutboxCreateWithoutCascadeRunInput[] | CascadeOutboxUncheckedCreateWithoutCascadeRunInput[]
-    connectOrCreate?: CascadeOutboxCreateOrConnectWithoutCascadeRunInput | CascadeOutboxCreateOrConnectWithoutCascadeRunInput[]
-    createMany?: CascadeOutboxCreateManyCascadeRunInputEnvelope
-    connect?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
+  export type FeriOutboxUncheckedCreateNestedManyWithoutFeriRunInput = {
+    create?: XOR<FeriOutboxCreateWithoutFeriRunInput, FeriOutboxUncheckedCreateWithoutFeriRunInput> | FeriOutboxCreateWithoutFeriRunInput[] | FeriOutboxUncheckedCreateWithoutFeriRunInput[]
+    connectOrCreate?: FeriOutboxCreateOrConnectWithoutFeriRunInput | FeriOutboxCreateOrConnectWithoutFeriRunInput[]
+    createMany?: FeriOutboxCreateManyFeriRunInputEnvelope
+    connect?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
   }
 
-  export type CascadeRunUpdateupdatedAtInput = {
+  export type FeriRunUpdateupdatedAtInput = {
     set?: Date[] | string[]
     push?: Date | string | Date[] | string[]
   }
 
-  export type CascadeUpdateOneWithoutCascadeRunsNestedInput = {
-    create?: XOR<CascadeCreateWithoutCascadeRunsInput, CascadeUncheckedCreateWithoutCascadeRunsInput>
-    connectOrCreate?: CascadeCreateOrConnectWithoutCascadeRunsInput
-    upsert?: CascadeUpsertWithoutCascadeRunsInput
-    disconnect?: CascadeWhereInput | boolean
-    delete?: CascadeWhereInput | boolean
-    connect?: CascadeWhereUniqueInput
-    update?: XOR<XOR<CascadeUpdateToOneWithWhereWithoutCascadeRunsInput, CascadeUpdateWithoutCascadeRunsInput>, CascadeUncheckedUpdateWithoutCascadeRunsInput>
+  export type FeriUpdateOneWithoutFeriRunsNestedInput = {
+    create?: XOR<FeriCreateWithoutFeriRunsInput, FeriUncheckedCreateWithoutFeriRunsInput>
+    connectOrCreate?: FeriCreateOrConnectWithoutFeriRunsInput
+    upsert?: FeriUpsertWithoutFeriRunsInput
+    disconnect?: FeriWhereInput | boolean
+    delete?: FeriWhereInput | boolean
+    connect?: FeriWhereUniqueInput
+    update?: XOR<XOR<FeriUpdateToOneWithWhereWithoutFeriRunsInput, FeriUpdateWithoutFeriRunsInput>, FeriUncheckedUpdateWithoutFeriRunsInput>
   }
 
-  export type CascadeOutboxUpdateManyWithoutCascadeRunNestedInput = {
-    create?: XOR<CascadeOutboxCreateWithoutCascadeRunInput, CascadeOutboxUncheckedCreateWithoutCascadeRunInput> | CascadeOutboxCreateWithoutCascadeRunInput[] | CascadeOutboxUncheckedCreateWithoutCascadeRunInput[]
-    connectOrCreate?: CascadeOutboxCreateOrConnectWithoutCascadeRunInput | CascadeOutboxCreateOrConnectWithoutCascadeRunInput[]
-    upsert?: CascadeOutboxUpsertWithWhereUniqueWithoutCascadeRunInput | CascadeOutboxUpsertWithWhereUniqueWithoutCascadeRunInput[]
-    createMany?: CascadeOutboxCreateManyCascadeRunInputEnvelope
-    set?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    disconnect?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    delete?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    connect?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    update?: CascadeOutboxUpdateWithWhereUniqueWithoutCascadeRunInput | CascadeOutboxUpdateWithWhereUniqueWithoutCascadeRunInput[]
-    updateMany?: CascadeOutboxUpdateManyWithWhereWithoutCascadeRunInput | CascadeOutboxUpdateManyWithWhereWithoutCascadeRunInput[]
-    deleteMany?: CascadeOutboxScalarWhereInput | CascadeOutboxScalarWhereInput[]
+  export type FeriOutboxUpdateManyWithoutFeriRunNestedInput = {
+    create?: XOR<FeriOutboxCreateWithoutFeriRunInput, FeriOutboxUncheckedCreateWithoutFeriRunInput> | FeriOutboxCreateWithoutFeriRunInput[] | FeriOutboxUncheckedCreateWithoutFeriRunInput[]
+    connectOrCreate?: FeriOutboxCreateOrConnectWithoutFeriRunInput | FeriOutboxCreateOrConnectWithoutFeriRunInput[]
+    upsert?: FeriOutboxUpsertWithWhereUniqueWithoutFeriRunInput | FeriOutboxUpsertWithWhereUniqueWithoutFeriRunInput[]
+    createMany?: FeriOutboxCreateManyFeriRunInputEnvelope
+    set?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    disconnect?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    delete?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    connect?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    update?: FeriOutboxUpdateWithWhereUniqueWithoutFeriRunInput | FeriOutboxUpdateWithWhereUniqueWithoutFeriRunInput[]
+    updateMany?: FeriOutboxUpdateManyWithWhereWithoutFeriRunInput | FeriOutboxUpdateManyWithWhereWithoutFeriRunInput[]
+    deleteMany?: FeriOutboxScalarWhereInput | FeriOutboxScalarWhereInput[]
   }
 
-  export type CascadeOutboxUncheckedUpdateManyWithoutCascadeRunNestedInput = {
-    create?: XOR<CascadeOutboxCreateWithoutCascadeRunInput, CascadeOutboxUncheckedCreateWithoutCascadeRunInput> | CascadeOutboxCreateWithoutCascadeRunInput[] | CascadeOutboxUncheckedCreateWithoutCascadeRunInput[]
-    connectOrCreate?: CascadeOutboxCreateOrConnectWithoutCascadeRunInput | CascadeOutboxCreateOrConnectWithoutCascadeRunInput[]
-    upsert?: CascadeOutboxUpsertWithWhereUniqueWithoutCascadeRunInput | CascadeOutboxUpsertWithWhereUniqueWithoutCascadeRunInput[]
-    createMany?: CascadeOutboxCreateManyCascadeRunInputEnvelope
-    set?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    disconnect?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    delete?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    connect?: CascadeOutboxWhereUniqueInput | CascadeOutboxWhereUniqueInput[]
-    update?: CascadeOutboxUpdateWithWhereUniqueWithoutCascadeRunInput | CascadeOutboxUpdateWithWhereUniqueWithoutCascadeRunInput[]
-    updateMany?: CascadeOutboxUpdateManyWithWhereWithoutCascadeRunInput | CascadeOutboxUpdateManyWithWhereWithoutCascadeRunInput[]
-    deleteMany?: CascadeOutboxScalarWhereInput | CascadeOutboxScalarWhereInput[]
+  export type FeriOutboxUncheckedUpdateManyWithoutFeriRunNestedInput = {
+    create?: XOR<FeriOutboxCreateWithoutFeriRunInput, FeriOutboxUncheckedCreateWithoutFeriRunInput> | FeriOutboxCreateWithoutFeriRunInput[] | FeriOutboxUncheckedCreateWithoutFeriRunInput[]
+    connectOrCreate?: FeriOutboxCreateOrConnectWithoutFeriRunInput | FeriOutboxCreateOrConnectWithoutFeriRunInput[]
+    upsert?: FeriOutboxUpsertWithWhereUniqueWithoutFeriRunInput | FeriOutboxUpsertWithWhereUniqueWithoutFeriRunInput[]
+    createMany?: FeriOutboxCreateManyFeriRunInputEnvelope
+    set?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    disconnect?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    delete?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    connect?: FeriOutboxWhereUniqueInput | FeriOutboxWhereUniqueInput[]
+    update?: FeriOutboxUpdateWithWhereUniqueWithoutFeriRunInput | FeriOutboxUpdateWithWhereUniqueWithoutFeriRunInput[]
+    updateMany?: FeriOutboxUpdateManyWithWhereWithoutFeriRunInput | FeriOutboxUpdateManyWithWhereWithoutFeriRunInput[]
+    deleteMany?: FeriOutboxScalarWhereInput | FeriOutboxScalarWhereInput[]
   }
 
-  export type CascadeRunCreateNestedOneWithoutCascadeOutboxInput = {
-    create?: XOR<CascadeRunCreateWithoutCascadeOutboxInput, CascadeRunUncheckedCreateWithoutCascadeOutboxInput>
-    connectOrCreate?: CascadeRunCreateOrConnectWithoutCascadeOutboxInput
-    connect?: CascadeRunWhereUniqueInput
+  export type FeriRunCreateNestedOneWithoutFeriOutboxInput = {
+    create?: XOR<FeriRunCreateWithoutFeriOutboxInput, FeriRunUncheckedCreateWithoutFeriOutboxInput>
+    connectOrCreate?: FeriRunCreateOrConnectWithoutFeriOutboxInput
+    connect?: FeriRunWhereUniqueInput
   }
 
-  export type CascadeRunUpdateOneRequiredWithoutCascadeOutboxNestedInput = {
-    create?: XOR<CascadeRunCreateWithoutCascadeOutboxInput, CascadeRunUncheckedCreateWithoutCascadeOutboxInput>
-    connectOrCreate?: CascadeRunCreateOrConnectWithoutCascadeOutboxInput
-    upsert?: CascadeRunUpsertWithoutCascadeOutboxInput
-    connect?: CascadeRunWhereUniqueInput
-    update?: XOR<XOR<CascadeRunUpdateToOneWithWhereWithoutCascadeOutboxInput, CascadeRunUpdateWithoutCascadeOutboxInput>, CascadeRunUncheckedUpdateWithoutCascadeOutboxInput>
+  export type FeriRunUpdateOneRequiredWithoutFeriOutboxNestedInput = {
+    create?: XOR<FeriRunCreateWithoutFeriOutboxInput, FeriRunUncheckedCreateWithoutFeriOutboxInput>
+    connectOrCreate?: FeriRunCreateOrConnectWithoutFeriOutboxInput
+    upsert?: FeriRunUpsertWithoutFeriOutboxInput
+    connect?: FeriRunWhereUniqueInput
+    update?: XOR<XOR<FeriRunUpdateToOneWithWhereWithoutFeriOutboxInput, FeriRunUpdateWithoutFeriOutboxInput>, FeriRunUncheckedUpdateWithoutFeriOutboxInput>
   }
 
   export type AvailableTriggerCreateNestedOneWithoutTriggerInput = {
@@ -11901,10 +11901,10 @@ export namespace Prisma {
     connect?: AvailableTriggerWhereUniqueInput
   }
 
-  export type CascadeCreateNestedOneWithoutTriggerInput = {
-    create?: XOR<CascadeCreateWithoutTriggerInput, CascadeUncheckedCreateWithoutTriggerInput>
-    connectOrCreate?: CascadeCreateOrConnectWithoutTriggerInput
-    connect?: CascadeWhereUniqueInput
+  export type FeriCreateNestedOneWithoutTriggerInput = {
+    create?: XOR<FeriCreateWithoutTriggerInput, FeriUncheckedCreateWithoutTriggerInput>
+    connectOrCreate?: FeriCreateOrConnectWithoutTriggerInput
+    connect?: FeriWhereUniqueInput
   }
 
   export type AvailableTriggerUpdateOneRequiredWithoutTriggerNestedInput = {
@@ -11915,12 +11915,12 @@ export namespace Prisma {
     update?: XOR<XOR<AvailableTriggerUpdateToOneWithWhereWithoutTriggerInput, AvailableTriggerUpdateWithoutTriggerInput>, AvailableTriggerUncheckedUpdateWithoutTriggerInput>
   }
 
-  export type CascadeUpdateOneRequiredWithoutTriggerNestedInput = {
-    create?: XOR<CascadeCreateWithoutTriggerInput, CascadeUncheckedCreateWithoutTriggerInput>
-    connectOrCreate?: CascadeCreateOrConnectWithoutTriggerInput
-    upsert?: CascadeUpsertWithoutTriggerInput
-    connect?: CascadeWhereUniqueInput
-    update?: XOR<XOR<CascadeUpdateToOneWithWhereWithoutTriggerInput, CascadeUpdateWithoutTriggerInput>, CascadeUncheckedUpdateWithoutTriggerInput>
+  export type FeriUpdateOneRequiredWithoutTriggerNestedInput = {
+    create?: XOR<FeriCreateWithoutTriggerInput, FeriUncheckedCreateWithoutTriggerInput>
+    connectOrCreate?: FeriCreateOrConnectWithoutTriggerInput
+    upsert?: FeriUpsertWithoutTriggerInput
+    connect?: FeriWhereUniqueInput
+    update?: XOR<XOR<FeriUpdateToOneWithWhereWithoutTriggerInput, FeriUpdateWithoutTriggerInput>, FeriUncheckedUpdateWithoutTriggerInput>
   }
 
   export type AvailableActionsCreateNestedOneWithoutActionInput = {
@@ -11929,10 +11929,10 @@ export namespace Prisma {
     connect?: AvailableActionsWhereUniqueInput
   }
 
-  export type CascadeCreateNestedOneWithoutActionInput = {
-    create?: XOR<CascadeCreateWithoutActionInput, CascadeUncheckedCreateWithoutActionInput>
-    connectOrCreate?: CascadeCreateOrConnectWithoutActionInput
-    connect?: CascadeWhereUniqueInput
+  export type FeriCreateNestedOneWithoutActionInput = {
+    create?: XOR<FeriCreateWithoutActionInput, FeriUncheckedCreateWithoutActionInput>
+    connectOrCreate?: FeriCreateOrConnectWithoutActionInput
+    connect?: FeriWhereUniqueInput
   }
 
   export type AvailableActionsUpdateOneRequiredWithoutActionNestedInput = {
@@ -11943,12 +11943,12 @@ export namespace Prisma {
     update?: XOR<XOR<AvailableActionsUpdateToOneWithWhereWithoutActionInput, AvailableActionsUpdateWithoutActionInput>, AvailableActionsUncheckedUpdateWithoutActionInput>
   }
 
-  export type CascadeUpdateOneRequiredWithoutActionNestedInput = {
-    create?: XOR<CascadeCreateWithoutActionInput, CascadeUncheckedCreateWithoutActionInput>
-    connectOrCreate?: CascadeCreateOrConnectWithoutActionInput
-    upsert?: CascadeUpsertWithoutActionInput
-    connect?: CascadeWhereUniqueInput
-    update?: XOR<XOR<CascadeUpdateToOneWithWhereWithoutActionInput, CascadeUpdateWithoutActionInput>, CascadeUncheckedUpdateWithoutActionInput>
+  export type FeriUpdateOneRequiredWithoutActionNestedInput = {
+    create?: XOR<FeriCreateWithoutActionInput, FeriUncheckedCreateWithoutActionInput>
+    connectOrCreate?: FeriCreateOrConnectWithoutActionInput
+    upsert?: FeriUpsertWithoutActionInput
+    connect?: FeriWhereUniqueInput
+    update?: XOR<XOR<FeriUpdateToOneWithWhereWithoutActionInput, FeriUpdateWithoutActionInput>, FeriUncheckedUpdateWithoutActionInput>
   }
 
   export type ActionCreateNestedManyWithoutTypeInput = {
@@ -12194,116 +12194,116 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type TriggerCreateWithoutCascadeInput = {
+  export type TriggerCreateWithoutFeriInput = {
     id?: string
     updatedAt?: Date | string
     createdAt?: Date | string
     type: AvailableTriggerCreateNestedOneWithoutTriggerInput
   }
 
-  export type TriggerUncheckedCreateWithoutCascadeInput = {
+  export type TriggerUncheckedCreateWithoutFeriInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
 
-  export type TriggerCreateOrConnectWithoutCascadeInput = {
+  export type TriggerCreateOrConnectWithoutFeriInput = {
     where: TriggerWhereUniqueInput
-    create: XOR<TriggerCreateWithoutCascadeInput, TriggerUncheckedCreateWithoutCascadeInput>
+    create: XOR<TriggerCreateWithoutFeriInput, TriggerUncheckedCreateWithoutFeriInput>
   }
 
-  export type ActionCreateWithoutCascadeInput = {
+  export type ActionCreateWithoutFeriInput = {
     id?: string
     updatedAt?: Date | string
     createdAt?: Date | string
     type: AvailableActionsCreateNestedOneWithoutActionInput
   }
 
-  export type ActionUncheckedCreateWithoutCascadeInput = {
+  export type ActionUncheckedCreateWithoutFeriInput = {
     id?: string
     actionId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
 
-  export type ActionCreateOrConnectWithoutCascadeInput = {
+  export type ActionCreateOrConnectWithoutFeriInput = {
     where: ActionWhereUniqueInput
-    create: XOR<ActionCreateWithoutCascadeInput, ActionUncheckedCreateWithoutCascadeInput>
+    create: XOR<ActionCreateWithoutFeriInput, ActionUncheckedCreateWithoutFeriInput>
   }
 
-  export type ActionCreateManyCascadeInputEnvelope = {
-    data: ActionCreateManyCascadeInput | ActionCreateManyCascadeInput[]
+  export type ActionCreateManyFeriInputEnvelope = {
+    data: ActionCreateManyFeriInput | ActionCreateManyFeriInput[]
     skipDuplicates?: boolean
   }
 
-  export type CascadeRunCreateWithoutCascadeInput = {
+  export type FeriRunCreateWithoutFeriInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
-    cascadeOutbox?: CascadeOutboxCreateNestedManyWithoutCascadeRunInput
+    feriOutbox?: FeriOutboxCreateNestedManyWithoutFeriRunInput
   }
 
-  export type CascadeRunUncheckedCreateWithoutCascadeInput = {
+  export type FeriRunUncheckedCreateWithoutFeriInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
-    cascadeOutbox?: CascadeOutboxUncheckedCreateNestedManyWithoutCascadeRunInput
+    feriOutbox?: FeriOutboxUncheckedCreateNestedManyWithoutFeriRunInput
   }
 
-  export type CascadeRunCreateOrConnectWithoutCascadeInput = {
-    where: CascadeRunWhereUniqueInput
-    create: XOR<CascadeRunCreateWithoutCascadeInput, CascadeRunUncheckedCreateWithoutCascadeInput>
+  export type FeriRunCreateOrConnectWithoutFeriInput = {
+    where: FeriRunWhereUniqueInput
+    create: XOR<FeriRunCreateWithoutFeriInput, FeriRunUncheckedCreateWithoutFeriInput>
   }
 
-  export type CascadeRunCreateManyCascadeInputEnvelope = {
-    data: CascadeRunCreateManyCascadeInput | CascadeRunCreateManyCascadeInput[]
+  export type FeriRunCreateManyFeriInputEnvelope = {
+    data: FeriRunCreateManyFeriInput | FeriRunCreateManyFeriInput[]
     skipDuplicates?: boolean
   }
 
-  export type TriggerUpsertWithoutCascadeInput = {
-    update: XOR<TriggerUpdateWithoutCascadeInput, TriggerUncheckedUpdateWithoutCascadeInput>
-    create: XOR<TriggerCreateWithoutCascadeInput, TriggerUncheckedCreateWithoutCascadeInput>
+  export type TriggerUpsertWithoutFeriInput = {
+    update: XOR<TriggerUpdateWithoutFeriInput, TriggerUncheckedUpdateWithoutFeriInput>
+    create: XOR<TriggerCreateWithoutFeriInput, TriggerUncheckedCreateWithoutFeriInput>
     where?: TriggerWhereInput
   }
 
-  export type TriggerUpdateToOneWithWhereWithoutCascadeInput = {
+  export type TriggerUpdateToOneWithWhereWithoutFeriInput = {
     where?: TriggerWhereInput
-    data: XOR<TriggerUpdateWithoutCascadeInput, TriggerUncheckedUpdateWithoutCascadeInput>
+    data: XOR<TriggerUpdateWithoutFeriInput, TriggerUncheckedUpdateWithoutFeriInput>
   }
 
-  export type TriggerUpdateWithoutCascadeInput = {
+  export type TriggerUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableTriggerUpdateOneRequiredWithoutTriggerNestedInput
   }
 
-  export type TriggerUncheckedUpdateWithoutCascadeInput = {
+  export type TriggerUncheckedUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ActionUpsertWithWhereUniqueWithoutCascadeInput = {
+  export type ActionUpsertWithWhereUniqueWithoutFeriInput = {
     where: ActionWhereUniqueInput
-    update: XOR<ActionUpdateWithoutCascadeInput, ActionUncheckedUpdateWithoutCascadeInput>
-    create: XOR<ActionCreateWithoutCascadeInput, ActionUncheckedCreateWithoutCascadeInput>
+    update: XOR<ActionUpdateWithoutFeriInput, ActionUncheckedUpdateWithoutFeriInput>
+    create: XOR<ActionCreateWithoutFeriInput, ActionUncheckedCreateWithoutFeriInput>
   }
 
-  export type ActionUpdateWithWhereUniqueWithoutCascadeInput = {
+  export type ActionUpdateWithWhereUniqueWithoutFeriInput = {
     where: ActionWhereUniqueInput
-    data: XOR<ActionUpdateWithoutCascadeInput, ActionUncheckedUpdateWithoutCascadeInput>
+    data: XOR<ActionUpdateWithoutFeriInput, ActionUncheckedUpdateWithoutFeriInput>
   }
 
-  export type ActionUpdateManyWithWhereWithoutCascadeInput = {
+  export type ActionUpdateManyWithWhereWithoutFeriInput = {
     where: ActionScalarWhereInput
-    data: XOR<ActionUpdateManyMutationInput, ActionUncheckedUpdateManyWithoutCascadeInput>
+    data: XOR<ActionUpdateManyMutationInput, ActionUncheckedUpdateManyWithoutFeriInput>
   }
 
   export type ActionScalarWhereInput = {
@@ -12312,63 +12312,63 @@ export namespace Prisma {
     NOT?: ActionScalarWhereInput | ActionScalarWhereInput[]
     id?: StringFilter<"Action"> | string
     actionId?: StringFilter<"Action"> | string
-    cascadeId?: StringFilter<"Action"> | string
+    feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
   }
 
-  export type CascadeRunUpsertWithWhereUniqueWithoutCascadeInput = {
-    where: CascadeRunWhereUniqueInput
-    update: XOR<CascadeRunUpdateWithoutCascadeInput, CascadeRunUncheckedUpdateWithoutCascadeInput>
-    create: XOR<CascadeRunCreateWithoutCascadeInput, CascadeRunUncheckedCreateWithoutCascadeInput>
+  export type FeriRunUpsertWithWhereUniqueWithoutFeriInput = {
+    where: FeriRunWhereUniqueInput
+    update: XOR<FeriRunUpdateWithoutFeriInput, FeriRunUncheckedUpdateWithoutFeriInput>
+    create: XOR<FeriRunCreateWithoutFeriInput, FeriRunUncheckedCreateWithoutFeriInput>
   }
 
-  export type CascadeRunUpdateWithWhereUniqueWithoutCascadeInput = {
-    where: CascadeRunWhereUniqueInput
-    data: XOR<CascadeRunUpdateWithoutCascadeInput, CascadeRunUncheckedUpdateWithoutCascadeInput>
+  export type FeriRunUpdateWithWhereUniqueWithoutFeriInput = {
+    where: FeriRunWhereUniqueInput
+    data: XOR<FeriRunUpdateWithoutFeriInput, FeriRunUncheckedUpdateWithoutFeriInput>
   }
 
-  export type CascadeRunUpdateManyWithWhereWithoutCascadeInput = {
-    where: CascadeRunScalarWhereInput
-    data: XOR<CascadeRunUpdateManyMutationInput, CascadeRunUncheckedUpdateManyWithoutCascadeInput>
+  export type FeriRunUpdateManyWithWhereWithoutFeriInput = {
+    where: FeriRunScalarWhereInput
+    data: XOR<FeriRunUpdateManyMutationInput, FeriRunUncheckedUpdateManyWithoutFeriInput>
   }
 
-  export type CascadeRunScalarWhereInput = {
-    AND?: CascadeRunScalarWhereInput | CascadeRunScalarWhereInput[]
-    OR?: CascadeRunScalarWhereInput[]
-    NOT?: CascadeRunScalarWhereInput | CascadeRunScalarWhereInput[]
-    id?: StringFilter<"CascadeRun"> | string
-    cascadeId?: StringFilter<"CascadeRun"> | string
-    status?: StringFilter<"CascadeRun"> | string
-    metadata?: JsonFilter<"CascadeRun">
-    updatedAt?: DateTimeNullableListFilter<"CascadeRun">
-    createdAt?: DateTimeFilter<"CascadeRun"> | Date | string
+  export type FeriRunScalarWhereInput = {
+    AND?: FeriRunScalarWhereInput | FeriRunScalarWhereInput[]
+    OR?: FeriRunScalarWhereInput[]
+    NOT?: FeriRunScalarWhereInput | FeriRunScalarWhereInput[]
+    id?: StringFilter<"FeriRun"> | string
+    feriId?: StringFilter<"FeriRun"> | string
+    status?: StringFilter<"FeriRun"> | string
+    metadata?: JsonFilter<"FeriRun">
+    updatedAt?: DateTimeNullableListFilter<"FeriRun">
+    createdAt?: DateTimeFilter<"FeriRun"> | Date | string
   }
 
-  export type CascadeCreateWithoutCascadeRunsInput = {
+  export type FeriCreateWithoutFeriRunsInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    trigger?: TriggerCreateNestedOneWithoutCascadeInput
-    action?: ActionCreateNestedManyWithoutCascadeInput
+    trigger?: TriggerCreateNestedOneWithoutFeriInput
+    action?: ActionCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeUncheckedCreateWithoutCascadeRunsInput = {
+  export type FeriUncheckedCreateWithoutFeriRunsInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    trigger?: TriggerUncheckedCreateNestedOneWithoutCascadeInput
-    action?: ActionUncheckedCreateNestedManyWithoutCascadeInput
+    trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
+    action?: ActionUncheckedCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeCreateOrConnectWithoutCascadeRunsInput = {
-    where: CascadeWhereUniqueInput
-    create: XOR<CascadeCreateWithoutCascadeRunsInput, CascadeUncheckedCreateWithoutCascadeRunsInput>
+  export type FeriCreateOrConnectWithoutFeriRunsInput = {
+    where: FeriWhereUniqueInput
+    create: XOR<FeriCreateWithoutFeriRunsInput, FeriUncheckedCreateWithoutFeriRunsInput>
   }
 
-  export type CascadeOutboxCreateWithoutCascadeRunInput = {
+  export type FeriOutboxCreateWithoutFeriRunInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
     status: string
@@ -12376,7 +12376,7 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type CascadeOutboxUncheckedCreateWithoutCascadeRunInput = {
+  export type FeriOutboxUncheckedCreateWithoutFeriRunInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
     status: string
@@ -12384,122 +12384,122 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type CascadeOutboxCreateOrConnectWithoutCascadeRunInput = {
-    where: CascadeOutboxWhereUniqueInput
-    create: XOR<CascadeOutboxCreateWithoutCascadeRunInput, CascadeOutboxUncheckedCreateWithoutCascadeRunInput>
+  export type FeriOutboxCreateOrConnectWithoutFeriRunInput = {
+    where: FeriOutboxWhereUniqueInput
+    create: XOR<FeriOutboxCreateWithoutFeriRunInput, FeriOutboxUncheckedCreateWithoutFeriRunInput>
   }
 
-  export type CascadeOutboxCreateManyCascadeRunInputEnvelope = {
-    data: CascadeOutboxCreateManyCascadeRunInput | CascadeOutboxCreateManyCascadeRunInput[]
+  export type FeriOutboxCreateManyFeriRunInputEnvelope = {
+    data: FeriOutboxCreateManyFeriRunInput | FeriOutboxCreateManyFeriRunInput[]
     skipDuplicates?: boolean
   }
 
-  export type CascadeUpsertWithoutCascadeRunsInput = {
-    update: XOR<CascadeUpdateWithoutCascadeRunsInput, CascadeUncheckedUpdateWithoutCascadeRunsInput>
-    create: XOR<CascadeCreateWithoutCascadeRunsInput, CascadeUncheckedCreateWithoutCascadeRunsInput>
-    where?: CascadeWhereInput
+  export type FeriUpsertWithoutFeriRunsInput = {
+    update: XOR<FeriUpdateWithoutFeriRunsInput, FeriUncheckedUpdateWithoutFeriRunsInput>
+    create: XOR<FeriCreateWithoutFeriRunsInput, FeriUncheckedCreateWithoutFeriRunsInput>
+    where?: FeriWhereInput
   }
 
-  export type CascadeUpdateToOneWithWhereWithoutCascadeRunsInput = {
-    where?: CascadeWhereInput
-    data: XOR<CascadeUpdateWithoutCascadeRunsInput, CascadeUncheckedUpdateWithoutCascadeRunsInput>
+  export type FeriUpdateToOneWithWhereWithoutFeriRunsInput = {
+    where?: FeriWhereInput
+    data: XOR<FeriUpdateWithoutFeriRunsInput, FeriUncheckedUpdateWithoutFeriRunsInput>
   }
 
-  export type CascadeUpdateWithoutCascadeRunsInput = {
+  export type FeriUpdateWithoutFeriRunsInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    trigger?: TriggerUpdateOneWithoutCascadeNestedInput
-    action?: ActionUpdateManyWithoutCascadeNestedInput
+    trigger?: TriggerUpdateOneWithoutFeriNestedInput
+    action?: ActionUpdateManyWithoutFeriNestedInput
   }
 
-  export type CascadeUncheckedUpdateWithoutCascadeRunsInput = {
+  export type FeriUncheckedUpdateWithoutFeriRunsInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    trigger?: TriggerUncheckedUpdateOneWithoutCascadeNestedInput
-    action?: ActionUncheckedUpdateManyWithoutCascadeNestedInput
+    trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
+    action?: ActionUncheckedUpdateManyWithoutFeriNestedInput
   }
 
-  export type CascadeOutboxUpsertWithWhereUniqueWithoutCascadeRunInput = {
-    where: CascadeOutboxWhereUniqueInput
-    update: XOR<CascadeOutboxUpdateWithoutCascadeRunInput, CascadeOutboxUncheckedUpdateWithoutCascadeRunInput>
-    create: XOR<CascadeOutboxCreateWithoutCascadeRunInput, CascadeOutboxUncheckedCreateWithoutCascadeRunInput>
+  export type FeriOutboxUpsertWithWhereUniqueWithoutFeriRunInput = {
+    where: FeriOutboxWhereUniqueInput
+    update: XOR<FeriOutboxUpdateWithoutFeriRunInput, FeriOutboxUncheckedUpdateWithoutFeriRunInput>
+    create: XOR<FeriOutboxCreateWithoutFeriRunInput, FeriOutboxUncheckedCreateWithoutFeriRunInput>
   }
 
-  export type CascadeOutboxUpdateWithWhereUniqueWithoutCascadeRunInput = {
-    where: CascadeOutboxWhereUniqueInput
-    data: XOR<CascadeOutboxUpdateWithoutCascadeRunInput, CascadeOutboxUncheckedUpdateWithoutCascadeRunInput>
+  export type FeriOutboxUpdateWithWhereUniqueWithoutFeriRunInput = {
+    where: FeriOutboxWhereUniqueInput
+    data: XOR<FeriOutboxUpdateWithoutFeriRunInput, FeriOutboxUncheckedUpdateWithoutFeriRunInput>
   }
 
-  export type CascadeOutboxUpdateManyWithWhereWithoutCascadeRunInput = {
-    where: CascadeOutboxScalarWhereInput
-    data: XOR<CascadeOutboxUpdateManyMutationInput, CascadeOutboxUncheckedUpdateManyWithoutCascadeRunInput>
+  export type FeriOutboxUpdateManyWithWhereWithoutFeriRunInput = {
+    where: FeriOutboxScalarWhereInput
+    data: XOR<FeriOutboxUpdateManyMutationInput, FeriOutboxUncheckedUpdateManyWithoutFeriRunInput>
   }
 
-  export type CascadeOutboxScalarWhereInput = {
-    AND?: CascadeOutboxScalarWhereInput | CascadeOutboxScalarWhereInput[]
-    OR?: CascadeOutboxScalarWhereInput[]
-    NOT?: CascadeOutboxScalarWhereInput | CascadeOutboxScalarWhereInput[]
-    id?: StringFilter<"CascadeOutbox"> | string
-    metadata?: JsonFilter<"CascadeOutbox">
-    cascadeRunId?: StringFilter<"CascadeOutbox"> | string
-    status?: StringFilter<"CascadeOutbox"> | string
-    updatedAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
-    createdAt?: DateTimeFilter<"CascadeOutbox"> | Date | string
+  export type FeriOutboxScalarWhereInput = {
+    AND?: FeriOutboxScalarWhereInput | FeriOutboxScalarWhereInput[]
+    OR?: FeriOutboxScalarWhereInput[]
+    NOT?: FeriOutboxScalarWhereInput | FeriOutboxScalarWhereInput[]
+    id?: StringFilter<"FeriOutbox"> | string
+    metadata?: JsonFilter<"FeriOutbox">
+    feriRunId?: StringFilter<"FeriOutbox"> | string
+    status?: StringFilter<"FeriOutbox"> | string
+    updatedAt?: DateTimeFilter<"FeriOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"FeriOutbox"> | Date | string
   }
 
-  export type CascadeRunCreateWithoutCascadeOutboxInput = {
+  export type FeriRunCreateWithoutFeriOutboxInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
-    cascade?: CascadeCreateNestedOneWithoutCascadeRunsInput
+    feri?: FeriCreateNestedOneWithoutFeriRunsInput
   }
 
-  export type CascadeRunUncheckedCreateWithoutCascadeOutboxInput = {
+  export type FeriRunUncheckedCreateWithoutFeriOutboxInput = {
     id?: string
-    cascadeId: string
+    feriId: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
   }
 
-  export type CascadeRunCreateOrConnectWithoutCascadeOutboxInput = {
-    where: CascadeRunWhereUniqueInput
-    create: XOR<CascadeRunCreateWithoutCascadeOutboxInput, CascadeRunUncheckedCreateWithoutCascadeOutboxInput>
+  export type FeriRunCreateOrConnectWithoutFeriOutboxInput = {
+    where: FeriRunWhereUniqueInput
+    create: XOR<FeriRunCreateWithoutFeriOutboxInput, FeriRunUncheckedCreateWithoutFeriOutboxInput>
   }
 
-  export type CascadeRunUpsertWithoutCascadeOutboxInput = {
-    update: XOR<CascadeRunUpdateWithoutCascadeOutboxInput, CascadeRunUncheckedUpdateWithoutCascadeOutboxInput>
-    create: XOR<CascadeRunCreateWithoutCascadeOutboxInput, CascadeRunUncheckedCreateWithoutCascadeOutboxInput>
-    where?: CascadeRunWhereInput
+  export type FeriRunUpsertWithoutFeriOutboxInput = {
+    update: XOR<FeriRunUpdateWithoutFeriOutboxInput, FeriRunUncheckedUpdateWithoutFeriOutboxInput>
+    create: XOR<FeriRunCreateWithoutFeriOutboxInput, FeriRunUncheckedCreateWithoutFeriOutboxInput>
+    where?: FeriRunWhereInput
   }
 
-  export type CascadeRunUpdateToOneWithWhereWithoutCascadeOutboxInput = {
-    where?: CascadeRunWhereInput
-    data: XOR<CascadeRunUpdateWithoutCascadeOutboxInput, CascadeRunUncheckedUpdateWithoutCascadeOutboxInput>
+  export type FeriRunUpdateToOneWithWhereWithoutFeriOutboxInput = {
+    where?: FeriRunWhereInput
+    data: XOR<FeriRunUpdateWithoutFeriOutboxInput, FeriRunUncheckedUpdateWithoutFeriOutboxInput>
   }
 
-  export type CascadeRunUpdateWithoutCascadeOutboxInput = {
+  export type FeriRunUpdateWithoutFeriOutboxInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cascade?: CascadeUpdateOneWithoutCascadeRunsNestedInput
+    feri?: FeriUpdateOneWithoutFeriRunsNestedInput
   }
 
-  export type CascadeRunUncheckedUpdateWithoutCascadeOutboxInput = {
+  export type FeriRunUncheckedUpdateWithoutFeriOutboxInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -12518,27 +12518,27 @@ export namespace Prisma {
     create: XOR<AvailableTriggerCreateWithoutTriggerInput, AvailableTriggerUncheckedCreateWithoutTriggerInput>
   }
 
-  export type CascadeCreateWithoutTriggerInput = {
+  export type FeriCreateWithoutTriggerInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    action?: ActionCreateNestedManyWithoutCascadeInput
-    CascadeRuns?: CascadeRunCreateNestedManyWithoutCascadeInput
+    action?: ActionCreateNestedManyWithoutFeriInput
+    FeriRuns?: FeriRunCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeUncheckedCreateWithoutTriggerInput = {
+  export type FeriUncheckedCreateWithoutTriggerInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    action?: ActionUncheckedCreateNestedManyWithoutCascadeInput
-    CascadeRuns?: CascadeRunUncheckedCreateNestedManyWithoutCascadeInput
+    action?: ActionUncheckedCreateNestedManyWithoutFeriInput
+    FeriRuns?: FeriRunUncheckedCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeCreateOrConnectWithoutTriggerInput = {
-    where: CascadeWhereUniqueInput
-    create: XOR<CascadeCreateWithoutTriggerInput, CascadeUncheckedCreateWithoutTriggerInput>
+  export type FeriCreateOrConnectWithoutTriggerInput = {
+    where: FeriWhereUniqueInput
+    create: XOR<FeriCreateWithoutTriggerInput, FeriUncheckedCreateWithoutTriggerInput>
   }
 
   export type AvailableTriggerUpsertWithoutTriggerInput = {
@@ -12562,33 +12562,33 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CascadeUpsertWithoutTriggerInput = {
-    update: XOR<CascadeUpdateWithoutTriggerInput, CascadeUncheckedUpdateWithoutTriggerInput>
-    create: XOR<CascadeCreateWithoutTriggerInput, CascadeUncheckedCreateWithoutTriggerInput>
-    where?: CascadeWhereInput
+  export type FeriUpsertWithoutTriggerInput = {
+    update: XOR<FeriUpdateWithoutTriggerInput, FeriUncheckedUpdateWithoutTriggerInput>
+    create: XOR<FeriCreateWithoutTriggerInput, FeriUncheckedCreateWithoutTriggerInput>
+    where?: FeriWhereInput
   }
 
-  export type CascadeUpdateToOneWithWhereWithoutTriggerInput = {
-    where?: CascadeWhereInput
-    data: XOR<CascadeUpdateWithoutTriggerInput, CascadeUncheckedUpdateWithoutTriggerInput>
+  export type FeriUpdateToOneWithWhereWithoutTriggerInput = {
+    where?: FeriWhereInput
+    data: XOR<FeriUpdateWithoutTriggerInput, FeriUncheckedUpdateWithoutTriggerInput>
   }
 
-  export type CascadeUpdateWithoutTriggerInput = {
+  export type FeriUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    action?: ActionUpdateManyWithoutCascadeNestedInput
-    CascadeRuns?: CascadeRunUpdateManyWithoutCascadeNestedInput
+    action?: ActionUpdateManyWithoutFeriNestedInput
+    FeriRuns?: FeriRunUpdateManyWithoutFeriNestedInput
   }
 
-  export type CascadeUncheckedUpdateWithoutTriggerInput = {
+  export type FeriUncheckedUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    action?: ActionUncheckedUpdateManyWithoutCascadeNestedInput
-    CascadeRuns?: CascadeRunUncheckedUpdateManyWithoutCascadeNestedInput
+    action?: ActionUncheckedUpdateManyWithoutFeriNestedInput
+    FeriRuns?: FeriRunUncheckedUpdateManyWithoutFeriNestedInput
   }
 
   export type AvailableActionsCreateWithoutActionInput = {
@@ -12606,27 +12606,27 @@ export namespace Prisma {
     create: XOR<AvailableActionsCreateWithoutActionInput, AvailableActionsUncheckedCreateWithoutActionInput>
   }
 
-  export type CascadeCreateWithoutActionInput = {
+  export type FeriCreateWithoutActionInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    trigger?: TriggerCreateNestedOneWithoutCascadeInput
-    CascadeRuns?: CascadeRunCreateNestedManyWithoutCascadeInput
+    trigger?: TriggerCreateNestedOneWithoutFeriInput
+    FeriRuns?: FeriRunCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeUncheckedCreateWithoutActionInput = {
+  export type FeriUncheckedCreateWithoutActionInput = {
     id?: string
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    trigger?: TriggerUncheckedCreateNestedOneWithoutCascadeInput
-    CascadeRuns?: CascadeRunUncheckedCreateNestedManyWithoutCascadeInput
+    trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
+    FeriRuns?: FeriRunUncheckedCreateNestedManyWithoutFeriInput
   }
 
-  export type CascadeCreateOrConnectWithoutActionInput = {
-    where: CascadeWhereUniqueInput
-    create: XOR<CascadeCreateWithoutActionInput, CascadeUncheckedCreateWithoutActionInput>
+  export type FeriCreateOrConnectWithoutActionInput = {
+    where: FeriWhereUniqueInput
+    create: XOR<FeriCreateWithoutActionInput, FeriUncheckedCreateWithoutActionInput>
   }
 
   export type AvailableActionsUpsertWithoutActionInput = {
@@ -12650,45 +12650,45 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CascadeUpsertWithoutActionInput = {
-    update: XOR<CascadeUpdateWithoutActionInput, CascadeUncheckedUpdateWithoutActionInput>
-    create: XOR<CascadeCreateWithoutActionInput, CascadeUncheckedCreateWithoutActionInput>
-    where?: CascadeWhereInput
+  export type FeriUpsertWithoutActionInput = {
+    update: XOR<FeriUpdateWithoutActionInput, FeriUncheckedUpdateWithoutActionInput>
+    create: XOR<FeriCreateWithoutActionInput, FeriUncheckedCreateWithoutActionInput>
+    where?: FeriWhereInput
   }
 
-  export type CascadeUpdateToOneWithWhereWithoutActionInput = {
-    where?: CascadeWhereInput
-    data: XOR<CascadeUpdateWithoutActionInput, CascadeUncheckedUpdateWithoutActionInput>
+  export type FeriUpdateToOneWithWhereWithoutActionInput = {
+    where?: FeriWhereInput
+    data: XOR<FeriUpdateWithoutActionInput, FeriUncheckedUpdateWithoutActionInput>
   }
 
-  export type CascadeUpdateWithoutActionInput = {
+  export type FeriUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    trigger?: TriggerUpdateOneWithoutCascadeNestedInput
-    CascadeRuns?: CascadeRunUpdateManyWithoutCascadeNestedInput
+    trigger?: TriggerUpdateOneWithoutFeriNestedInput
+    FeriRuns?: FeriRunUpdateManyWithoutFeriNestedInput
   }
 
-  export type CascadeUncheckedUpdateWithoutActionInput = {
+  export type FeriUncheckedUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    trigger?: TriggerUncheckedUpdateOneWithoutCascadeNestedInput
-    CascadeRuns?: CascadeRunUncheckedUpdateManyWithoutCascadeNestedInput
+    trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
+    FeriRuns?: FeriRunUncheckedUpdateManyWithoutFeriNestedInput
   }
 
   export type ActionCreateWithoutTypeInput = {
     id?: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    cascade: CascadeCreateNestedOneWithoutActionInput
+    feri: FeriCreateNestedOneWithoutActionInput
   }
 
   export type ActionUncheckedCreateWithoutTypeInput = {
     id?: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -12723,12 +12723,12 @@ export namespace Prisma {
     id?: string
     updatedAt?: Date | string
     createdAt?: Date | string
-    cascade: CascadeCreateNestedOneWithoutTriggerInput
+    feri: FeriCreateNestedOneWithoutTriggerInput
   }
 
   export type TriggerUncheckedCreateWithoutTypeInput = {
     id?: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -12765,74 +12765,74 @@ export namespace Prisma {
     NOT?: TriggerScalarWhereInput | TriggerScalarWhereInput[]
     id?: StringFilter<"Trigger"> | string
     triggerId?: StringFilter<"Trigger"> | string
-    cascadeId?: StringFilter<"Trigger"> | string
+    feriId?: StringFilter<"Trigger"> | string
     updatedAt?: DateTimeFilter<"Trigger"> | Date | string
     createdAt?: DateTimeFilter<"Trigger"> | Date | string
   }
 
-  export type ActionCreateManyCascadeInput = {
+  export type ActionCreateManyFeriInput = {
     id?: string
     actionId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
 
-  export type CascadeRunCreateManyCascadeInput = {
+  export type FeriRunCreateManyFeriInput = {
     id?: string
     status: string
     metadata: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunCreateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunCreateupdatedAtInput | Date[] | string[]
     createdAt?: Date | string
   }
 
-  export type ActionUpdateWithoutCascadeInput = {
+  export type ActionUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     type?: AvailableActionsUpdateOneRequiredWithoutActionNestedInput
   }
 
-  export type ActionUncheckedUpdateWithoutCascadeInput = {
+  export type ActionUncheckedUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ActionUncheckedUpdateManyWithoutCascadeInput = {
+  export type ActionUncheckedUpdateManyWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     actionId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeRunUpdateWithoutCascadeInput = {
+  export type FeriRunUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cascadeOutbox?: CascadeOutboxUpdateManyWithoutCascadeRunNestedInput
+    feriOutbox?: FeriOutboxUpdateManyWithoutFeriRunNestedInput
   }
 
-  export type CascadeRunUncheckedUpdateWithoutCascadeInput = {
+  export type FeriRunUncheckedUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cascadeOutbox?: CascadeOutboxUncheckedUpdateManyWithoutCascadeRunNestedInput
+    feriOutbox?: FeriOutboxUncheckedUpdateManyWithoutFeriRunNestedInput
   }
 
-  export type CascadeRunUncheckedUpdateManyWithoutCascadeInput = {
+  export type FeriRunUncheckedUpdateManyWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
-    updatedAt?: CascadeRunUpdateupdatedAtInput | Date[] | string[]
+    updatedAt?: FeriRunUpdateupdatedAtInput | Date[] | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeOutboxCreateManyCascadeRunInput = {
+  export type FeriOutboxCreateManyFeriRunInput = {
     id?: string
     metadata: JsonNullValueInput | InputJsonValue
     status: string
@@ -12840,7 +12840,7 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type CascadeOutboxUpdateWithoutCascadeRunInput = {
+  export type FeriOutboxUpdateWithoutFeriRunInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
@@ -12848,7 +12848,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeOutboxUncheckedUpdateWithoutCascadeRunInput = {
+  export type FeriOutboxUncheckedUpdateWithoutFeriRunInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
@@ -12856,7 +12856,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CascadeOutboxUncheckedUpdateManyWithoutCascadeRunInput = {
+  export type FeriOutboxUncheckedUpdateManyWithoutFeriRunInput = {
     id?: StringFieldUpdateOperationsInput | string
     metadata?: JsonNullValueInput | InputJsonValue
     status?: StringFieldUpdateOperationsInput | string
@@ -12866,7 +12866,7 @@ export namespace Prisma {
 
   export type ActionCreateManyTypeInput = {
     id?: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -12875,26 +12875,26 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cascade?: CascadeUpdateOneRequiredWithoutActionNestedInput
+    feri?: FeriUpdateOneRequiredWithoutActionNestedInput
   }
 
   export type ActionUncheckedUpdateWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionUncheckedUpdateManyWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerCreateManyTypeInput = {
     id?: string
-    cascadeId: string
+    feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -12903,19 +12903,19 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cascade?: CascadeUpdateOneRequiredWithoutTriggerNestedInput
+    feri?: FeriUpdateOneRequiredWithoutTriggerNestedInput
   }
 
   export type TriggerUncheckedUpdateWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerUncheckedUpdateManyWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cascadeId?: StringFieldUpdateOperationsInput | string
+    feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
