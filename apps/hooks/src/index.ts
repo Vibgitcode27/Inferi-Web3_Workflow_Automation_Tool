@@ -16,28 +16,38 @@ app.get("/ping", (req, res) => {
   res.send("Hello from the server!");
 });
 
-app.post("/webhook/catch/:userId/:cascadeId", async (req, res) => {
+app.post("/webhook/catch/:userId/:feriId", async (req, res) => {
   const userId = req.params.userId;
-  const cascadeId = req.params.cascadeId;
-  let cascade;
+  const feriId = req.params.feriId;
   try {
-    cascade = await prisma.cascade.create({
-      data: {
-        triggerId: "webhook",
+    var feriData = await prisma.feri.findFirst({
+      where: {
+        id: feriId,
       },
     });
+    console.log("Feri data:", feriData);
   } catch (error) {
     console.error("Error processing webhook:", error);
     res.status(500).send("Error processing webhook");
   }
 
   try {
-    await prisma.cascadeRun.create({
-      data: {
-        cascadeId: cascade?.id,
-        status: "pending",
-        metadata: { userId: "" + userId },
-      },
+    await prisma.$transaction(async (tx) => {
+      const run = await tx.feriRun.create({
+        data: {
+          feriId: feriData?.id,
+          status: "pending",
+          metadata: { userId: "" + userId },
+        },
+      });
+
+      await tx.feriOutbox.create({
+        data: {
+          feriRunId: run.id,
+          status: "pending",
+          metadata: { userId: "" + userId },
+        },
+      });
     });
   } catch (error) {
     console.error("Error saving to database:", error);

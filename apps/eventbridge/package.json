@@ -4,8 +4,10 @@
   "description": "This server acts as a bridge b/w outbox and kafka",
   "main": "index.js",
   "scripts": {
+    "predev": "turbo run kafka:init --filter=kafka",
     "dev": "node dist/index.js",
     "build": "tsup",
+    "prestart": "turbo run kafka:init --filter=kafka",
     "start": "node dist/index.js"
   },
   "author": "Vibgitcode27",

@@ -10698,16 +10698,16 @@ export namespace Prisma {
 
   export type ActionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    feriId?: string
     AND?: ActionWhereInput | ActionWhereInput[]
     OR?: ActionWhereInput[]
     NOT?: ActionWhereInput | ActionWhereInput[]
     actionId?: StringFilter<"Action"> | string
+    feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
     type?: XOR<AvailableActionsScalarRelationFilter, AvailableActionsWhereInput>
     feri?: XOR<FeriScalarRelationFilter, FeriWhereInput>
-  }, "id" | "feriId">
+  }, "id">
 
   export type ActionOrderByWithAggregationInput = {
     id?: SortOrder
