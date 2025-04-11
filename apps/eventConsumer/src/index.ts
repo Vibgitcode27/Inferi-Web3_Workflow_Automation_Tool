@@ -13,8 +13,22 @@ async function main() {
   await consumer.connect();
   await consumer.subscribe({ topic: "feri-events", fromBeginning: true });
   await consumer.run({
+    autoCommit: false,
     eachMessage: async ({ topic, partition, message }) => {
-      console.log("Received message from Kafka:", message);
+      console.log("Received message from Kafka:", {
+        topic,
+        partition,
+        value: message.value?.toString(),
+      });
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await consumer.commitOffsets([
+        {
+          topic: "feri-events",
+          partition: partition,
+          offset: `${parseInt(message.offset) + 1}`,
+        },
+      ]);
+      console.log("Offsets committed");
     },
   });
 }

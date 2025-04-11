@@ -12,7 +12,7 @@ const prisma = new PrismaClient();
 async function main() {
   await producer.connect();
   while (1) {
-    const pendingRows = await prisma.feriOutbox.findMany({
+    let pendingRows = await prisma.feriOutbox.findMany({
       where: {
         status: "pending",
       },
@@ -41,7 +41,7 @@ async function main() {
           },
         },
       });
-      console.log("Sent messages to Kafka:", pendingRows);
+      pendingRows = [];
     }
   }
 }
