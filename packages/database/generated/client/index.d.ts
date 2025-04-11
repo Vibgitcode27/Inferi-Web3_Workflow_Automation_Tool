@@ -7039,8 +7039,18 @@ export namespace Prisma {
 
   export type AggregateAction = {
     _count: ActionCountAggregateOutputType | null
+    _avg: ActionAvgAggregateOutputType | null
+    _sum: ActionSumAggregateOutputType | null
     _min: ActionMinAggregateOutputType | null
     _max: ActionMaxAggregateOutputType | null
+  }
+
+  export type ActionAvgAggregateOutputType = {
+    sortingOrder: number | null
+  }
+
+  export type ActionSumAggregateOutputType = {
+    sortingOrder: number | null
   }
 
   export type ActionMinAggregateOutputType = {
@@ -7049,6 +7059,7 @@ export namespace Prisma {
     feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
+    sortingOrder: number | null
   }
 
   export type ActionMaxAggregateOutputType = {
@@ -7057,6 +7068,7 @@ export namespace Prisma {
     feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
+    sortingOrder: number | null
   }
 
   export type ActionCountAggregateOutputType = {
@@ -7065,9 +7077,18 @@ export namespace Prisma {
     feriId: number
     updatedAt: number
     createdAt: number
+    sortingOrder: number
     _all: number
   }
 
+
+  export type ActionAvgAggregateInputType = {
+    sortingOrder?: true
+  }
+
+  export type ActionSumAggregateInputType = {
+    sortingOrder?: true
+  }
 
   export type ActionMinAggregateInputType = {
     id?: true
@@ -7075,6 +7096,7 @@ export namespace Prisma {
     feriId?: true
     updatedAt?: true
     createdAt?: true
+    sortingOrder?: true
   }
 
   export type ActionMaxAggregateInputType = {
@@ -7083,6 +7105,7 @@ export namespace Prisma {
     feriId?: true
     updatedAt?: true
     createdAt?: true
+    sortingOrder?: true
   }
 
   export type ActionCountAggregateInputType = {
@@ -7091,6 +7114,7 @@ export namespace Prisma {
     feriId?: true
     updatedAt?: true
     createdAt?: true
+    sortingOrder?: true
     _all?: true
   }
 
@@ -7132,6 +7156,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: ActionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ActionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ActionMinAggregateInputType
@@ -7162,6 +7198,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ActionCountAggregateInputType | true
+    _avg?: ActionAvgAggregateInputType
+    _sum?: ActionSumAggregateInputType
     _min?: ActionMinAggregateInputType
     _max?: ActionMaxAggregateInputType
   }
@@ -7172,7 +7210,10 @@ export namespace Prisma {
     feriId: string
     updatedAt: Date
     createdAt: Date
+    sortingOrder: number
     _count: ActionCountAggregateOutputType | null
+    _avg: ActionAvgAggregateOutputType | null
+    _sum: ActionSumAggregateOutputType | null
     _min: ActionMinAggregateOutputType | null
     _max: ActionMaxAggregateOutputType | null
   }
@@ -7197,6 +7238,7 @@ export namespace Prisma {
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    sortingOrder?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
@@ -7207,6 +7249,7 @@ export namespace Prisma {
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    sortingOrder?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
@@ -7217,6 +7260,7 @@ export namespace Prisma {
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    sortingOrder?: boolean
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     feri?: boolean | FeriDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["action"]>
@@ -7227,9 +7271,10 @@ export namespace Prisma {
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    sortingOrder?: boolean
   }
 
-  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "actionId" | "feriId" | "updatedAt" | "createdAt", ExtArgs["result"]["action"]>
+  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "actionId" | "feriId" | "updatedAt" | "createdAt" | "sortingOrder", ExtArgs["result"]["action"]>
   export type ActionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     feri?: boolean | FeriDefaultArgs<ExtArgs>
@@ -7255,6 +7300,7 @@ export namespace Prisma {
       feriId: string
       updatedAt: Date
       createdAt: Date
+      sortingOrder: number
     }, ExtArgs["result"]["action"]>
     composites: {}
   }
@@ -7685,6 +7731,7 @@ export namespace Prisma {
     readonly feriId: FieldRef<"Action", 'String'>
     readonly updatedAt: FieldRef<"Action", 'DateTime'>
     readonly createdAt: FieldRef<"Action", 'DateTime'>
+    readonly sortingOrder: FieldRef<"Action", 'Int'>
   }
     
 
@@ -10237,7 +10284,8 @@ export namespace Prisma {
     actionId: 'actionId',
     feriId: 'feriId',
     updatedAt: 'updatedAt',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    sortingOrder: 'sortingOrder'
   };
 
   export type ActionScalarFieldEnum = (typeof ActionScalarFieldEnum)[keyof typeof ActionScalarFieldEnum]
@@ -10682,6 +10730,7 @@ export namespace Prisma {
     feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
+    sortingOrder?: IntFilter<"Action"> | number
     type?: XOR<AvailableActionsScalarRelationFilter, AvailableActionsWhereInput>
     feri?: XOR<FeriScalarRelationFilter, FeriWhereInput>
   }
@@ -10692,6 +10741,7 @@ export namespace Prisma {
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+    sortingOrder?: SortOrder
     type?: AvailableActionsOrderByWithRelationInput
     feri?: FeriOrderByWithRelationInput
   }
@@ -10705,6 +10755,7 @@ export namespace Prisma {
     feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
+    sortingOrder?: IntFilter<"Action"> | number
     type?: XOR<AvailableActionsScalarRelationFilter, AvailableActionsWhereInput>
     feri?: XOR<FeriScalarRelationFilter, FeriWhereInput>
   }, "id">
@@ -10715,9 +10766,12 @@ export namespace Prisma {
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+    sortingOrder?: SortOrder
     _count?: ActionCountOrderByAggregateInput
+    _avg?: ActionAvgOrderByAggregateInput
     _max?: ActionMaxOrderByAggregateInput
     _min?: ActionMinOrderByAggregateInput
+    _sum?: ActionSumOrderByAggregateInput
   }
 
   export type ActionScalarWhereWithAggregatesInput = {
@@ -10729,6 +10783,7 @@ export namespace Prisma {
     feriId?: StringWithAggregatesFilter<"Action"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
+    sortingOrder?: IntWithAggregatesFilter<"Action"> | number
   }
 
   export type AvailableActionsWhereInput = {
@@ -11118,6 +11173,7 @@ export namespace Prisma {
     id?: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
     type: AvailableActionsCreateNestedOneWithoutActionInput
     feri: FeriCreateNestedOneWithoutActionInput
   }
@@ -11128,12 +11184,14 @@ export namespace Prisma {
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
   }
 
   export type ActionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
     type?: AvailableActionsUpdateOneRequiredWithoutActionNestedInput
     feri?: FeriUpdateOneRequiredWithoutActionNestedInput
   }
@@ -11144,6 +11202,7 @@ export namespace Prisma {
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type ActionCreateManyInput = {
@@ -11152,12 +11211,14 @@ export namespace Prisma {
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
   }
 
   export type ActionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type ActionUncheckedUpdateManyInput = {
@@ -11166,6 +11227,7 @@ export namespace Prisma {
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type AvailableActionsCreateInput = {
@@ -11620,6 +11682,11 @@ export namespace Prisma {
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+    sortingOrder?: SortOrder
+  }
+
+  export type ActionAvgOrderByAggregateInput = {
+    sortingOrder?: SortOrder
   }
 
   export type ActionMaxOrderByAggregateInput = {
@@ -11628,6 +11695,7 @@ export namespace Prisma {
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+    sortingOrder?: SortOrder
   }
 
   export type ActionMinOrderByAggregateInput = {
@@ -11636,6 +11704,11 @@ export namespace Prisma {
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+    sortingOrder?: SortOrder
+  }
+
+  export type ActionSumOrderByAggregateInput = {
+    sortingOrder?: SortOrder
   }
 
   export type AvailableActionsCountOrderByAggregateInput = {
@@ -12217,6 +12290,7 @@ export namespace Prisma {
     id?: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
     type: AvailableActionsCreateNestedOneWithoutActionInput
   }
 
@@ -12225,6 +12299,7 @@ export namespace Prisma {
     actionId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
   }
 
   export type ActionCreateOrConnectWithoutFeriInput = {
@@ -12315,6 +12390,7 @@ export namespace Prisma {
     feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
+    sortingOrder?: IntFilter<"Action"> | number
   }
 
   export type FeriRunUpsertWithWhereUniqueWithoutFeriInput = {
@@ -12683,6 +12759,7 @@ export namespace Prisma {
     id?: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
     feri: FeriCreateNestedOneWithoutActionInput
   }
 
@@ -12691,6 +12768,7 @@ export namespace Prisma {
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
   }
 
   export type ActionCreateOrConnectWithoutTypeInput = {
@@ -12775,6 +12853,7 @@ export namespace Prisma {
     actionId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
   }
 
   export type FeriRunCreateManyFeriInput = {
@@ -12789,6 +12868,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
     type?: AvailableActionsUpdateOneRequiredWithoutActionNestedInput
   }
 
@@ -12797,6 +12877,7 @@ export namespace Prisma {
     actionId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type ActionUncheckedUpdateManyWithoutFeriInput = {
@@ -12804,6 +12885,7 @@ export namespace Prisma {
     actionId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type FeriRunUpdateWithoutFeriInput = {
@@ -12869,12 +12951,14 @@ export namespace Prisma {
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    sortingOrder?: number
   }
 
   export type ActionUpdateWithoutTypeInput = {
     id?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
     feri?: FeriUpdateOneRequiredWithoutActionNestedInput
   }
 
@@ -12883,6 +12967,7 @@ export namespace Prisma {
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type ActionUncheckedUpdateManyWithoutTypeInput = {
@@ -12890,6 +12975,7 @@ export namespace Prisma {
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sortingOrder?: IntFieldUpdateOperationsInput | number
   }
 
   export type TriggerCreateManyTypeInput = {

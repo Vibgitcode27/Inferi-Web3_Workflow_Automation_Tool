@@ -164,7 +164,8 @@ exports.Prisma.ActionScalarFieldEnum = {
   actionId: 'actionId',
   feriId: 'feriId',
   updatedAt: 'updatedAt',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  sortingOrder: 'sortingOrder'
 };
 
 exports.Prisma.AvailableActionsScalarFieldEnum = {
