@@ -2,25 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Typography, 
-  Button, 
-  Card, 
+  Button,  
   Row, 
   Col, 
   Space, 
   Flex,
-  Image,
   Avatar
 } from 'antd';
 import backgroundImage from '../../public/download.webp';
-import {
-  ApiOutlined,
-  ThunderboltOutlined,
-  LockOutlined,
-  DashboardOutlined,
-  LinkOutlined,
-  RocketOutlined,
-} from '@ant-design/icons';
-import { ReactFlow, Controls, Background } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import styles from "../styles/main.module.css"
 import webhookImage from '../../public/cdnlogo.com_webhook.svg';
@@ -30,133 +19,9 @@ import { Features } from './Features';
 
 const { Title, Paragraph, Text } = Typography;
 
-// Custom node components for React Flow
-interface TriggerNodeData {
-  icon: string;
-  label: string;
-  description: string;
-}
-
-const TriggerNode = ({ data }: { data: TriggerNodeData }) => {
-  return (
-    <Card
-      style={{
-        width: 180,
-        borderRadius: 8,
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-        border: '2px solid #4a6bef',
-        background: 'rgba(74, 107, 239, 0.05)'
-      }}
-      bodyStyle={{ padding: 12 }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <div
-          style={{
-            background: '#4a6bef',
-            color: 'white',
-            width: 36,
-            height: 36,
-            borderRadius: 8,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: 16,
-            fontWeight: 'bold'
-          }}
-        >
-          {data.icon}
-        </div>
-        <div>
-          <div style={{ fontWeight: 'bold', fontSize: 14 }}>{data.label}</div>
-          <div style={{ color: '#666', fontSize: 12 }}>{data.description}</div>
-        </div>
-      </div>
-    </Card>
-  );
-};
-
-interface ActionNodeData {
-  icon: string;
-  label: string;
-  description: string;
-}
-
-const ActionNode = ({ data }: { data: ActionNodeData }) => {
-  return (
-    <Card
-      style={{
-        width: 180,
-        borderRadius: 8,
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-        border: '2px solid #8a63e8',
-        background: 'rgba(138, 99, 232, 0.05)'
-      }}
-      bodyStyle={{ padding: 12 }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <div
-          style={{
-            background: '#8a63e8',
-            color: 'white',
-            width: 36,
-            height: 36,
-            borderRadius: 8,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: 16,
-            fontWeight: 'bold'
-          }}
-        >
-          {data.icon}
-        </div>
-        <div>
-          <div style={{ fontWeight: 'bold', fontSize: 14 }}>{data.label}</div>
-          <div style={{ color: '#666', fontSize: 12 }}>{data.description}</div>
-        </div>
-      </div>
-    </Card>
-  );
-};
-
-// Sample initial nodes and edges for the React Flow diagram
-const initialNodes = [
-  {
-    id: '1',
-    type: 'trigger',
-    position: { x: 100, y: 100 },
-    data: { label: 'Smart Contract Event', description: 'Trigger on events', icon: 'SC' }
-  },
-  {
-    id: '2',
-    type: 'action',
-    position: { x: 400, y: 100 },
-    data: { label: 'Send to Slack', description: 'Post message', icon: 'SL' }
-  },
-  {
-    id: '3',
-    type: 'action',
-    position: { x: 400, y: 250 },
-    data: { label: 'Update Notion', description: 'Add database entry', icon: 'NT' }
-  }
-];
-
-const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#4a6bef' } },
-  { id: 'e1-3', source: '1', target: '3', animated: true, style: { stroke: '#8a63e8' } }
-];
-
-// Custom node types for React Flow
-const nodeTypes = {
-  trigger: TriggerNode,
-  action: ActionNode
-};
-
 export default function HomeContent() {
   const [animated, setAnimated] = useState(false);
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
-
+  
   // Handle animation on component mount
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -257,6 +122,18 @@ export default function HomeContent() {
               Watch Demo
             </Button>
           </Space>
+        </div>
+        <div>
+          <Flex align='center' justify='space-between' style={{ marginBottom: "-100px" , marginTop : "20px" , width : "100%" }}>
+            <div>
+              <Button style={{ height : "45px" , backgroundColor : "transparent" , border : "none" , fontWeight : "800" , fontSize : "18px"}}> Create Integrate</Button>
+              <div className="h-1 w-full rounded-xl bg-gradient-to-r from-[#4a6bef] to-[#8a63e8]"></div>
+            </div>
+            <div>
+              <Button style={{ height : "45px" , backgroundColor : "transparent" , border : "none" , fontWeight : "800" , fontSize : "18px"}}> Set on autopilot</Button>
+              <div className="h-1 w-full rounded-xl bg-gradient-to-r from-[#4a6bef] to-[#8a63e8]"></div>
+            </div>
+          </Flex>
         </div>
       </div>
       
