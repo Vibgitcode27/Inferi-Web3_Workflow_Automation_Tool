@@ -129,6 +129,8 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.FeriScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
+  name: 'name',
+  status: 'status',
   triggerId: 'triggerId',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'

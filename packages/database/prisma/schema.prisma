@@ -21,6 +21,8 @@ model User {
 model Feri {
   id        String    @id @default(uuid())
   userId    Int
+  name      String
+  status    Boolean
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   triggerId String
   trigger   Trigger?

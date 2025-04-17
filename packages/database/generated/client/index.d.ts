@@ -2809,6 +2809,8 @@ export namespace Prisma {
   export type FeriMinAggregateOutputType = {
     id: string | null
     userId: number | null
+    name: string | null
+    status: boolean | null
     triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -2817,6 +2819,8 @@ export namespace Prisma {
   export type FeriMaxAggregateOutputType = {
     id: string | null
     userId: number | null
+    name: string | null
+    status: boolean | null
     triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -2825,6 +2829,8 @@ export namespace Prisma {
   export type FeriCountAggregateOutputType = {
     id: number
     userId: number
+    name: number
+    status: number
     triggerId: number
     updatedAt: number
     createdAt: number
@@ -2843,6 +2849,8 @@ export namespace Prisma {
   export type FeriMinAggregateInputType = {
     id?: true
     userId?: true
+    name?: true
+    status?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
@@ -2851,6 +2859,8 @@ export namespace Prisma {
   export type FeriMaxAggregateInputType = {
     id?: true
     userId?: true
+    name?: true
+    status?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
@@ -2859,6 +2869,8 @@ export namespace Prisma {
   export type FeriCountAggregateInputType = {
     id?: true
     userId?: true
+    name?: true
+    status?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
@@ -2954,6 +2966,8 @@ export namespace Prisma {
   export type FeriGroupByOutputType = {
     id: string
     userId: number
+    name: string
+    status: boolean
     triggerId: string
     updatedAt: Date
     createdAt: Date
@@ -2981,6 +2995,8 @@ export namespace Prisma {
   export type FeriSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    name?: boolean
+    status?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -2994,6 +3010,8 @@ export namespace Prisma {
   export type FeriSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    name?: boolean
+    status?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -3003,6 +3021,8 @@ export namespace Prisma {
   export type FeriSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    name?: boolean
+    status?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -3012,12 +3032,14 @@ export namespace Prisma {
   export type FeriSelectScalar = {
     id?: boolean
     userId?: boolean
+    name?: boolean
+    status?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type FeriOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["feri"]>
+  export type FeriOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "status" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["feri"]>
   export type FeriInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     trigger?: boolean | Feri$triggerArgs<ExtArgs>
@@ -3043,6 +3065,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: number
+      name: string
+      status: boolean
       triggerId: string
       updatedAt: Date
       createdAt: Date
@@ -3475,6 +3499,8 @@ export namespace Prisma {
   interface FeriFieldRefs {
     readonly id: FieldRef<"Feri", 'String'>
     readonly userId: FieldRef<"Feri", 'Int'>
+    readonly name: FieldRef<"Feri", 'String'>
+    readonly status: FieldRef<"Feri", 'Boolean'>
     readonly triggerId: FieldRef<"Feri", 'String'>
     readonly updatedAt: FieldRef<"Feri", 'DateTime'>
     readonly createdAt: FieldRef<"Feri", 'DateTime'>
@@ -10408,6 +10434,8 @@ export namespace Prisma {
   export const FeriScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
+    name: 'name',
+    status: 'status',
     triggerId: 'triggerId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
@@ -10567,6 +10595,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Json'
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
@@ -10665,6 +10700,8 @@ export namespace Prisma {
     NOT?: FeriWhereInput | FeriWhereInput[]
     id?: StringFilter<"Feri"> | string
     userId?: IntFilter<"Feri"> | number
+    name?: StringFilter<"Feri"> | string
+    status?: BoolFilter<"Feri"> | boolean
     triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
@@ -10677,6 +10714,8 @@ export namespace Prisma {
   export type FeriOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -10692,6 +10731,8 @@ export namespace Prisma {
     OR?: FeriWhereInput[]
     NOT?: FeriWhereInput | FeriWhereInput[]
     userId?: IntFilter<"Feri"> | number
+    name?: StringFilter<"Feri"> | string
+    status?: BoolFilter<"Feri"> | boolean
     triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
@@ -10704,6 +10745,8 @@ export namespace Prisma {
   export type FeriOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -10720,6 +10763,8 @@ export namespace Prisma {
     NOT?: FeriScalarWhereWithAggregatesInput | FeriScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Feri"> | string
     userId?: IntWithAggregatesFilter<"Feri"> | number
+    name?: StringWithAggregatesFilter<"Feri"> | string
+    status?: BoolWithAggregatesFilter<"Feri"> | boolean
     triggerId?: StringWithAggregatesFilter<"Feri"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
@@ -11117,6 +11162,8 @@ export namespace Prisma {
 
   export type FeriCreateInput = {
     id?: string
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -11129,6 +11176,8 @@ export namespace Prisma {
   export type FeriUncheckedCreateInput = {
     id?: string
     userId: number
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -11139,6 +11188,8 @@ export namespace Prisma {
 
   export type FeriUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11151,6 +11202,8 @@ export namespace Prisma {
   export type FeriUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11162,6 +11215,8 @@ export namespace Prisma {
   export type FeriCreateManyInput = {
     id?: string
     userId: number
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -11169,6 +11224,8 @@ export namespace Prisma {
 
   export type FeriUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11177,6 +11234,8 @@ export namespace Prisma {
   export type FeriUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11671,6 +11730,11 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -11704,6 +11768,8 @@ export namespace Prisma {
   export type FeriCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11716,6 +11782,8 @@ export namespace Prisma {
   export type FeriMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11724,6 +11792,8 @@ export namespace Prisma {
   export type FeriMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    name?: SortOrder
+    status?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11731,6 +11801,14 @@ export namespace Prisma {
 
   export type FeriSumOrderByAggregateInput = {
     userId?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
   export type JsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -12078,6 +12156,10 @@ export namespace Prisma {
     connectOrCreate?: FeriRunCreateOrConnectWithoutFeriInput | FeriRunCreateOrConnectWithoutFeriInput[]
     createMany?: FeriRunCreateManyFeriInputEnvelope
     connect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type UserUpdateOneRequiredWithoutFeriNestedInput = {
@@ -12520,6 +12602,19 @@ export namespace Prisma {
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
   export type NestedJsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
         Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
@@ -12546,6 +12641,8 @@ export namespace Prisma {
 
   export type FeriCreateWithoutUserInput = {
     id?: string
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12556,6 +12653,8 @@ export namespace Prisma {
 
   export type FeriUncheckedCreateWithoutUserInput = {
     id?: string
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12596,6 +12695,8 @@ export namespace Prisma {
     NOT?: FeriScalarWhereInput | FeriScalarWhereInput[]
     id?: StringFilter<"Feri"> | string
     userId?: IntFilter<"Feri"> | number
+    name?: StringFilter<"Feri"> | string
+    status?: BoolFilter<"Feri"> | boolean
     triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
@@ -12807,6 +12908,8 @@ export namespace Prisma {
 
   export type FeriCreateWithoutFeriRunsInput = {
     id?: string
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12818,6 +12921,8 @@ export namespace Prisma {
   export type FeriUncheckedCreateWithoutFeriRunsInput = {
     id?: string
     userId: number
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12869,6 +12974,8 @@ export namespace Prisma {
 
   export type FeriUpdateWithoutFeriRunsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12880,6 +12987,8 @@ export namespace Prisma {
   export type FeriUncheckedUpdateWithoutFeriRunsInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12984,6 +13093,8 @@ export namespace Prisma {
 
   export type FeriCreateWithoutTriggerInput = {
     id?: string
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12995,6 +13106,8 @@ export namespace Prisma {
   export type FeriUncheckedCreateWithoutTriggerInput = {
     id?: string
     userId: number
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -13041,6 +13154,8 @@ export namespace Prisma {
 
   export type FeriUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13052,6 +13167,8 @@ export namespace Prisma {
   export type FeriUncheckedUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13076,6 +13193,8 @@ export namespace Prisma {
 
   export type FeriCreateWithoutActionInput = {
     id?: string
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -13087,6 +13206,8 @@ export namespace Prisma {
   export type FeriUncheckedCreateWithoutActionInput = {
     id?: string
     userId: number
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -13133,6 +13254,8 @@ export namespace Prisma {
 
   export type FeriUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13144,6 +13267,8 @@ export namespace Prisma {
   export type FeriUncheckedUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13246,6 +13371,8 @@ export namespace Prisma {
 
   export type FeriCreateManyUserInput = {
     id?: string
+    name: string
+    status: boolean
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -13253,6 +13380,8 @@ export namespace Prisma {
 
   export type FeriUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13263,6 +13392,8 @@ export namespace Prisma {
 
   export type FeriUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13273,6 +13404,8 @@ export namespace Prisma {
 
   export type FeriUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
