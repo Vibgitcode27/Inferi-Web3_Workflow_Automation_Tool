@@ -23,7 +23,7 @@ router.post("/login", async (req, res) => {
     res.status(401).json({ message: "Invalid credentials" });
     return;
   }
-  let token = jwt.sign({ id: userData.id, email: userData.email }, "Salt", {
+  let token = jwt.sign({ id: userData.id }, "Salt", {
     expiresIn: "1h",
   });
 
@@ -50,7 +50,7 @@ router.post("/register", async (req, res) => {
       res.status(400).json({ message: "User already exists" });
       return;
     }
-    let token = jwt.sign({ id: user.id, email: user.email }, "Salt", {
+    let token = jwt.sign({ id: user.id }, "Salt", {
       expiresIn: "1h",
     });
     res.json({ message: "User registered", token: token });
@@ -60,9 +60,18 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get("/", authMiddleware, (req, res) => {
-  console.log("Received user request:", req.body);
-  res.json({ message: "User data" });
+router.get("/", authMiddleware, async (req, res) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: req.id,
+    },
+  });
+  if (!user) {
+    res.status(401).json({ message: "Unauthorized" });
+    return;
+  }
+
+  res.status(200).json({ email: user.email, name: user.name });
 });
 
 export const userRouter = router;
