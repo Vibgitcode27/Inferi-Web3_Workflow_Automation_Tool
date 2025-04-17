@@ -1502,6 +1502,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    Feri: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Feri?: boolean | UserCountOutputTypeCountFeriArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFeriArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FeriWhereInput
+  }
+
+
+  /**
    * Count Type FeriCountOutputType
    */
 
@@ -1844,6 +1875,8 @@ export namespace Prisma {
     password?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    Feri?: boolean | User$FeriArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1874,10 +1907,18 @@ export namespace Prisma {
   }
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "password" | "updatedAt" | "createdAt", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Feri?: boolean | User$FeriArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
-    objects: {}
+    objects: {
+      Feri: Prisma.$FeriPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       email: string
@@ -2279,6 +2320,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Feri<T extends User$FeriArgs<ExtArgs> = {}>(args?: Subset<T, User$FeriArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2331,6 +2373,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where: UserWhereUniqueInput
@@ -2349,6 +2395,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where: UserWhereUniqueInput
@@ -2366,6 +2416,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * Filter, which User to fetch.
      */
@@ -2415,6 +2469,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where?: UserWhereInput
@@ -2463,6 +2521,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which Users to fetch.
      */
     where?: UserWhereInput
@@ -2505,6 +2567,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * The data needed to create a User.
      */
@@ -2553,6 +2619,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * The data needed to update a User.
      */
@@ -2620,6 +2690,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * The filter to search for the User to update in case it exists.
      */
     where: UserWhereUniqueInput
@@ -2646,6 +2720,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter which User to delete.
      */
     where: UserWhereUniqueInput
@@ -2666,6 +2744,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.Feri
+   */
+  export type User$FeriArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Feri
+     */
+    select?: FeriSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Feri
+     */
+    omit?: FeriOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeriInclude<ExtArgs> | null
+    where?: FeriWhereInput
+    orderBy?: FeriOrderByWithRelationInput | FeriOrderByWithRelationInput[]
+    cursor?: FeriWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FeriScalarFieldEnum | FeriScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2677,6 +2779,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
   }
 
 
@@ -2686,12 +2792,23 @@ export namespace Prisma {
 
   export type AggregateFeri = {
     _count: FeriCountAggregateOutputType | null
+    _avg: FeriAvgAggregateOutputType | null
+    _sum: FeriSumAggregateOutputType | null
     _min: FeriMinAggregateOutputType | null
     _max: FeriMaxAggregateOutputType | null
   }
 
+  export type FeriAvgAggregateOutputType = {
+    userId: number | null
+  }
+
+  export type FeriSumAggregateOutputType = {
+    userId: number | null
+  }
+
   export type FeriMinAggregateOutputType = {
     id: string | null
+    userId: number | null
     triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -2699,6 +2816,7 @@ export namespace Prisma {
 
   export type FeriMaxAggregateOutputType = {
     id: string | null
+    userId: number | null
     triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -2706,6 +2824,7 @@ export namespace Prisma {
 
   export type FeriCountAggregateOutputType = {
     id: number
+    userId: number
     triggerId: number
     updatedAt: number
     createdAt: number
@@ -2713,8 +2832,17 @@ export namespace Prisma {
   }
 
 
+  export type FeriAvgAggregateInputType = {
+    userId?: true
+  }
+
+  export type FeriSumAggregateInputType = {
+    userId?: true
+  }
+
   export type FeriMinAggregateInputType = {
     id?: true
+    userId?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
@@ -2722,6 +2850,7 @@ export namespace Prisma {
 
   export type FeriMaxAggregateInputType = {
     id?: true
+    userId?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
@@ -2729,6 +2858,7 @@ export namespace Prisma {
 
   export type FeriCountAggregateInputType = {
     id?: true
+    userId?: true
     triggerId?: true
     updatedAt?: true
     createdAt?: true
@@ -2773,6 +2903,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: FeriAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FeriSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: FeriMinAggregateInputType
@@ -2803,16 +2945,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: FeriCountAggregateInputType | true
+    _avg?: FeriAvgAggregateInputType
+    _sum?: FeriSumAggregateInputType
     _min?: FeriMinAggregateInputType
     _max?: FeriMaxAggregateInputType
   }
 
   export type FeriGroupByOutputType = {
     id: string
+    userId: number
     triggerId: string
     updatedAt: Date
     createdAt: Date
     _count: FeriCountAggregateOutputType | null
+    _avg: FeriAvgAggregateOutputType | null
+    _sum: FeriSumAggregateOutputType | null
     _min: FeriMinAggregateOutputType | null
     _max: FeriMaxAggregateOutputType | null
   }
@@ -2833,9 +2980,11 @@ export namespace Prisma {
 
   export type FeriSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    userId?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
     trigger?: boolean | Feri$triggerArgs<ExtArgs>
     action?: boolean | Feri$actionArgs<ExtArgs>
     FeriRuns?: boolean | Feri$FeriRunsArgs<ExtArgs>
@@ -2844,44 +2993,56 @@ export namespace Prisma {
 
   export type FeriSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    userId?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["feri"]>
 
   export type FeriSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    userId?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["feri"]>
 
   export type FeriSelectScalar = {
     id?: boolean
+    userId?: boolean
     triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type FeriOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["feri"]>
+  export type FeriOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["feri"]>
   export type FeriInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
     trigger?: boolean | Feri$triggerArgs<ExtArgs>
     action?: boolean | Feri$actionArgs<ExtArgs>
     FeriRuns?: boolean | Feri$FeriRunsArgs<ExtArgs>
     _count?: boolean | FeriCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type FeriIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type FeriIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FeriIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type FeriIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
 
   export type $FeriPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Feri"
     objects: {
+      user: Prisma.$UserPayload<ExtArgs>
       trigger: Prisma.$TriggerPayload<ExtArgs> | null
       action: Prisma.$ActionPayload<ExtArgs>[]
       FeriRuns: Prisma.$FeriRunPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      userId: number
       triggerId: string
       updatedAt: Date
       createdAt: Date
@@ -3279,6 +3440,7 @@ export namespace Prisma {
    */
   export interface Prisma__FeriClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     trigger<T extends Feri$triggerArgs<ExtArgs> = {}>(args?: Subset<T, Feri$triggerArgs<ExtArgs>>): Prisma__TriggerClient<$Result.GetResult<Prisma.$TriggerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     action<T extends Feri$actionArgs<ExtArgs> = {}>(args?: Subset<T, Feri$actionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     FeriRuns<T extends Feri$FeriRunsArgs<ExtArgs> = {}>(args?: Subset<T, Feri$FeriRunsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeriRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -3312,6 +3474,7 @@ export namespace Prisma {
    */ 
   interface FeriFieldRefs {
     readonly id: FieldRef<"Feri", 'String'>
+    readonly userId: FieldRef<"Feri", 'Int'>
     readonly triggerId: FieldRef<"Feri", 'String'>
     readonly updatedAt: FieldRef<"Feri", 'DateTime'>
     readonly createdAt: FieldRef<"Feri", 'DateTime'>
@@ -3564,6 +3727,10 @@ export namespace Prisma {
      */
     data: FeriCreateManyInput | FeriCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeriIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3634,6 +3801,10 @@ export namespace Prisma {
      * Limit how many Feris to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FeriIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -10236,6 +10407,7 @@ export namespace Prisma {
 
   export const FeriScalarFieldEnum: {
     id: 'id',
+    userId: 'userId',
     triggerId: 'triggerId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
@@ -10435,6 +10607,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     createdAt?: DateTimeFilter<"User"> | Date | string
+    Feri?: FeriListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -10444,6 +10617,7 @@ export namespace Prisma {
     password?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+    Feri?: FeriOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -10456,6 +10630,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     createdAt?: DateTimeFilter<"User"> | Date | string
+    Feri?: FeriListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -10489,9 +10664,11 @@ export namespace Prisma {
     OR?: FeriWhereInput[]
     NOT?: FeriWhereInput | FeriWhereInput[]
     id?: StringFilter<"Feri"> | string
+    userId?: IntFilter<"Feri"> | number
     triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     trigger?: XOR<TriggerNullableScalarRelationFilter, TriggerWhereInput> | null
     action?: ActionListRelationFilter
     FeriRuns?: FeriRunListRelationFilter
@@ -10499,9 +10676,11 @@ export namespace Prisma {
 
   export type FeriOrderByWithRelationInput = {
     id?: SortOrder
+    userId?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
     trigger?: TriggerOrderByWithRelationInput
     action?: ActionOrderByRelationAggregateInput
     FeriRuns?: FeriRunOrderByRelationAggregateInput
@@ -10512,9 +10691,11 @@ export namespace Prisma {
     AND?: FeriWhereInput | FeriWhereInput[]
     OR?: FeriWhereInput[]
     NOT?: FeriWhereInput | FeriWhereInput[]
+    userId?: IntFilter<"Feri"> | number
     triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     trigger?: XOR<TriggerNullableScalarRelationFilter, TriggerWhereInput> | null
     action?: ActionListRelationFilter
     FeriRuns?: FeriRunListRelationFilter
@@ -10522,12 +10703,15 @@ export namespace Prisma {
 
   export type FeriOrderByWithAggregationInput = {
     id?: SortOrder
+    userId?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     _count?: FeriCountOrderByAggregateInput
+    _avg?: FeriAvgOrderByAggregateInput
     _max?: FeriMaxOrderByAggregateInput
     _min?: FeriMinOrderByAggregateInput
+    _sum?: FeriSumOrderByAggregateInput
   }
 
   export type FeriScalarWhereWithAggregatesInput = {
@@ -10535,6 +10719,7 @@ export namespace Prisma {
     OR?: FeriScalarWhereWithAggregatesInput[]
     NOT?: FeriScalarWhereWithAggregatesInput | FeriScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Feri"> | string
+    userId?: IntWithAggregatesFilter<"Feri"> | number
     triggerId?: StringWithAggregatesFilter<"Feri"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
@@ -10872,6 +11057,7 @@ export namespace Prisma {
     password: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    Feri?: FeriCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -10881,6 +11067,7 @@ export namespace Prisma {
     password: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    Feri?: FeriUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -10889,6 +11076,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Feri?: FeriUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -10898,6 +11086,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Feri?: FeriUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -10931,6 +11120,7 @@ export namespace Prisma {
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    user: UserCreateNestedOneWithoutFeriInput
     trigger?: TriggerCreateNestedOneWithoutFeriInput
     action?: ActionCreateNestedManyWithoutFeriInput
     FeriRuns?: FeriRunCreateNestedManyWithoutFeriInput
@@ -10938,6 +11128,7 @@ export namespace Prisma {
 
   export type FeriUncheckedCreateInput = {
     id?: string
+    userId: number
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -10951,6 +11142,7 @@ export namespace Prisma {
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFeriNestedInput
     trigger?: TriggerUpdateOneWithoutFeriNestedInput
     action?: ActionUpdateManyWithoutFeriNestedInput
     FeriRuns?: FeriRunUpdateManyWithoutFeriNestedInput
@@ -10958,6 +11150,7 @@ export namespace Prisma {
 
   export type FeriUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10968,6 +11161,7 @@ export namespace Prisma {
 
   export type FeriCreateManyInput = {
     id?: string
+    userId: number
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -10982,6 +11176,7 @@ export namespace Prisma {
 
   export type FeriUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11360,9 +11555,19 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type FeriListRelationFilter = {
+    every?: FeriWhereInput
+    some?: FeriWhereInput
+    none?: FeriWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type FeriOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
@@ -11466,6 +11671,11 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
   export type TriggerNullableScalarRelationFilter = {
     is?: TriggerWhereInput | null
     isNot?: TriggerWhereInput | null
@@ -11493,13 +11703,19 @@ export namespace Prisma {
 
   export type FeriCountOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
 
+  export type FeriAvgOrderByAggregateInput = {
+    userId?: SortOrder
+  }
+
   export type FeriMaxOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11507,9 +11723,14 @@ export namespace Prisma {
 
   export type FeriMinOrderByAggregateInput = {
     id?: SortOrder
+    userId?: SortOrder
     triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
+  }
+
+  export type FeriSumOrderByAggregateInput = {
+    userId?: SortOrder
   }
   export type JsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -11751,6 +11972,20 @@ export namespace Prisma {
     name?: SortOrder
   }
 
+  export type FeriCreateNestedManyWithoutUserInput = {
+    create?: XOR<FeriCreateWithoutUserInput, FeriUncheckedCreateWithoutUserInput> | FeriCreateWithoutUserInput[] | FeriUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeriCreateOrConnectWithoutUserInput | FeriCreateOrConnectWithoutUserInput[]
+    createMany?: FeriCreateManyUserInputEnvelope
+    connect?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+  }
+
+  export type FeriUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FeriCreateWithoutUserInput, FeriUncheckedCreateWithoutUserInput> | FeriCreateWithoutUserInput[] | FeriUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeriCreateOrConnectWithoutUserInput | FeriCreateOrConnectWithoutUserInput[]
+    createMany?: FeriCreateManyUserInputEnvelope
+    connect?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -11763,12 +11998,46 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type FeriUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FeriCreateWithoutUserInput, FeriUncheckedCreateWithoutUserInput> | FeriCreateWithoutUserInput[] | FeriUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeriCreateOrConnectWithoutUserInput | FeriCreateOrConnectWithoutUserInput[]
+    upsert?: FeriUpsertWithWhereUniqueWithoutUserInput | FeriUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FeriCreateManyUserInputEnvelope
+    set?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    disconnect?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    delete?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    connect?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    update?: FeriUpdateWithWhereUniqueWithoutUserInput | FeriUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FeriUpdateManyWithWhereWithoutUserInput | FeriUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FeriScalarWhereInput | FeriScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type FeriUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FeriCreateWithoutUserInput, FeriUncheckedCreateWithoutUserInput> | FeriCreateWithoutUserInput[] | FeriUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FeriCreateOrConnectWithoutUserInput | FeriCreateOrConnectWithoutUserInput[]
+    upsert?: FeriUpsertWithWhereUniqueWithoutUserInput | FeriUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FeriCreateManyUserInputEnvelope
+    set?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    disconnect?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    delete?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    connect?: FeriWhereUniqueInput | FeriWhereUniqueInput[]
+    update?: FeriUpdateWithWhereUniqueWithoutUserInput | FeriUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FeriUpdateManyWithWhereWithoutUserInput | FeriUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FeriScalarWhereInput | FeriScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutFeriInput = {
+    create?: XOR<UserCreateWithoutFeriInput, UserUncheckedCreateWithoutFeriInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFeriInput
+    connect?: UserWhereUniqueInput
   }
 
   export type TriggerCreateNestedOneWithoutFeriInput = {
@@ -11809,6 +12078,14 @@ export namespace Prisma {
     connectOrCreate?: FeriRunCreateOrConnectWithoutFeriInput | FeriRunCreateOrConnectWithoutFeriInput[]
     createMany?: FeriRunCreateManyFeriInputEnvelope
     connect?: FeriRunWhereUniqueInput | FeriRunWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutFeriNestedInput = {
+    create?: XOR<UserCreateWithoutFeriInput, UserUncheckedCreateWithoutFeriInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFeriInput
+    upsert?: UserUpsertWithoutFeriInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFeriInput, UserUpdateWithoutFeriInput>, UserUncheckedUpdateWithoutFeriInput>
   }
 
   export type TriggerUpdateOneWithoutFeriNestedInput = {
@@ -12267,6 +12544,85 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type FeriCreateWithoutUserInput = {
+    id?: string
+    triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
+    trigger?: TriggerCreateNestedOneWithoutFeriInput
+    action?: ActionCreateNestedManyWithoutFeriInput
+    FeriRuns?: FeriRunCreateNestedManyWithoutFeriInput
+  }
+
+  export type FeriUncheckedCreateWithoutUserInput = {
+    id?: string
+    triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
+    trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
+    action?: ActionUncheckedCreateNestedManyWithoutFeriInput
+    FeriRuns?: FeriRunUncheckedCreateNestedManyWithoutFeriInput
+  }
+
+  export type FeriCreateOrConnectWithoutUserInput = {
+    where: FeriWhereUniqueInput
+    create: XOR<FeriCreateWithoutUserInput, FeriUncheckedCreateWithoutUserInput>
+  }
+
+  export type FeriCreateManyUserInputEnvelope = {
+    data: FeriCreateManyUserInput | FeriCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FeriUpsertWithWhereUniqueWithoutUserInput = {
+    where: FeriWhereUniqueInput
+    update: XOR<FeriUpdateWithoutUserInput, FeriUncheckedUpdateWithoutUserInput>
+    create: XOR<FeriCreateWithoutUserInput, FeriUncheckedCreateWithoutUserInput>
+  }
+
+  export type FeriUpdateWithWhereUniqueWithoutUserInput = {
+    where: FeriWhereUniqueInput
+    data: XOR<FeriUpdateWithoutUserInput, FeriUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FeriUpdateManyWithWhereWithoutUserInput = {
+    where: FeriScalarWhereInput
+    data: XOR<FeriUpdateManyMutationInput, FeriUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FeriScalarWhereInput = {
+    AND?: FeriScalarWhereInput | FeriScalarWhereInput[]
+    OR?: FeriScalarWhereInput[]
+    NOT?: FeriScalarWhereInput | FeriScalarWhereInput[]
+    id?: StringFilter<"Feri"> | string
+    userId?: IntFilter<"Feri"> | number
+    triggerId?: StringFilter<"Feri"> | string
+    updatedAt?: DateTimeFilter<"Feri"> | Date | string
+    createdAt?: DateTimeFilter<"Feri"> | Date | string
+  }
+
+  export type UserCreateWithoutFeriInput = {
+    email: string
+    name?: string | null
+    password: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
+  }
+
+  export type UserUncheckedCreateWithoutFeriInput = {
+    id?: number
+    email: string
+    name?: string | null
+    password: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
+  }
+
+  export type UserCreateOrConnectWithoutFeriInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFeriInput, UserUncheckedCreateWithoutFeriInput>
+  }
+
   export type TriggerCreateWithoutFeriInput = {
     id?: string
     updatedAt?: Date | string
@@ -12338,6 +12694,34 @@ export namespace Prisma {
   export type FeriRunCreateManyFeriInputEnvelope = {
     data: FeriRunCreateManyFeriInput | FeriRunCreateManyFeriInput[]
     skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutFeriInput = {
+    update: XOR<UserUpdateWithoutFeriInput, UserUncheckedUpdateWithoutFeriInput>
+    create: XOR<UserCreateWithoutFeriInput, UserUncheckedCreateWithoutFeriInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFeriInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFeriInput, UserUncheckedUpdateWithoutFeriInput>
+  }
+
+  export type UserUpdateWithoutFeriInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUncheckedUpdateWithoutFeriInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TriggerUpsertWithoutFeriInput = {
@@ -12426,12 +12810,14 @@ export namespace Prisma {
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    user: UserCreateNestedOneWithoutFeriInput
     trigger?: TriggerCreateNestedOneWithoutFeriInput
     action?: ActionCreateNestedManyWithoutFeriInput
   }
 
   export type FeriUncheckedCreateWithoutFeriRunsInput = {
     id?: string
+    userId: number
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12486,12 +12872,14 @@ export namespace Prisma {
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFeriNestedInput
     trigger?: TriggerUpdateOneWithoutFeriNestedInput
     action?: ActionUpdateManyWithoutFeriNestedInput
   }
 
   export type FeriUncheckedUpdateWithoutFeriRunsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12599,12 +12987,14 @@ export namespace Prisma {
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    user: UserCreateNestedOneWithoutFeriInput
     action?: ActionCreateNestedManyWithoutFeriInput
     FeriRuns?: FeriRunCreateNestedManyWithoutFeriInput
   }
 
   export type FeriUncheckedCreateWithoutTriggerInput = {
     id?: string
+    userId: number
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12654,12 +13044,14 @@ export namespace Prisma {
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFeriNestedInput
     action?: ActionUpdateManyWithoutFeriNestedInput
     FeriRuns?: FeriRunUpdateManyWithoutFeriNestedInput
   }
 
   export type FeriUncheckedUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12687,12 +13079,14 @@ export namespace Prisma {
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
+    user: UserCreateNestedOneWithoutFeriInput
     trigger?: TriggerCreateNestedOneWithoutFeriInput
     FeriRuns?: FeriRunCreateNestedManyWithoutFeriInput
   }
 
   export type FeriUncheckedCreateWithoutActionInput = {
     id?: string
+    userId: number
     triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -12742,12 +13136,14 @@ export namespace Prisma {
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFeriNestedInput
     trigger?: TriggerUpdateOneWithoutFeriNestedInput
     FeriRuns?: FeriRunUpdateManyWithoutFeriNestedInput
   }
 
   export type FeriUncheckedUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
     triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12846,6 +13242,40 @@ export namespace Prisma {
     feriId?: StringFilter<"Trigger"> | string
     updatedAt?: DateTimeFilter<"Trigger"> | Date | string
     createdAt?: DateTimeFilter<"Trigger"> | Date | string
+  }
+
+  export type FeriCreateManyUserInput = {
+    id?: string
+    triggerId: string
+    updatedAt?: Date | string
+    createdAt?: Date | string
+  }
+
+  export type FeriUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trigger?: TriggerUpdateOneWithoutFeriNestedInput
+    action?: ActionUpdateManyWithoutFeriNestedInput
+    FeriRuns?: FeriRunUpdateManyWithoutFeriNestedInput
+  }
+
+  export type FeriUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
+    action?: ActionUncheckedUpdateManyWithoutFeriNestedInput
+    FeriRuns?: FeriRunUncheckedUpdateManyWithoutFeriNestedInput
+  }
+
+  export type FeriUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    triggerId?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionCreateManyFeriInput = {
