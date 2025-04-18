@@ -131,7 +131,6 @@ exports.Prisma.FeriScalarFieldEnum = {
   userId: 'userId',
   name: 'name',
   status: 'status',
-  triggerId: 'triggerId',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'
 };
@@ -156,7 +155,7 @@ exports.Prisma.FeriOutboxScalarFieldEnum = {
 
 exports.Prisma.TriggerScalarFieldEnum = {
   id: 'id',
-  triggerId: 'triggerId',
+  availableTriggerId: 'availableTriggerId',
   feriId: 'feriId',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt'
@@ -164,7 +163,7 @@ exports.Prisma.TriggerScalarFieldEnum = {
 
 exports.Prisma.ActionScalarFieldEnum = {
   id: 'id',
-  actionId: 'actionId',
+  availableActionId: 'availableActionId',
   feriId: 'feriId',
   updatedAt: 'updatedAt',
   createdAt: 'createdAt',

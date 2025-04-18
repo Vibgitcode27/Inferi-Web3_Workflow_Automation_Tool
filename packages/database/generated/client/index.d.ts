@@ -2811,7 +2811,6 @@ export namespace Prisma {
     userId: number | null
     name: string | null
     status: boolean | null
-    triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
@@ -2821,7 +2820,6 @@ export namespace Prisma {
     userId: number | null
     name: string | null
     status: boolean | null
-    triggerId: string | null
     updatedAt: Date | null
     createdAt: Date | null
   }
@@ -2831,7 +2829,6 @@ export namespace Prisma {
     userId: number
     name: number
     status: number
-    triggerId: number
     updatedAt: number
     createdAt: number
     _all: number
@@ -2851,7 +2848,6 @@ export namespace Prisma {
     userId?: true
     name?: true
     status?: true
-    triggerId?: true
     updatedAt?: true
     createdAt?: true
   }
@@ -2861,7 +2857,6 @@ export namespace Prisma {
     userId?: true
     name?: true
     status?: true
-    triggerId?: true
     updatedAt?: true
     createdAt?: true
   }
@@ -2871,7 +2866,6 @@ export namespace Prisma {
     userId?: true
     name?: true
     status?: true
-    triggerId?: true
     updatedAt?: true
     createdAt?: true
     _all?: true
@@ -2968,7 +2962,6 @@ export namespace Prisma {
     userId: number
     name: string
     status: boolean
-    triggerId: string
     updatedAt: Date
     createdAt: Date
     _count: FeriCountAggregateOutputType | null
@@ -2997,7 +2990,6 @@ export namespace Prisma {
     userId?: boolean
     name?: boolean
     status?: boolean
-    triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3012,7 +3004,6 @@ export namespace Prisma {
     userId?: boolean
     name?: boolean
     status?: boolean
-    triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3023,7 +3014,6 @@ export namespace Prisma {
     userId?: boolean
     name?: boolean
     status?: boolean
-    triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3034,12 +3024,11 @@ export namespace Prisma {
     userId?: boolean
     name?: boolean
     status?: boolean
-    triggerId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type FeriOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "status" | "triggerId" | "updatedAt" | "createdAt", ExtArgs["result"]["feri"]>
+  export type FeriOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "status" | "updatedAt" | "createdAt", ExtArgs["result"]["feri"]>
   export type FeriInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     trigger?: boolean | Feri$triggerArgs<ExtArgs>
@@ -3067,7 +3056,6 @@ export namespace Prisma {
       userId: number
       name: string
       status: boolean
-      triggerId: string
       updatedAt: Date
       createdAt: Date
     }, ExtArgs["result"]["feri"]>
@@ -3501,7 +3489,6 @@ export namespace Prisma {
     readonly userId: FieldRef<"Feri", 'Int'>
     readonly name: FieldRef<"Feri", 'String'>
     readonly status: FieldRef<"Feri", 'Boolean'>
-    readonly triggerId: FieldRef<"Feri", 'String'>
     readonly updatedAt: FieldRef<"Feri", 'DateTime'>
     readonly createdAt: FieldRef<"Feri", 'DateTime'>
   }
@@ -6176,7 +6163,7 @@ export namespace Prisma {
 
   export type TriggerMinAggregateOutputType = {
     id: string | null
-    triggerId: string | null
+    availableTriggerId: string | null
     feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -6184,7 +6171,7 @@ export namespace Prisma {
 
   export type TriggerMaxAggregateOutputType = {
     id: string | null
-    triggerId: string | null
+    availableTriggerId: string | null
     feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -6192,7 +6179,7 @@ export namespace Prisma {
 
   export type TriggerCountAggregateOutputType = {
     id: number
-    triggerId: number
+    availableTriggerId: number
     feriId: number
     updatedAt: number
     createdAt: number
@@ -6202,7 +6189,7 @@ export namespace Prisma {
 
   export type TriggerMinAggregateInputType = {
     id?: true
-    triggerId?: true
+    availableTriggerId?: true
     feriId?: true
     updatedAt?: true
     createdAt?: true
@@ -6210,7 +6197,7 @@ export namespace Prisma {
 
   export type TriggerMaxAggregateInputType = {
     id?: true
-    triggerId?: true
+    availableTriggerId?: true
     feriId?: true
     updatedAt?: true
     createdAt?: true
@@ -6218,7 +6205,7 @@ export namespace Prisma {
 
   export type TriggerCountAggregateInputType = {
     id?: true
-    triggerId?: true
+    availableTriggerId?: true
     feriId?: true
     updatedAt?: true
     createdAt?: true
@@ -6299,7 +6286,7 @@ export namespace Prisma {
 
   export type TriggerGroupByOutputType = {
     id: string
-    triggerId: string
+    availableTriggerId: string
     feriId: string
     updatedAt: Date
     createdAt: Date
@@ -6324,7 +6311,7 @@ export namespace Prisma {
 
   export type TriggerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    triggerId?: boolean
+    availableTriggerId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -6334,7 +6321,7 @@ export namespace Prisma {
 
   export type TriggerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    triggerId?: boolean
+    availableTriggerId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -6344,7 +6331,7 @@ export namespace Prisma {
 
   export type TriggerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    triggerId?: boolean
+    availableTriggerId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -6354,13 +6341,13 @@ export namespace Prisma {
 
   export type TriggerSelectScalar = {
     id?: boolean
-    triggerId?: boolean
+    availableTriggerId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
   }
 
-  export type TriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "triggerId" | "feriId" | "updatedAt" | "createdAt", ExtArgs["result"]["trigger"]>
+  export type TriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "availableTriggerId" | "feriId" | "updatedAt" | "createdAt", ExtArgs["result"]["trigger"]>
   export type TriggerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableTriggerDefaultArgs<ExtArgs>
     feri?: boolean | FeriDefaultArgs<ExtArgs>
@@ -6382,7 +6369,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      triggerId: string
+      availableTriggerId: string
       feriId: string
       updatedAt: Date
       createdAt: Date
@@ -6812,7 +6799,7 @@ export namespace Prisma {
    */ 
   interface TriggerFieldRefs {
     readonly id: FieldRef<"Trigger", 'String'>
-    readonly triggerId: FieldRef<"Trigger", 'String'>
+    readonly availableTriggerId: FieldRef<"Trigger", 'String'>
     readonly feriId: FieldRef<"Trigger", 'String'>
     readonly updatedAt: FieldRef<"Trigger", 'DateTime'>
     readonly createdAt: FieldRef<"Trigger", 'DateTime'>
@@ -7252,7 +7239,7 @@ export namespace Prisma {
 
   export type ActionMinAggregateOutputType = {
     id: string | null
-    actionId: string | null
+    availableActionId: string | null
     feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -7261,7 +7248,7 @@ export namespace Prisma {
 
   export type ActionMaxAggregateOutputType = {
     id: string | null
-    actionId: string | null
+    availableActionId: string | null
     feriId: string | null
     updatedAt: Date | null
     createdAt: Date | null
@@ -7270,7 +7257,7 @@ export namespace Prisma {
 
   export type ActionCountAggregateOutputType = {
     id: number
-    actionId: number
+    availableActionId: number
     feriId: number
     updatedAt: number
     createdAt: number
@@ -7289,7 +7276,7 @@ export namespace Prisma {
 
   export type ActionMinAggregateInputType = {
     id?: true
-    actionId?: true
+    availableActionId?: true
     feriId?: true
     updatedAt?: true
     createdAt?: true
@@ -7298,7 +7285,7 @@ export namespace Prisma {
 
   export type ActionMaxAggregateInputType = {
     id?: true
-    actionId?: true
+    availableActionId?: true
     feriId?: true
     updatedAt?: true
     createdAt?: true
@@ -7307,7 +7294,7 @@ export namespace Prisma {
 
   export type ActionCountAggregateInputType = {
     id?: true
-    actionId?: true
+    availableActionId?: true
     feriId?: true
     updatedAt?: true
     createdAt?: true
@@ -7403,7 +7390,7 @@ export namespace Prisma {
 
   export type ActionGroupByOutputType = {
     id: string
-    actionId: string
+    availableActionId: string
     feriId: string
     updatedAt: Date
     createdAt: Date
@@ -7431,7 +7418,7 @@ export namespace Prisma {
 
   export type ActionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    actionId?: boolean
+    availableActionId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -7442,7 +7429,7 @@ export namespace Prisma {
 
   export type ActionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    actionId?: boolean
+    availableActionId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -7453,7 +7440,7 @@ export namespace Prisma {
 
   export type ActionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    actionId?: boolean
+    availableActionId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
@@ -7464,14 +7451,14 @@ export namespace Prisma {
 
   export type ActionSelectScalar = {
     id?: boolean
-    actionId?: boolean
+    availableActionId?: boolean
     feriId?: boolean
     updatedAt?: boolean
     createdAt?: boolean
     sortingOrder?: boolean
   }
 
-  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "actionId" | "feriId" | "updatedAt" | "createdAt" | "sortingOrder", ExtArgs["result"]["action"]>
+  export type ActionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "availableActionId" | "feriId" | "updatedAt" | "createdAt" | "sortingOrder", ExtArgs["result"]["action"]>
   export type ActionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     type?: boolean | AvailableActionsDefaultArgs<ExtArgs>
     feri?: boolean | FeriDefaultArgs<ExtArgs>
@@ -7493,7 +7480,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      actionId: string
+      availableActionId: string
       feriId: string
       updatedAt: Date
       createdAt: Date
@@ -7924,7 +7911,7 @@ export namespace Prisma {
    */ 
   interface ActionFieldRefs {
     readonly id: FieldRef<"Action", 'String'>
-    readonly actionId: FieldRef<"Action", 'String'>
+    readonly availableActionId: FieldRef<"Action", 'String'>
     readonly feriId: FieldRef<"Action", 'String'>
     readonly updatedAt: FieldRef<"Action", 'DateTime'>
     readonly createdAt: FieldRef<"Action", 'DateTime'>
@@ -10436,7 +10423,6 @@ export namespace Prisma {
     userId: 'userId',
     name: 'name',
     status: 'status',
-    triggerId: 'triggerId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
   };
@@ -10470,7 +10456,7 @@ export namespace Prisma {
 
   export const TriggerScalarFieldEnum: {
     id: 'id',
-    triggerId: 'triggerId',
+    availableTriggerId: 'availableTriggerId',
     feriId: 'feriId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt'
@@ -10481,7 +10467,7 @@ export namespace Prisma {
 
   export const ActionScalarFieldEnum: {
     id: 'id',
-    actionId: 'actionId',
+    availableActionId: 'availableActionId',
     feriId: 'feriId',
     updatedAt: 'updatedAt',
     createdAt: 'createdAt',
@@ -10702,7 +10688,6 @@ export namespace Prisma {
     userId?: IntFilter<"Feri"> | number
     name?: StringFilter<"Feri"> | string
     status?: BoolFilter<"Feri"> | boolean
-    triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -10716,7 +10701,6 @@ export namespace Prisma {
     userId?: SortOrder
     name?: SortOrder
     status?: SortOrder
-    triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -10733,7 +10717,6 @@ export namespace Prisma {
     userId?: IntFilter<"Feri"> | number
     name?: StringFilter<"Feri"> | string
     status?: BoolFilter<"Feri"> | boolean
-    triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -10747,7 +10730,6 @@ export namespace Prisma {
     userId?: SortOrder
     name?: SortOrder
     status?: SortOrder
-    triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
     _count?: FeriCountOrderByAggregateInput
@@ -10765,7 +10747,6 @@ export namespace Prisma {
     userId?: IntWithAggregatesFilter<"Feri"> | number
     name?: StringWithAggregatesFilter<"Feri"> | string
     status?: BoolWithAggregatesFilter<"Feri"> | boolean
-    triggerId?: StringWithAggregatesFilter<"Feri"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Feri"> | Date | string
   }
@@ -10898,7 +10879,7 @@ export namespace Prisma {
     OR?: TriggerWhereInput[]
     NOT?: TriggerWhereInput | TriggerWhereInput[]
     id?: StringFilter<"Trigger"> | string
-    triggerId?: StringFilter<"Trigger"> | string
+    availableTriggerId?: StringFilter<"Trigger"> | string
     feriId?: StringFilter<"Trigger"> | string
     updatedAt?: DateTimeFilter<"Trigger"> | Date | string
     createdAt?: DateTimeFilter<"Trigger"> | Date | string
@@ -10908,7 +10889,7 @@ export namespace Prisma {
 
   export type TriggerOrderByWithRelationInput = {
     id?: SortOrder
-    triggerId?: SortOrder
+    availableTriggerId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -10922,7 +10903,7 @@ export namespace Prisma {
     AND?: TriggerWhereInput | TriggerWhereInput[]
     OR?: TriggerWhereInput[]
     NOT?: TriggerWhereInput | TriggerWhereInput[]
-    triggerId?: StringFilter<"Trigger"> | string
+    availableTriggerId?: StringFilter<"Trigger"> | string
     updatedAt?: DateTimeFilter<"Trigger"> | Date | string
     createdAt?: DateTimeFilter<"Trigger"> | Date | string
     type?: XOR<AvailableTriggerScalarRelationFilter, AvailableTriggerWhereInput>
@@ -10931,7 +10912,7 @@ export namespace Prisma {
 
   export type TriggerOrderByWithAggregationInput = {
     id?: SortOrder
-    triggerId?: SortOrder
+    availableTriggerId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -10945,7 +10926,7 @@ export namespace Prisma {
     OR?: TriggerScalarWhereWithAggregatesInput[]
     NOT?: TriggerScalarWhereWithAggregatesInput | TriggerScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Trigger"> | string
-    triggerId?: StringWithAggregatesFilter<"Trigger"> | string
+    availableTriggerId?: StringWithAggregatesFilter<"Trigger"> | string
     feriId?: StringWithAggregatesFilter<"Trigger"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Trigger"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Trigger"> | Date | string
@@ -10956,7 +10937,7 @@ export namespace Prisma {
     OR?: ActionWhereInput[]
     NOT?: ActionWhereInput | ActionWhereInput[]
     id?: StringFilter<"Action"> | string
-    actionId?: StringFilter<"Action"> | string
+    availableActionId?: StringFilter<"Action"> | string
     feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
@@ -10967,7 +10948,7 @@ export namespace Prisma {
 
   export type ActionOrderByWithRelationInput = {
     id?: SortOrder
-    actionId?: SortOrder
+    availableActionId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -10981,7 +10962,7 @@ export namespace Prisma {
     AND?: ActionWhereInput | ActionWhereInput[]
     OR?: ActionWhereInput[]
     NOT?: ActionWhereInput | ActionWhereInput[]
-    actionId?: StringFilter<"Action"> | string
+    availableActionId?: StringFilter<"Action"> | string
     feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
@@ -10992,7 +10973,7 @@ export namespace Prisma {
 
   export type ActionOrderByWithAggregationInput = {
     id?: SortOrder
-    actionId?: SortOrder
+    availableActionId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11009,7 +10990,7 @@ export namespace Prisma {
     OR?: ActionScalarWhereWithAggregatesInput[]
     NOT?: ActionScalarWhereWithAggregatesInput | ActionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Action"> | string
-    actionId?: StringWithAggregatesFilter<"Action"> | string
+    availableActionId?: StringWithAggregatesFilter<"Action"> | string
     feriId?: StringWithAggregatesFilter<"Action"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Action"> | Date | string
@@ -11164,7 +11145,6 @@ export namespace Prisma {
     id?: string
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutFeriInput
@@ -11178,7 +11158,6 @@ export namespace Prisma {
     userId: number
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
@@ -11190,7 +11169,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFeriNestedInput
@@ -11204,7 +11182,6 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
@@ -11217,7 +11194,6 @@ export namespace Prisma {
     userId: number
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -11226,7 +11202,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11236,7 +11211,6 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11379,7 +11353,7 @@ export namespace Prisma {
 
   export type TriggerUncheckedCreateInput = {
     id?: string
-    triggerId: string
+    availableTriggerId: string
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -11395,7 +11369,7 @@ export namespace Prisma {
 
   export type TriggerUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    triggerId?: StringFieldUpdateOperationsInput | string
+    availableTriggerId?: StringFieldUpdateOperationsInput | string
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11403,7 +11377,7 @@ export namespace Prisma {
 
   export type TriggerCreateManyInput = {
     id?: string
-    triggerId: string
+    availableTriggerId: string
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -11417,7 +11391,7 @@ export namespace Prisma {
 
   export type TriggerUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    triggerId?: StringFieldUpdateOperationsInput | string
+    availableTriggerId?: StringFieldUpdateOperationsInput | string
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11434,7 +11408,7 @@ export namespace Prisma {
 
   export type ActionUncheckedCreateInput = {
     id?: string
-    actionId: string
+    availableActionId: string
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -11452,7 +11426,7 @@ export namespace Prisma {
 
   export type ActionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    actionId?: StringFieldUpdateOperationsInput | string
+    availableActionId?: StringFieldUpdateOperationsInput | string
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11461,7 +11435,7 @@ export namespace Prisma {
 
   export type ActionCreateManyInput = {
     id?: string
-    actionId: string
+    availableActionId: string
     feriId: string
     updatedAt?: Date | string
     createdAt?: Date | string
@@ -11477,7 +11451,7 @@ export namespace Prisma {
 
   export type ActionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    actionId?: StringFieldUpdateOperationsInput | string
+    availableActionId?: StringFieldUpdateOperationsInput | string
     feriId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11770,7 +11744,6 @@ export namespace Prisma {
     userId?: SortOrder
     name?: SortOrder
     status?: SortOrder
-    triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11784,7 +11757,6 @@ export namespace Prisma {
     userId?: SortOrder
     name?: SortOrder
     status?: SortOrder
-    triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11794,7 +11766,6 @@ export namespace Prisma {
     userId?: SortOrder
     name?: SortOrder
     status?: SortOrder
-    triggerId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -11948,7 +11919,7 @@ export namespace Prisma {
 
   export type TriggerCountOrderByAggregateInput = {
     id?: SortOrder
-    triggerId?: SortOrder
+    availableTriggerId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11956,7 +11927,7 @@ export namespace Prisma {
 
   export type TriggerMaxOrderByAggregateInput = {
     id?: SortOrder
-    triggerId?: SortOrder
+    availableTriggerId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11964,7 +11935,7 @@ export namespace Prisma {
 
   export type TriggerMinOrderByAggregateInput = {
     id?: SortOrder
-    triggerId?: SortOrder
+    availableTriggerId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11977,7 +11948,7 @@ export namespace Prisma {
 
   export type ActionCountOrderByAggregateInput = {
     id?: SortOrder
-    actionId?: SortOrder
+    availableActionId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11990,7 +11961,7 @@ export namespace Prisma {
 
   export type ActionMaxOrderByAggregateInput = {
     id?: SortOrder
-    actionId?: SortOrder
+    availableActionId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -11999,7 +11970,7 @@ export namespace Prisma {
 
   export type ActionMinOrderByAggregateInput = {
     id?: SortOrder
-    actionId?: SortOrder
+    availableActionId?: SortOrder
     feriId?: SortOrder
     updatedAt?: SortOrder
     createdAt?: SortOrder
@@ -12643,7 +12614,6 @@ export namespace Prisma {
     id?: string
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     trigger?: TriggerCreateNestedOneWithoutFeriInput
@@ -12655,7 +12625,6 @@ export namespace Prisma {
     id?: string
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
@@ -12697,7 +12666,6 @@ export namespace Prisma {
     userId?: IntFilter<"Feri"> | number
     name?: StringFilter<"Feri"> | string
     status?: BoolFilter<"Feri"> | boolean
-    triggerId?: StringFilter<"Feri"> | string
     updatedAt?: DateTimeFilter<"Feri"> | Date | string
     createdAt?: DateTimeFilter<"Feri"> | Date | string
   }
@@ -12733,7 +12701,7 @@ export namespace Prisma {
 
   export type TriggerUncheckedCreateWithoutFeriInput = {
     id?: string
-    triggerId: string
+    availableTriggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -12753,7 +12721,7 @@ export namespace Prisma {
 
   export type ActionUncheckedCreateWithoutFeriInput = {
     id?: string
-    actionId: string
+    availableActionId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     sortingOrder?: number
@@ -12845,7 +12813,7 @@ export namespace Prisma {
 
   export type TriggerUncheckedUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
-    triggerId?: StringFieldUpdateOperationsInput | string
+    availableTriggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -12871,7 +12839,7 @@ export namespace Prisma {
     OR?: ActionScalarWhereInput[]
     NOT?: ActionScalarWhereInput | ActionScalarWhereInput[]
     id?: StringFilter<"Action"> | string
-    actionId?: StringFilter<"Action"> | string
+    availableActionId?: StringFilter<"Action"> | string
     feriId?: StringFilter<"Action"> | string
     updatedAt?: DateTimeFilter<"Action"> | Date | string
     createdAt?: DateTimeFilter<"Action"> | Date | string
@@ -12910,7 +12878,6 @@ export namespace Prisma {
     id?: string
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutFeriInput
@@ -12923,7 +12890,6 @@ export namespace Prisma {
     userId: number
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
@@ -12976,7 +12942,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFeriNestedInput
@@ -12989,7 +12954,6 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
@@ -13095,7 +13059,6 @@ export namespace Prisma {
     id?: string
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutFeriInput
@@ -13108,7 +13071,6 @@ export namespace Prisma {
     userId: number
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     action?: ActionUncheckedCreateNestedManyWithoutFeriInput
@@ -13156,7 +13118,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFeriNestedInput
@@ -13169,7 +13130,6 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     action?: ActionUncheckedUpdateManyWithoutFeriNestedInput
@@ -13195,7 +13155,6 @@ export namespace Prisma {
     id?: string
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutFeriInput
@@ -13208,7 +13167,6 @@ export namespace Prisma {
     userId: number
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     trigger?: TriggerUncheckedCreateNestedOneWithoutFeriInput
@@ -13256,7 +13214,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFeriNestedInput
@@ -13269,7 +13226,6 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
@@ -13363,7 +13319,7 @@ export namespace Prisma {
     OR?: TriggerScalarWhereInput[]
     NOT?: TriggerScalarWhereInput | TriggerScalarWhereInput[]
     id?: StringFilter<"Trigger"> | string
-    triggerId?: StringFilter<"Trigger"> | string
+    availableTriggerId?: StringFilter<"Trigger"> | string
     feriId?: StringFilter<"Trigger"> | string
     updatedAt?: DateTimeFilter<"Trigger"> | Date | string
     createdAt?: DateTimeFilter<"Trigger"> | Date | string
@@ -13373,7 +13329,6 @@ export namespace Prisma {
     id?: string
     name: string
     status: boolean
-    triggerId: string
     updatedAt?: Date | string
     createdAt?: Date | string
   }
@@ -13382,7 +13337,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUpdateOneWithoutFeriNestedInput
@@ -13394,7 +13348,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trigger?: TriggerUncheckedUpdateOneWithoutFeriNestedInput
@@ -13406,14 +13359,13 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
-    triggerId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActionCreateManyFeriInput = {
     id?: string
-    actionId: string
+    availableActionId: string
     updatedAt?: Date | string
     createdAt?: Date | string
     sortingOrder?: number
@@ -13437,7 +13389,7 @@ export namespace Prisma {
 
   export type ActionUncheckedUpdateWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
-    actionId?: StringFieldUpdateOperationsInput | string
+    availableActionId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sortingOrder?: IntFieldUpdateOperationsInput | number
@@ -13445,7 +13397,7 @@ export namespace Prisma {
 
   export type ActionUncheckedUpdateManyWithoutFeriInput = {
     id?: StringFieldUpdateOperationsInput | string
-    actionId?: StringFieldUpdateOperationsInput | string
+    availableActionId?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sortingOrder?: IntFieldUpdateOperationsInput | number
