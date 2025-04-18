@@ -2,71 +2,125 @@
 "use client";
 
 import { useState, useCallback, useRef } from 'react';
-import ReactFlow, {
+import { 
+  ReactFlow, 
   ReactFlowProvider,
-  addEdge,
   Panel,
+  Background, 
+  Controls,
   useNodesState,
   useEdgesState,
-  Controls,
-  Background,
-  MarkerType,
+  addEdge,
   Connection,
   Edge,
+  MarkerType,
   Node,
-} from 'reactflow';
-import 'reactflow/dist/style.css';
-import { Card, Tabs, List, Avatar, Button, Typography, Divider, Select, Input } from 'antd';
+  NodeTypes,
+  ReactFlowInstance,
+  Handle,
+  Position,
+  NodeProps
+} from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
+import { Card, Tabs, List, Avatar, Button, Typography, Input, Select, message, Popconfirm } from 'antd';
 import {
   ThunderboltOutlined,
   AppstoreOutlined,
-  PlusOutlined,
   SearchOutlined,
   ArrowRightOutlined,
+  DeleteOutlined,
+  EditOutlined,
 } from '@ant-design/icons';
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 const { TabPane } = Tabs;
 const { Option } = Select;
 
-// Node types
-const nodeTypes = {
+interface TriggerEvent {
+  id: string;
+  name: string;
+  description: string;
+}
+
+interface AppAction {
+  id: string;
+  name: string;
+  description: string;
+}
+
+interface AppData {
+  id: string;
+  name: string;
+  icon: string;
+  events?: TriggerEvent[];
+  actions?: AppAction[];
+}
+
+interface NodeData {
+  label: string;
+  description: string;
+  icon?: React.ReactNode;
+  app?: string;
+  event?: string;
+}
+
+
+
+// Custom node component for triggers with handle at the bottom
+function TriggerNode({ data }: NodeProps<NodeData>) {
+  return (
+    <div className="rounded-lg border-2 border-blue-300 bg-white p-3 shadow-md w-48">
+      <div className="flex items-center gap-3">
+        {data.icon && <div className="text-blue-500 text-xl">{data.icon}</div>}
+        <div>
+          <div className="font-medium">{data.label}</div>
+          <div className="text-xs text-gray-500">{data.description}</div>
+        </div>
+      </div>
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        id="source"
+        style={{ background: '#4287f5', width: '10px', height: '10px', bottom: '-6px' }}
+      />
+    </div>
+  );
+}
+
+// Replace the ActionNode function
+function ActionNode({ data }: NodeProps<NodeData>) {
+  return (
+    <div className="rounded-lg border-2 border-purple-300 bg-white p-3 shadow-md w-48">
+      <Handle
+        type="target"
+        position={Position.Top}
+        id="target"
+        style={{ background: '#8a63e8', width: '10px', height: '10px', top: '-6px' }}
+      />
+      <div className="flex items-center gap-3">
+        {data.icon && <div className="text-purple-500 text-xl">{data.icon}</div>}
+        <div>
+          <div className="font-medium">{data.label}</div>
+          <div className="text-xs text-gray-500">{data.description}</div>
+        </div>
+      </div>
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        id="source"
+        style={{ background: '#8a63e8', width: '10px', height: '10px', bottom: '-6px' }}
+      />
+    </div>
+  );
+}
+// Node types with proper typing
+const nodeTypes: NodeTypes = {
   trigger: TriggerNode,
   action: ActionNode,
 };
 
-// Trigger Node Component
-function TriggerNode({ data }) {
-  return (
-    <div className="rounded-lg border border-blue-200 bg-white p-3 shadow-sm">
-      <div className="flex items-center gap-3">
-        {data.icon && <div className="text-blue-500">{data.icon}</div>}
-        <div>
-          <div className="font-medium">{data.label}</div>
-          <div className="text-xs text-gray-500">{data.description}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Action Node Component
-function ActionNode({ data }) {
-  return (
-    <div className="rounded-lg border border-purple-200 bg-white p-3 shadow-sm">
-      <div className="flex items-center gap-3">
-        {data.icon && <div className="text-purple-500">{data.icon}</div>}
-        <div>
-          <div className="font-medium">{data.label}</div>
-          <div className="text-xs text-gray-500">{data.description}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // Mock data for triggers and actions
-const TRIGGERS = [
+const TRIGGERS: AppData[] = [
   {
     id: 'gmail',
     name: 'Gmail',
@@ -94,9 +148,19 @@ const TRIGGERS = [
       { id: 'event_start', name: 'Event Start', description: 'Triggers when an event is about to start' },
     ]
   },
+  // Web3 triggers
+  {
+    id: 'ethereum',
+    name: 'Ethereum',
+    icon: '🔷',
+    events: [
+      { id: 'new_transaction', name: 'New Transaction', description: 'Triggers when a new transaction is detected' },
+      { id: 'address_activity', name: 'Address Activity', description: 'Triggers when activity is detected for an address' },
+    ]
+  },
 ];
 
-const ACTIONS = [
+const ACTIONS: AppData[] = [
   {
     id: 'sheets',
     name: 'Google Sheets',
@@ -124,11 +188,36 @@ const ACTIONS = [
       { id: 'update_database', name: 'Update Database', description: 'Updates a database item' },
     ]
   },
+  // Web3 specific actions
+  {
+    id: 'ethereum',
+    name: 'Ethereum',
+    icon: '🔷',
+    actions: [
+      { id: 'watch_address', name: 'Watch Address', description: 'Monitors an Ethereum address for activity' },
+      { id: 'smart_contract', name: 'Smart Contract', description: 'Executes a smart contract function' },
+      { id: 'transfer_eth', name: 'Transfer ETH', description: 'Transfers ETH to an address' },
+    ]
+  },
+  {
+    id: 'opensea',
+    name: 'OpenSea',
+    icon: '🌊',
+    actions: [
+      { id: 'nft_listing', name: 'NFT Listing', description: 'Creates a new NFT listing' },
+      { id: 'track_sales', name: 'Track Sales', description: 'Tracks NFT sales for a collection' },
+    ]
+  },
 ];
+
+// Define custom node type for the flow
+interface CustomNode extends Node<NodeData> {
+  type: 'trigger' | 'action';
+}
 
 export default function FeriFlowPage() {
   // Initial nodes setup
-  const initialNodes = [
+  const initialNodes: CustomNode[] = [
     {
       id: '1',
       type: 'trigger',
@@ -137,61 +226,159 @@ export default function FeriFlowPage() {
         label: 'Start Here', 
         description: 'Add a trigger to start your flow',
         icon: <ThunderboltOutlined />
-      }
+      },
     },
   ];
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-  const [flowName, setFlowName] = useState('Untitled Flow');
-  const [selectedApp, setSelectedApp] = useState(null);
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const reactFlowWrapper = useRef(null);
-  const [reactFlowInstance, setReactFlowInstance] = useState(null);
+  const [nodes, setNodes, onNodesChange] = useNodesState<CustomNode>(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
+  const [flowName, setFlowName] = useState<string>('Untitled Flow');
+  const [selectedApp, setSelectedApp] = useState<string | null>(null);
+  const reactFlowWrapper = useRef<HTMLDivElement>(null);
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
+  const [selectedEdge, setSelectedEdge] = useState<Edge | null>(null);
+  const [messageApi, contextHolder] = message.useMessage();
 
+  // // State for tracking selected edge
+  // const [selectedEdge, setSelectedEdge] = useState<Edge | null>(null);
+
+  // // Edge selection handler
+  // const onEdgeClick = (event: React.MouseEvent, edge: Edge) => {
+  //   setSelectedEdge(edge);
+  // };
+
+  // // Delete selected edge
+  // const deleteSelectedEdge = () => {
+  //   if (selectedEdge) {
+  //     setEdges(edges => edges.filter(e => e.id !== selectedEdge.id));
+  //     setSelectedEdge(null);
+  //   }
+  // };
+
+  // // Function to clean up edge selection when clicking on canvas
+  // const onPaneClick = () => {
+  //   setSelectedEdge(null);
+  // };
+
+  // Handler to set the ReactFlow instance
+  const onInit = useCallback((instance: ReactFlowInstance) => {
+    setReactFlowInstance(instance);
+  }, []);
+
+  // Check if there's already a trigger node
+  const hasTriggerNode = useCallback(() => {
+    return nodes.some(node => node.type === 'trigger');
+  }, [nodes]);
+
+  // Enhanced connect handler
   const onConnect = useCallback(
-    (params: Connection | Edge) => setEdges((eds) => addEdge(
-      { 
-        ...params, 
+    (params: Connection) => {
+      // Find the source and target nodes to verify connection validity
+      const sourceNode = nodes.find(node => node.id === params.source);
+      const targetNode = nodes.find(node => node.id === params.target);
+      
+      if (!sourceNode || !targetNode) return;
+      
+      // Always allow connections from triggers to actions or actions to actions
+      const newEdge: Edge = {
+        ...params,
+        id: `e${params.source}-${params.target}`,
         animated: true,
+        style: { stroke: '#8a63e8', strokeWidth: 2 },
         markerEnd: {
           type: MarkerType.ArrowClosed,
           width: 20,
           height: 20,
           color: '#8a63e8',
         },
-      }, 
-      eds
-    )),
-    [setEdges]
+      };
+      
+      setEdges(eds => addEdge(newEdge, eds));
+    },
+    [nodes, setEdges]
   );
 
-  const onDragOver = useCallback((event) => {
+  const edgeTypes = {
+    default: (props: any) => {
+      const isSelected = selectedEdge?.id === props.id;
+      
+      return (
+        <>
+          <path
+            className={`react-flow__edge-path ${isSelected ? 'react-flow__edge-path--selected' : ''}`}
+            d={props.path}
+            strokeWidth={isSelected ? 3 : 2}
+            stroke={isSelected ? '#ff9800' : '#8a63e8'}
+            fill="none"
+            strokeDasharray={props.style?.strokeDasharray}
+          />
+          {isSelected && (
+            <foreignObject
+              width={40}
+              height={40}
+              x={props.sourceX + (props.targetX - props.sourceX) / 2 - 20}
+              y={props.sourceY + (props.targetY - props.sourceY) / 2 - 20}
+              className="edgebutton-foreignobject"
+              requiredExtensions="http://www.w3.org/1999/xhtml"
+            >
+              <Popconfirm
+                title="Delete this connection?"
+                onConfirm={deleteSelectedEdge}
+                okText="Yes"
+                cancelText="No"
+              >
+                <Button 
+                  danger 
+                  icon={<DeleteOutlined />} 
+                  size="small" 
+                  shape="circle"
+                  className="bg-white shadow-md hover:scale-110 transition-transform"
+                />
+              </Popconfirm>
+            </foreignObject>
+          )}
+        </>
+      );
+    },
+    };
+
+  const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
 
   const onDrop = useCallback(
-    (event) => {
+    (event: React.DragEvent<HTMLDivElement>) => {
       event.preventDefault();
 
-      const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
-      const type = event.dataTransfer.getData('application/reactflow/type');
-      const item = JSON.parse(event.dataTransfer.getData('application/reactflow/item'));
-
-      // Check if the dropped element is valid
-      if (typeof type === 'undefined' || !type) {
+      if (!reactFlowInstance || !reactFlowWrapper.current) {
         return;
       }
 
-      const position = reactFlowInstance.project({
+      const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
+      const type = event.dataTransfer.getData('application/reactflow/type');
+      const itemData = event.dataTransfer.getData('application/reactflow/item');
+      
+      if (!type || !itemData) {
+        return;
+      }
+      
+      // Check if trying to add a trigger when one already exists
+      if (type === 'trigger' && hasTriggerNode()) {
+        messageApi.error('Only one trigger is allowed per flow');
+        return;
+      }
+      
+      const item = JSON.parse(itemData);
+
+      const position = reactFlowInstance.screenToFlowPosition({
         x: event.clientX - reactFlowBounds.left,
         y: event.clientY - reactFlowBounds.top,
       });
       
-      const newNode = {
+      const newNode: CustomNode = {
         id: `${type}_${Date.now()}`,
-        type,
+        type: type as 'trigger' | 'action',
         position,
         data: { 
           label: item.name,
@@ -204,22 +391,125 @@ export default function FeriFlowPage() {
 
       setNodes((nds) => nds.concat(newNode));
     },
-    [reactFlowInstance, selectedApp, setNodes]
+    [reactFlowInstance, selectedApp, setNodes, hasTriggerNode, messageApi]
   );
 
-  const onDragStart = (event, item, type) => {
+  const onDragStart = (event: React.DragEvent<HTMLDivElement>, item: TriggerEvent | AppAction, type: string) => {
     event.dataTransfer.setData('application/reactflow/type', type);
     event.dataTransfer.setData('application/reactflow/item', JSON.stringify(item));
     event.dataTransfer.effectAllowed = 'move';
   };
 
-  const handleAppSelect = (app) => {
+  const handleAppSelect = (app: string) => {
     setSelectedApp(app);
-    setSelectedEvent(null);
+  };
+
+  const addNodeButton = (type: 'trigger' | 'action') => {
+    // Check if trying to add a trigger when one already exists
+    if (type === 'trigger' && hasTriggerNode()) {
+      messageApi.error('Only one trigger is allowed per flow');
+      return;
+    }
+    
+    const position = { x: 250, y: nodes.length * 100 + 100 };
+    const nodeData: NodeData = type === 'trigger' 
+      ? { 
+          label: 'New Trigger', 
+          description: 'Ethereum: New Transaction',
+          icon: <ThunderboltOutlined /> 
+        }
+      : { 
+          label: 'New Action', 
+          description: 'Ethereum: Watch Address',
+          icon: <AppstoreOutlined /> 
+        };
+    
+    const newNode: CustomNode = {
+      id: `${type}_${Date.now()}`,
+      type,
+      position,
+      data: nodeData,
+    };
+    
+    setNodes((nds) => nds.concat(newNode));
+  };
+
+  // Edge selection handler
+  const onEdgeClick = (event: React.MouseEvent, edge: Edge) => {
+    setSelectedEdge(edge);
+  };
+
+  // Delete selected edge
+  const deleteSelectedEdge = () => {
+    if (selectedEdge) {
+      setEdges(edges => edges.filter(e => e.id !== selectedEdge.id));
+      setSelectedEdge(null);
+    }
+  };
+
+  // Function to clean up edge selection when clicking on canvas
+  const onPaneClick = () => {
+    setSelectedEdge(null);
+  };
+
+  const EdgeWithDeleteButton = ({ id, source, target, ...props }: Edge) => {
+  // Simple implementation that adds a delete button directly on every edge
+    return (
+      <g>
+        <path
+          id={id}
+          className="react-flow__edge-path"
+          d={props.path}
+          strokeWidth={2}
+          stroke="#8a63e8"
+        />
+        
+        <foreignObject
+          width={20}
+          height={20}
+          x={(props.sourceX + props.targetX) / 2 - 10}
+          y={(props.sourceY + props.targetY) / 2 - 10}
+        >
+          <div style={{ 
+            display: 'flex',
+            justifyContent: 'center', 
+            alignItems: 'center',
+            width: '100%',
+            height: '100%',
+            background: 'white',
+            borderRadius: '50%',
+            border: '1px solid #ddd',
+            cursor: 'pointer'
+          }}>
+            <button
+              onClick={(event) => {
+                event.stopPropagation();
+                setEdges((eds) => eds.filter((e) => e.id !== id));
+              }}
+              style={{
+                border: 'none',
+                background: 'transparent',
+                cursor: 'pointer',
+                fontSize: '12px',
+                padding: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100%'
+              }}
+            >
+              ✕
+            </button>
+          </div>
+        </foreignObject>
+      </g>
+    );
   };
 
   return (
     <div className="h-full bg-white">
+      {contextHolder} {/* For Ant Design message API */}
       <div className="flex flex-col h-full">
         {/* Flow header */}
         <header className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
@@ -236,6 +526,7 @@ export default function FeriFlowPage() {
               placeholder="Draft" 
               className="w-32"
               bordered={false}
+              defaultValue="draft"
             >
               <Option value="draft">Draft</Option>
               <Option value="published">Published</Option>
@@ -259,6 +550,24 @@ export default function FeriFlowPage() {
                 prefix={<SearchOutlined className="text-gray-400" />}
                 className="mb-4"
               />
+              
+              <div className="mb-4">
+                <Button 
+                  type="primary" 
+                  onClick={() => addNodeButton('trigger')} 
+                  icon={<ThunderboltOutlined />}
+                  className="mr-2"
+                  disabled={hasTriggerNode()}
+                >
+                  Add Trigger
+                </Button>
+                <Button 
+                  onClick={() => addNodeButton('action')}
+                  icon={<AppstoreOutlined />}
+                >
+                  Add Action
+                </Button>
+              </div>
               
               <Tabs defaultActiveKey="triggers">
                 <TabPane 
@@ -287,11 +596,12 @@ export default function FeriFlowPage() {
                         </div>
                         <List
                           dataSource={TRIGGERS.find(t => t.id === selectedApp)?.events || []}
-                          renderItem={item => (
+                          renderItem={(item) => (
                             <List.Item
                               className="cursor-grab rounded hover:bg-gray-50 p-2"
-                              draggable
+                              draggable={!hasTriggerNode()}
                               onDragStart={(event) => onDragStart(event, item, 'trigger')}
+                              style={{ opacity: hasTriggerNode() ? 0.5 : 1 }}
                             >
                               <div>
                                 <div className="font-medium">{item.name}</div>
@@ -304,10 +614,11 @@ export default function FeriFlowPage() {
                     ) : (
                       <List
                         dataSource={TRIGGERS}
-                        renderItem={app => (
+                        renderItem={(app) => (
                           <List.Item 
                             className="cursor-pointer rounded hover:bg-gray-50 p-2"
                             onClick={() => handleAppSelect(app.id)}
+                            style={{ opacity: hasTriggerNode() ? 0.5 : 1 }}
                           >
                             <div className="flex items-center gap-3">
                               <Avatar>{app.icon}</Avatar>
@@ -317,6 +628,12 @@ export default function FeriFlowPage() {
                           </List.Item>
                         )}
                       />
+                    )}
+                    
+                    {hasTriggerNode() && (
+                      <div className="text-xs text-orange-500 p-2 bg-orange-50 rounded-md">
+                        Only one trigger is allowed per flow
+                      </div>
                     )}
                   </div>
                 </TabPane>
@@ -347,7 +664,7 @@ export default function FeriFlowPage() {
                         </div>
                         <List
                           dataSource={ACTIONS.find(a => a.id === selectedApp)?.actions || []}
-                          renderItem={item => (
+                          renderItem={(item) => (
                             <List.Item
                               className="cursor-grab rounded hover:bg-gray-50 p-2"
                               draggable
@@ -364,7 +681,7 @@ export default function FeriFlowPage() {
                     ) : (
                       <List
                         dataSource={ACTIONS}
-                        renderItem={app => (
+                        renderItem={(app) => (
                           <List.Item 
                             className="cursor-pointer rounded hover:bg-gray-50 p-2"
                             onClick={() => handleAppSelect(app.id)}
@@ -393,13 +710,24 @@ export default function FeriFlowPage() {
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
-                onInit={setReactFlowInstance}
+                onInit={onInit}
                 nodeTypes={nodeTypes}
-                onDrop={onDrop}
-                onDragOver={onDragOver}
+                edgeTypes={edgeTypes}
+                onEdgeClick={onEdgeClick}
+                onPaneClick={onPaneClick}
                 fitView
+                connectionLineStyle={{ stroke: '#8a63e8', strokeWidth: 2 }}
+                connectionLineType="smoothstep"
+                defaultEdgeOptions={{
+                  type: 'smoothstep',
+                  animated: true,
+                  style: { stroke: '#8a63e8', strokeWidth: 2 },
+                }}
+                deleteKeyCode="Delete"
+                selectionKeyCode="Shift"
+                multiSelectionKeyCode="Control"
               >
-                <Background color="#f0f0f0" gap={16} />
+                <Background color="#f0f0f0" gap={16} variant="dots" />
                 <Controls />
                 <Panel position="top-right">
                   <Card size="small" className="shadow-sm">
@@ -409,6 +737,17 @@ export default function FeriFlowPage() {
                         <div className="w-2 h-2 rounded-full bg-gray-400"></div>
                         <Text>Draft</Text>
                       </div>
+                    </div>
+                  </Card>
+                </Panel>
+                
+                {/* Help panel */}
+                <Panel position="bottom-center">
+                  <Card size="small" className="shadow-sm">
+                    <div className="text-xs text-gray-500">
+                      <Text strong>How to connect:</Text> Drag from a node's output (bottom) to another node's input (top).
+                      <br />
+                      <Text strong>To edit or remove a connection:</Text> Click on the connection line and use the delete button.
                     </div>
                   </Card>
                 </Panel>
