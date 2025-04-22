@@ -23,7 +23,7 @@ const Login: NextPage = () => {
     console.log('Form submitted:', values);
     api.login(values)
       .then(() => {
-        // window.location.href = '/';
+        window.location.href = '/';
       })
       .catch((error) => {
         console.error('Login failed:', error);
@@ -44,7 +44,6 @@ const Login: NextPage = () => {
         boxShadow: '0 4px 25px rgba(0, 0, 0, 0.05)',
         border : "2px solid #dedede"
       }}>
-        {/* Left Section - Branding and Illustration */}
         <div style={{ 
           flex: '1',
           padding: '40px',
@@ -55,15 +54,12 @@ const Login: NextPage = () => {
           alignItems: 'center',
           textAlign: 'center'
         }}>
-          {/* Center illustration placeholder */}
           <div style={{ 
             marginBottom: '40px', 
             width: '500px', 
             height: '450px',
             position: 'relative'
           }}>
-            {/* You can add your own illustration/image here */}
-            {/* Placeholder for illustration */}
             <div style={{ 
               width: '100%', 
               height: '100%', 
@@ -90,8 +86,6 @@ const Login: NextPage = () => {
             Unleash your Web3 workflow automation with Inferi — fast, flexible, and built for builders.
           </Paragraph>
         </div>
-
-        {/* Right Section - Login Form */}
         <div style={{ 
           flex: '1',
           padding: '60px 40px',
@@ -100,14 +94,12 @@ const Login: NextPage = () => {
           justifyContent: 'center'
         }}>
           <div style={{ maxWidth: '400px', margin: '0 auto', width: '100%' }}>
-            {/* Logo/Brand */}
             <div style={{ 
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'center',
               marginBottom: '40px'
             }}>
-              {/* You can replace this with your actual logo */}
               <Title level={2} style={{ margin: 0 }}>
                 <Text 
                     style={{ 
