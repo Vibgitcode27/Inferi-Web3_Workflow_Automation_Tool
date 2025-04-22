@@ -1,5 +1,7 @@
 // components/Navbar.js
+"use client";
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { 
   Layout, 
   Button, 
@@ -21,8 +23,8 @@ const { Text } = Typography;
 const Navbar = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
   
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -104,7 +106,7 @@ const Navbar = () => {
         <Space>
           <Button type="text" icon={<GithubOutlined />} />
           <Button type="text" icon={<XOutlined />} />
-          <Button type="link">Log In</Button>
+          <Button type="link" onClick={() => {router.push("/login")}}>Log In</Button>
           <Button 
             type="primary" 
             shape="round" 
@@ -113,6 +115,7 @@ const Navbar = () => {
               borderColor: 'transparent',
               boxShadow: '0 4px 12px rgba(74, 107, 239, 0.25)'
             }}
+            onClick={() => {router.push("/signup")}}
           >
             Get Started
           </Button>
@@ -165,6 +168,7 @@ const Navbar = () => {
               background: 'linear-gradient(90deg, #4a6bef, #8a63e8)',
               borderColor: 'transparent'
             }}
+            onClick={() => {router.push("/signup")}}
           >
             Get Started
           </Button>

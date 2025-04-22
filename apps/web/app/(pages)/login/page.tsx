@@ -7,11 +7,12 @@ import { Image } from 'antd';
 import Link from 'next/link';
 import { NextPage } from 'next';
 import img from "../../../public/goin.png";
+import api from 'app/actions/api';
 
 const { Title, Text, Paragraph } = Typography;
 
 interface LoginFormValues {
-  username: string;
+  email: string;
   password: string;
 }
 
@@ -20,35 +21,28 @@ const Login: NextPage = () => {
   
   const onFinish = (values: LoginFormValues) => {
     console.log('Form submitted:', values);
-    // Add your login logic here
+    api.login(values)
+      .then(() => {
+        // window.location.href = '/';
+      })
+      .catch((error) => {
+        console.error('Login failed:', error);
+      });
   };
 
   // Brand colors
   const primaryColor = '#4a6bef';
-  const secondaryColor = '#8a63e8';
-  const gradientBg = 'linear-gradient(135deg, rgba(43, 192, 238, 0.24), rgba(99, 115, 232, 0.19))';
-  const gradientInBg = 'linear-gradient(135deg, rgba(43, 192, 238, 0.42), rgba(99, 179, 232, 0.48))';
-//   const gradientInBg = 'linear-gradient(135deg, rgba(36, 106, 235, 0.34), rgba(112, 99, 232, 0.34))';
-  const gradientText = 'linear-gradient(90deg, #4a6bef, #8a63e8)';
+  const gradientBg = 'linear-gradient(135deg, rgba(194, 217, 252, 0.24), rgba(99, 115, 232, 0.19))';
 
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      background: gradientInBg,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '20px'
-    }}>
       <div style={{ 
         width: '100%',
-        maxWidth: '1750px',
-        height: '94vh',
+        height: '100vh',
         background: '#fff',
-        borderRadius: '20px',
         overflow: 'hidden',
         display: 'flex',
-        boxShadow: '0 4px 25px rgba(0, 0, 0, 0.05)'
+        boxShadow: '0 4px 25px rgba(0, 0, 0, 0.05)',
+        border : "2px solid #dedede"
       }}>
         {/* Left Section - Branding and Illustration */}
         <div style={{ 
@@ -139,9 +133,9 @@ const Login: NextPage = () => {
               layout="vertical"
             >
               <Form.Item
-                name="username"
-                label="Username or email"
-                rules={[{ required: true, message: 'Please enter your username or email' }]}
+                name="email"
+                label="Email"
+                rules={[{ required: true, message: 'Please enter your email' }]}
               >
                 <Input 
                   size="large" 
@@ -234,7 +228,6 @@ const Login: NextPage = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
