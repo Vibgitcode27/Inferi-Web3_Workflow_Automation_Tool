@@ -1,18 +1,18 @@
 // app/zap/page.tsx
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   PlusOutlined, 
   SearchOutlined, 
   ThunderboltOutlined, 
-  CalendarOutlined,
   FilterOutlined,
   FolderOutlined,
   DeleteOutlined,
   MoreOutlined,
   ReloadOutlined,
-  StarOutlined
+  StarOutlined,
+  InboxOutlined
 } from '@ant-design/icons';
 import { 
   Button, 
@@ -23,12 +23,10 @@ import {
   Dropdown, 
   Menu, 
   Switch,
-  Row,
-  Col,
   Select,
   Tabs,
-  Tooltip,
-  Avatar
+  Avatar,
+  Empty
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -36,6 +34,49 @@ const { Title } = Typography;
 const { TabPane } = Tabs;
 const { Option } = Select;
 
+// Define interface for the API response structure
+interface ActionType {
+  id: string;
+  name: string;
+}
+
+interface Action {
+  id: string;
+  availableActionId: string;
+  feriId: string;
+  updatedAt: string;
+  createdAt: string;
+  sortingOrder: number;
+  type: ActionType;
+}
+
+interface TriggerType {
+  id: string;
+  name: string;
+}
+
+interface Trigger {
+  id: string;
+  availableTriggerId: string;
+  feriId: string;
+  updatedAt: string;
+  createdAt: string;
+  type: TriggerType;
+}
+
+interface FeriApiResponse {
+  id: string;
+  userId: number;
+  name: string;
+  status: boolean;
+  updatedAt: string;
+  createdAt: string;
+  trigger: Trigger;
+  action: Action[];
+  FeriRuns: any[];
+}
+
+// Interface for the table data structure
 interface FeriItem {
   key: string;
   name: string;
@@ -51,6 +92,7 @@ const AppIcon = ({ app }: { app: string }) => {
   const colors: Record<string, string> = {
     Gmail: '#DB4437',
     Slack: '#4A154B',
+    'Spreadsheet': '#0F9D58',
     'Google Sheets': '#0F9D58',
     LinkedIn: '#0077B5',
     HubSpot: '#FF7A59',
@@ -61,11 +103,10 @@ const AppIcon = ({ app }: { app: string }) => {
   const bgColor = colors[app] || '#f0f0f0';
   
   return (
-    <div style={{ 
-      width: 24, 
-      height: 24, 
+    <Avatar style={{ 
+      width: 28, 
+      height: 28, 
       backgroundColor: bgColor, 
-      borderRadius: 4, 
       display: 'flex', 
       alignItems: 'center', 
       justifyContent: 'center',
@@ -74,52 +115,125 @@ const AppIcon = ({ app }: { app: string }) => {
       fontWeight: 'bold'
     }}>
       {app.charAt(0)}
-    </div>
+    </Avatar>
   );
 };
 
+// Empty state component
+const NoDataState = () => (
+  <Empty
+    image={<InboxOutlined style={{ fontSize: 60, color: '#d9d9d9' }} />}
+    imageStyle={{ height: 60 }}
+    description={
+      <span>No Feri workflows found</span>
+    }
+  >
+    <Button type="primary" icon={<PlusOutlined />}>Create your first workflow</Button>
+  </Empty>
+);
+
 export default function ZapPage() {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [feriData, setFeriData] = useState<FeriItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   
-  // Demo data
-  const data: FeriItem[] = [
-    {
-      key: '1',
-      name: 'Customer Support Workflow',
-      appsUsed: ['Slack', 'Gmail'],
-      owner: 'John Doe',
-      status: true,
-      lastModified: '1 hour ago',
-      location: 'Personal'
-    },
-    {
-      key: '2',
-      name: 'Lead Generation',
-      appsUsed: ['LinkedIn', 'HubSpot'],
-      owner: 'Jane Smith',
-      status: false,
-      lastModified: '16 hours ago',
-      location: 'Personal'
-    },
-    {
-      key: '3',
-      name: 'Daily Reports',
-      appsUsed: ['Google Sheets', 'Slack'],
-      owner: 'Mike Johnson',
-      status: true,
-      lastModified: '2 days ago',
-      location: 'Personal'
-    },
-    {
-      key: '4',
-      name: 'Social Media Posts',
-      appsUsed: ['Twitter', 'Instagram'],
-      owner: 'Sarah Williams',
-      status: false,
-      lastModified: '5 hours ago',
-      location: 'Personal'
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const apiData: FeriApiResponse[] = [
+          {
+            "id": "43a24523-d59a-4221-9498-7050b65ee48b",
+            "userId": 1,
+            "name": "Payment Workflow",
+            "status": false,
+            "updatedAt": "2025-04-23T10:25:58.873Z",
+            "createdAt": "2025-04-23T10:27:09.526Z",
+            "trigger": {
+              "id": "531c7f7f-4566-42c7-b967-95a6645c61b3",
+              "availableTriggerId": "bae38bdd-ddda-4fd5-be82-84343cc526a8",
+              "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
+              "updatedAt": "2025-04-23T10:27:21.382Z",
+              "createdAt": "2025-04-23T10:27:31.232Z",
+              "type": {
+                "id": "bae38bdd-ddda-4fd5-be82-84343cc526a8",
+                "name": "Slack"
+              }
+            },
+            "action": [
+              {
+                "id": "dd79a815-6bd9-406a-8c3d-4834921603f4",
+                "availableActionId": "73e40104-8bea-4cc3-a8c0-77aa981bed2a",
+                "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
+                "updatedAt": "2025-04-23T10:27:41.853Z",
+                "createdAt": "2025-04-23T10:27:53.238Z",
+                "sortingOrder": 0,
+                "type": {
+                  "id": "73e40104-8bea-4cc3-a8c0-77aa981bed2a",
+                  "name": "Gmail"
+                }
+              },
+              {
+                "id": "c3d82d86-cbc7-4e7b-be79-7676bc4daa1a",
+                "availableActionId": "9df5c81e-18b6-4203-ae76-604e1f99fef6",
+                "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
+                "updatedAt": "2025-04-23T10:27:54.873Z",
+                "createdAt": "2025-04-23T10:28:14.869Z",
+                "sortingOrder": 1,
+                "type": {
+                  "id": "9df5c81e-18b6-4203-ae76-604e1f99fef6",
+                  "name": "Spreadsheet"
+                }
+              }
+            ],
+            "FeriRuns": []
+          }
+        ];
+        
+        // Map API data to table format
+        const transformedData: FeriItem[] = apiData.map(item => {
+          // Extract all app names (trigger + actions)
+          const appsUsed = [
+            item.trigger.type.name,
+            ...item.action.map(action => action.type.name)
+          ];
+          
+          // Format the date to relative time (simplistic implementation)
+          const lastModified = getRelativeTimeFromDate(new Date(item.updatedAt));
+          
+          return {
+            key: item.id,
+            name: item.name,
+            appsUsed,
+            owner: 'You', // Assuming current user
+            status: item.status,
+            lastModified,
+            location: 'Personal' // Default location
+          };
+        });
+        
+        setFeriData(transformedData);
+      } catch (error) {
+        console.error('Error fetching Feri data:', error);
+        setFeriData([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchData();
+  }, []);
+  
+  // Helper function to convert date to relative time string
+  const getRelativeTimeFromDate = (date: Date): string => {
+    const now = new Date();
+    const diffInMs = now.getTime() - date.getTime();
+    const diffInHours = diffInMs / (1000 * 60 * 60);
+    
+    if (diffInHours < 1) return 'just now';
+    if (diffInHours < 24) return `${Math.floor(diffInHours)} hours ago`;
+    return `${Math.floor(diffInHours / 24)} days ago`;
+  };
 
   const columns: ColumnsType<FeriItem> = [
     {
@@ -296,32 +410,37 @@ export default function ZapPage() {
           />
         </div>
         
-        <Table
-          rowSelection={rowSelection}
-          columns={columns}
-          dataSource={data}
-          pagination={{ 
-            position: ['bottomRight'],
-            showSizeChanger: true,
-            pageSizeOptions: ['10', '25', '50'],
-            showTotal: (total, range) => `${range[0]}-${range[1]} of ${total}`,
-            size: 'small'
-          }}
-          size="middle"
-          bordered={false}
-        />
-        
-        <div style={{ padding: '10px 16px', borderTop: '1px solid #f0f0f0', display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ color: '#888', fontSize: 13 }}>
-            1-2 of 2
+        {feriData.length > 0 ? (
+          <Table
+            rowSelection={rowSelection}
+            columns={columns}
+            dataSource={feriData}
+            loading={loading}
+            pagination={{ 
+              position: ['bottomRight'],
+              showSizeChanger: true,
+              pageSizeOptions: ['10', '25', '50'],
+              showTotal: (total, range) => `${range[0]}-${range[1]} of ${total}`,
+              size: 'small',
+              className: 'custom-pagination',
+              showLessItems: true,
+              selectComponentClass: () => (
+                <Select defaultValue="25" style={{ width: 110 }} size="small">
+                  <Option value="10">10 per page</Option>
+                  <Option value="25">25 per page</Option>
+                  <Option value="50">50 per page</Option>
+                </Select>
+              )
+            }}
+            size="middle"
+            bordered={false}
+            footer={() => null} // Remove the default footer
+          />
+        ) : (
+          <div style={{ padding: '60px 20px' }}>
+            <NoDataState />
           </div>
-          
-          <Select defaultValue="25" style={{ width: 110 }} size="small">
-            <Option value="10">10 per page</Option>
-            <Option value="25">25 per page</Option>
-            <Option value="50">50 per page</Option>
-          </Select>
-        </div>
+        )}
       </div>
       
       <div style={{ marginTop: 20, textAlign: 'center', color: '#888', fontSize: 12 }}>

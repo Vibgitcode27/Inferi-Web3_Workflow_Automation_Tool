@@ -2,6 +2,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAppSelector } from 'lib/hooks';
+import pfp from '../../public/pfp.png';
 import { 
   Layout, 
   Button, 
@@ -9,7 +11,8 @@ import {
   Menu, 
   Drawer,
   Space,
-  Divider
+  Divider,
+  Avatar
 } from 'antd';
 import {
   MenuOutlined,
@@ -24,7 +27,8 @@ const Navbar = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
-  
+  const token = useAppSelector((state) => state.user.token);
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -102,35 +106,69 @@ const Navbar = () => {
         />
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-        <Space>
-          <Button type="text" icon={<GithubOutlined />} />
-          <Button type="text" icon={<XOutlined />} />
-          <Button type="link" onClick={() => {router.push("/login")}}>Log In</Button>
-          <Button 
-            type="primary" 
-            shape="round" 
-            style={{ 
-              background: 'linear-gradient(90deg, #4a6bef, #8a63e8)',
-              borderColor: 'transparent',
-              boxShadow: '0 4px 12px rgba(74, 107, 239, 0.25)'
-            }}
-            onClick={() => {router.push("/signup")}}
-          >
-            Get Started
-          </Button>
-        </Space>
-        
-        <Button
-          type="text"
-          icon={<MenuOutlined />}
-          onClick={() => setMobileMenuVisible(true)}
-          style={{ 
-            display: 'none', 
-            fontSize: 18
-          }}
-        />
-      </div>
+      {token != "" ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+            <Space size={20}>
+              <div>
+                <Button type="text" icon={<GithubOutlined />} />
+                <Button type="text" icon={<XOutlined />} />
+              </div>
+              <Button 
+                type="primary" 
+                shape="round" 
+                style={{ 
+                  background: 'linear-gradient(90deg,rgb(0, 0, 0),rgb(2, 2, 2))',
+                  borderColor: 'transparent',
+                  boxShadow: '0 2px 12px rgba(50, 50, 51, 0.25)',
+                  color : "white",
+                }}
+                onClick={() => {router.push("/app/feri")}}
+              >
+                Dashboard
+              </Button>
+              <Avatar src={pfp.src}/>
+            </Space>
+            <Button
+              type="text"
+              icon={<MenuOutlined />}
+              onClick={() => setMobileMenuVisible(true)}
+              style={{ 
+                display: 'none', 
+                fontSize: 18
+              }}
+            />
+          </div>
+        ) : (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <Space>
+              <Button type="text" icon={<GithubOutlined />} />
+              <Button type="text" icon={<XOutlined />} />
+              <Button type="link" onClick={() => {router.push("/login")}}>Log In</Button>
+              <Button 
+                type="primary" 
+                shape="round" 
+                style={{ 
+                  background: 'linear-gradient(90deg, #4a6bef, #8a63e8)',
+                  borderColor: 'transparent',
+                  boxShadow: '0 4px 12px rgba(74, 107, 239, 0.25)'
+                }}
+                onClick={() => {router.push("/signup")}}
+              >
+                Get Started
+              </Button>
+            </Space>
+            
+            <Button
+              type="text"
+              icon={<MenuOutlined />}
+              onClick={() => setMobileMenuVisible(true)}
+              style={{ 
+                display: 'none', 
+                fontSize: 18
+              }}
+            />
+          </div>
+        )}
 
       <Drawer
         title={
@@ -158,25 +196,47 @@ const Navbar = () => {
         />
         
         <Divider />
-        
-        <Space direction="vertical" style={{ width: '100%' }}>
-          <Button type="default" block>Log In</Button>
-          <Button 
-            type="primary" 
-            block
-            style={{ 
-              background: 'linear-gradient(90deg, #4a6bef, #8a63e8)',
-              borderColor: 'transparent'
-            }}
-            onClick={() => {router.push("/signup")}}
-          >
-            Get Started
-          </Button>
-          <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', gap: 16 }}>
-            <Button type="text" icon={<GithubOutlined />} />
-            <Button type="text" icon={<XOutlined />} />
-          </div>
-        </Space>
+        {token != "" ? (
+          <Space direction="vertical" style={{ width: '100%' }}>
+            <Avatar src={pfp.src}></Avatar>
+            <Button 
+              type="primary" 
+              block
+              style={{ 
+                background: 'linear-gradient(90deg,rgb(255, 255, 255),rgb(255, 255, 255))',
+                borderColor: 'transparent',
+                border : "2px solid black",
+                color : "black",
+              }}
+              onClick={() => {router.push("/signup")}}
+            >
+              Dashboard
+            </Button>
+            <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', gap: 16 }}>
+              <Button type="text" icon={<GithubOutlined />} />
+              <Button type="text" icon={<XOutlined />} />
+            </div>
+          </Space>
+        ) : (
+          <Space direction="vertical" style={{ width: '100%' }}>
+            <Button type="default" block>Log In</Button>
+            <Button 
+              type="primary" 
+              block
+              style={{ 
+                background: 'linear-gradient(90deg, #4a6bef, #8a63e8)',
+                borderColor: 'transparent'
+              }}
+              onClick={() => {router.push("/signup")}}
+            >
+              Get Started
+            </Button>
+            <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', gap: 16 }}>
+              <Button type="text" icon={<GithubOutlined />} />
+              <Button type="text" icon={<XOutlined />} />
+            </div>
+          </Space>
+        )}
       </Drawer>
     </Header>
   );
