@@ -1,13 +1,14 @@
 // pages/login.tsx
 "use client";
 import React from 'react';
-import { Form, Input, Button, Typography, Divider } from 'antd';
+import { Form, Input, Button, Typography } from 'antd';
 import { GoogleOutlined } from '@ant-design/icons';
 import { Image } from 'antd';
 import Link from 'next/link';
 import { NextPage } from 'next';
 import img from "../../../public/goin.png";
 import api from 'app/actions/api';
+import { useAppDispatch } from 'lib/hooks';
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -18,10 +19,11 @@ interface LoginFormValues {
 
 const Login: NextPage = () => {
   const [form] = Form.useForm<LoginFormValues>();
+  const dispatch = useAppDispatch();
   
   const onFinish = (values: LoginFormValues) => {
     console.log('Form submitted:', values);
-    api.login(values)
+    api.login(values , dispatch)
       .then(() => {
         window.location.href = '/';
       })

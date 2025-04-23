@@ -16,9 +16,6 @@ import webhookImage from '../../public/cdnlogo.com_webhook.svg';
 import blockchainImage from '../../public/blockchain.png';
 import nft from '../../public/nft.png';
 import { Features } from './Features';
-import { useAppDispatch , useAppSelector } from '../../lib/hooks';
-import { decrement, increment, incrementByAmount } from 'lib/features/counter/counterSlice';
-
 const { Title, Paragraph, Text } = Typography;
 
 export default function HomeContent() {
