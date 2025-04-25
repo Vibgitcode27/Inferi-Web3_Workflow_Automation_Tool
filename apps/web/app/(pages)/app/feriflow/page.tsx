@@ -29,7 +29,6 @@ import {
   SearchOutlined,
   ArrowRightOutlined,
   DeleteOutlined,
-  EditOutlined,
 } from '@ant-design/icons';
 
 const { Text } = Typography;
@@ -60,14 +59,12 @@ interface NodeData {
   label: string;
   description: string;
   icon?: React.ReactNode;
-  app?: string;
+  app?: string | null;
   event?: string;
 }
 
-
-
 // Custom node component for triggers with handle at the bottom
-function TriggerNode({ data }: NodeProps<NodeData>) {
+function TriggerNode({ data, id }: NodeProps<NodeData>) {
   return (
     <div className="rounded-lg border-2 border-blue-300 bg-white p-3 shadow-md w-48">
       <div className="flex items-center gap-3">
@@ -87,8 +84,8 @@ function TriggerNode({ data }: NodeProps<NodeData>) {
   );
 }
 
-// Replace the ActionNode function
-function ActionNode({ data }: NodeProps<NodeData>) {
+// Action node with handles on top and bottom
+function ActionNode({ data, id }: NodeProps<NodeData>) {
   return (
     <div className="rounded-lg border-2 border-purple-300 bg-white p-3 shadow-md w-48">
       <Handle
@@ -113,6 +110,7 @@ function ActionNode({ data }: NodeProps<NodeData>) {
     </div>
   );
 }
+
 // Node types with proper typing
 const nodeTypes: NodeTypes = {
   trigger: TriggerNode,
@@ -237,28 +235,9 @@ export default function FeriFlowPage() {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
   const [selectedEdge, setSelectedEdge] = useState<Edge | null>(null);
+  const [selectedNode, setSelectedNode] = useState<Node | null>(null);
   const [messageApi, contextHolder] = message.useMessage();
-
-  // // State for tracking selected edge
-  // const [selectedEdge, setSelectedEdge] = useState<Edge | null>(null);
-
-  // // Edge selection handler
-  // const onEdgeClick = (event: React.MouseEvent, edge: Edge) => {
-  //   setSelectedEdge(edge);
-  // };
-
-  // // Delete selected edge
-  // const deleteSelectedEdge = () => {
-  //   if (selectedEdge) {
-  //     setEdges(edges => edges.filter(e => e.id !== selectedEdge.id));
-  //     setSelectedEdge(null);
-  //   }
-  // };
-
-  // // Function to clean up edge selection when clicking on canvas
-  // const onPaneClick = () => {
-  //   setSelectedEdge(null);
-  // };
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   // Handler to set the ReactFlow instance
   const onInit = useCallback((instance: ReactFlowInstance) => {
@@ -283,12 +262,13 @@ export default function FeriFlowPage() {
       const newEdge: Edge = {
         ...params,
         id: `e${params.source}-${params.target}`,
+        type: 'default',  // Make sure to use our custom edge type
         animated: true,
         style: { stroke: '#8a63e8', strokeWidth: 2 },
         markerEnd: {
           type: MarkerType.ArrowClosed,
-          width: 20,
-          height: 20,
+          width: 15, // Smaller size for better proportions
+          height: 15,
           color: '#8a63e8',
         },
       };
@@ -297,50 +277,50 @@ export default function FeriFlowPage() {
     },
     [nodes, setEdges]
   );
+  // Edge selection handler
+  const onEdgeClick = useCallback((event: React.MouseEvent, edge: Edge) => {
+    event.stopPropagation();
+    setSelectedEdge(edge);
+    setSelectedNode(null);
+  }, []);
 
-  const edgeTypes = {
-    default: (props: any) => {
-      const isSelected = selectedEdge?.id === props.id;
+  // Node selection handler
+  const onNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
+    event.stopPropagation();
+    setSelectedNode(node);
+    setSelectedEdge(null);
+  }, []);
+
+  // Delete selected edge
+  const deleteSelectedEdge = useCallback(() => {
+    if (selectedEdge) {
+      setEdges(edges => edges.filter(e => e.id !== selectedEdge.id));
+      setSelectedEdge(null);
+      messageApi.success('Connection deleted');
+    }
+  }, [selectedEdge, setEdges, messageApi]);
+
+  // Delete selected node
+  const deleteSelectedNode = useCallback(() => {
+    if (selectedNode) {
+      // Delete node
+      setNodes(nodes => nodes.filter(n => n.id !== selectedNode.id));
       
-      return (
-        <>
-          <path
-            className={`react-flow__edge-path ${isSelected ? 'react-flow__edge-path--selected' : ''}`}
-            d={props.path}
-            strokeWidth={isSelected ? 3 : 2}
-            stroke={isSelected ? '#ff9800' : '#8a63e8'}
-            fill="none"
-            strokeDasharray={props.style?.strokeDasharray}
-          />
-          {isSelected && (
-            <foreignObject
-              width={40}
-              height={40}
-              x={props.sourceX + (props.targetX - props.sourceX) / 2 - 20}
-              y={props.sourceY + (props.targetY - props.sourceY) / 2 - 20}
-              className="edgebutton-foreignobject"
-              requiredExtensions="http://www.w3.org/1999/xhtml"
-            >
-              <Popconfirm
-                title="Delete this connection?"
-                onConfirm={deleteSelectedEdge}
-                okText="Yes"
-                cancelText="No"
-              >
-                <Button 
-                  danger 
-                  icon={<DeleteOutlined />} 
-                  size="small" 
-                  shape="circle"
-                  className="bg-white shadow-md hover:scale-110 transition-transform"
-                />
-              </Popconfirm>
-            </foreignObject>
-          )}
-        </>
-      );
-    },
-    };
+      // Delete associated edges
+      setEdges(edges => edges.filter(e => 
+        e.source !== selectedNode.id && e.target !== selectedNode.id
+      ));
+      
+      setSelectedNode(null);
+      messageApi.success('Node deleted');
+    }
+  }, [selectedNode, setNodes, setEdges, messageApi]);
+
+  // Function to clean up selections when clicking on canvas
+  const onPaneClick = useCallback(() => {
+    setSelectedEdge(null);
+    setSelectedNode(null);
+  }, []);
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -390,22 +370,22 @@ export default function FeriFlowPage() {
       };
 
       setNodes((nds) => nds.concat(newNode));
+      messageApi.success(`${type === 'trigger' ? 'Trigger' : 'Action'} added`);
     },
     [reactFlowInstance, selectedApp, setNodes, hasTriggerNode, messageApi]
   );
 
-  const onDragStart = (event: React.DragEvent<HTMLDivElement>, item: TriggerEvent | AppAction, type: string) => {
+  const onDragStart = useCallback((event: React.DragEvent<HTMLDivElement>, item: TriggerEvent | AppAction, type: string) => {
     event.dataTransfer.setData('application/reactflow/type', type);
     event.dataTransfer.setData('application/reactflow/item', JSON.stringify(item));
     event.dataTransfer.effectAllowed = 'move';
-  };
+  }, []);
 
-  const handleAppSelect = (app: string) => {
+  const handleAppSelect = useCallback((app: string) => {
     setSelectedApp(app);
-  };
+  }, []);
 
-  const addNodeButton = (type: 'trigger' | 'action') => {
-    // Check if trying to add a trigger when one already exists
+  const addNodeButton = useCallback((type: 'trigger' | 'action') => {
     if (type === 'trigger' && hasTriggerNode()) {
       messageApi.error('Only one trigger is allowed per flow');
       return;
@@ -432,79 +412,74 @@ export default function FeriFlowPage() {
     };
     
     setNodes((nds) => nds.concat(newNode));
-  };
+    messageApi.success(`${type === 'trigger' ? 'Trigger' : 'Action'} added`);
+  }, [nodes, hasTriggerNode, setNodes, messageApi]);
 
-  // Edge selection handler
-  const onEdgeClick = (event: React.MouseEvent, edge: Edge) => {
-    setSelectedEdge(edge);
-  };
-
-  // Delete selected edge
-  const deleteSelectedEdge = () => {
-    if (selectedEdge) {
-      setEdges(edges => edges.filter(e => e.id !== selectedEdge.id));
-      setSelectedEdge(null);
-    }
-  };
-
-  // Function to clean up edge selection when clicking on canvas
-  const onPaneClick = () => {
-    setSelectedEdge(null);
-  };
-
-  const EdgeWithDeleteButton = ({ id, source, target, ...props }: Edge) => {
-  // Simple implementation that adds a delete button directly on every edge
-    return (
-      <g>
-        <path
-          id={id}
-          className="react-flow__edge-path"
-          d={props.path}
-          strokeWidth={2}
-          stroke="#8a63e8"
-        />
-        
-        <foreignObject
-          width={20}
-          height={20}
-          x={(props.sourceX + props.targetX) / 2 - 10}
-          y={(props.sourceY + props.targetY) / 2 - 10}
-        >
-          <div style={{ 
-            display: 'flex',
-            justifyContent: 'center', 
-            alignItems: 'center',
-            width: '100%',
-            height: '100%',
-            background: 'white',
-            borderRadius: '50%',
-            border: '1px solid #ddd',
-            cursor: 'pointer'
-          }}>
-            <button
-              onClick={(event) => {
-                event.stopPropagation();
-                setEdges((eds) => eds.filter((e) => e.id !== id));
-              }}
-              style={{
-                border: 'none',
-                background: 'transparent',
-                cursor: 'pointer',
-                fontSize: '12px',
-                padding: 0,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-                height: '100%'
-              }}
-            >
-              ✕
-            </button>
-          </div>
-        </foreignObject>
-      </g>
+  // Filter items based on search term
+  const filterItems = useCallback((items: AppData[]) => {
+    if (!searchTerm) return items;
+    
+    return items.filter(item => 
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+  }, [searchTerm]);
+
+  // Custom edge with delete button
+  const EdgeWithButton = useCallback(
+    ({ id, source, target, sourceX, sourceY, targetX, targetY, style = {}, markerEnd }: Edge) => {
+      // Use a smoother bezier curve for better arrow alignment
+      const edgePath = `M${sourceX},${sourceY} C${sourceX},${sourceY + Math.abs(targetY - sourceY) / 2} ${targetX},${sourceY + Math.abs(targetY - sourceY) / 2} ${targetX},${targetY}`;
+      const isSelected = selectedEdge?.id === id;
+      
+      return (
+        <>
+          <path
+            id={id}
+            className={`react-flow__edge-path ${isSelected ? 'edge-selected' : ''}`}
+            d={edgePath}
+            style={{
+              ...style,
+              stroke: isSelected ? '#ff9800' : '#8a63e8',
+              strokeWidth: isSelected ? 3 : 2,
+            }}
+            markerEnd={markerEnd}
+          />
+          
+          {isSelected && (
+            <foreignObject
+              width={30}
+              height={30}
+              x={(sourceX + targetX) / 2 - 15}
+              y={(sourceY + targetY) / 2 - 15}
+              requiredExtensions="http://www.w3.org/1999/xhtml"
+            >
+              <div className="flex items-center justify-center w-full h-full">
+                <Popconfirm
+                  title="Delete this connection?"
+                  onConfirm={deleteSelectedEdge}
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <Button 
+                    danger 
+                    icon={<DeleteOutlined />} 
+                    size="small" 
+                    shape="circle"
+                    className="bg-white shadow-md"
+                  />
+                </Popconfirm>
+              </div>
+            </foreignObject>
+          )}
+        </>
+      );
+    },
+    [selectedEdge, deleteSelectedEdge]
+  );
+
+  // Define edge types
+  const edgeTypes = {
+    default: EdgeWithButton,
   };
 
   return (
@@ -549,6 +524,8 @@ export default function FeriFlowPage() {
                 placeholder="Search triggers & actions"
                 prefix={<SearchOutlined className="text-gray-400" />}
                 className="mb-4"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               
               <div className="mb-4">
@@ -613,7 +590,7 @@ export default function FeriFlowPage() {
                       </>
                     ) : (
                       <List
-                        dataSource={TRIGGERS}
+                        dataSource={filterItems(TRIGGERS)}
                         renderItem={(app) => (
                           <List.Item 
                             className="cursor-pointer rounded hover:bg-gray-50 p-2"
@@ -680,7 +657,7 @@ export default function FeriFlowPage() {
                       </>
                     ) : (
                       <List
-                        dataSource={ACTIONS}
+                        dataSource={filterItems(ACTIONS)}
                         renderItem={(app) => (
                           <List.Item 
                             className="cursor-pointer rounded hover:bg-gray-50 p-2"
@@ -714,21 +691,22 @@ export default function FeriFlowPage() {
                 nodeTypes={nodeTypes}
                 edgeTypes={edgeTypes}
                 onEdgeClick={onEdgeClick}
+                onNodeClick={onNodeClick}
                 onPaneClick={onPaneClick}
+                onDragOver={onDragOver}
+                onDrop={onDrop}
                 fitView
                 connectionLineStyle={{ stroke: '#8a63e8', strokeWidth: 2 }}
                 connectionLineType="smoothstep"
                 defaultEdgeOptions={{
-                  type: 'smoothstep',
+                  type: 'default',
                   animated: true,
-                  style: { stroke: '#8a63e8', strokeWidth: 2 },
                 }}
-                deleteKeyCode="Delete"
-                selectionKeyCode="Shift"
-                multiSelectionKeyCode="Control"
               >
-                <Background color="#f0f0f0" gap={16} variant="dots" />
+                <Background color="#f0f0f0" gap={16} />
                 <Controls />
+                
+                {/* Status panel */}
                 <Panel position="top-right">
                   <Card size="small" className="shadow-sm">
                     <div className="space-y-2">
@@ -741,13 +719,43 @@ export default function FeriFlowPage() {
                   </Card>
                 </Panel>
                 
+                {/* Selected node options panel */}
+                {selectedNode && (
+                  <Panel position="top-left">
+                    <Card size="small" className="shadow-sm">
+                      <div className="space-y-2">
+                        <Text strong>Selected: {(selectedNode.data as NodeData).label}</Text>
+                        <div className="flex gap-2">
+                          <Popconfirm
+                            title="Delete this node?"
+                            description="This will also remove all connected edges"
+                            onConfirm={deleteSelectedNode}
+                            okText="Yes"
+                            cancelText="No"
+                          >
+                            <Button 
+                              danger 
+                              icon={<DeleteOutlined />} 
+                              size="small"
+                            >
+                              Delete
+                            </Button>
+                          </Popconfirm>
+                        </div>
+                      </div>
+                    </Card>
+                  </Panel>
+                )}
+                
                 {/* Help panel */}
                 <Panel position="bottom-center">
                   <Card size="small" className="shadow-sm">
                     <div className="text-xs text-gray-500">
                       <Text strong>How to connect:</Text> Drag from a node's output (bottom) to another node's input (top).
                       <br />
-                      <Text strong>To edit or remove a connection:</Text> Click on the connection line and use the delete button.
+                      <Text strong>To edit/delete a node:</Text> Click on the node to select it.
+                      <br />
+                      <Text strong>To delete a connection:</Text> Click on the connection line and use the delete button.
                     </div>
                   </Card>
                 </Panel>

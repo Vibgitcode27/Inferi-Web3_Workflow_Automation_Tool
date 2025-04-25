@@ -9,11 +9,10 @@ import {
   FilterOutlined,
   FolderOutlined,
   DeleteOutlined,
-  MoreOutlined,
   ReloadOutlined,
   StarOutlined,
   InboxOutlined,
-  EditFilled,
+  EditOutlined,
 } from '@ant-design/icons';
 import { 
   Button, 
@@ -339,7 +338,7 @@ export default function ZapPage() {
     {
       key: 'action',
       render: () => (
-        <Button type="text" icon={<EditFilled/>} size="small" />
+        <Button onClick={() => { window.location.href = "/app/feriflow"; }} type="text" icon={<EditOutlined/>} size="small" />
       ),
     },
   ];
