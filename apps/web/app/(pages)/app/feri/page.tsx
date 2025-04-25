@@ -12,7 +12,8 @@ import {
   MoreOutlined,
   ReloadOutlined,
   StarOutlined,
-  InboxOutlined
+  InboxOutlined,
+  EditFilled,
 } from '@ant-design/icons';
 import { 
   Button, 
@@ -26,9 +27,14 @@ import {
   Select,
   Tabs,
   Avatar,
-  Empty
+  Empty,
+  Modal,
+  Form,
+  message
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import api from 'app/actions/api';
+import { set } from 'zod';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -64,6 +70,11 @@ interface Trigger {
   type: TriggerType;
 }
 
+interface User {
+  id: number;
+  name: string;
+}
+
 interface FeriApiResponse {
   id: string;
   userId: number;
@@ -71,6 +82,7 @@ interface FeriApiResponse {
   status: boolean;
   updatedAt: string;
   createdAt: string;
+  user : User;
   trigger: Trigger;
   action: Action[];
   FeriRuns: any[];
@@ -114,7 +126,7 @@ const AppIcon = ({ app }: { app: string }) => {
       fontSize: 10,
       fontWeight: 'bold'
     }}>
-      {app.charAt(0)}
+      {app?.charAt(0)}
     </Avatar>
   );
 };
@@ -136,79 +148,79 @@ export default function ZapPage() {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [feriData, setFeriData] = useState<FeriItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [form] = Form.useForm();
+  const [reload , setReload] = useState(false);
   
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const apiData: FeriApiResponse[] = [
-          {
-            "id": "43a24523-d59a-4221-9498-7050b65ee48b",
-            "userId": 1,
-            "name": "Payment Workflow",
-            "status": false,
-            "updatedAt": "2025-04-23T10:25:58.873Z",
-            "createdAt": "2025-04-23T10:27:09.526Z",
-            "trigger": {
-              "id": "531c7f7f-4566-42c7-b967-95a6645c61b3",
-              "availableTriggerId": "bae38bdd-ddda-4fd5-be82-84343cc526a8",
-              "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
-              "updatedAt": "2025-04-23T10:27:21.382Z",
-              "createdAt": "2025-04-23T10:27:31.232Z",
-              "type": {
-                "id": "bae38bdd-ddda-4fd5-be82-84343cc526a8",
-                "name": "Slack"
-              }
-            },
-            "action": [
-              {
-                "id": "dd79a815-6bd9-406a-8c3d-4834921603f4",
-                "availableActionId": "73e40104-8bea-4cc3-a8c0-77aa981bed2a",
-                "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
-                "updatedAt": "2025-04-23T10:27:41.853Z",
-                "createdAt": "2025-04-23T10:27:53.238Z",
-                "sortingOrder": 0,
-                "type": {
-                  "id": "73e40104-8bea-4cc3-a8c0-77aa981bed2a",
-                  "name": "Gmail"
-                }
-              },
-              {
-                "id": "c3d82d86-cbc7-4e7b-be79-7676bc4daa1a",
-                "availableActionId": "9df5c81e-18b6-4203-ae76-604e1f99fef6",
-                "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
-                "updatedAt": "2025-04-23T10:27:54.873Z",
-                "createdAt": "2025-04-23T10:28:14.869Z",
-                "sortingOrder": 1,
-                "type": {
-                  "id": "9df5c81e-18b6-4203-ae76-604e1f99fef6",
-                  "name": "Spreadsheet"
-                }
-              }
-            ],
-            "FeriRuns": []
-          }
-        ];
-        
-        // Map API data to table format
+        const apiData: FeriApiResponse[] = await api.getAllFeri();
+        // const apiData: FeriApiResponse[] = [
+        //   {
+        //     "id": "43a24523-d59a-4221-9498-7050b65ee48b",
+        //     "userId": 1,
+        //     "name": "Payment Workflow",
+        //     "status": false,
+        //     "updatedAt": "2025-04-23T10:25:58.873Z",
+        //     "createdAt": "2025-04-23T10:27:09.526Z",
+        //     "trigger": {
+        //       "id": "531c7f7f-4566-42c7-b967-95a6645c61b3",
+        //       "availableTriggerId": "bae38bdd-ddda-4fd5-be82-84343cc526a8",
+        //       "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
+        //       "updatedAt": "2025-04-23T10:27:21.382Z",
+        //       "createdAt": "2025-04-23T10:27:31.232Z",
+        //       "type": {
+        //         "id": "bae38bdd-ddda-4fd5-be82-84343cc526a8",
+        //         "name": "Slack"
+        //       }
+        //     },
+        //     "action": [
+        //       {
+        //         "id": "dd79a815-6bd9-406a-8c3d-4834921603f4",
+        //         "availableActionId": "73e40104-8bea-4cc3-a8c0-77aa981bed2a",
+        //         "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
+        //         "updatedAt": "2025-04-23T10:27:41.853Z",
+        //         "createdAt": "2025-04-23T10:27:53.238Z",
+        //         "sortingOrder": 0,
+        //         "type": {
+        //           "id": "73e40104-8bea-4cc3-a8c0-77aa981bed2a",
+        //           "name": "Gmail"
+        //         }
+        //       },
+        //       {
+        //         "id": "c3d82d86-cbc7-4e7b-be79-7676bc4daa1a",
+        //         "availableActionId": "9df5c81e-18b6-4203-ae76-604e1f99fef6",
+        //         "feriId": "43a24523-d59a-4221-9498-7050b65ee48b",
+        //         "updatedAt": "2025-04-23T10:27:54.873Z",
+        //         "createdAt": "2025-04-23T10:28:14.869Z",
+        //         "sortingOrder": 1,
+        //         "type": {
+        //           "id": "9df5c81e-18b6-4203-ae76-604e1f99fef6",
+        //           "name": "Spreadsheet"
+        //         }
+        //       }
+        //     ],
+        //     "FeriRuns": []
+        //   }
+        // ];
+        console.log('Fetched Feri data:', apiData);
         const transformedData: FeriItem[] = apiData.map(item => {
-          // Extract all app names (trigger + actions)
           const appsUsed = [
-            item.trigger.type.name,
+            item.trigger?.type.name,
             ...item.action.map(action => action.type.name)
           ];
-          
-          // Format the date to relative time (simplistic implementation)
           const lastModified = getRelativeTimeFromDate(new Date(item.updatedAt));
           
           return {
             key: item.id,
             name: item.name,
             appsUsed,
-            owner: 'You', // Assuming current user
+            owner: item.user.name,
             status: item.status,
             lastModified,
-            location: 'Personal' // Default location
+            location: 'Personal'
           };
         });
         
@@ -222,9 +234,31 @@ export default function ZapPage() {
     };
     
     fetchData();
-  }, []);
-  
-  // Helper function to convert date to relative time string
+  }, [reload]);
+
+  const handleCreateClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalCancel = () => {
+    setIsModalOpen(false);
+    form.resetFields();
+  };
+
+  const handleFeriCreate = async () => {
+    try {
+      const values = await form.validateFields();
+      
+      await api.createFeri(values.feriName);
+      setReload(!reload);
+      message.success(`Feri "${values.feriName}" created successfully`);
+      handleModalCancel();
+    } catch (error) {
+      console.error("Validation failed:", error);
+    }
+  };
+
+
   const getRelativeTimeFromDate = (date: Date): string => {
     const now = new Date();
     const diffInMs = now.getTime() - date.getTime();
@@ -252,7 +286,7 @@ export default function ZapPage() {
       dataIndex: 'appsUsed',
       key: 'appsUsed',
       render: (apps) => (
-        <Space>
+        <Space size={-8}>
           {apps.map((app: string, index: number) => (
             <AppIcon key={index} app={app} />
           ))}
@@ -287,16 +321,25 @@ export default function ZapPage() {
       title: 'Owner',
       dataIndex: 'owner',
       key: 'owner',
-      render: () => (
-        <Avatar size="small" style={{ backgroundColor: '#7265E6', fontSize: 12 }}>
-          VP
-        </Avatar>
-      ),
+      render: (owner) => {
+        const getInitials = (name: string) => {
+          if (!name) return '';
+          const names = name.trim().split(' ');
+          if (names.length === 1) return (names[0]?.[0] || '').toUpperCase();
+          return (names[0]?.[0] || '') + (names[names.length - 1]?.[0] || '').toUpperCase();
+        };
+
+        return (
+          <Avatar size="small" style={{ backgroundColor: '#7265E6', fontSize: 12 }}>
+            {getInitials(owner)}
+          </Avatar>
+        );
+      },
     },
     {
       key: 'action',
       render: () => (
-        <Button type="text" icon={<MoreOutlined />} size="small" />
+        <Button type="text" icon={<EditFilled/>} size="small" />
       ),
     },
   ];
@@ -319,7 +362,7 @@ export default function ZapPage() {
   );
 
   return (
-    <div style={{ padding: '0 20px 20px', background: '#f8f8f8', minHeight: '100vh' }}>
+    <div style={{ padding: '0 20px 20px', background: '#f8f8f8', minHeight: '90vh' }}>
       {/* Trial notice banner */}
       <div style={{ 
         background: '#fff', 
@@ -379,7 +422,7 @@ export default function ZapPage() {
             <Button type="primary" icon={<DeleteOutlined />} style={{ display: selectedRowKeys.length > 0 ? 'inline-flex' : 'none' }}>
               Trash
             </Button>
-            <Button type="primary" icon={<PlusOutlined />}>
+            <Button type="primary" onClick={handleCreateClick} icon={<PlusOutlined />}>
               Create
             </Button>
           </Space>
@@ -425,7 +468,7 @@ export default function ZapPage() {
               className: 'custom-pagination',
               showLessItems: true,
               selectComponentClass: () => (
-                <Select defaultValue="25" style={{ width: 110 }} size="small">
+                <Select defaultValue="25" style={{ width: 110 , marginRight : "20px" }} size="small">
                   <Option value="10">10 per page</Option>
                   <Option value="25">25 per page</Option>
                   <Option value="50">50 per page</Option>
@@ -434,7 +477,7 @@ export default function ZapPage() {
             }}
             size="middle"
             bordered={false}
-            footer={() => null} // Remove the default footer
+            footer={() => null}
           />
         ) : (
           <div style={{ padding: '60px 20px' }}>
@@ -446,6 +489,24 @@ export default function ZapPage() {
       <div style={{ marginTop: 20, textAlign: 'center', color: '#888', fontSize: 12 }}>
         © 2025 Inferi Inc. | <a href="#" style={{ color: '#888' }}>Legal</a> | <a href="#" style={{ color: '#888' }}>Privacy</a>
       </div>
+      <Modal
+        title="Create New Feri"
+        open={isModalOpen}
+        onOk={handleFeriCreate}
+        onCancel={handleModalCancel}
+        okText="Create"
+        cancelText="Cancel"
+      >
+        <Form form={form} layout="vertical">
+          <Form.Item
+            label="Feri Name"
+            name="feriName"
+            rules={[{ required: true, message: "Please enter a Feri name" }]}
+          >
+            <Input placeholder="Enter Feri name" />
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 }

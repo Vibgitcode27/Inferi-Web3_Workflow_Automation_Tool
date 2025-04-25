@@ -6,7 +6,7 @@ import { prisma } from "./userRouter";
 const router = Router();
 
 //create a new feri
-router.post("/", authMiddleware, (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   const body = req.body;
   const parsedBody = FeriCreateSchema.safeParse(body);
   if (!parsedBody.success) {
@@ -15,7 +15,7 @@ router.post("/", authMiddleware, (req, res) => {
     return;
   }
 
-  prisma.feri.create({
+  await prisma.feri.create({
     data: {
       name: parsedBody.data.name,
       status: parsedBody.data.status,
@@ -29,7 +29,7 @@ router.post("/", authMiddleware, (req, res) => {
 });
 
 //edit a feri
-router.put("/:feriId", authMiddleware, (req, res) => {
+router.put("/:feriId", authMiddleware, async (req, res) => {
   console.log("Received update request:", req.body);
 
   const body = req.body;
@@ -40,7 +40,7 @@ router.put("/:feriId", authMiddleware, (req, res) => {
     return;
   }
 
-  prisma.feri.update({
+  await prisma.feri.update({
     where: {
       id: req.params.feriId,
     },
@@ -71,6 +71,12 @@ router.get("/", authMiddleware, async (req, res) => {
         userId: req.id,
       },
       include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
         trigger: {
           include: {
             type: true,
@@ -104,6 +110,7 @@ router.get("/:feriId", authMiddleware, async (req, res) => {
         id: req.params.feriId,
       },
       include: {
+        user: true,
         trigger: {
           include: {
             type: true,

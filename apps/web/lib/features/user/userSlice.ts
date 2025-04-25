@@ -10,7 +10,7 @@ export interface UserState {
 const initialState: UserState = {
   email: "",
   name: "",
-  token: localStorage.getItem("token") || "",
+  token: `${localStorage.getItem("token")}` || "",
 };
 
 export const userSlice = createSlice({
