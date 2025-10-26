@@ -33,7 +33,6 @@ import {
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import api from 'app/actions/api';
-import { set } from 'zod';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -84,6 +83,7 @@ interface FeriApiResponse {
   user : User;
   trigger: Trigger;
   action: Action[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   FeriRuns: any[];
 }
 
@@ -388,7 +388,7 @@ export default function ZapPage() {
           i
         </div>
         <span>
-          Welcome to your Professional trial! You have 13 days to try Inferi's{' '}
+          Welcome to your Professional trial! You have 13 days to try Inferi&apos;s{' '}
           <a href="#" style={{ color: '#5E2CFA' }}>paid features</a>.{' '}
           <a href="#" style={{ color: '#5E2CFA' }}>Upgrade</a> anytime for as low as $19.99 USD/month.
         </span>

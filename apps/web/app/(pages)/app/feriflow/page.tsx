@@ -30,6 +30,12 @@ import {
   ArrowRightOutlined,
   DeleteOutlined,
 } from '@ant-design/icons';
+import slack from "../../../assets/slack.png"
+import gmail from "../../../assets/gmail.png"
+import googleSheets from "../../../assets/googlesheet.png"
+import github from "../../../assets/github3.png"
+import notion from "../../../assets/notion.png"
+import webhook from "../../../../public/cdnlogo.com_webhook.svg"
 
 const { Text } = Typography;
 const { TabPane } = Tabs;
@@ -120,40 +126,11 @@ const nodeTypes: NodeTypes = {
 // Mock data for triggers and actions
 const TRIGGERS: AppData[] = [
   {
-    id: 'gmail',
-    name: 'Gmail',
-    icon: '📧',
+    id: 'webhook',
+    name: 'Webhook',
+    icon: webhook.src,
     events: [
-      { id: 'new_email', name: 'New Email', description: 'Triggers when a new email is received' },
-      { id: 'new_labeled_email', name: 'New Labeled Email', description: 'Triggers when an email with a specific label is received' },
-    ]
-  },
-  {
-    id: 'slack',
-    name: 'Slack',
-    icon: '💬',
-    events: [
-      { id: 'new_message', name: 'New Message', description: 'Triggers when a new message is posted' },
-      { id: 'new_channel', name: 'New Channel', description: 'Triggers when a new channel is created' },
-    ]
-  },
-  {
-    id: 'calendar',
-    name: 'Google Calendar',
-    icon: '📅',
-    events: [
-      { id: 'new_event', name: 'New Event', description: 'Triggers when a new event is created' },
-      { id: 'event_start', name: 'Event Start', description: 'Triggers when an event is about to start' },
-    ]
-  },
-  // Web3 triggers
-  {
-    id: 'ethereum',
-    name: 'Ethereum',
-    icon: '🔷',
-    events: [
-      { id: 'new_transaction', name: 'New Transaction', description: 'Triggers when a new transaction is detected' },
-      { id: 'address_activity', name: 'Address Activity', description: 'Triggers when activity is detected for an address' },
+      {id: 'webhook_called',name: 'Webhook Called',description: 'Fires when a webhook is triggered'}
     ]
   },
 ];
@@ -162,48 +139,45 @@ const ACTIONS: AppData[] = [
   {
     id: 'sheets',
     name: 'Google Sheets',
-    icon: '📊',
+    icon: googleSheets.src,
     actions: [
       { id: 'create_row', name: 'Create Row', description: 'Creates a new row in a specified sheet' },
       { id: 'update_row', name: 'Update Row', description: 'Updates an existing row in a sheet' },
+      { id: 'lookup_row', name: 'Lookup Row', description: 'Finds a row based on column values' },
+      { id: 'delete_row', name: 'Delete Row', description: 'Deletes a row from a sheet' },
     ]
   },
   {
-    id: 'discord',
-    name: 'Discord',
-    icon: '🎮',
+    id: 'slack',
+    name: 'Slack',
+    icon: slack.src,
     actions: [
-      { id: 'send_message', name: 'Send Message', description: 'Sends a message to a channel' },
+      { id: 'send_message', name: 'Send Message', description: 'Sends a message to a channel or user' },
+      { id: 'send_dm', name: 'Send Direct Message', description: 'Sends a direct message to a user' },
       { id: 'create_channel', name: 'Create Channel', description: 'Creates a new channel' },
+      { id: 'update_message', name: 'Update Message', description: 'Updates an existing message' },
     ]
   },
   {
     id: 'notion',
     name: 'Notion',
-    icon: '📝',
+    icon: notion.src,
     actions: [
-      { id: 'create_page', name: 'Create Page', description: 'Creates a new page' },
-      { id: 'update_database', name: 'Update Database', description: 'Updates a database item' },
-    ]
-  },
-  // Web3 specific actions
-  {
-    id: 'ethereum',
-    name: 'Ethereum',
-    icon: '🔷',
-    actions: [
-      { id: 'watch_address', name: 'Watch Address', description: 'Monitors an Ethereum address for activity' },
-      { id: 'smart_contract', name: 'Smart Contract', description: 'Executes a smart contract function' },
-      { id: 'transfer_eth', name: 'Transfer ETH', description: 'Transfers ETH to an address' },
+      { id: 'create_page', name: 'Create Page', description: 'Creates a new page in a database or workspace' },
+      { id: 'update_page', name: 'Update Page', description: 'Updates an existing page' },
+      { id: 'create_database_item', name: 'Create Database Item', description: 'Adds a new item to a database' },
+      { id: 'update_database_item', name: 'Update Database Item', description: 'Updates a database item' },
     ]
   },
   {
-    id: 'opensea',
-    name: 'OpenSea',
-    icon: '🌊',
+    id: 'github',
+    name: 'Github',
+    icon: github.src,
     actions: [
-      { id: 'nft_listing', name: 'NFT Listing', description: 'Creates a new NFT listing' },
-      { id: 'track_sales', name: 'Track Sales', description: 'Tracks NFT sales for a collection' },
+      { id: 'create_issue', name: 'Create Issue', description: 'Creates a new issue in a repository' },
+      { id: 'create_pull_request', name: 'Create Pull Request', description: 'Creates a new pull request' },
+      { id: 'add_comment', name: 'Add Comment', description: 'Adds a comment to an issue or PR' },
+      { id: 'update_issue', name: 'Update Issue', description: 'Updates an existing issue' },
     ]
   },
 ];
@@ -216,16 +190,16 @@ interface CustomNode extends Node<NodeData> {
 export default function FeriFlowPage() {
   // Initial nodes setup
   const initialNodes: CustomNode[] = [
-    {
-      id: '1',
-      type: 'trigger',
-      position: { x: 250, y: 100 },
-      data: { 
-        label: 'Start Here', 
-        description: 'Add a trigger to start your flow',
-        icon: <ThunderboltOutlined />
-      },
-    },
+    // {
+    //   id: '1',
+    //   type: 'trigger',
+    //   position: { x: 250, y: 100 },
+    //   data: { 
+    //     label: 'Start Here', 
+    //     description: 'Add a trigger to start your flow',
+    //     icon: <ThunderboltOutlined />
+    //   },
+    // },
   ];
 
   const [nodes, setNodes, onNodesChange] = useNodesState<CustomNode>(initialNodes);
@@ -351,6 +325,13 @@ export default function FeriFlowPage() {
       
       const item = JSON.parse(itemData);
 
+      // Find the app icon based on selectedApp
+      const appData = type === 'trigger' 
+        ? TRIGGERS.find(t => t.id === selectedApp)
+        : ACTIONS.find(a => a.id === selectedApp);
+      
+      const appIcon = appData?.icon;
+
       const position = reactFlowInstance.screenToFlowPosition({
         x: event.clientX - reactFlowBounds.left,
         y: event.clientY - reactFlowBounds.top,
@@ -363,7 +344,7 @@ export default function FeriFlowPage() {
         data: { 
           label: item.name,
           description: item.description,
-          icon: type === 'trigger' ? <ThunderboltOutlined /> : <AppstoreOutlined />,
+          icon: appIcon ? <img src={appIcon} alt={appData.name} className="w-8" /> : (type === 'trigger' ? <ThunderboltOutlined /> : <AppstoreOutlined />),
           app: selectedApp,
           event: item.id
         },
@@ -528,7 +509,7 @@ export default function FeriFlowPage() {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               
-              <div className="mb-4">
+              <div className="mb-4 grid grid-cols-2">
                 <Button 
                   type="primary" 
                   onClick={() => addNodeButton('trigger')} 
@@ -598,7 +579,7 @@ export default function FeriFlowPage() {
                             style={{ opacity: hasTriggerNode() ? 0.5 : 1 }}
                           >
                             <div className="flex items-center gap-3">
-                              <Avatar>{app.icon}</Avatar>
+                              <Avatar src={app.icon}/>
                               <div>{app.name}</div>
                             </div>
                             <ArrowRightOutlined className="text-gray-400" />
@@ -664,7 +645,7 @@ export default function FeriFlowPage() {
                             onClick={() => handleAppSelect(app.id)}
                           >
                             <div className="flex items-center gap-3">
-                              <Avatar>{app.icon}</Avatar>
+                              <Avatar src={app.icon}/>
                               <div>{app.name}</div>
                             </div>
                             <ArrowRightOutlined className="text-gray-400" />

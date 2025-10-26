@@ -21,8 +21,8 @@ async function main() {
       },
       take: 10,
     });
-
-    if (!pendingRows) {
+    console.log("Pending Rows : - ", pendingRows);
+    if (pendingRows.length === 0) {
       console.log("No pending rows found");
       await new Promise((resolve) => setTimeout(resolve, 5000));
       continue;

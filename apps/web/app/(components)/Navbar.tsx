@@ -28,7 +28,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
   const token = useAppSelector((state) => state.user.token);
-
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;

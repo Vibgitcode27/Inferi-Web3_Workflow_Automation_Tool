@@ -5,14 +5,21 @@ import Head from 'next/head';
 import { Layout } from 'antd';
 import Navbar from './(components)/Navbar';
 import HomeContent from './(components)/HomeContent';
-
+import { useAppDispatch } from '@/lib/hooks';
+import { updateToken } from '@/lib/features/user/userSlice';
 // Import other components and styles
 
 const { Content, Footer } = Layout;
 
 export default function Home() {
   // Your existing state and effects
-  
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem('token') || "";
+    console.log("TOken : - " , token)
+    dispatch(updateToken(token));
+    
+  },[dispatch])
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Head>
