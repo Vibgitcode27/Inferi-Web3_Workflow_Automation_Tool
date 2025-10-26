@@ -20,7 +20,7 @@ const getAllFeri = async () => {
                 description: 'Unauthorized access. Please log in again.',
             });
             localStorage.removeItem('token');
-            window.location.href = '/login';
+            // window.location.href = '/login';
         }
         notification.error({
             message: 'Error',
@@ -72,7 +72,7 @@ const createFeri = async (feriName : string) => {
                 description: 'Unauthorized access. Please log in again.',
             });
             localStorage.removeItem('token');
-            window.location.href = '/login';
+            // window.location.href = '/login';
         }
         notification.error({
             message: 'Error',
