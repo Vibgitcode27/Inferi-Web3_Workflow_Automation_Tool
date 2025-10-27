@@ -106,26 +106,13 @@ router.get("/:feriId", authMiddleware, async (req, res) => {
   try {
     const response = await prisma.feri.findUnique({
       where: {
-        userId: req.id,
         id: req.params.feriId,
       },
       include: {
         user: true,
-        trigger: {
-          include: {
-            type: true,
-          },
-        },
-        action: {
-          include: {
-            type: true,
-          },
-        },
-        FeriRuns: {
-          include: {
-            feriOutbox: true,
-          },
-        },
+        trigger: true,
+        action: true,
+        FeriRuns: true,
       },
     });
     if (response === null) {

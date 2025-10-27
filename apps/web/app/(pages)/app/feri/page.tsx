@@ -337,8 +337,8 @@ export default function ZapPage() {
     },
     {
       key: 'action',
-      render: () => (
-        <Button onClick={() => { window.location.href = "/app/feriflow"; }} type="text" icon={<EditOutlined/>} size="small" />
+      render: (_: unknown, record: FeriItem) => (
+        <Button onClick={() => { window.location.href = `/app/feriflow/${record.key}`; }} type="text" icon={<EditOutlined/>} size="small" />
       ),
     },
   ];

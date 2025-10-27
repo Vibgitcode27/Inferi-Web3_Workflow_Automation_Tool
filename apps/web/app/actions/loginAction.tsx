@@ -4,12 +4,12 @@ import { AppDispatch } from 'lib/store';
 import { updateUser } from 'lib/features/user/userSlice';
 
 const PORT = "http://localhost:8020";
-interface LoginData {
+export interface LoginData {
     email: string;
     password: string;
 }
 
-interface LoginError {
+export interface LoginError {
     error: true;
     message: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -73,13 +73,13 @@ const login = async (
 };
 
 
-interface SignUpData {
+export interface SignUpData {
     email: string;
     name: string;
     password: string;
 }
 
-interface SignUpError {
+export interface SignUpError {
     error: true;
     message: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,7 +1,6 @@
 // app/feriflow/page.tsx
 "use client";
-
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { 
   ReactFlow, 
   ReactFlowProvider,
@@ -30,11 +29,15 @@ import {
   ArrowRightOutlined,
   DeleteOutlined,
 } from '@ant-design/icons';
-import slack from "../../../assets/slack.png"
-import googleSheets from "../../../assets/googlesheet.png"
-import github from "../../../assets/github3.png"
-import notion from "../../../assets/notion.png"
-import webhook from "../../../../public/cdnlogo.com_webhook.svg"
+import { LoaderIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import api from '@/app/actions/api';
+import slack from "../../../../assets/slack.png"
+import googleSheets from "../../../../assets/googlesheet.png"
+import github from "../../../../assets/github3.png"
+import notion from "../../../../assets/notion.png"
+import webhook from "../../../../../public/cdnlogo.com_webhook.svg"
+import { useParams } from "next/navigation";
 
 const { Text } = Typography;
 const { TabPane } = Tabs;
@@ -188,7 +191,24 @@ interface CustomNode extends Node<NodeData> {
 }
 
 export default function FeriFlowPage() {
-  // Initial nodes setup
+  const [feriData, setFeriData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { feriId } = useParams<{ feriId: string }>();
+  
+  useEffect(() => {
+    const fetchFeri = async () => {
+      if (!feriId || Array.isArray(feriId)) return;
+      const response = await api.getFeriById(feriId);
+      if(!response) return;
+      console.log("Response : - " , response);
+      setFeriData(response);
+      setFlowName(response?.name)
+      setLoading(false);
+    };
+
+    fetchFeri();
+  }, []);
+
   const initialNodes: CustomNode[] = [
     // {
     //   id: '1',
@@ -463,6 +483,18 @@ export default function FeriFlowPage() {
     default: EdgeWithButton,
   };
 
+  if(loading){
+    return(
+      <div style={{ display : "flex" , justifyContent : "center" , alignItems : "center" , height : "70vh"}}>
+        <LoaderIcon
+          role="status"
+          aria-label="Loading"
+          className={cn("size-4 animate-spin w-10 h-10 text-blue-500")}
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="h-full bg-white">
       {contextHolder} {/* For Ant Design message API */}
@@ -475,12 +507,12 @@ export default function FeriFlowPage() {
               onChange={(e) => setFlowName(e.target.value)}
               bordered={false}
               className="text-xl font-semibold px-0"
-              style={{ width: 300 }}
+              style={{ width: "calc(100% - 200px)" }}
             />
             <div className="text-gray-400">|</div>
             <Select 
               placeholder="Draft" 
-              className="w-32"
+              className="w-26"
               bordered={false}
               defaultValue="draft"
             >
