@@ -8,7 +8,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "kafka:init": "turbo run kafka:init"
+    "kafka:init": "turbo run kafka:init",
+    "seed" : "npx tsx src/seed.ts"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

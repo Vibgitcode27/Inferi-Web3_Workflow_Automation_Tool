@@ -126,65 +126,6 @@ const nodeTypes: NodeTypes = {
   action: ActionNode,
 };
 
-// Mock data for triggers and actions
-const TRIGGERS: AppData[] = [
-  {
-    id: 'webhook',
-    name: 'Webhook',
-    icon: webhook.src,
-    events: [
-      {id: 'webhook_called',name: 'Webhook Called',description: 'Fires when a webhook is triggered'}
-    ]
-  },
-];
-
-const ACTIONS: AppData[] = [
-  {
-    id: 'sheets',
-    name: 'Google Sheets',
-    icon: googleSheets.src,
-    actions: [
-      { id: 'create_row', name: 'Create Row', description: 'Creates a new row in a specified sheet' },
-      { id: 'update_row', name: 'Update Row', description: 'Updates an existing row in a sheet' },
-      { id: 'lookup_row', name: 'Lookup Row', description: 'Finds a row based on column values' },
-      { id: 'delete_row', name: 'Delete Row', description: 'Deletes a row from a sheet' },
-    ]
-  },
-  {
-    id: 'slack',
-    name: 'Slack',
-    icon: slack.src,
-    actions: [
-      { id: 'send_message', name: 'Send Message', description: 'Sends a message to a channel or user' },
-      { id: 'send_dm', name: 'Send Direct Message', description: 'Sends a direct message to a user' },
-      { id: 'create_channel', name: 'Create Channel', description: 'Creates a new channel' },
-      { id: 'update_message', name: 'Update Message', description: 'Updates an existing message' },
-    ]
-  },
-  {
-    id: 'notion',
-    name: 'Notion',
-    icon: notion.src,
-    actions: [
-      { id: 'create_page', name: 'Create Page', description: 'Creates a new page in a database or workspace' },
-      { id: 'update_page', name: 'Update Page', description: 'Updates an existing page' },
-      { id: 'create_database_item', name: 'Create Database Item', description: 'Adds a new item to a database' },
-      { id: 'update_database_item', name: 'Update Database Item', description: 'Updates a database item' },
-    ]
-  },
-  {
-    id: 'github',
-    name: 'Github',
-    icon: github.src,
-    actions: [
-      { id: 'create_issue', name: 'Create Issue', description: 'Creates a new issue in a repository' },
-      { id: 'create_pull_request', name: 'Create Pull Request', description: 'Creates a new pull request' },
-      { id: 'add_comment', name: 'Add Comment', description: 'Adds a comment to an issue or PR' },
-      { id: 'update_issue', name: 'Update Issue', description: 'Updates an existing issue' },
-    ]
-  },
-];
-
 // Define custom node type for the flow
 interface CustomNode extends Node<NodeData> {
   type: 'trigger' | 'action';
@@ -194,20 +135,59 @@ export default function FeriFlowPage() {
   const [feriData, setFeriData] = useState(null);
   const [loading, setLoading] = useState(true);
   const { feriId } = useParams<{ feriId: string }>();
-  
+  const [apiTriggers, setApiTriggers] = useState<AppData[]>([]);
+  const [apiActions, setApiActions] = useState<AppData[]>([]);
+  const [catalogResponse, setCatalogResponse] = useState<any>(null);
+  const [isSaving ,  setIsSaving] = useState<boolean>(false);
   useEffect(() => {
     const fetchFeri = async () => {
       if (!feriId || Array.isArray(feriId)) return;
       const response = await api.getFeriById(feriId);
+      const catalogResponse = await api.getCatalog();
+      
       if(!response) return;
       console.log("Response : - " , response);
+      console.log("Catalog Response : - " , catalogResponse);
+
+      setCatalogResponse(catalogResponse);
       setFeriData(response);
-      setFlowName(response?.name)
+      setFlowName(response?.name);
+      
+      // Transform API data for triggers
+      if (catalogResponse?.available_triggers) {
+        const triggers = catalogResponse.available_triggers.map((trigger: any) => ({
+          id: trigger.appId,
+          name: trigger.name,
+          icon: trigger.icon === 'webhook' ? webhook.src : '',
+          events: trigger.metadata?.events || []
+        }));
+        setApiTriggers(triggers);
+      }
+      
+      // Transform API data for actions
+      if (catalogResponse?.available_actions) {
+        const iconMap: { [key: string]: string } = {
+          'googlesheets': googleSheets.src,
+          'slack': slack.src,
+          'notion': notion.src,
+          'github': github.src
+        };
+        
+        const actions = catalogResponse.available_actions.map((action: any) => ({
+          id: action.appId,
+          name: action.name,
+          icon: iconMap[action.icon] || '',
+          actions: action.metadata?.actions || []
+        }));
+        setApiActions(actions);
+        console.log("Action Action : - " , apiActions);
+      }
+      
       setLoading(false);
     };
 
     fetchFeri();
-  }, []);
+  }, [feriId]);
 
   const initialNodes: CustomNode[] = [
     // {
@@ -347,8 +327,8 @@ export default function FeriFlowPage() {
 
       // Find the app icon based on selectedApp
       const appData = type === 'trigger' 
-        ? TRIGGERS.find(t => t.id === selectedApp)
-        : ACTIONS.find(a => a.id === selectedApp);
+        ? apiTriggers.find(t => t.id === selectedApp)
+        : apiActions.find(a => a.id === selectedApp);
       
       const appIcon = appData?.icon;
 
@@ -375,6 +355,84 @@ export default function FeriFlowPage() {
     },
     [reactFlowInstance, selectedApp, setNodes, hasTriggerNode, messageApi]
   );
+
+  // Update the saveFlow function
+  const saveFlow = async () => {
+    try {
+      setIsSaving(true);
+      
+      // Find trigger node
+      const triggerNode = nodes.find(node => node.type === 'trigger');
+      
+      // Find action nodes
+      const actionNodes = nodes.filter(node => node.type === 'action');
+      
+      // Build the edges map to determine order
+      const edgeMap = new Map<string, string>();
+      edges.forEach(edge => {
+        edgeMap.set(edge.source, edge.target);
+      });
+      
+      // Sort actions based on connection order
+      const sortedActions: CustomNode[] = [];
+      let currentNodeId = triggerNode?.id;
+      
+      while (currentNodeId && edgeMap.has(currentNodeId)) {
+        const nextNodeId = edgeMap.get(currentNodeId);
+        const nextNode = actionNodes.find(n => n.id === nextNodeId);
+        if (nextNode) {
+          sortedActions.push(nextNode);
+        }
+        currentNodeId = nextNodeId;
+      }
+      
+      // Prepare data for API - map to the correct IDs from available_triggers and available_actions
+      const triggerData = triggerNode 
+        ? apiTriggers.find(t => t.id === triggerNode.data.app)
+        : null;
+      
+      const flowData = {
+        trigger: triggerData ? {
+          availableTriggerId: catalogResponse?.available_triggers?.find(
+            (t: any) => t.appId === triggerData.id
+          )?.id || null,
+        } : null,
+        actions: sortedActions.map((node) => {
+          const actionAppData = apiActions.find(a => a.id === node.data.app);
+          const availableActionId = catalogResponse?.available_actions?.find(
+            (a: any) => a.appId === actionAppData?.id
+          )?.id || null;
+          
+          return {
+            availableActionId,
+          };
+        }).filter(action => action.availableActionId !== null),
+      };
+      
+      if (!flowData.trigger || !flowData.trigger.availableTriggerId) {
+        messageApi.error('Please add a valid trigger before saving');
+        return;
+      }
+      
+      if (flowData.actions.length === 0) {
+        messageApi.error('Please add at least one action before saving');
+        return;
+      }
+      
+      const response = await api.updateFeriFlow(feriId as string, flowData);
+      
+      if (response.error) {
+        messageApi.error('Failed to save flow: ' + response.error);
+      } else {
+        messageApi.success('Flow saved successfully!');
+      }
+    } catch (error) {
+      console.error('Error saving flow:', error);
+      messageApi.error('Failed to save flow');
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   const onDragStart = useCallback((event: React.DragEvent<HTMLDivElement>, item: TriggerEvent | AppAction, type: string) => {
     event.dataTransfer.setData('application/reactflow/type', type);
@@ -523,7 +581,7 @@ export default function FeriFlowPage() {
           </div>
 
           <div className="flex gap-3">
-            <Button>Test</Button>
+            <Button onClick={saveFlow}>Save</Button>
             <Button type="primary">Publish</Button>
           </div>
         </header>
@@ -574,7 +632,7 @@ export default function FeriFlowPage() {
                       <>
                         <div className="flex items-center justify-between">
                           <Text strong>
-                            {TRIGGERS.find(t => t.id === selectedApp)?.name || 'App'}
+                            {apiTriggers.find(t => t.id === selectedApp)?.name || 'App'}
                           </Text>
                           <Button 
                             type="text" 
@@ -585,7 +643,7 @@ export default function FeriFlowPage() {
                           </Button>
                         </div>
                         <List
-                          dataSource={TRIGGERS.find(t => t.id === selectedApp)?.events || []}
+                          dataSource={apiTriggers.find(t => t.id === selectedApp)?.events || []}
                           renderItem={(item) => (
                             <List.Item
                               className="cursor-grab rounded hover:bg-gray-50 p-2"
@@ -603,7 +661,7 @@ export default function FeriFlowPage() {
                       </>
                     ) : (
                       <List
-                        dataSource={filterItems(TRIGGERS)}
+                        dataSource={filterItems(apiTriggers)}
                         renderItem={(app) => (
                           <List.Item 
                             className="cursor-pointer rounded hover:bg-gray-50 p-2"
@@ -642,7 +700,7 @@ export default function FeriFlowPage() {
                       <>
                         <div className="flex items-center justify-between">
                           <Text strong>
-                            {ACTIONS.find(a => a.id === selectedApp)?.name || 'App'}
+                            {apiActions.find(a => a.id === selectedApp)?.name || 'App'}
                           </Text>
                           <Button 
                             type="text" 
@@ -653,7 +711,7 @@ export default function FeriFlowPage() {
                           </Button>
                         </div>
                         <List
-                          dataSource={ACTIONS.find(a => a.id === selectedApp)?.actions || []}
+                          dataSource={apiActions.find(a => a.id === selectedApp)?.actions || []}
                           renderItem={(item) => (
                             <List.Item
                               className="cursor-grab rounded hover:bg-gray-50 p-2"
@@ -670,7 +728,7 @@ export default function FeriFlowPage() {
                       </>
                     ) : (
                       <List
-                        dataSource={filterItems(ACTIONS)}
+                        dataSource={filterItems(apiActions)}
                         renderItem={(app) => (
                           <List.Item 
                             className="cursor-pointer rounded hover:bg-gray-50 p-2"
