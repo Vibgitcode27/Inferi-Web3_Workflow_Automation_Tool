@@ -38,7 +38,7 @@ import googleSheets from "../../../assets/googlesheet.png"
 import github from "../../../assets/github3.png"
 import notion from "../../../assets/notion.png"
 import webhook from "../../../../public/cdnlogo.com_webhook.svg"
-
+import Image from 'next/image';
 const { Title } = Typography;
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -144,7 +144,7 @@ const AppIcon = ({ app }: { app: string }) => {
       }}
     >
       {iconSrc ? (
-        <img
+        <Image
           src={iconSrc}
           alt={app}
           style={{
