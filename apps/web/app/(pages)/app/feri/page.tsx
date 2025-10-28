@@ -464,7 +464,7 @@ export default function ZapPage() {
           </Tabs>
           
           <Space>
-            <Button type="primary" icon={<DeleteOutlined />} style={{ display: selectedRowKeys.length > 0 ? 'inline-flex' : 'none' }}>
+            <Button type="dashed" icon={<DeleteOutlined />} style={{ display: selectedRowKeys.length > 0 ? 'inline-flex' : 'none' , color : "red"  }}>
               Trash
             </Button>
             <Button type="primary" onClick={handleCreateClick} icon={<PlusOutlined />}>
