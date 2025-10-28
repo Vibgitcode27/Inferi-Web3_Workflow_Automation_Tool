@@ -74,13 +74,25 @@ model Action {
 }
 
 model AvailableActions {
-  id     String   @id @default(uuid())
-  name   String
-  Action Action[]
+  id          String   @id @default(uuid())
+  appId       String   @unique
+  name        String
+  icon        String?
+  description String?
+  metadata    Json?
+  Action      Action[]
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
 }
 
 model AvailableTrigger {
-  id      String    @id @default(uuid())
-  name    String
-  Trigger Trigger[]
+  id          String    @id @default(uuid())
+  appId       String    @unique
+  name        String
+  icon        String?
+  description String?
+  metadata    Json?
+  Trigger     Trigger[]
+  updatedAt   DateTime  @updatedAt
+  createdAt   DateTime  @default(now())
 }

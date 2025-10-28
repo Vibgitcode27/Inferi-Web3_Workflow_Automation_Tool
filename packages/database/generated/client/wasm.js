@@ -172,12 +172,24 @@ exports.Prisma.ActionScalarFieldEnum = {
 
 exports.Prisma.AvailableActionsScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  appId: 'appId',
+  name: 'name',
+  icon: 'icon',
+  description: 'description',
+  metadata: 'metadata',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.AvailableTriggerScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  appId: 'appId',
+  name: 'name',
+  icon: 'icon',
+  description: 'description',
+  metadata: 'metadata',
+  updatedAt: 'updatedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -186,6 +198,11 @@ exports.Prisma.SortOrder = {
 };
 
 exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull
 };
 

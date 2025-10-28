@@ -8342,34 +8342,66 @@ export namespace Prisma {
 
   export type AvailableActionsMinAggregateOutputType = {
     id: string | null
+    appId: string | null
     name: string | null
+    icon: string | null
+    description: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type AvailableActionsMaxAggregateOutputType = {
     id: string | null
+    appId: string | null
     name: string | null
+    icon: string | null
+    description: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type AvailableActionsCountAggregateOutputType = {
     id: number
+    appId: number
     name: number
+    icon: number
+    description: number
+    metadata: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
 
   export type AvailableActionsMinAggregateInputType = {
     id?: true
+    appId?: true
     name?: true
+    icon?: true
+    description?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type AvailableActionsMaxAggregateInputType = {
     id?: true
+    appId?: true
     name?: true
+    icon?: true
+    description?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type AvailableActionsCountAggregateInputType = {
     id?: true
+    appId?: true
     name?: true
+    icon?: true
+    description?: true
+    metadata?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -8447,7 +8479,13 @@ export namespace Prisma {
 
   export type AvailableActionsGroupByOutputType = {
     id: string
+    appId: string
     name: string
+    icon: string | null
+    description: string | null
+    metadata: JsonValue | null
+    updatedAt: Date
+    createdAt: Date
     _count: AvailableActionsCountAggregateOutputType | null
     _min: AvailableActionsMinAggregateOutputType | null
     _max: AvailableActionsMaxAggregateOutputType | null
@@ -8469,27 +8507,51 @@ export namespace Prisma {
 
   export type AvailableActionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     Action?: boolean | AvailableActions$ActionArgs<ExtArgs>
     _count?: boolean | AvailableActionsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["availableActions"]>
 
   export type AvailableActionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["availableActions"]>
 
   export type AvailableActionsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["availableActions"]>
 
   export type AvailableActionsSelectScalar = {
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type AvailableActionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["availableActions"]>
+  export type AvailableActionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "appId" | "name" | "icon" | "description" | "metadata" | "updatedAt" | "createdAt", ExtArgs["result"]["availableActions"]>
   export type AvailableActionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Action?: boolean | AvailableActions$ActionArgs<ExtArgs>
     _count?: boolean | AvailableActionsCountOutputTypeDefaultArgs<ExtArgs>
@@ -8504,7 +8566,13 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      appId: string
       name: string
+      icon: string | null
+      description: string | null
+      metadata: Prisma.JsonValue | null
+      updatedAt: Date
+      createdAt: Date
     }, ExtArgs["result"]["availableActions"]>
     composites: {}
   }
@@ -8930,7 +8998,13 @@ export namespace Prisma {
    */ 
   interface AvailableActionsFieldRefs {
     readonly id: FieldRef<"AvailableActions", 'String'>
+    readonly appId: FieldRef<"AvailableActions", 'String'>
     readonly name: FieldRef<"AvailableActions", 'String'>
+    readonly icon: FieldRef<"AvailableActions", 'String'>
+    readonly description: FieldRef<"AvailableActions", 'String'>
+    readonly metadata: FieldRef<"AvailableActions", 'Json'>
+    readonly updatedAt: FieldRef<"AvailableActions", 'DateTime'>
+    readonly createdAt: FieldRef<"AvailableActions", 'DateTime'>
   }
     
 
@@ -9373,34 +9447,66 @@ export namespace Prisma {
 
   export type AvailableTriggerMinAggregateOutputType = {
     id: string | null
+    appId: string | null
     name: string | null
+    icon: string | null
+    description: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type AvailableTriggerMaxAggregateOutputType = {
     id: string | null
+    appId: string | null
     name: string | null
+    icon: string | null
+    description: string | null
+    updatedAt: Date | null
+    createdAt: Date | null
   }
 
   export type AvailableTriggerCountAggregateOutputType = {
     id: number
+    appId: number
     name: number
+    icon: number
+    description: number
+    metadata: number
+    updatedAt: number
+    createdAt: number
     _all: number
   }
 
 
   export type AvailableTriggerMinAggregateInputType = {
     id?: true
+    appId?: true
     name?: true
+    icon?: true
+    description?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type AvailableTriggerMaxAggregateInputType = {
     id?: true
+    appId?: true
     name?: true
+    icon?: true
+    description?: true
+    updatedAt?: true
+    createdAt?: true
   }
 
   export type AvailableTriggerCountAggregateInputType = {
     id?: true
+    appId?: true
     name?: true
+    icon?: true
+    description?: true
+    metadata?: true
+    updatedAt?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -9478,7 +9584,13 @@ export namespace Prisma {
 
   export type AvailableTriggerGroupByOutputType = {
     id: string
+    appId: string
     name: string
+    icon: string | null
+    description: string | null
+    metadata: JsonValue | null
+    updatedAt: Date
+    createdAt: Date
     _count: AvailableTriggerCountAggregateOutputType | null
     _min: AvailableTriggerMinAggregateOutputType | null
     _max: AvailableTriggerMaxAggregateOutputType | null
@@ -9500,27 +9612,51 @@ export namespace Prisma {
 
   export type AvailableTriggerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
     Trigger?: boolean | AvailableTrigger$TriggerArgs<ExtArgs>
     _count?: boolean | AvailableTriggerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["availableTrigger"]>
 
   export type AvailableTriggerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["availableTrigger"]>
 
   export type AvailableTriggerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["availableTrigger"]>
 
   export type AvailableTriggerSelectScalar = {
     id?: boolean
+    appId?: boolean
     name?: boolean
+    icon?: boolean
+    description?: boolean
+    metadata?: boolean
+    updatedAt?: boolean
+    createdAt?: boolean
   }
 
-  export type AvailableTriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["availableTrigger"]>
+  export type AvailableTriggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "appId" | "name" | "icon" | "description" | "metadata" | "updatedAt" | "createdAt", ExtArgs["result"]["availableTrigger"]>
   export type AvailableTriggerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Trigger?: boolean | AvailableTrigger$TriggerArgs<ExtArgs>
     _count?: boolean | AvailableTriggerCountOutputTypeDefaultArgs<ExtArgs>
@@ -9535,7 +9671,13 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      appId: string
       name: string
+      icon: string | null
+      description: string | null
+      metadata: Prisma.JsonValue | null
+      updatedAt: Date
+      createdAt: Date
     }, ExtArgs["result"]["availableTrigger"]>
     composites: {}
   }
@@ -9961,7 +10103,13 @@ export namespace Prisma {
    */ 
   interface AvailableTriggerFieldRefs {
     readonly id: FieldRef<"AvailableTrigger", 'String'>
+    readonly appId: FieldRef<"AvailableTrigger", 'String'>
     readonly name: FieldRef<"AvailableTrigger", 'String'>
+    readonly icon: FieldRef<"AvailableTrigger", 'String'>
+    readonly description: FieldRef<"AvailableTrigger", 'String'>
+    readonly metadata: FieldRef<"AvailableTrigger", 'Json'>
+    readonly updatedAt: FieldRef<"AvailableTrigger", 'DateTime'>
+    readonly createdAt: FieldRef<"AvailableTrigger", 'DateTime'>
   }
     
 
@@ -10479,7 +10627,13 @@ export namespace Prisma {
 
   export const AvailableActionsScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    appId: 'appId',
+    name: 'name',
+    icon: 'icon',
+    description: 'description',
+    metadata: 'metadata',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type AvailableActionsScalarFieldEnum = (typeof AvailableActionsScalarFieldEnum)[keyof typeof AvailableActionsScalarFieldEnum]
@@ -10487,7 +10641,13 @@ export namespace Prisma {
 
   export const AvailableTriggerScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    appId: 'appId',
+    name: 'name',
+    icon: 'icon',
+    description: 'description',
+    metadata: 'metadata',
+    updatedAt: 'updatedAt',
+    createdAt: 'createdAt'
   };
 
   export type AvailableTriggerScalarFieldEnum = (typeof AvailableTriggerScalarFieldEnum)[keyof typeof AvailableTriggerScalarFieldEnum]
@@ -10506,6 +10666,14 @@ export namespace Prisma {
   };
 
   export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -11002,28 +11170,52 @@ export namespace Prisma {
     OR?: AvailableActionsWhereInput[]
     NOT?: AvailableActionsWhereInput | AvailableActionsWhereInput[]
     id?: StringFilter<"AvailableActions"> | string
+    appId?: StringFilter<"AvailableActions"> | string
     name?: StringFilter<"AvailableActions"> | string
+    icon?: StringNullableFilter<"AvailableActions"> | string | null
+    description?: StringNullableFilter<"AvailableActions"> | string | null
+    metadata?: JsonNullableFilter<"AvailableActions">
+    updatedAt?: DateTimeFilter<"AvailableActions"> | Date | string
+    createdAt?: DateTimeFilter<"AvailableActions"> | Date | string
     Action?: ActionListRelationFilter
   }
 
   export type AvailableActionsOrderByWithRelationInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     Action?: ActionOrderByRelationAggregateInput
   }
 
   export type AvailableActionsWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    appId?: string
     AND?: AvailableActionsWhereInput | AvailableActionsWhereInput[]
     OR?: AvailableActionsWhereInput[]
     NOT?: AvailableActionsWhereInput | AvailableActionsWhereInput[]
     name?: StringFilter<"AvailableActions"> | string
+    icon?: StringNullableFilter<"AvailableActions"> | string | null
+    description?: StringNullableFilter<"AvailableActions"> | string | null
+    metadata?: JsonNullableFilter<"AvailableActions">
+    updatedAt?: DateTimeFilter<"AvailableActions"> | Date | string
+    createdAt?: DateTimeFilter<"AvailableActions"> | Date | string
     Action?: ActionListRelationFilter
-  }, "id">
+  }, "id" | "appId">
 
   export type AvailableActionsOrderByWithAggregationInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: AvailableActionsCountOrderByAggregateInput
     _max?: AvailableActionsMaxOrderByAggregateInput
     _min?: AvailableActionsMinOrderByAggregateInput
@@ -11034,7 +11226,13 @@ export namespace Prisma {
     OR?: AvailableActionsScalarWhereWithAggregatesInput[]
     NOT?: AvailableActionsScalarWhereWithAggregatesInput | AvailableActionsScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"AvailableActions"> | string
+    appId?: StringWithAggregatesFilter<"AvailableActions"> | string
     name?: StringWithAggregatesFilter<"AvailableActions"> | string
+    icon?: StringNullableWithAggregatesFilter<"AvailableActions"> | string | null
+    description?: StringNullableWithAggregatesFilter<"AvailableActions"> | string | null
+    metadata?: JsonNullableWithAggregatesFilter<"AvailableActions">
+    updatedAt?: DateTimeWithAggregatesFilter<"AvailableActions"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"AvailableActions"> | Date | string
   }
 
   export type AvailableTriggerWhereInput = {
@@ -11042,28 +11240,52 @@ export namespace Prisma {
     OR?: AvailableTriggerWhereInput[]
     NOT?: AvailableTriggerWhereInput | AvailableTriggerWhereInput[]
     id?: StringFilter<"AvailableTrigger"> | string
+    appId?: StringFilter<"AvailableTrigger"> | string
     name?: StringFilter<"AvailableTrigger"> | string
+    icon?: StringNullableFilter<"AvailableTrigger"> | string | null
+    description?: StringNullableFilter<"AvailableTrigger"> | string | null
+    metadata?: JsonNullableFilter<"AvailableTrigger">
+    updatedAt?: DateTimeFilter<"AvailableTrigger"> | Date | string
+    createdAt?: DateTimeFilter<"AvailableTrigger"> | Date | string
     Trigger?: TriggerListRelationFilter
   }
 
   export type AvailableTriggerOrderByWithRelationInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     Trigger?: TriggerOrderByRelationAggregateInput
   }
 
   export type AvailableTriggerWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    appId?: string
     AND?: AvailableTriggerWhereInput | AvailableTriggerWhereInput[]
     OR?: AvailableTriggerWhereInput[]
     NOT?: AvailableTriggerWhereInput | AvailableTriggerWhereInput[]
     name?: StringFilter<"AvailableTrigger"> | string
+    icon?: StringNullableFilter<"AvailableTrigger"> | string | null
+    description?: StringNullableFilter<"AvailableTrigger"> | string | null
+    metadata?: JsonNullableFilter<"AvailableTrigger">
+    updatedAt?: DateTimeFilter<"AvailableTrigger"> | Date | string
+    createdAt?: DateTimeFilter<"AvailableTrigger"> | Date | string
     Trigger?: TriggerListRelationFilter
-  }, "id">
+  }, "id" | "appId">
 
   export type AvailableTriggerOrderByWithAggregationInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    metadata?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
     _count?: AvailableTriggerCountOrderByAggregateInput
     _max?: AvailableTriggerMaxOrderByAggregateInput
     _min?: AvailableTriggerMinOrderByAggregateInput
@@ -11074,7 +11296,13 @@ export namespace Prisma {
     OR?: AvailableTriggerScalarWhereWithAggregatesInput[]
     NOT?: AvailableTriggerScalarWhereWithAggregatesInput | AvailableTriggerScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"AvailableTrigger"> | string
+    appId?: StringWithAggregatesFilter<"AvailableTrigger"> | string
     name?: StringWithAggregatesFilter<"AvailableTrigger"> | string
+    icon?: StringNullableWithAggregatesFilter<"AvailableTrigger"> | string | null
+    description?: StringNullableWithAggregatesFilter<"AvailableTrigger"> | string | null
+    metadata?: JsonNullableWithAggregatesFilter<"AvailableTrigger">
+    updatedAt?: DateTimeWithAggregatesFilter<"AvailableTrigger"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"AvailableTrigger"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -11460,80 +11688,164 @@ export namespace Prisma {
 
   export type AvailableActionsCreateInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
     Action?: ActionCreateNestedManyWithoutTypeInput
   }
 
   export type AvailableActionsUncheckedCreateInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
     Action?: ActionUncheckedCreateNestedManyWithoutTypeInput
   }
 
   export type AvailableActionsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Action?: ActionUpdateManyWithoutTypeNestedInput
   }
 
   export type AvailableActionsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Action?: ActionUncheckedUpdateManyWithoutTypeNestedInput
   }
 
   export type AvailableActionsCreateManyInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type AvailableActionsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvailableActionsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvailableTriggerCreateInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
     Trigger?: TriggerCreateNestedManyWithoutTypeInput
   }
 
   export type AvailableTriggerUncheckedCreateInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
     Trigger?: TriggerUncheckedCreateNestedManyWithoutTypeInput
   }
 
   export type AvailableTriggerUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Trigger?: TriggerUpdateManyWithoutTypeNestedInput
   }
 
   export type AvailableTriggerUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Trigger?: TriggerUncheckedUpdateManyWithoutTypeNestedInput
   }
 
   export type AvailableTriggerCreateManyInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type AvailableTriggerUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvailableTriggerUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -11980,20 +12292,85 @@ export namespace Prisma {
   export type ActionSumOrderByAggregateInput = {
     sortingOrder?: SortOrder
   }
+  export type JsonNullableFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type AvailableActionsCountOrderByAggregateInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    metadata?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AvailableActionsMaxOrderByAggregateInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AvailableActionsMinOrderByAggregateInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type TriggerListRelationFilter = {
@@ -12008,17 +12385,33 @@ export namespace Prisma {
 
   export type AvailableTriggerCountOrderByAggregateInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    metadata?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AvailableTriggerMaxOrderByAggregateInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type AvailableTriggerMinOrderByAggregateInput = {
     id?: SortOrder
+    appId?: SortOrder
     name?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
+    updatedAt?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type FeriCreateNestedManyWithoutUserInput = {
@@ -12609,6 +13002,29 @@ export namespace Prisma {
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
+  export type NestedJsonNullableFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type FeriCreateWithoutUserInput = {
     id?: string
@@ -13042,12 +13458,24 @@ export namespace Prisma {
 
   export type AvailableTriggerCreateWithoutTriggerInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type AvailableTriggerUncheckedCreateWithoutTriggerInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type AvailableTriggerCreateOrConnectWithoutTriggerInput = {
@@ -13095,12 +13523,24 @@ export namespace Prisma {
 
   export type AvailableTriggerUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvailableTriggerUncheckedUpdateWithoutTriggerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeriUpsertWithoutTriggerInput = {
@@ -13138,12 +13578,24 @@ export namespace Prisma {
 
   export type AvailableActionsCreateWithoutActionInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type AvailableActionsUncheckedCreateWithoutActionInput = {
     id?: string
+    appId: string
     name: string
+    icon?: string | null
+    description?: string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: Date | string
+    createdAt?: Date | string
   }
 
   export type AvailableActionsCreateOrConnectWithoutActionInput = {
@@ -13191,12 +13643,24 @@ export namespace Prisma {
 
   export type AvailableActionsUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvailableActionsUncheckedUpdateWithoutActionInput = {
     id?: StringFieldUpdateOperationsInput | string
+    appId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeriUpsertWithoutActionInput = {

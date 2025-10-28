@@ -74,13 +74,25 @@ model Action {
 }
 
 model AvailableActions {
-  id     String   @id @default(uuid())
-  name   String
-  Action Action[]
+  id          String   @id @default(uuid())
+  appId       String   @unique // 'sheets', 'slack', 'notion', 'github'
+  name        String // 'Google Sheets', 'Slack', etc.
+  icon        String? // URL or path to icon
+  description String?
+  metadata    Json? // Store the actions array: [{ id: 'create_row', name: 'Create Row', description: '...' }]
+  Action      Action[]
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
 }
 
 model AvailableTrigger {
-  id      String    @id @default(uuid())
-  name    String
-  Trigger Trigger[]
+  id          String    @id @default(uuid())
+  appId       String    @unique // 'webhook', etc.
+  name        String // 'Webhook'
+  icon        String? // URL or path to icon
+  description String?
+  metadata    Json? // Store the events array: [{ id: 'webhook_called', name: 'Webhook Called', description: '...' }]
+  Trigger     Trigger[]
+  updatedAt   DateTime  @updatedAt
+  createdAt   DateTime  @default(now())
 }
