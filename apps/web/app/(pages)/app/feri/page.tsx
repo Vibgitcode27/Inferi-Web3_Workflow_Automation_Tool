@@ -29,10 +29,15 @@ import {
   Empty,
   Modal,
   Form,
-  message
+  message,
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import api from 'app/actions/api';
+import slack from "../../../assets/slack.png"
+import googleSheets from "../../../assets/googlesheet.png"
+import github from "../../../assets/github3.png"
+import notion from "../../../assets/notion.png"
+import webhook from "../../../../public/cdnlogo.com_webhook.svg"
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -98,34 +103,67 @@ interface FeriItem {
   location: string;
 }
 
-// App icon component
+
 const AppIcon = ({ app }: { app: string }) => {
-  const colors: Record<string, string> = {
-    Gmail: '#DB4437',
-    Slack: '#4A154B',
-    'Spreadsheet': '#0F9D58',
-    'Google Sheets': '#0F9D58',
-    LinkedIn: '#0077B5',
-    HubSpot: '#FF7A59',
-    Twitter: '#1DA1F2',
-    Instagram: '#E1306C'
+  const icons: Record<string, any> = {
+    Slack: slack.src,
+    "Google Sheets": googleSheets.src,
+    Spreadsheet: googleSheets.src,
+    GitHub: github.src,
+    Notion: notion.src,
+    Webhook: webhook.src,
   };
-  
-  const bgColor = colors[app] || '#f0f0f0';
-  
+
+  const colors: Record<string, string> = {
+    Gmail: "#DB4437",
+    Slack: "#4A154B",
+    "Google Sheets": "#0F9D58",
+    Spreadsheet: "#0F9D58",
+    LinkedIn: "#0077B5",
+    HubSpot: "#FF7A59",
+    Twitter: "#1DA1F2",
+    Instagram: "#E1306C",
+    GitHub: "#24292e",
+    Notion: "#000000",
+    Webhook: "#6366F1",
+  };
+
+  const iconSrc = icons[app];
+  const bgColor = colors[app] || "#f0f0f0";
+
   return (
-    <Avatar style={{ 
-      width: 28, 
-      height: 28, 
-      backgroundColor: bgColor, 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center',
-      color: 'white',
-      fontSize: 10,
-      fontWeight: 'bold'
-    }}>
-      {app?.charAt(0)}
+    <Avatar
+      style={{
+        width: 28,
+        height: 28,
+        backgroundColor: iconSrc ? "transparent" : bgColor,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+      }}
+    >
+      {iconSrc ? (
+        <img
+          src={iconSrc}
+          alt={app}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <span
+          style={{
+            color: "white",
+            fontSize: 10,
+            fontWeight: "bold",
+          }}
+        >
+          {app?.charAt(0)}
+        </span>
+      )}
     </Avatar>
   );
 };
@@ -285,11 +323,19 @@ export default function ZapPage() {
       dataIndex: 'appsUsed',
       key: 'appsUsed',
       render: (apps) => (
-        <Space size={-8}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           {apps.map((app: string, index: number) => (
-            <AppIcon key={index} app={app} />
+            <div
+              key={index}
+              style={{
+                marginLeft: index === 0 ? 0 : -5, // 👈 overlap amount
+                zIndex: apps.length - index, // keeps left-most icon on top
+              }}
+            >
+              <AppIcon app={app} />
+            </div>
           ))}
-        </Space>
+        </div>
       ),
     },
     {
