@@ -139,6 +139,115 @@ export default function FeriFlowPage() {
   const [apiActions, setApiActions] = useState<AppData[]>([]);
   const [catalogResponse, setCatalogResponse] = useState<any>(null);
   const [isSaving ,  setIsSaving] = useState<boolean>(false);
+
+  const initializeNodesFromFeri = (feriData: any, catalogData: any) => {
+    const newNodes: CustomNode[] = [];
+    const newEdges: Edge[] = [];
+    let yPosition = 100;
+    const xPosition = 250;
+    const nodeSpacing = 150;
+
+    // Create trigger node if exists
+    if (feriData.trigger) {
+      const triggerCatalog = catalogData?.available_triggers?.find(
+        (t: any) => t.id === feriData.trigger.availableTriggerId
+      );
+      
+      if (triggerCatalog) {
+        const triggerNode: CustomNode = {
+          id: `trigger_${feriData.trigger.id}`,
+          type: 'trigger',
+          position: { x: xPosition, y: yPosition },
+          data: {
+            label: triggerCatalog.name,
+            description: triggerCatalog.metadata?.events?.[0]?.description || 'Trigger',
+            icon: <img src={webhook.src} alt={triggerCatalog.name} className="w-8" />,
+            app: triggerCatalog.appId,
+            event: triggerCatalog.metadata?.events?.[0]?.id,
+          },
+        };
+        newNodes.push(triggerNode);
+        yPosition += nodeSpacing;
+      }
+    }
+
+    // Create action nodes if exist
+    if (feriData.action && feriData.action.length > 0) {
+      const sortedActions = [...feriData.action].sort((a, b) => a.sortingOrder - b.sortingOrder);
+      
+      sortedActions.forEach((action: any, index: number) => {
+        const actionCatalog = catalogData?.available_actions?.find(
+          (a: any) => a.id === action.availableActionId
+        );
+        
+        if (actionCatalog) {
+          const iconMap: { [key: string]: string } = {
+            'googlesheets': googleSheets.src,
+            'slack': slack.src,
+            'notion': notion.src,
+            'github': github.src
+          };
+
+          const actionNode: CustomNode = {
+            id: `action_${action.id}`,
+            type: 'action',
+            position: { x: xPosition, y: yPosition },
+            data: {
+              label: actionCatalog.name,
+              description: actionCatalog.metadata?.actions?.[0]?.description || 'Action',
+              icon: <img src={iconMap[actionCatalog.icon]} alt={actionCatalog.name} className="w-8" />,
+              app: actionCatalog.appId,
+              event: actionCatalog.metadata?.actions?.[0]?.id,
+            },
+          };
+          newNodes.push(actionNode);
+          
+          // Create edge from previous node
+          if (index === 0 && feriData.trigger) {
+            const edge: Edge = {
+              id: `e_trigger_${feriData.trigger.id}_action_${action.id}`,
+              source: `trigger_${feriData.trigger.id}`,
+              target: `action_${action.id}`,
+              type: 'default',
+              animated: true,
+              style: { stroke: '#8a63e8', strokeWidth: 2 },
+              markerEnd: {
+                type: MarkerType.ArrowClosed,
+                width: 15,
+                height: 15,
+                color: '#8a63e8',
+              },
+            };
+            newEdges.push(edge);
+          } else if (index > 0) {
+            const prevAction = sortedActions[index - 1];
+            const edge: Edge = {
+              id: `e_action_${prevAction.id}_action_${action.id}`,
+              source: `action_${prevAction.id}`,
+              target: `action_${action.id}`,
+              type: 'default',
+              animated: true,
+              style: { stroke: '#8a63e8', strokeWidth: 2 },
+              markerEnd: {
+                type: MarkerType.ArrowClosed,
+                width: 15,
+                height: 15,
+                color: '#8a63e8',
+              },
+            };
+            newEdges.push(edge);
+          }
+          
+          yPosition += nodeSpacing;
+        }
+      });
+    }
+
+    setNodes(newNodes);
+    setEdges(newEdges);
+  };
+
+
   useEffect(() => {
     const fetchFeri = async () => {
       if (!feriId || Array.isArray(feriId)) return;
@@ -151,6 +260,7 @@ export default function FeriFlowPage() {
 
       setCatalogResponse(catalogResponse);
       setFeriData(response);
+      initializeNodesFromFeri(response, catalogResponse);
       setFlowName(response?.name);
       
       // Transform API data for triggers
