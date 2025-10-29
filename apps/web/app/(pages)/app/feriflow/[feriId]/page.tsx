@@ -21,13 +21,16 @@ import {
   NodeProps
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { Card, Tabs, List, Avatar, Button, Typography, Input, Select, message, Popconfirm } from 'antd';
+import { Card, Tabs, List, Avatar, Button, Typography, Input, Select, message, Popconfirm , Popover } from 'antd';
 import {
   ThunderboltOutlined,
   AppstoreOutlined,
   SearchOutlined,
   ArrowRightOutlined,
   DeleteOutlined,
+  LinkOutlined,
+  CopyOutlined,
+  CheckOutlined
 } from '@ant-design/icons';
 import { LoaderIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -74,24 +77,75 @@ interface NodeData {
 
 // Custom node component for triggers with handle at the bottom
 function TriggerNode({ data, id }: NodeProps<NodeData>) {
-  return (
-    <div className="rounded-lg border-2 border-blue-300 bg-white p-3 shadow-md w-48">
-      <div className="flex items-center gap-3">
-        {data.icon && <div className="text-blue-500 text-xl">{data.icon}</div>}
-        <div>
-          <div className="font-medium">{data.label}</div>
-          <div className="text-xs text-gray-500">{data.description}</div>
-        </div>
+  const { feriId } = useParams<{ feriId: string }>();
+  const webhookUrl = `https://localhost:8080/webhook/${feriId}`;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(webhookUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (err) {
+      console.error('Failed to copy webhook URL', err);
+    }
+  };
+
+  const content = (
+    <div className="flex flex-col gap-2 w-56">
+      <div className="text-sm font-mono bg-gray-100 p-2 rounded-md border break-all">
+        {webhookUrl}
       </div>
+      <Button
+        size="small"
+        type="default"
+        icon={copied ? <CheckOutlined style={{ color: 'green' }} /> : <CopyOutlined />}
+        onClick={handleCopy}
+      >
+        {copied ? 'Copied' : 'Copy'}
+      </Button>
+    </div>
+  );
+
+  return (
+    <div className="rounded-lg border-2 border-blue-300 bg-white p-3 shadow-md w-48 relative flex flex-col justify-between">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {data.icon && <div className="text-blue-500 text-xl">{data.icon}</div>}
+          <div>
+            <div className="font-medium">{data.label}</div>
+            <div className="text-xs text-gray-500">{data.description}</div>
+          </div>
+        </div>
+
+        {/* Webhook Popover Icon */}
+        <Popover content={content} title="Webhook URL" trigger="click">
+          <Button
+            size="small"
+            type="text"
+            icon={
+                <LinkOutlined style={{ color: 'black' }} />
+            }
+            className="p-0 hover:scale-105 transition-transform"
+          />
+        </Popover>
+      </div>
+
       <Handle
         type="source"
         position={Position.Bottom}
         id="source"
-        style={{ background: '#4287f5', width: '10px', height: '10px', bottom: '-6px' }}
+        style={{
+          background: '#4287f5',
+          width: '10px',
+          height: '10px',
+          bottom: '-6px',
+        }}
       />
     </div>
   );
 }
+
 
 // Action node with handles on top and bottom
 function ActionNode({ data, id }: NodeProps<NodeData>) {

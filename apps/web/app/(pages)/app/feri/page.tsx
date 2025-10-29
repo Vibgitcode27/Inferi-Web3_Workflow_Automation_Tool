@@ -31,6 +31,7 @@ import {
   Form,
   message,
 } from 'antd';
+import type { MenuProps } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import api from 'app/actions/api';
 import slack from "../../../assets/slack.png"
@@ -40,7 +41,6 @@ import notion from "../../../assets/notion.png"
 import webhook from "../../../../public/cdnlogo.com_webhook.svg"
 import Image from 'next/image';
 const { Title } = Typography;
-const { TabPane } = Tabs;
 const { Option } = Select;
 
 // Define interface for the API response structure
@@ -111,7 +111,7 @@ const AppIcon = ({ app }: { app: string }) => {
     Spreadsheet: googleSheets.src,
     GitHub: github.src,
     Notion: notion.src,
-    Webhook: webhook.src,
+    Webhook: webhook,
   };
 
   const colors: Record<string, string> = {
@@ -147,6 +147,8 @@ const AppIcon = ({ app }: { app: string }) => {
         <Image
           src={iconSrc}
           alt={app}
+          width={28}
+          height={28}
           style={{
             width: "100%",
             height: "100%",
@@ -398,13 +400,32 @@ export default function ZapPage() {
     onChange: onSelectChange,
   };
 
-  const actionMenu = (
-    <Menu>
-      <Menu.Item key="1" icon={<DeleteOutlined />}>
-        Delete
-      </Menu.Item>
-    </Menu>
-  );
+  const actionMenuItems: MenuProps['items'] = [
+    {
+      key: '1',
+      label: 'Delete',
+      icon: <DeleteOutlined />,
+    }
+  ];
+
+  const tabItems = [
+    {
+      key: '1',
+      label: (
+        <span>
+          <ThunderboltOutlined /> Feri
+        </span>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <span>
+          <FolderOutlined /> Folders
+        </span>
+      ),
+    }
+  ];
 
   return (
     <div style={{ padding: '0 20px 20px', background: '#f8f8f8', minHeight: '90vh' }}>
@@ -444,24 +465,7 @@ export default function ZapPage() {
 
       <div style={{ background: 'white', borderRadius: 6, border: '1px solid #e6e6e6', overflow: 'hidden' }}>
         <div style={{ padding: '12px 16px', borderBottom: '1px solid #f0f0f0', display: 'flex', justifyContent: 'space-between' }}>
-          <Tabs defaultActiveKey="1" style={{ marginBottom: -16 }}>
-            <TabPane 
-              tab={
-                <span>
-                  <ThunderboltOutlined /> Feri
-                </span>
-              } 
-              key="1"
-            />
-            <TabPane 
-              tab={
-                <span>
-                  <FolderOutlined /> Folders
-                </span>
-              } 
-              key="2"
-            />
-          </Tabs>
+          <Tabs defaultActiveKey="1" style={{ marginBottom: -16 }} items={tabItems} />
           
           <Space>
             <Button type="dashed" icon={<DeleteOutlined />} style={{ display: selectedRowKeys.length > 0 ? 'inline-flex' : 'none' , color : "red"  }}>
@@ -481,7 +485,7 @@ export default function ZapPage() {
               <Option value="inactive">Inactive</Option>
             </Select>
             
-            <Dropdown overlay={actionMenu} trigger={['click']}>
+            <Dropdown menu={{ items: actionMenuItems }} trigger={['click']}>
               <Button icon={<FilterOutlined />}>
                 Filters
               </Button>
