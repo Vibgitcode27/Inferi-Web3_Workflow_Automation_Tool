@@ -2,12 +2,13 @@ import express from "express";
 import cors from "cors";
 import { PrismaClient } from "../../../packages/database/generated/client";
 import { kafka, consumer } from "../../../packages/kafka/src/client";
+import { handleExecute } from "./handleExecute";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 
 async function main() {
   await consumer.connect();
@@ -20,6 +21,7 @@ async function main() {
         partition,
         value: message.value?.toString(),
       });
+      await handleExecute(message.value?.toString() || "");
       await new Promise((resolve) => setTimeout(resolve, 1000));
       await consumer.commitOffsets([
         {

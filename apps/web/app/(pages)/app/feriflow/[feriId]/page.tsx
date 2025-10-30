@@ -78,7 +78,7 @@ interface NodeData {
 // Custom node component for triggers with handle at the bottom
 function TriggerNode({ data, id }: NodeProps<NodeData>) {
   const { feriId } = useParams<{ feriId: string }>();
-  const webhookUrl = `https://localhost:8080/webhook/${feriId}`;
+  const webhookUrl = `https://localhost:8080/webhook/catch/${feriId}`;
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -520,6 +520,30 @@ export default function FeriFlowPage() {
     [reactFlowInstance, selectedApp, setNodes, hasTriggerNode, messageApi]
   );
 
+  const testFlow = async () => {
+   const webhookUrl = `http://localhost:8080/webhook/catch/${feriId}`;
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: "Test webhook trigger" }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const data = await response.text();
+      console.log("✅ Webhook Response:", data);
+    } catch (error) {
+      console.error("❌ Failed to hit webhook:", error);
+    }
+  };
+
+
   // Update the saveFlow function
   const saveFlow = async () => {
     try {
@@ -729,7 +753,7 @@ export default function FeriFlowPage() {
               onChange={(e) => setFlowName(e.target.value)}
               bordered={false}
               className="text-xl font-semibold px-0"
-              style={{ width: "calc(100% - 200px)" }}
+              style={{ width: "calc(100% - 170px)" }}
             />
             <div className="text-gray-400">|</div>
             <Select 
@@ -745,8 +769,8 @@ export default function FeriFlowPage() {
           </div>
 
           <div className="flex gap-3">
-            <Button onClick={saveFlow}>Save</Button>
-            <Button type="primary">Publish</Button>
+            <Button onClick={testFlow}>Test</Button>
+            <Button onClick={saveFlow} type="primary">Publish</Button>
           </div>
         </header>
 
